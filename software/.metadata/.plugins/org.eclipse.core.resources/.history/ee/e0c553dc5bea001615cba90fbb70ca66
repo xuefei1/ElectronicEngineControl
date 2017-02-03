@@ -1,0 +1,22 @@
+/*
+ * apps_motor_proc.h
+ *
+ *  Created on: Feb 2, 2017
+ *      Author: Fred
+ *
+ *      Interface for apps_motor_proc.c
+ */
+
+#ifndef APPS_MOTOR_PROC_H_
+#define APPS_MOTOR_PROC_H_
+
+#include "proj_config.h"
+
+#define APPS_MOTOR_TASK_PRIORITY      1
+
+/* ADC channel assignments */
+#define
+
+void apps_motor_task(void* pdata);
+
+#endif /* APPS_MOTOR_PROC_H_ */

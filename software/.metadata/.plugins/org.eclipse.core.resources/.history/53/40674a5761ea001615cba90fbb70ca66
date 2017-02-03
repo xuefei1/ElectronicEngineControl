@@ -1,0 +1,15 @@
+/*
+ * util.h
+ *
+ *  Created on: Feb 3, 2017
+ *      Author: Fred
+ *
+ *  Contains helper functions
+ */
+
+#ifndef UTIL_H_
+#define UTIL_H_
+
+
+
+#endif /* UTIL_H_ */

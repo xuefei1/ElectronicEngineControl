@@ -1,0 +1,17 @@
+/*
+ * util.h
+ *
+ *  Created on: Feb 3, 2017
+ *      Author: Fred
+ *
+ *  Contains helper function definitions
+ */
+
+#ifndef UTIL_H_
+#define UTIL_H_
+
+#include "includes.h"
+
+bool int_changed_by_threshold(INT32U input, INT32U threshold);
+
+#endif /* UTIL_H_ */

@@ -1,0 +1,13 @@
+/*
+ * apps_motor_proc.c
+ *
+ *  Created on: Feb 2, 2017
+ *      Author: xuefei1
+ *
+ *      Process handling accelerator pedal position input
+ *      and digital servo motor driving
+ */
+
+
+
+

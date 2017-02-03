@@ -1,0 +1,13 @@
+!SESSION 2017-02-02 15:28:23.772 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -data /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY org.eclipse.cdt.core 1 0 2017-02-02 15:29:22.422
+!MESSAGE Indexed 'electronic_engine_control_bsp' (95 sources, 69 headers) in 1.44 sec: 2,303 declarations; 10,089 references; 130 unresolved inclusions; 5 syntax errors; 218 unresolved names (1.73%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2017-02-02 15:29:23.905
+!MESSAGE Indexed 'electronic_engine_control' (1 sources, 13 headers) in 0.04 sec: 8 declarations; 23 references; 15 unresolved inclusions; 0 syntax errors; 6 unresolved names (16.22%)

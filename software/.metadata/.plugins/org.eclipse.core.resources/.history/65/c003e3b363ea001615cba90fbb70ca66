@@ -1,0 +1,16 @@
+/*
+ * util.c
+ *
+ *  Created on: Feb 3, 2017
+ *      Author: Fred
+ *
+ *      Contains helper function implementations
+ */
+
+#include "util.h";
+
+BOOL int_changed_by_threshold(INT16U input,  INT16U last_value, INT16U threshold){
+
+}
+
+

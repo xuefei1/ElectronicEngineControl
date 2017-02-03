@@ -1,0 +1,21 @@
+/*
+ * apps_motor_proc.h
+ *
+ *  Created on: Feb 2, 2017
+ *      Author: xuefei1
+ *
+ *      Interface for apps_motor_proc.c
+ */
+
+#ifndef APPS_MOTOR_PROC_H_
+#define APPS_MOTOR_PROC_H_
+
+#include "proj_config.h"
+
+#define APPS_MOTOR_TASK_PRIORITY      1
+
+void apps_motor_task(void* pdata);
+
+OS_STK    apps_motor_task_stk[TASK_STACKSIZE];
+
+#endif /* APPS_MOTOR_PROC_H_ */

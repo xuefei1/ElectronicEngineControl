@@ -1,0 +1,27 @@
+/*************************************************************************
+*
+**************************************************************************/
+
+#include <stdio.h>
+#include "proj_config.h"
+#include "apps_motor_proc.h"
+
+/* Definition of Task Stacks */
+OS_STK    apps_motor_task_stk[TASK_STACKSIZE];
+
+/* The main function creates two task and starts multi-tasking */
+int main(void)
+{
+  
+  OSTaskCreateExt(apps_motor_task,
+                  NULL,
+                  (void *)&apps_motor_task_stk[TASK_STACKSIZE-1],
+                  APPS_MOTOR_TASK_PRIORITY ,
+                  APPS_MOTOR_TASK_PRIORITY ,
+                  apps_motor_task_stk,
+                  TASK_STACKSIZE,
+                  NULL,
+                  0);
+  OSStart();
+  return 0;
+}
