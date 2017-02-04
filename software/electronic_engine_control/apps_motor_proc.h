@@ -13,6 +13,7 @@
 #define APPS_MOTOR_PROC_H_
 
 #include "proj_config.h"
+#include "util.h"
 
 #define APPS_MOTOR_TASK_PRIORITY      		1
 
@@ -25,6 +26,13 @@
 #define APPS_MOTOR_TASK_DELAY_MINUTES	  	0
 #define APPS_MOTOR_TASK_DELAY_SECONDS	  	0
 #define APPS_MOTOR_TASK_DELAY_MILLISEC	  	100
+
+/* detect if there is a new APPS value*/
+#define APPS_VALUE_CHANGED(input, last_value)	int16U_changed_by_threshold(input, last_value, APPS_VALUE_CHANGE_THRESHOLD)
+
+/* detect if APPS reading differs by a percentage */
+#define APPS_VALUE_MISMATCH(input1, input2)		int16U_differ_by_percent(input1, input2, APPS_VALUE_DIFFERENCE_PERCENT, PERCENT_DIFF_ACCURACY)
+
 void apps_motor_task(void* pdata);
 
 #endif /* APPS_MOTOR_PROC_H_ */
