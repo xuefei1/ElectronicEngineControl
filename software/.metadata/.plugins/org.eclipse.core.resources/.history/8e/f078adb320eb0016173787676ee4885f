@@ -7,7 +7,7 @@
  *      Contains helper function implementations
  */
 
-#include "util.h"
+#include "util.h";
 
 /* Simple function to check if input is changed from last_value by at least threshold amount*/
 BOOL int16U_changed_by_threshold(INT16U input, INT16U last_value,

@@ -16,7 +16,7 @@ obj/default/main.o: main.c proj_config.h \
   ../electronic_engine_control_bsp//UCOSII/inc/os_cfg.h \
   ../electronic_engine_control_bsp//HAL/inc/os_cpu.h \
   ../electronic_engine_control_bsp/system.h test_config.h \
-  apps_motor_proc.h
+  apps_motor_proc.h util.h
 
 proj_config.h:
 
@@ -57,3 +57,5 @@ proj_config.h:
 test_config.h:
 
 apps_motor_proc.h:
+
+util.h:
