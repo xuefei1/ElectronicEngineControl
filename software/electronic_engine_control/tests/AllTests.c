@@ -19,8 +19,3 @@ int RunAllTests(void)
 	printf("%s\n", output->buffer);
 	return suite->failCount;
 }
-
-int main(void)
-{
-	return RunAllTests();
-}

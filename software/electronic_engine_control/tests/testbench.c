@@ -75,7 +75,6 @@ CuSuite* CuGetSuite(void)
 	SUITE_ADD_TEST(suite, );
 	SUITE_ADD_TEST(suite, );
 	SUITE_ADD_TEST(suite, );
-	S
 
 	return suite;
 }
