@@ -2,3 +2,5 @@
 1486076534017	Rename resource 'Config.h'
 1486076641704	Rename resource 'config.h'
 1486162904613	Rename resource 'test_main.c'
+1486251189028	Rename resource 'fault_handler_proc.c'
+1486251197500	Rename resource 'fault_handler_proc.h'

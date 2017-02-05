@@ -147,6 +147,9 @@ C_SRCS += tests/CuTest.c
 C_SRCS += apps_motor_proc.c
 C_SRCS += util.c
 C_SRCS += tests/testbench.c
+C_SRCS += tps_proc.c
+C_SRCS += ui_proc.c
+C_SRCS += failure_handler_proc.c
 CXX_SRCS :=
 ASM_SRCS :=
 

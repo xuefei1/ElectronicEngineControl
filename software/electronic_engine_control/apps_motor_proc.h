@@ -1,6 +1,8 @@
 /*
  * apps_motor_proc.h
  *
+ * Status: C
+ *
  *  Created on: Feb 2, 2017
  *      Author: Fred
  *
@@ -33,6 +35,22 @@
 /* detect if APPS reading differs by a percentage */
 #define APPS_VALUE_MISMATCH(input1, input2)		int16U_differ_by_percent(input1, input2, APPS_VALUE_DIFFERENCE_PERCENT, PERCENT_DIFF_ACCURACY)
 
+#define EXPECTED_TPS_READING_Q_SIZE_BYTE		256
+
+#define MOTOR_CMD_Q_SIZE_BYTE				64
+
+#define NEW_TPS_READING_SEM_COUNT			1
+
 void apps_motor_task(void* pdata);
+
+OS_EVENT* get_expected_motor_pos_q();
+
+OS_EVENT* get_new_tps_reading_sem();
+
+OS_EVENT* get_motor_cmd_q();
+
+INT16U get_expected_tps_reading(INT16U apps_reading);
+
+BOOL set_new_motor_position(INT16U apps_reading);
 
 #endif /* APPS_MOTOR_PROC_H_ */

@@ -1,6 +1,8 @@
 /*
  * util.c
  *
+ * Status: C
+ *
  *  Created on: Feb 3, 2017
  *      Author: Fred
  *
@@ -27,27 +29,34 @@ BOOL int16U_changed_by_threshold(INT16U input, INT16U last_value,
  * for example, to check 10 percent, input number 10
  * the actual accuracy is defined by PERCENT_DIFF_ACCURACY
  */
-BOOL int16U_differ_by_percent(INT16U src1, INT16U src2, INT8U percent, INT16U accuracy){
+BOOL int16U_differ_by_percent(INT16U src1, INT16U src2, INT16U percent,
+		INT16U accuracy) {
+
 	INT16U larger;
 	INT16U smaller;
-	if(src1 > src2){
+
+	if (src1 > src2) {
 		larger = src1;
 		smaller = src2;
-	}else{
+	} else {
 		larger = src2;
 		smaller = src1;
 	}
-	if(larger == 0) return TRUE;
-	if(smaller == 0){
-		if(larger <= percent) return TRUE;
-		else return FALSE;
+	if (larger == 0)
+		return TRUE;
+	if (smaller == 0) {
+		if (larger <= percent)
+			return TRUE;
+		else
+			return FALSE;
 	}
-	if(larger / smaller > 1) return FALSE;
+	if (larger / smaller > 1)
+		return FALSE;
 	INT32U diff = larger - smaller;
 	INT32U avg = (larger + smaller) / 2;
 	INT32U result = (diff * accuracy) / avg;
 	INT32U threshold = percent * accuracy;
-	if(result <= threshold)
+	if (result <= threshold)
 		return FALSE;
 	else
 		return TRUE;
