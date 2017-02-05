@@ -7,6 +7,7 @@
  *      Runs all the unit tests
  *
  *	Reference: https://github.com/ennorehling/cutest
+ *	
  */
 
 #include "../test_config.h"
@@ -53,7 +54,7 @@ static void X_CompareAsserts(CuTest* tc, const char *file, int line, const char*
 /*-------------------------------------------------------------------------*
  * apps_motor_proc Test
  *-------------------------------------------------------------------------*/
-void Test_apps_motor_task(CuTest* tc)；
+//void Test_apps_motor_task(CuTest* tc)； //task functions has nothing much to test
 void Test_get_expected_motor_pos_q(CuTest* tc);
 void Test_get_new_tps_reading_sem(CuTest* tc);
 void Test_get_motor_cmd_q(CuTest* tc);
@@ -64,39 +65,51 @@ void Test_set_new_motor_position(CuTest* tc);
 /*-------------------------------------------------------------------------*
  * failure_handler_proc Test
  *-------------------------------------------------------------------------*/
-void Test_failure_handler_proc(CuTest* tc);
+//void Test_fault_handler_task(CuTest* tc);
 void Test_get_failure_msg_q(CuTest* tc);
 
 /*-------------------------------------------------------------------------*
  * tps_task Test
  *-------------------------------------------------------------------------*/
-void Test_tps_task(CuTest* tc);
+//void Test_tps_task(CuTest* tc);
 
 /*-------------------------------------------------------------------------*
  * ui_proc Test
  *-------------------------------------------------------------------------*/
-void Test_ui_proc(CuTest* tc);
+//void Test_ui_task(CuTest* tc);
 void Test_get_lcd_msg_q(CuTest* tc);
 
 /*-------------------------------------------------------------------------*
  * util Test
  *-------------------------------------------------------------------------*/
-void Test_int16U_changed_by_threshold(CuTest* tc);
+void Test_int16U_changed_by_threshold(CuTest* tc){
+	INT16U num0 = 100;
+	INT16U num1 = 500;
+	INT16U num2 = 150;
+
+	BOOL larger = int16U_changed_by_threshold(num1,num0,APPS_VALUE_CHANGE_THRESHOLD);
+	CuAssertTrue(tc,larger);
+	BOOL smaller = int16U_changed_by_threshold(num0,num1,APPS_VALUE_CHANGE_THRESHOLD);
+	CuAssertTrue(tc,smaller);
+	BOOL same = int16U_changed_by_threshold(num2,num0,APPS_VALUE_CHANGE_THRESHOLD);
+	CuAssertTrue(tc,same);
+}
+
 void Test_int16U_differ_by_percent(CuTest* tc){
 	INT16U num0 = 0;
 	INT16U num1 = 1;
 	INT16U num2 = 10;
-	INT16U num3 = 100;
-	INT16U perc0 = 0;
-	INT16U perc1 = 25;
-	INT16U perc2 = 50;
-	INT16U accu; //what is this?
+	INT16U num3 = 15;
+	INT16U num4 = 25;
 
-	BOOL boothZero = int16U_differ_by_percent(num0,num0,perc0,accu);
+	BOOL boothZero = int16U_differ_by_percent(num0,num0,TPS_VALUE_DIFFERENCE_PERCENT,PERCENT_DIFF_ACCURACY);
 	CuAssertTrue(tc,boothZero);
-	BOOL smallerZero = int16U_differ_by_percent(num0,num3,perc1,accu);
+	BOOL smallerZero = int16U_differ_by_percent(num0,num3,TPS_VALUE_DIFFERENCE_PERCENT,PERCENT_DIFF_ACCURACY);
 	CuAssertTrue(tc,!smallerZero);
-
+	BOOL twiceLarger = int16U_differ_by_percent(num2,num3,TPS_VALUE_DIFFERENCE_PERCENT,PERCENT_DIFF_ACCURACY);
+	CuAssertTrue(tc,!twiceLarger);
+	
+	
 }
 
 /*-------------------------------------------------------------------------*
@@ -113,10 +126,10 @@ CuSuite* CuGetSuite(void)
 	SUITE_ADD_TEST(suite, Test_get_motor_cmd_q);
 	SUITE_ADD_TEST(suite, Test_get_expected_tps_reading);
 	SUITE_ADD_TEST(suite, Test_set_new_motor_position);
-	SUITE_ADD_TEST(suite, Test_failure_handler_proc);
+	SUITE_ADD_TEST(suite, Test_fault_handler_task);
 	SUITE_ADD_TEST(suite, Test_get_failure_msg_q);
 	SUITE_ADD_TEST(suite, Test_tps_task);
-	SUITE_ADD_TEST(suite, Test_ui_proc);
+	SUITE_ADD_TEST(suite, Test_ui_task);
 	SUITE_ADD_TEST(suite, Test_get_lcd_msg_q);
 	SUITE_ADD_TEST(suite, Test_int16U_changed_by_threshold);
 	SUITE_ADD_TEST(suite, Test_int16U_differ_by_percent);
