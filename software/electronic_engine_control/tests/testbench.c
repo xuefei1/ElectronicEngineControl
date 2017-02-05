@@ -51,13 +51,53 @@ static void X_CompareAsserts(CuTest* tc, const char *file, int line, const char*
 }
 
 /*-------------------------------------------------------------------------*
- * ADC Test
+ * apps_motor_proc Test
  *-------------------------------------------------------------------------*/
+void Test_apps_motor_task(CuTest* tc)；
+void Test_get_expected_motor_pos_q(CuTest* tc);
+void Test_get_new_tps_reading_sem(CuTest* tc);
+void Test_get_motor_cmd_q(CuTest* tc);
+void Test_get_expected_tps_reading(CuTest* tc);
+void Test_set_new_motor_position(CuTest* tc);
 
 
+/*-------------------------------------------------------------------------*
+ * failure_handler_proc Test
+ *-------------------------------------------------------------------------*/
+void Test_failure_handler_proc(CuTest* tc);
+void Test_get_failure_msg_q(CuTest* tc);
 
+/*-------------------------------------------------------------------------*
+ * tps_task Test
+ *-------------------------------------------------------------------------*/
+void Test_tps_task(CuTest* tc);
 
+/*-------------------------------------------------------------------------*
+ * ui_proc Test
+ *-------------------------------------------------------------------------*/
+void Test_ui_proc(CuTest* tc);
+void Test_get_lcd_msg_q(CuTest* tc);
 
+/*-------------------------------------------------------------------------*
+ * util Test
+ *-------------------------------------------------------------------------*/
+void Test_int16U_changed_by_threshold(CuTest* tc);
+void Test_int16U_differ_by_percent(CuTest* tc){
+	INT16U num0 = 0;
+	INT16U num1 = 1;
+	INT16U num2 = 10;
+	INT16U num3 = 100;
+	INT16U perc0 = 0;
+	INT16U perc1 = 25;
+	INT16U perc2 = 50;
+	INT16U accu; //what is this?
+
+	BOOL boothZero = int16U_differ_by_percent(num0,num0,perc0,accu);
+	CuAssertTrue(tc,boothZero);
+	BOOL smallerZero = int16U_differ_by_percent(num0,num3,perc1,accu);
+	CuAssertTrue(tc,!smallerZero);
+
+}
 
 /*-------------------------------------------------------------------------*
  * main
@@ -67,14 +107,19 @@ CuSuite* CuGetSuite(void)
 {
 	CuSuite* suite = CuSuiteNew();
 
-	SUITE_ADD_TEST(suite, );
-	SUITE_ADD_TEST(suite, );
-	SUITE_ADD_TEST(suite, );
-	SUITE_ADD_TEST(suite, );
-	SUITE_ADD_TEST(suite, );
-	SUITE_ADD_TEST(suite, );
-	SUITE_ADD_TEST(suite, );
-	SUITE_ADD_TEST(suite, );
+	SUITE_ADD_TEST(suite, Test_apps_motor_task);
+	SUITE_ADD_TEST(suite, Test_get_expected_motor_pos_q);
+	SUITE_ADD_TEST(suite, Test_get_new_tps_reading_sem);
+	SUITE_ADD_TEST(suite, Test_get_motor_cmd_q);
+	SUITE_ADD_TEST(suite, Test_get_expected_tps_reading);
+	SUITE_ADD_TEST(suite, Test_set_new_motor_position);
+	SUITE_ADD_TEST(suite, Test_failure_handler_proc);
+	SUITE_ADD_TEST(suite, Test_get_failure_msg_q);
+	SUITE_ADD_TEST(suite, Test_tps_task);
+	SUITE_ADD_TEST(suite, Test_ui_proc);
+	SUITE_ADD_TEST(suite, Test_get_lcd_msg_q);
+	SUITE_ADD_TEST(suite, Test_int16U_changed_by_threshold);
+	SUITE_ADD_TEST(suite, Test_int16U_differ_by_percent);
 
 	return suite;
 }
