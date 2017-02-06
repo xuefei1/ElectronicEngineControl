@@ -1,6 +1,8 @@
 /*
  * testbench.c
  *
+ * Status: N
+ *
  *  Created on: Feb 3, 2017
  *      Author: Fred,
  *
@@ -24,6 +26,7 @@
  *-------------------------------------------------------------------------*/
 void Test_get_expected_motor_pos_q(CuTest* tc){
 	OS_EVENT* Curr_expected_tps_reading_q = get_expected_motor_pos_q();
+	CuAssertTrue(tc,Curr_expected_tps_reading_q != NULL);
 	CuAssertIntEquals(tc, Curr_expected_tps_reading_q->OSEventType, expected_tps_reading_q->OSEventType);
 	CuAssertIntEquals(tc, Curr_expected_tps_reading_q->OSEventGrp, expected_tps_reading_q->OSEventGrp);
 	CuAssertIntEquals(tc, Curr_expected_tps_reading_q->OSEventCnt, expected_tps_reading_q->OSEventCnt);
@@ -31,6 +34,7 @@ void Test_get_expected_motor_pos_q(CuTest* tc){
 }
 void Test_get_new_tps_reading_sem(CuTest* tc){
 	OS_EVENT* Curr_get_new_tps_reading_sem = get_new_tps_reading_sem();
+	CuAssertTrue(tc,Curr_get_new_tps_reading_sem != NULL);
 	CuAssertIntEquals(tc, Curr_get_new_tps_reading_sem->OSEventType, new_tps_reading_available->OSEventType);
 	CuAssertIntEquals(tc, Curr_get_new_tps_reading_sem->OSEventGrp, new_tps_reading_available->OSEventGrp);
 	CuAssertIntEquals(tc, Curr_get_new_tps_reading_sem->OSEventCnt, new_tps_reading_available->OSEventCnt);
@@ -38,6 +42,7 @@ void Test_get_new_tps_reading_sem(CuTest* tc){
 }
 void Test_get_motor_cmd_q(CuTest* tc){
 	OS_EVENT* Curr_get_motor_cmd_q = get_motor_cmd_q();
+	CuAssertTrue(tc,Curr_get_motor_cmd_q != NULL);
 	CuAssertIntEquals(tc, Curr_get_motor_cmd_q->OSEventType, motor_cmd_q->OSEventType);
 	CuAssertIntEquals(tc, Curr_get_motor_cmd_q->OSEventGrp, motor_cmd_q->OSEventGrp);
 	CuAssertIntEquals(tc, Curr_get_motor_cmd_q->OSEventCnt, motor_cmd_q->OSEventCnt);
@@ -52,6 +57,7 @@ void Test_set_new_motor_position(CuTest* tc);
  *-------------------------------------------------------------------------*/
 void Test_get_failure_msg_q(CuTest* tc){
 	OS_EVENT* Curr_get_failure_msg_q = get_failure_msg_q();
+	CuAssertTrue(tc,Curr_get_failure_msg_q != NULL);
 	CuAssertIntEquals(tc, Curr_get_failure_msg_q->OSEventType, failure_code_q->OSEventType);
 	CuAssertIntEquals(tc, Curr_get_failure_msg_q->OSEventGrp, failure_code_q->OSEventGrp);
 	CuAssertIntEquals(tc, Curr_get_failure_msg_q->OSEventCnt, failure_code_q->OSEventCnt);
@@ -63,6 +69,7 @@ void Test_get_failure_msg_q(CuTest* tc){
  *-------------------------------------------------------------------------*/
 void Test_get_lcd_msg_q(CuTest* tc){
 	OS_EVENT* Curr_get_lcd_msg_q = get_lcd_msg_q();
+	uAssertTrue(tc,Curr_get_lcd_msg_q != NULL);
 	CuAssertIntEquals(tc, Curr_get_lcd_msg_q->OSEventType, lcd_msg_q->OSEventType);
 	CuAssertIntEquals(tc, Curr_get_lcd_msg_q->OSEventGrp, lcd_msg_q->OSEventGrp);
 	CuAssertIntEquals(tc, Curr_get_lcd_msg_q->OSEventCnt, lcd_msg_q->OSEventCnt);
