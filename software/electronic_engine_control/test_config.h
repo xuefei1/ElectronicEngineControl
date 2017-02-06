@@ -21,6 +21,16 @@
 #include "ui_proc.h"
 #include "util.h"
 
+#define CHANGED_BY_THRESHOLD_INPUT_1		100
+#define CHANGED_BY_THRESHOLD_INPUT_2		500
+#define CHANGED_BY_THRESHOLD_INPUT_3		150
+
+#define DIFFER_BY_PERCENT_INPUT_1			0
+#define DIFFER_BY_PERCENT_INPUT_2			1
+#define DIFFER_BY_PERCENT_INPUT_3			10
+#define DIFFER_BY_PERCENT_INPUT_4			15
+#define DIFFER_BY_PERCENT_INPUT_5			25
+
 /* Set this flag to enable running all unit tests*/
 #define RUN_ALL_TESTS
 

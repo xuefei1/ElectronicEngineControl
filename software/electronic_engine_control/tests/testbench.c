@@ -80,33 +80,21 @@ void Test_get_lcd_msg_q(CuTest* tc){
  * util Test
  *-------------------------------------------------------------------------*/
 void Test_int16U_changed_by_threshold(CuTest* tc){
-	INT16U num0 = 100;
-	INT16U num1 = 500;
-	INT16U num2 = 150;
-
-	BOOL larger = int16U_changed_by_threshold(num1,num0,APPS_VALUE_CHANGE_THRESHOLD);
+	BOOL larger = int16U_changed_by_threshold(CHANGED_BY_THRESHOLD_INPUT_2,CHANGED_BY_THRESHOLD_INPUT_1,APPS_VALUE_CHANGE_THRESHOLD);
 	CuAssertTrue(tc,larger);
-	BOOL smaller = int16U_changed_by_threshold(num0,num1,APPS_VALUE_CHANGE_THRESHOLD);
+	BOOL smaller = int16U_changed_by_threshold(CHANGED_BY_THRESHOLD_INPUT_1,CHANGED_BY_THRESHOLD_INPUT_2,APPS_VALUE_CHANGE_THRESHOLD);
 	CuAssertTrue(tc,smaller);
-	BOOL same = int16U_changed_by_threshold(num2,num0,APPS_VALUE_CHANGE_THRESHOLD);
+	BOOL same = int16U_changed_by_threshold(CHANGED_BY_THRESHOLD_INPUT_3,CHANGED_BY_THRESHOLD_INPUT_1,APPS_VALUE_CHANGE_THRESHOLD);
 	CuAssertTrue(tc,same);
 }
 
 void Test_int16U_differ_by_percent(CuTest* tc){
-	INT16U num0 = 0;
-	INT16U num1 = 1;
-	INT16U num2 = 10;
-	INT16U num3 = 15;
-	INT16U num4 = 25;
-
-	BOOL boothZero = int16U_differ_by_percent(num0,num0,TPS_VALUE_DIFFERENCE_PERCENT,PERCENT_DIFF_ACCURACY);
+	BOOL boothZero = int16U_differ_by_percent(DIFFER_BY_PERCENT_INPUT_1,DIFFER_BY_PERCENT_INPUT_1,TPS_VALUE_DIFFERENCE_PERCENT,PERCENT_DIFF_ACCURACY);
 	CuAssertTrue(tc,boothZero);
-	BOOL smallerZero = int16U_differ_by_percent(num0,num3,TPS_VALUE_DIFFERENCE_PERCENT,PERCENT_DIFF_ACCURACY);
+	BOOL smallerZero = int16U_differ_by_percent(DIFFER_BY_PERCENT_INPUT_1,DIFFER_BY_PERCENT_INPUT_4,TPS_VALUE_DIFFERENCE_PERCENT,PERCENT_DIFF_ACCURACY);
 	CuAssertTrue(tc,!smallerZero);
-	BOOL twiceLarger = int16U_differ_by_percent(num2,num3,TPS_VALUE_DIFFERENCE_PERCENT,PERCENT_DIFF_ACCURACY);
+	BOOL twiceLarger = int16U_differ_by_percent(DIFFER_BY_PERCENT_INPUT_3,DIFFER_BY_PERCENT_INPUT_4,TPS_VALUE_DIFFERENCE_PERCENT,PERCENT_DIFF_ACCURACY);
 	CuAssertTrue(tc,!twiceLarger);
-	
-	
 }
 
 /*-------------------------------------------------------------------------*
