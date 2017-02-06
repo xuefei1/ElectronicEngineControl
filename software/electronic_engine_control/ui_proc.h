@@ -11,7 +11,6 @@
 #define UI_PROC_H_
 
 #include "proj_config.h"
-#include "altera_up_avalon_character_lcd.h"
 #include "util.h"
 
 #define UI_TASK_PRIORITY      				3

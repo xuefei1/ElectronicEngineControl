@@ -4,9 +4,9 @@
  * Status: N
  *
  *  Created on: Feb 3, 2017
- *      Author: Fred,
+ *      Author: Fred, Nicholas
  *
- *      Runs all the unit tests
+ *      Run all the unit tests
  *
  *	Reference: https://github.com/ennorehling/cutest
  *	
@@ -20,6 +20,7 @@
 #include <string.h>
 
 #include "CuTest.h"
+#include "memwatch.h"
 
 /*-------------------------------------------------------------------------*
  * apps_motor_proc Test
@@ -117,7 +118,7 @@ CuSuite* CuGetSuite(void){
 	return suite;
 }
 
-int RunAllTests(void){
+int run_all_tests(void){
 	CuSuite* suite = CuSuiteNew();
 
 	CuSuiteAddSuite(suite, CuGetSuite());

@@ -1,7 +1,7 @@
 /*
  * ui_proc.c
  *
- * Status: C
+ * Status: N
  *
  *  Created on: Feb 4, 2017
  *      Author: xuefei1
