@@ -57,23 +57,24 @@ void apps_motor_task(void* pdata) {
 				APPS_1_ADC_CHANNEL);
 		INT16U apps_2_reading = alt_up_de0_nano_adc_read(adc,
 				APPS_2_ADC_CHANNEL);
-
-		if (APPS_VALUE_CHANGED(apps_1_reading,
-				last_apps_1_reading)
-				|| APPS_VALUE_CHANGED(apps_2_reading, last_apps_2_reading)) {
-			if (APPS_VALUE_MISMATCH(apps_1_reading, apps_2_reading)) {
-				//we have a failure, turn off motor, indicate failure and block
-
-			} else {
-				INT16U final_apps_value = (apps_1_reading + apps_2_reading) / 2;
-				set_new_motor_position(final_apps_value);
-				INT16U expected_tps_value = get_expected_tps_reading(
-						final_apps_value);
-				OSQPost(expected_tps_reading_q, (void*) expected_tps_value);
-				//Set timer interrupt for 100ms
-
-			}
-		}
+		printf("apps1 read value:%d\n", apps_1_reading);
+		//printf("apps2 read value:%d\n", apps_2_reading);
+//		if (APPS_VALUE_CHANGED(apps_1_reading,
+//				last_apps_1_reading)
+//				|| APPS_VALUE_CHANGED(apps_2_reading, last_apps_2_reading)) {
+//			if (APPS_VALUE_MISMATCH(apps_1_reading, apps_2_reading)) {
+//				//we have a failure, turn off motor, indicate failure and block
+//
+//			} else {
+//				INT16U final_apps_value = (apps_1_reading + apps_2_reading) / 2;
+//				set_new_motor_position(final_apps_value);
+//				INT16U expected_tps_value = get_expected_tps_reading(
+//						final_apps_value);
+//				OSQPost(expected_tps_reading_q, (void*) expected_tps_value);
+//				//Set timer interrupt for 100ms
+//
+//			}
+//		}
 		OSTimeDlyHMSM(APPS_MOTOR_TASK_DELAY_HOURS,
 				APPS_MOTOR_TASK_DELAY_MINUTES, APPS_MOTOR_TASK_DELAY_SECONDS,
 				APPS_MOTOR_TASK_DELAY_MILLISEC);

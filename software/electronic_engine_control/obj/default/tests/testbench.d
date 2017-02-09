@@ -26,7 +26,10 @@ obj/default/tests/testbench.o: tests/testbench.c tests/../test_config.h \
   ../electronic_engine_control_bsp//HAL/inc/sys/alt_warning.h \
   ../electronic_engine_control_bsp//drivers/inc/altera_up_avalon_de0_nano_adc_regs.h \
   ../electronic_engine_control_bsp//HAL/inc/io.h \
-  ../electronic_engine_control_bsp//HAL/inc/alt_types.h
+  ../electronic_engine_control_bsp//HAL/inc/alt_types.h \
+  tests/../apps_motor_proc.h tests/../util.h \
+  tests/../failure_handler_proc.h tests/../tps_proc.h tests/../ui_proc.h \
+  tests/CuTest.h tests/memwatch.h
 
 tests/../test_config.h:
 
@@ -85,3 +88,17 @@ tests/../proj_config.h:
 ../electronic_engine_control_bsp//HAL/inc/io.h:
 
 ../electronic_engine_control_bsp//HAL/inc/alt_types.h:
+
+tests/../apps_motor_proc.h:
+
+tests/../util.h:
+
+tests/../failure_handler_proc.h:
+
+tests/../tps_proc.h:
+
+tests/../ui_proc.h:
+
+tests/CuTest.h:
+
+tests/memwatch.h:

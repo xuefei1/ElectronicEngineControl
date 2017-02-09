@@ -35,23 +35,23 @@ int main(void) {
 	run_all_tests();
 #endif
 
-	OSTaskCreateExt(failure_handler_task, NULL,
-			(void *) &failure_handler_task_stk[TASK_STACKSIZE - 1],
-			FAILURE_HANDLER_TASK_PRIORITY, FAILURE_HANDLER_TASK_PRIORITY,
-			failure_handler_task_stk, TASK_STACKSIZE, NULL, 0);
-
+//	OSTaskCreateExt(failure_handler_task, NULL,
+//			(void *) &failure_handler_task_stk[TASK_STACKSIZE - 1],
+//			FAILURE_HANDLER_TASK_PRIORITY, FAILURE_HANDLER_TASK_PRIORITY,
+//			failure_handler_task_stk, TASK_STACKSIZE, NULL, 0);
+	printf("alive\n");
 	OSTaskCreateExt(apps_motor_task, NULL,
 			(void *) &apps_motor_task_stk[TASK_STACKSIZE - 1],
 			APPS_MOTOR_TASK_PRIORITY, APPS_MOTOR_TASK_PRIORITY,
 			apps_motor_task_stk, TASK_STACKSIZE, NULL, 0);
 
-	OSTaskCreateExt(tps_task, NULL, (void *) &tps_task_stk[TASK_STACKSIZE - 1],
-			TPS_TASK_PRIORITY, TPS_TASK_PRIORITY, tps_task_stk, TASK_STACKSIZE,
-			NULL, 0);
-
-	OSTaskCreateExt(ui_task, NULL, (void *) &ui_task_stk[TASK_STACKSIZE - 1],
-			UI_TASK_PRIORITY, UI_TASK_PRIORITY, ui_task_stk, TASK_STACKSIZE,
-			NULL, 0);
+//	OSTaskCreateExt(tps_task, NULL, (void *) &tps_task_stk[TASK_STACKSIZE - 1],
+//			TPS_TASK_PRIORITY, TPS_TASK_PRIORITY, tps_task_stk, TASK_STACKSIZE,
+//			NULL, 0);
+//
+//	OSTaskCreateExt(ui_task, NULL, (void *) &ui_task_stk[TASK_STACKSIZE - 1],
+//			UI_TASK_PRIORITY, UI_TASK_PRIORITY, ui_task_stk, TASK_STACKSIZE,
+//			NULL, 0);
 
 	OSStart();
 

@@ -4,7 +4,7 @@
  * Machine generated for CPU 'nios2_0' in SOPC Builder design 'niosII_system'
  * SOPC Builder design path: ../../niosII_system.sopcinfo
  *
- * Generated: Thu Feb 02 15:29:20 MST 2017
+ * Generated: Tue Feb 07 13:48:24 MST 2017
  */
 
 /*
@@ -62,7 +62,6 @@
 #include "altera_avalon_jtag_uart.h"
 #include "altera_avalon_sysid_qsys.h"
 #include "altera_avalon_timer.h"
-#include "altera_up_avalon_character_lcd.h"
 #include "altera_up_avalon_de0_nano_adc.h"
 
 /*
@@ -73,7 +72,6 @@ ALTERA_NIOS2_QSYS_IRQ_INSTANCE ( NIOS2_0, nios2_0);
 ALTERA_AVALON_JTAG_UART_INSTANCE ( JTAG_UART_0, jtag_uart_0);
 ALTERA_AVALON_SYSID_QSYS_INSTANCE ( SYSID_QSYS_0, sysid_qsys_0);
 ALTERA_AVALON_TIMER_INSTANCE ( TIMER_0, timer_0);
-ALTERA_UP_AVALON_CHARACTER_LCD_INSTANCE ( CHARACTER_LCD_0, character_lcd_0);
 ALTERA_UP_AVALON_DE0_NANO_ADC_INSTANCE ( DE0_NANO_ADC_0, de0_nano_adc_0);
 
 /*
@@ -100,6 +98,5 @@ void alt_sys_init( void )
     ALTERA_AVALON_TIMER_INIT ( TIMER_0, timer_0);
     ALTERA_AVALON_JTAG_UART_INIT ( JTAG_UART_0, jtag_uart_0);
     ALTERA_AVALON_SYSID_QSYS_INIT ( SYSID_QSYS_0, sysid_qsys_0);
-    ALTERA_UP_AVALON_CHARACTER_LCD_INIT ( CHARACTER_LCD_0, character_lcd_0);
     ALTERA_UP_AVALON_DE0_NANO_ADC_INIT ( DE0_NANO_ADC_0, de0_nano_adc_0);
 }

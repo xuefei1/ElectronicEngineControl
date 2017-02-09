@@ -276,13 +276,6 @@ altera_nios2_qsys_ucosii_driver_ASM_LIB_SRCS := \
 	$(altera_nios2_qsys_ucosii_driver_SRCS_ROOT)/src/crt0.S \
 	$(altera_nios2_qsys_ucosii_driver_SRCS_ROOT)/src/os_cpu_a.S
 
-# avalon_character_lcd_driver sources root 
-avalon_character_lcd_driver_SRCS_ROOT := drivers
-
-# avalon_character_lcd_driver sources 
-avalon_character_lcd_driver_C_LIB_SRCS := \
-	$(avalon_character_lcd_driver_SRCS_ROOT)/src/altera_up_avalon_character_lcd.c
-
 # avalon_de0_nano_adc_driver sources root 
 avalon_de0_nano_adc_driver_SRCS_ROOT := drivers
 
@@ -372,7 +365,6 @@ COMPONENT_C_LIB_SRCS += \
 	$(altera_avalon_sysid_qsys_driver_C_LIB_SRCS) \
 	$(altera_avalon_timer_driver_C_LIB_SRCS) \
 	$(altera_nios2_qsys_ucosii_driver_C_LIB_SRCS) \
-	$(avalon_character_lcd_driver_C_LIB_SRCS) \
 	$(avalon_de0_nano_adc_driver_C_LIB_SRCS) \
 	$(hal_C_LIB_SRCS) \
 	$(ucosii_C_LIB_SRCS)
