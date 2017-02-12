@@ -2,10 +2,10 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>ucosii</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>Feb 2, 2017 3:31:11 PM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1486074671818</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>Feb 9, 2017 3:12:02 PM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1486678322312</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control_bsp</BspGeneratedLocation>
-        <BspSettingsFile>/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control_bsp/settings.bsp</BspSettingsFile>
+        <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>../../niosII_system.sopcinfo</SopcDesignFile>
         <JdiFile>default</JdiFile>
         <Cpu>nios2_0</Cpu>
@@ -1692,74 +1692,56 @@
         </Setting>
         <MemoryMap>
                 <slaveDescriptor>sdram_0</slaveDescriptor>
-                <addressRange>0x00800000 - 0x00FFFFFF</addressRange>
-                <addressSpan>8388608</addressSpan>
-                <attributes>memory</attributes>
-        </MemoryMap>
-        <MemoryMap>
-                <slaveDescriptor>generic_tristate_controller_0</slaveDescriptor>
-                <addressRange>0x01400000 - 0x017FFFFF</addressRange>
-                <addressSpan>4194304</addressSpan>
-                <attributes>flash, memory, non-volatile</attributes>
-        </MemoryMap>
-        <MemoryMap>
-                <slaveDescriptor>sram_0</slaveDescriptor>
-                <addressRange>0x01880000 - 0x018FFFFF</addressRange>
-                <addressSpan>524288</addressSpan>
+                <addressRange>0x02000000 - 0x03FFFFFF</addressRange>
+                <addressSpan>33554432</addressSpan>
                 <attributes>memory</attributes>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>onchip_memory2_0</slaveDescriptor>
-                <addressRange>0x01904000 - 0x01907FFF</addressRange>
+                <addressRange>0x04004000 - 0x04007FFF</addressRange>
                 <addressSpan>16384</addressSpan>
                 <attributes>memory</attributes>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>de0_nano_adc_0</slaveDescriptor>
-                <addressRange>0x01909000 - 0x0190901F</addressRange>
+                <addressRange>0x04009000 - 0x0400901F</addressRange>
                 <addressSpan>32</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>timer_0</slaveDescriptor>
-                <addressRange>0x01909020 - 0x0190903F</addressRange>
+                <addressRange>0x04009020 - 0x0400903F</addressRange>
                 <addressSpan>32</addressSpan>
                 <attributes>timer</attributes>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>switch</slaveDescriptor>
-                <addressRange>0x01909040 - 0x0190904F</addressRange>
+                <addressRange>0x04009040 - 0x0400904F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>green_leds</slaveDescriptor>
-                <addressRange>0x01909050 - 0x0190905F</addressRange>
+                <addressRange>0x04009050 - 0x0400905F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>altpll_0</slaveDescriptor>
-                <addressRange>0x01909060 - 0x0190906F</addressRange>
+                <addressRange>0x04009060 - 0x0400906F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>jtag_uart_0</slaveDescriptor>
-                <addressRange>0x01909070 - 0x01909077</addressRange>
+                <addressRange>0x04009070 - 0x04009077</addressRange>
                 <addressSpan>8</addressSpan>
                 <attributes>printable</attributes>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>sysid_qsys_0</slaveDescriptor>
-                <addressRange>0x01909078 - 0x0190907F</addressRange>
+                <addressRange>0x04009078 - 0x0400907F</addressRange>
                 <addressSpan>8</addressSpan>
-                <attributes/>
-        </MemoryMap>
-        <MemoryMap>
-                <slaveDescriptor>character_lcd_0</slaveDescriptor>
-                <addressRange>0x01909080 - 0x01909081</addressRange>
-                <addressSpan>2</addressSpan>
                 <attributes/>
         </MemoryMap>
         <LinkerSection>

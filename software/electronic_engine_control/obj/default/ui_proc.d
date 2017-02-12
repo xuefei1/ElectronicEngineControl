@@ -25,9 +25,7 @@ obj/default/ui_proc.o: ui_proc.c ui_proc.h proj_config.h \
   ../electronic_engine_control_bsp//HAL/inc/sys/alt_warning.h \
   ../electronic_engine_control_bsp//drivers/inc/altera_up_avalon_de0_nano_adc_regs.h \
   ../electronic_engine_control_bsp//HAL/inc/io.h \
-  ../electronic_engine_control_bsp//HAL/inc/alt_types.h \
-  ../electronic_engine_control_bsp//drivers/inc/altera_up_avalon_character_lcd.h \
-  util.h
+  ../electronic_engine_control_bsp//HAL/inc/alt_types.h util.h
 
 ui_proc.h:
 
@@ -86,7 +84,5 @@ proj_config.h:
 ../electronic_engine_control_bsp//HAL/inc/io.h:
 
 ../electronic_engine_control_bsp//HAL/inc/alt_types.h:
-
-../electronic_engine_control_bsp//drivers/inc/altera_up_avalon_character_lcd.h:
 
 util.h:

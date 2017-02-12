@@ -35,16 +35,16 @@
 #define RUN_ALL_TESTS
 
 int run_all_tests();
-CuSuite* CuGetSuite(void);
-void Test_int16U_differ_by_percent(CuTest* tc);
-void Test_int16U_changed_by_threshold(CuTest* tc);
-void Test_get_lcd_msg_q(CuTest* tc);
-void Test_get_failure_msg_q(CuTest* tc);
-void Test_get_expected_motor_pos_q(CuTest* tc);
-void Test_get_new_tps_reading_sem(CuTest* tc);
-void Test_get_motor_cmd_q(CuTest* tc);
-void Test_get_expected_tps_reading(CuTest* tc);
-void Test_set_new_motor_position(CuTest* tc);
-static void X_CompareAsserts(CuTest* tc, const char *file, int line, const char* message, const char* expected, CuString *actual)
+//CuSuite* CuGetSuite();
+//void Test_int16U_differ_by_percent(CuTest* tc);
+//void Test_int16U_changed_by_threshold(CuTest* tc);
+//void Test_get_lcd_msg_q(CuTest* tc);
+//void Test_get_failure_msg_q(CuTest* tc);
+//void Test_get_expected_motor_pos_q(CuTest* tc);
+//void Test_get_new_tps_reading_sem(CuTest* tc);
+//void Test_get_motor_cmd_q(CuTest* tc);
+//void Test_get_expected_tps_reading(CuTest* tc);
+//void Test_set_new_motor_position(CuTest* tc);
+//static void X_CompareAsserts(CuTest* tc, const char *file, int line, const char* message, const char* expected, CuString *actual)
 
 #endif /* TEST_CONFIG_H_ */

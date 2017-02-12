@@ -31,44 +31,6 @@ set_location_assignment PIN_R8 -to CLOCK_50
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to CLOCK_50
 
 #============================================================
-# Flash
-#============================================================
-set_location_assignment PIN_P7 -to FL_ADDR[0]
-set_location_assignment PIN_P5 -to FL_ADDR[1]
-set_location_assignment PIN_P6 -to FL_ADDR[2]
-set_location_assignment PIN_N7 -to FL_ADDR[3]
-set_location_assignment PIN_N5 -to FL_ADDR[4]
-set_location_assignment PIN_N6 -to FL_ADDR[5]
-set_location_assignment PIN_M8 -to FL_ADDR[6]
-set_location_assignment PIN_M4 -to FL_ADDR[7]
-set_location_assignment PIN_P2 -to FL_ADDR[8]
-set_location_assignment PIN_N2 -to FL_ADDR[9]
-set_location_assignment PIN_N1 -to FL_ADDR[10]
-set_location_assignment PIN_M3 -to FL_ADDR[11]
-set_location_assignment PIN_M2 -to FL_ADDR[12]
-set_location_assignment PIN_M1 -to FL_ADDR[13]
-set_location_assignment PIN_L7 -to FL_ADDR[14]
-set_location_assignment PIN_L6 -to FL_ADDR[15]
-set_location_assignment PIN_AA2 -to FL_ADDR[16]
-set_location_assignment PIN_M5 -to FL_ADDR[17]
-set_location_assignment PIN_M6 -to FL_ADDR[18]
-set_location_assignment PIN_P1 -to FL_ADDR[19]
-set_location_assignment PIN_P3 -to FL_ADDR[20]
-set_location_assignment PIN_R2 -to FL_ADDR[21]
-set_location_assignment PIN_R7 -to FL_DQ[0]
-set_location_assignment PIN_P8 -to FL_DQ[1]
-set_location_assignment PIN_R8 -to FL_DQ[2]
-set_location_assignment PIN_U1 -to FL_DQ[3]
-set_location_assignment PIN_V2 -to FL_DQ[4]
-set_location_assignment PIN_V3 -to FL_DQ[5]
-set_location_assignment PIN_W1 -to FL_DQ[6]
-set_location_assignment PIN_Y1 -to FL_DQ[7]
-set_location_assignment PIN_N8 -to FL_CE_N
-set_location_assignment PIN_R6 -to FL_OE_N
-set_location_assignment PIN_R1 -to FL_RST_N
-set_location_assignment PIN_P4 -to FL_WE_N
-
-#============================================================
 # LED
 #============================================================
 set_location_assignment PIN_A15 -to LED[0]
