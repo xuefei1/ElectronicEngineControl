@@ -50,12 +50,10 @@ BOOL int16U_differ_by_percent(INT16U src1, INT16U src2, INT16U percent,
 		else
 			return FALSE;
 	}
-	if (larger / smaller > 1)
-		return FALSE;
 	INT32U diff = larger - smaller;
 	INT32U avg = (larger + smaller) / 2;
 	INT32U result = (diff * accuracy) / avg;
-	INT32U threshold = percent * accuracy;
+	INT32U threshold = percent * accuracy / 100;
 	if (result <= threshold)
 		return FALSE;
 	else
