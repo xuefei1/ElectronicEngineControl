@@ -43,12 +43,12 @@ BOOL int16U_differ_by_percent(INT16U src1, INT16U src2, INT16U percent,
 		smaller = src1;
 	}
 	if (larger == 0)
-		return TRUE;
+		return FALSE;
 	if (smaller == 0) {
 		if (larger <= percent)
-			return TRUE;
-		else
 			return FALSE;
+		else
+			return TRUE;
 	}
 	INT32U diff = larger - smaller;
 	INT32U avg = (larger + smaller) / 2;
