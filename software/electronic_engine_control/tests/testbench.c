@@ -98,6 +98,8 @@ void Test_int16U_differ_by_percent(CuTest* tc){
 	CuAssert(tc,"agree", smallerZero2 == FALSE);
 	BOOL twiceLarger = int16U_differ_by_percent(DIFFER_BY_PERCENT_INPUT_3,DIFFER_BY_PERCENT_INPUT_4,TPS_VALUE_DIFFERENCE_PERCENT,PERCENT_DIFF_ACCURACY);
 	CuAssert(tc,"not agree", twiceLarger == TRUE);
+	BOOL slightlyLarger = int16U_differ_by_percent(DIFFER_BY_PERCENT_INPUT_6,DIFFER_BY_PERCENT_INPUT_7,TPS_VALUE_DIFFERENCE_PERCENT,PERCENT_DIFF_ACCURACY);
+	CuAssert(tc, "agree", slightlyLarger == FALSE);
 }
 
 /*-------------------------------------------------------------------------*

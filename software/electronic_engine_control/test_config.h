@@ -30,6 +30,8 @@
 #define DIFFER_BY_PERCENT_INPUT_3			10
 #define DIFFER_BY_PERCENT_INPUT_4			15
 #define DIFFER_BY_PERCENT_INPUT_5			25
+#define DIFFER_BY_PERCENT_INPUT_6			110
+#define DIFFER_BY_PERCENT_INPUT_7			112
 
 /* Set this flag to enable running all unit tests*/
 #define RUN_ALL_TESTS
