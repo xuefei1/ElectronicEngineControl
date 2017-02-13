@@ -80,23 +80,23 @@
 ///*-------------------------------------------------------------------------*
 // * util Test
 // *-------------------------------------------------------------------------*/
-//void Test_int16U_changed_by_threshold(CuTest* tc){
-//	BOOL larger = int16U_changed_by_threshold(CHANGED_BY_THRESHOLD_INPUT_2,CHANGED_BY_THRESHOLD_INPUT_1,APPS_VALUE_CHANGE_THRESHOLD);
-//	CuAssertTrue(tc,larger);
-//	BOOL smaller = int16U_changed_by_threshold(CHANGED_BY_THRESHOLD_INPUT_1,CHANGED_BY_THRESHOLD_INPUT_2,APPS_VALUE_CHANGE_THRESHOLD);
-//	CuAssertTrue(tc,smaller);
-//	BOOL same = int16U_changed_by_threshold(CHANGED_BY_THRESHOLD_INPUT_3,CHANGED_BY_THRESHOLD_INPUT_1,APPS_VALUE_CHANGE_THRESHOLD);
-//	CuAssertTrue(tc,same);
-//}
-//
-//void Test_int16U_differ_by_percent(CuTest* tc){
-//	BOOL boothZero = int16U_differ_by_percent(DIFFER_BY_PERCENT_INPUT_1,DIFFER_BY_PERCENT_INPUT_1,TPS_VALUE_DIFFERENCE_PERCENT,PERCENT_DIFF_ACCURACY);
-//	CuAssertTrue(tc,boothZero);
-//	BOOL smallerZero = int16U_differ_by_percent(DIFFER_BY_PERCENT_INPUT_1,DIFFER_BY_PERCENT_INPUT_4,TPS_VALUE_DIFFERENCE_PERCENT,PERCENT_DIFF_ACCURACY);
-//	CuAssertTrue(tc,!smallerZero);
-//	BOOL twiceLarger = int16U_differ_by_percent(DIFFER_BY_PERCENT_INPUT_3,DIFFER_BY_PERCENT_INPUT_4,TPS_VALUE_DIFFERENCE_PERCENT,PERCENT_DIFF_ACCURACY);
-//	CuAssertTrue(tc,!twiceLarger);
-//}
+void Test_int16U_changed_by_threshold(CuTest* tc){
+	BOOL larger = int16U_changed_by_threshold(CHANGED_BY_THRESHOLD_INPUT_2,CHANGED_BY_THRESHOLD_INPUT_1,APPS_VALUE_CHANGE_THRESHOLD);
+	CuAssert(tc,"changed", larger == TRUE);
+	BOOL smaller = int16U_changed_by_threshold(CHANGED_BY_THRESHOLD_INPUT_1,CHANGED_BY_THRESHOLD_INPUT_2,APPS_VALUE_CHANGE_THRESHOLD);
+	CuAssert(tc,"changed", smaller == TRUE);
+	BOOL same = int16U_changed_by_threshold(CHANGED_BY_THRESHOLD_INPUT_3,CHANGED_BY_THRESHOLD_INPUT_1,APPS_VALUE_CHANGE_THRESHOLD);
+	CuAssert(tc,"not changed", same == FALSE);
+}
+
+void Test_int16U_differ_by_percent(CuTest* tc){
+	BOOL bothZero = int16U_differ_by_percent(DIFFER_BY_PERCENT_INPUT_1,DIFFER_BY_PERCENT_INPUT_1,TPS_VALUE_DIFFERENCE_PERCENT,PERCENT_DIFF_ACCURACY);
+	CuAssert(tc,"agree", bothZero == FALSE);
+	BOOL smallerZero = int16U_differ_by_percent(DIFFER_BY_PERCENT_INPUT_1,DIFFER_BY_PERCENT_INPUT_4,TPS_VALUE_DIFFERENCE_PERCENT,PERCENT_DIFF_ACCURACY);
+	CuAssert(tc,"agree", smallerZero == TRUE);
+	BOOL twiceLarger = int16U_differ_by_percent(DIFFER_BY_PERCENT_INPUT_3,DIFFER_BY_PERCENT_INPUT_4,TPS_VALUE_DIFFERENCE_PERCENT,PERCENT_DIFF_ACCURACY);
+	CuAssert(tc,"not agree", twiceLarger == TRUE);
+}
 
 /*-------------------------------------------------------------------------*
  * main
@@ -112,8 +112,8 @@ CuSuite* CuGetSuite(void){
 //	SUITE_ADD_TEST(suite, Test_set_new_motor_position);
 //	SUITE_ADD_TEST(suite, Test_get_failure_msg_q);
 //	SUITE_ADD_TEST(suite, Test_get_lcd_msg_q);
-//	SUITE_ADD_TEST(suite, Test_int16U_changed_by_threshold);
-//	SUITE_ADD_TEST(suite, Test_int16U_differ_by_percent);
+	SUITE_ADD_TEST(suite, Test_int16U_changed_by_threshold);
+	SUITE_ADD_TEST(suite, Test_int16U_differ_by_percent);
 
 	return suite;
 }
