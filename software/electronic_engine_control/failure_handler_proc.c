@@ -13,19 +13,13 @@
 
 #include "failure_handler_proc.h"
 
-/* Used to store failure code */
-OS_EVENT *failure_code_q;
-
-char failure_code_buf[FAILURE_HANDLER_Q_SIZE_BYTE];
-
 /*  Task routine for handling any failures motors/sensors */
-void fault_handler_task(void* pdata) {
+void failure_handler_task(void* pdata) {
 
 	INT8U err;
-	failure_code_q = OSQCreate((void*) failure_code_buf,
-			FAILURE_HANDLER_Q_SIZE_BYTE / sizeof(INT16U));
+	OS_EVENT *failure_code_q = get_failure_msg_q();
 	while (1) {
-		INT16U msg = *(INT16U *) OSQPend(failure_code_q, Q_TIMEOUT_WAIT_FOREVER,
+		INT8U msg = (INT8U) OSQPend(failure_code_q, Q_TIMEOUT_WAIT_FOREVER,
 				&err);
 		if (err)
 			disp_err(err, "Error pending on q");
@@ -38,7 +32,7 @@ void fault_handler_task(void* pdata) {
 			break;
 
 		case ERR_APPS_READING_MISMATCH:
-
+			printf("Possible APPS failure detected!\n");
 			break;
 
 		case ERR_TPS_READING_MISMATCH:
@@ -50,7 +44,7 @@ void fault_handler_task(void* pdata) {
 			break;
 
 		default:
-
+			printf("Unknow failure code\n");
 			break;
 
 		}
@@ -61,7 +55,3 @@ void fault_handler_task(void* pdata) {
 	}
 }
 
-/* Getter for failure_message Q for every other task to use */
-OS_EVENT* get_failure_msg_q() {
-	return failure_code_q;
-}

@@ -23,8 +23,8 @@
 #include "altera_up_avalon_de0_nano_adc.h"
 
 typedef INT8U BOOL;
-#define TRUE 1
-#define FALSE 0
+#define TRUE  0xFF
+#define FALSE 0x00
 
 /* Definition of Task Stacks */
 #define TASK_STACKSIZE       2048
@@ -44,15 +44,26 @@ typedef INT8U BOOL;
 /* 1000000 will given an accuracy of 6 significant figures when calculating percent diff of two integers */
 #define PERCENT_DIFF_ACCURACY 				1000000
 
+/* Position sensor value comparison time : 100 ms */
+#define SENSOR_VAL_COMP_DELAY_TICKS			100
+
+/* Time constraint for throttle plate to reach desired position: 1 second */
+#define MOTOR_DRIVE_DELAY_TICKS				1000
+
 #define SEM_TIMEOUT_WAIT_FOREVER			0
 
 #define Q_TIMEOUT_WAIT_FOREVER				0
+
+/* Since we use semaphores as flags, a return value of 0 from OSSemAccpet() indicating no failure */
+#define SEM_FLAG_NO_ERROR					0
 
 /* Possible failure codes */
 #define ERR_UNKNOWN							0
 #define ERR_EXPECTED_THROTTLE_POS_MISMATCH	1
 #define ERR_APPS_READING_MISMATCH			2
 #define ERR_TPS_READING_MISMATCH			3
+
+#define FAILURE_HANDLER_Q_SIZE_BYTE			256
 
 alt_up_de0_nano_adc_dev* get_adc();
 

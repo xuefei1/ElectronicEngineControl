@@ -17,7 +17,7 @@
 #include "proj_config.h"
 #include "util.h"
 
-#define APPS_MOTOR_TASK_PRIORITY      		1
+#define APPS_MOTOR_TASK_PRIORITY      		2
 
 /* ADC channel assignments */
 #define APPS_1_ADC_CHANNEL			  		0
@@ -27,7 +27,7 @@
 #define APPS_MOTOR_TASK_DELAY_HOURS	  		0
 #define APPS_MOTOR_TASK_DELAY_MINUTES	  	0
 #define APPS_MOTOR_TASK_DELAY_SECONDS	  	0
-#define APPS_MOTOR_TASK_DELAY_MILLISEC	  	100
+#define APPS_MOTOR_TASK_DELAY_MILLISEC	  	50
 
 /* detect if there is a new APPS value*/
 #define APPS_VALUE_CHANGED(input, last_value)	int16U_changed_by_threshold(input, last_value, APPS_VALUE_CHANGE_THRESHOLD)
@@ -39,7 +39,7 @@
 
 #define MOTOR_CMD_Q_SIZE_BYTE				64
 
-#define NEW_TPS_READING_SEM_COUNT			1
+#define NEW_TPS_READING_SEM_COUNT			0
 
 void apps_motor_task(void* pdata);
 
@@ -52,5 +52,7 @@ OS_EVENT* get_motor_cmd_q();
 INT16U get_expected_tps_reading(INT16U apps_reading);
 
 BOOL set_new_motor_position(INT16U apps_reading);
+
+alt_u32 apps_value_comp_callback(void* context);
 
 #endif /* APPS_MOTOR_PROC_H_ */

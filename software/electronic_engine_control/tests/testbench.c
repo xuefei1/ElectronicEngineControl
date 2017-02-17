@@ -92,14 +92,10 @@ void Test_int16U_changed_by_threshold(CuTest* tc){
 void Test_int16U_differ_by_percent(CuTest* tc){
 	BOOL bothZero = int16U_differ_by_percent(DIFFER_BY_PERCENT_INPUT_1,DIFFER_BY_PERCENT_INPUT_1,TPS_VALUE_DIFFERENCE_PERCENT,PERCENT_DIFF_ACCURACY);
 	CuAssert(tc,"agree", bothZero == FALSE);
-	BOOL smallerZero1 = int16U_differ_by_percent(DIFFER_BY_PERCENT_INPUT_1,DIFFER_BY_PERCENT_INPUT_4,TPS_VALUE_DIFFERENCE_PERCENT,PERCENT_DIFF_ACCURACY);
-	CuAssert(tc,"not agree", smallerZero1 == TRUE);
-	BOOL smallerZero2 = int16U_differ_by_percent(DIFFER_BY_PERCENT_INPUT_1,DIFFER_BY_PERCENT_INPUT_2,TPS_VALUE_DIFFERENCE_PERCENT,PERCENT_DIFF_ACCURACY);
-	CuAssert(tc,"agree", smallerZero2 == FALSE);
+	BOOL smallerZero = int16U_differ_by_percent(DIFFER_BY_PERCENT_INPUT_1,DIFFER_BY_PERCENT_INPUT_4,TPS_VALUE_DIFFERENCE_PERCENT,PERCENT_DIFF_ACCURACY);
+	CuAssert(tc,"agree", smallerZero == TRUE);
 	BOOL twiceLarger = int16U_differ_by_percent(DIFFER_BY_PERCENT_INPUT_3,DIFFER_BY_PERCENT_INPUT_4,TPS_VALUE_DIFFERENCE_PERCENT,PERCENT_DIFF_ACCURACY);
 	CuAssert(tc,"not agree", twiceLarger == TRUE);
-	BOOL slightlyLarger = int16U_differ_by_percent(DIFFER_BY_PERCENT_INPUT_6,DIFFER_BY_PERCENT_INPUT_7,TPS_VALUE_DIFFERENCE_PERCENT,PERCENT_DIFF_ACCURACY);
-	CuAssert(tc, "agree", slightlyLarger == FALSE);
 }
 
 /*-------------------------------------------------------------------------*

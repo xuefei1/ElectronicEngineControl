@@ -13,7 +13,7 @@
 #include "proj_config.h"
 #include "util.h"
 
-#define UI_TASK_PRIORITY      				3
+#define UI_TASK_PRIORITY      				4
 
 /* Task Delays*/
 #define UI_TASK_DELAY_HOURS	  				0

@@ -24,8 +24,6 @@
 #define FAILURE_HANDLER_TASK_DELAY_SECONDS	  			0
 #define FAILURE_HANDLER_TASK_DELAY_MILLISEC	  			100
 
-#define FAILURE_HANDLER_Q_SIZE_BYTE						256
-
 void failure_handler_task(void* pdata);
 
 #endif /* FAILURE_HANDLER_PROC_H_ */

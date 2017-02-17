@@ -22,6 +22,13 @@ OS_EVENT *new_tps_reading_available;
 /* Used to accept possible commands from other modules */
 OS_EVENT *motor_cmd_q;
 
+/* Flag indicating possible APPS failure */
+OS_EVENT *apps_failure_flag;
+
+OS_EVENT* failure_msg_q;
+
+alt_up_de0_nano_adc_dev* adc;
+
 char expected_tps_reading_q_buf[EXPECTED_TPS_READING_Q_SIZE_BYTE];
 
 char motor_cmd_q_buf[MOTOR_CMD_Q_SIZE_BYTE];
@@ -29,7 +36,15 @@ char motor_cmd_q_buf[MOTOR_CMD_Q_SIZE_BYTE];
 /*  Task routine for pedal position sensor and motor */
 void apps_motor_task(void* pdata) {
 
-	alt_up_de0_nano_adc_dev* adc = get_adc();
+	adc = get_adc();
+
+	INT8U err;
+
+	BOOL apps_check_timer_activated = FALSE;
+
+	failure_msg_q = get_failure_msg_q();
+
+	apps_failure_flag = OSSemCreate(SEM_FLAG_NO_ERROR);
 
 	static INT16U last_apps_1_reading = 0;
 	static INT16U last_apps_2_reading = 0;
@@ -49,36 +64,59 @@ void apps_motor_task(void* pdata) {
 	}
 
 	new_tps_reading_available = OSSemCreate(NEW_TPS_READING_SEM_COUNT);
+	alt_alarm* alarm;
+
+	//free(alarm);
 
 	while (1) {
+		if(OSSemAccept(apps_failure_flag) != SEM_FLAG_NO_ERROR){
+			printf("possible APPS failure, block apps_motor_task\n");
+			apps_check_timer_activated = FALSE;
+			free(alarm);
+			INT16U msg = *(INT16U *) OSQPend(motor_cmd_q, Q_TIMEOUT_WAIT_FOREVER, &err);
+		}
 		alt_up_de0_nano_adc_update(adc);
-
 		INT16U apps_1_reading = alt_up_de0_nano_adc_read(adc,
 				APPS_1_ADC_CHANNEL);
 		INT16U apps_2_reading = alt_up_de0_nano_adc_read(adc,
 				APPS_2_ADC_CHANNEL);
-		printf("apps1 read value:%d\n", apps_1_reading);
-		//printf("apps2 read value:%d\n", apps_2_reading);
-//		if (APPS_VALUE_CHANGED(apps_1_reading,
-//				last_apps_1_reading)
-//				|| APPS_VALUE_CHANGED(apps_2_reading, last_apps_2_reading)) {
-//			if (APPS_VALUE_MISMATCH(apps_1_reading, apps_2_reading)) {
-//				//we have a failure, turn off motor, indicate failure and block
-//
-//			} else {
-//				INT16U final_apps_value = (apps_1_reading + apps_2_reading) / 2;
-//				set_new_motor_position(final_apps_value);
-//				INT16U expected_tps_value = get_expected_tps_reading(
-//						final_apps_value);
-//				OSQPost(expected_tps_reading_q, (void*) expected_tps_value);
-//				//Set timer interrupt for 100ms
-//
-//			}
-//		}
+
+		if (APPS_VALUE_CHANGED(apps_1_reading,
+				last_apps_1_reading)
+				|| APPS_VALUE_CHANGED(apps_2_reading, last_apps_2_reading)) {
+			printf("apps1 read value:%d\n", apps_1_reading);
+			printf("apps2 read value:%d\n", apps_2_reading);
+			if (APPS_VALUE_MISMATCH(apps_1_reading, apps_2_reading)) {
+				//we have a mismatch, check again after 100 ms
+				if(apps_check_timer_activated == FALSE){
+					apps_check_timer_activated = TRUE;
+					printf("set alarm\n");
+					alarm = (alt_alarm*)malloc(sizeof(alt_alarm));
+					alt_alarm_start(alarm, SENSOR_VAL_COMP_DELAY_TICKS, &apps_value_comp_callback, NULL);
+				}
+			} else {
+				if(apps_check_timer_activated == TRUE){
+					printf("clear alarm\n");
+					alt_alarm_stop (alarm);
+					free(alarm);
+					apps_check_timer_activated = FALSE;
+				}
+				INT16U final_apps_value = (apps_1_reading + apps_2_reading) / 2;
+				set_new_motor_position(final_apps_value);
+				INT16U expected_tps_value = get_expected_tps_reading(
+						final_apps_value);
+				//OSQPost(expected_tps_reading_q, (void*) expected_tps_value);
+				//Set timer interrupt for 1s
+
+			}
+			last_apps_1_reading = apps_1_reading;
+			last_apps_2_reading = apps_2_reading;
+		}
 		OSTimeDlyHMSM(APPS_MOTOR_TASK_DELAY_HOURS,
 				APPS_MOTOR_TASK_DELAY_MINUTES, APPS_MOTOR_TASK_DELAY_SECONDS,
 				APPS_MOTOR_TASK_DELAY_MILLISEC);
 	}
+
 }
 
 /* Getter for expected motor position Q for TPS process to use */
@@ -109,4 +147,18 @@ INT16U get_expected_tps_reading(INT16U apps_reading) {
 BOOL set_new_motor_position(INT16U apps_reading) {
 	//Not implemented yet
 	return TRUE;
+}
+
+/* Callback function after 100 ms position sensor comparison timeout */
+alt_u32 apps_value_comp_callback(void* context){
+	alt_up_de0_nano_adc_update(adc);
+	INT16U apps_1_reading = alt_up_de0_nano_adc_read(adc,
+			APPS_1_ADC_CHANNEL);
+	INT16U apps_2_reading = alt_up_de0_nano_adc_read(adc,
+			APPS_2_ADC_CHANNEL);
+	if (APPS_VALUE_MISMATCH(apps_1_reading, apps_2_reading)) {
+		OSSemPost(apps_failure_flag);
+		OSQPost(failure_msg_q, (void*) ERR_APPS_READING_MISMATCH);
+	}
+	return 0;
 }
