@@ -47,6 +47,9 @@ typedef INT8U BOOL;
 /* Position sensor value comparison time : 100 ms */
 #define SENSOR_VAL_COMP_DELAY_TICKS			100
 
+/* Solenoid will open for 200ms */
+#define SOLENOID_FIRE_DELAY		200
+
 /* Time constraint for throttle plate to reach desired position: 1 second */
 #define MOTOR_DRIVE_DELAY_TICKS				1000
 
