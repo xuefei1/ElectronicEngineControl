@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="32" version="2.0">
+<workbench progressCount="37" version="2.0">
 <workbenchAdvisor/>
-<window height="768" maximized="true" width="1024" x="0" y="28">
-<fastViewData fastViewLocation="1024"/>
+<window height="645" maximized="true" width="703" x="337" y="28">
+<fastViewData fastViewLocation="1024">
+<orientation position="512" view="org.eclipse.ui.console.ConsoleView"/>
+</fastViewData>
 <perspectiveBar>
 <itemSize x="160"/>
 </perspectiveBar>
@@ -18,11 +20,12 @@
 <coolItem id="group.nav" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="190" y="36"/>
 <coolItem id="group.editor" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.cdt.make.editor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="org.eclipse.cdt.ui.editor.CEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="group.help" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.help" itemType="typeToolBarContribution" x="-1" y="-1"/>
 </coolbarLayout>
-<page aggregateWorkingSetId="Aggregate for window 1486074506738" focus="true" label="Workspace - Nios II">
+<page aggregateWorkingSetId="Aggregate for window 1484685882492" focus="true" label="Workspace - Nios II">
 <editors>
 <editorArea activeWorkbook="DefaultEditorWorkbook">
 <info part="DefaultEditorWorkbook">
@@ -30,102 +33,17 @@
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
 <part id="1"/>
-<part id="2"/>
-<part id="3"/>
-<part id="4"/>
-<part id="5"/>
-<part id="6"/>
-<part id="7"/>
-<part id="8"/>
-<part id="9"/>
-<part id="10"/>
-<part id="11"/>
-<part id="12"/>
-<part id="13"/>
-<part id="14"/>
-<part id="15"/>
-<part id="16"/>
-<part id="17"/>
-<part id="18"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/main.c" title="main.c" tooltip="electronic_engine_control/main.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/electronic_engine_control/main.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="739" selectionTopPixel="435"/>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="system.h" partName="system.h" path="/afs/ualberta.ca/home/x/u/xuefei1/Desktop/ECE492_Projects/niosII_microc_lab1/scripts/software/lab2_bsp/system.h" title="system.h" tooltip="lab2_bsp/system.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/lab2_bsp/system.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2945" selectionTopPixel="0"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="test_config.h" partName="test_config.h" path="/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/test_config.h" title="test_config.h" tooltip="electronic_engine_control/test_config.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/electronic_engine_control/test_config.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="785" selectionTopPixel="393"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="proj_config.h" partName="proj_config.h" path="/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/proj_config.h" title="proj_config.h" tooltip="electronic_engine_control/proj_config.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/electronic_engine_control/proj_config.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="422" selectionTopPixel="343"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="apps_motor_proc.h" partName="apps_motor_proc.h" path="/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/apps_motor_proc.h" title="apps_motor_proc.h" tooltip="electronic_engine_control/apps_motor_proc.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/electronic_engine_control/apps_motor_proc.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="1392" selectionOffset="0" selectionTopPixel="396"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="CuTest.c" partName="CuTest.c" path="/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/tests/CuTest.c" title="CuTest.c" tooltip="electronic_engine_control/tests/CuTest.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/electronic_engine_control/tests/CuTest.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="12" selectionOffset="739" selectionTopPixel="341"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="util.c" partName="util.c" path="/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/util.c" title="util.c" tooltip="electronic_engine_control/util.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/electronic_engine_control/util.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="12" selectionOffset="16" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="util.h" partName="util.h" path="/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/util.h" title="util.h" tooltip="electronic_engine_control/util.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/electronic_engine_control/util.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="336" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="testbench.c" partName="testbench.c" path="/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/tests/testbench.c" title="testbench.c" tooltip="electronic_engine_control/tests/testbench.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/electronic_engine_control/tests/testbench.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="5355" selectionTopPixel="1397"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="apps_motor_proc.c" partName="apps_motor_proc.c" path="/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/apps_motor_proc.c" title="apps_motor_proc.c" tooltip="electronic_engine_control/apps_motor_proc.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/electronic_engine_control/apps_motor_proc.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1591" selectionTopPixel="279"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="tps_proc.c" partName="tps_proc.c" path="/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/tps_proc.c" title="tps_proc.c" tooltip="electronic_engine_control/tps_proc.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/electronic_engine_control/tps_proc.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="840" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="tps_proc.h" partName="tps_proc.h" path="/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/tps_proc.h" title="tps_proc.h" tooltip="electronic_engine_control/tps_proc.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/electronic_engine_control/tps_proc.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="579" selectionTopPixel="141"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="ucos_ii.h" partName="ucos_ii.h" path="/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control_bsp/UCOSII/inc/ucos_ii.h" title="ucos_ii.h" tooltip="electronic_engine_control_bsp/UCOSII/inc/ucos_ii.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/electronic_engine_control_bsp/UCOSII/inc/ucos_ii.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="11" selectionOffset="50686" selectionTopPixel="15885"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="ui_proc.c" partName="ui_proc.c" path="/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/ui_proc.c" title="ui_proc.c" tooltip="electronic_engine_control/ui_proc.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/electronic_engine_control/ui_proc.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="130" selectionOffset="393" selectionTopPixel="178"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="ui_proc.h" partName="ui_proc.h" path="/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/ui_proc.h" title="ui_proc.h" tooltip="electronic_engine_control/ui_proc.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/electronic_engine_control/ui_proc.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="502" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="failure_handler_proc.c" partName="failure_handler_proc.c" path="/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/failure_handler_proc.c" title="failure_handler_proc.c" tooltip="electronic_engine_control/failure_handler_proc.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/electronic_engine_control/failure_handler_proc.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="305" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="failure_handler_proc.h" partName="failure_handler_proc.h" path="/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/failure_handler_proc.h" title="failure_handler_proc.h" tooltip="electronic_engine_control/failure_handler_proc.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/electronic_engine_control/failure_handler_proc.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="649" selectionTopPixel="21"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="CuTest.h" partName="CuTest.h" path="/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/tests/CuTest.h" title="CuTest.h" tooltip="electronic_engine_control/tests/CuTest.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/electronic_engine_control/tests/CuTest.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="8" selectionOffset="387" selectionTopPixel="51"/>
-</editor>
-<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="memwatch.c" partName="memwatch.c" path="/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/tests/memwatch.c" title="memwatch.c" tooltip="electronic_engine_control/tests/memwatch.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/electronic_engine_control/tests/memwatch.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="26571" selectionTopPixel="12739"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="memwatch.h" partName="memwatch.h" path="/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/tests/memwatch.h" title="memwatch.h" tooltip="electronic_engine_control/tests/memwatch.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/electronic_engine_control/tests/memwatch.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="lab2.c" partName="lab2.c" path="/afs/ualberta.ca/home/x/u/xuefei1/Desktop/ECE492_Projects/niosII_microc_lab1/scripts/software/lab2/lab2.c" title="lab2.c" tooltip="lab2/lab2.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/lab2/lab2.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1310" selectionTopPixel="691"/>
 </editor>
 </editors>
 <views>
@@ -135,14 +53,16 @@
 <view id="org.eclipse.ui.views.PropertySheet" partName="Properties">
 <viewState/>
 </view>
+<view id="org.eclipse.search.ui.views.SearchView" partName="Search">
+<viewState isPinned="false">
+<view IMemento.internal.id="" org.eclipse.search.lastActivation="0"/>
+<view IMemento.internal.id="org.eclipse.search.text.FileSearchResultPage" org.eclipse.search.lastActivation="1" org.eclipse.search.resultpage.layout="2" org.eclipse.search.resultpage.limit="1000" org.eclipse.search.resultpage.sorting="2"/>
+</viewState>
+</view>
 <view id="org.eclipse.cdt.make.ui.views.MakeView" partName="Make Target"/>
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
-<expanded>
-<category IMemento.internal.id="Errors"/>
-<category IMemento.internal.id="Warnings (2 items)"/>
-</expanded>
-<columnWidths org.eclipse.ui.ide.locationField="105" org.eclipse.ui.ide.markerType="471" org.eclipse.ui.ide.pathField="140" org.eclipse.ui.ide.resourceField="105" org.eclipse.ui.ide.severityAndDescriptionField="350"/>
+<columnWidths org.eclipse.ui.ide.locationField="105" org.eclipse.ui.ide.markerType="435" org.eclipse.ui.ide.pathField="140" org.eclipse.ui.ide.resourceField="105" org.eclipse.ui.ide.severityAndDescriptionField="329"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.pathField"/>
@@ -150,13 +70,16 @@
 <visible IMemento.internal.id="org.eclipse.ui.ide.markerType"/>
 </viewState>
 </view>
+<view id="org.eclipse.rse.ui.view.SystemSearchView" partName="Remote Search">
+<viewState/>
+</view>
 <view id="org.eclipse.ui.console.ConsoleView" partName="Console">
 <viewState/>
 </view>
 <view id="org.eclipse.mylyn.tasks.ui.views.tasks" partName="Task List"/>
 <view id="org.eclipse.ui.views.TaskList" partName="Tasks">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.completionField" categoryGroup="none" markerContentGenerator="org.eclipse.ui.ide.tasksGenerator" partName="Tasks">
-<columnWidths org.eclipse.ui.ide.completionField="40" org.eclipse.ui.ide.descriptionField="350" org.eclipse.ui.ide.locationField="105" org.eclipse.ui.ide.markerType="396" org.eclipse.ui.ide.pathField="140" org.eclipse.ui.ide.priorityField="35" org.eclipse.ui.ide.resourceField="105"/>
+<columnWidths org.eclipse.ui.ide.completionField="40" org.eclipse.ui.ide.descriptionField="350" org.eclipse.ui.ide.locationField="105" org.eclipse.ui.ide.markerType="129" org.eclipse.ui.ide.pathField="140" org.eclipse.ui.ide.priorityField="35" org.eclipse.ui.ide.resourceField="105"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.completionField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.priorityField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.descriptionField"/>
@@ -238,7 +161,6 @@
 <view id="org.eclipse.ui.views.ContentOutline"/>
 <view id="org.eclipse.cdt.make.ui.views.MakeView"/>
 <view id="org.eclipse.mylyn.tasks.ui.views.tasks"/>
-<view id="org.eclipse.ui.internal.introview"/>
 <fastViewBars/>
 <layout>&#x0A;<mainWindow>&#x0A;<info folder="true" part="topLeft">&#x0A;<folder activePageID="org.eclipse.ui.navigator.ProjectExplorer" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.ui.navigator.ProjectExplorer" label="Project Explorer"/>
 <page content="org.eclipse.cdt.ui.CView" label="LabelNotFound"/>
@@ -248,11 +170,9 @@
 </presentation>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@87400" ratio="0.7495049" ratioLeft="757" ratioRight="253" relationship="2" relative="topLeft">&#x0A;<folder activePageID="org.eclipse.ui.internal.introview" appearance="2" expanded="1">&#x0A;<page content="org.eclipse.ui.internal.introview" label="Welcome"/>
-<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
+<info folder="true" part="stickyFolderRight" ratio="0.7495049" ratioLeft="757" ratioRight="253" relationship="2" relative="topLeft">&#x0A;<folder appearance="2" expanded="2">&#x0A;<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
 <page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
-</presentation>
 </folder>
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.24950495" ratioLeft="252" ratioRight="758" relationship="2" relative="topLeft"/>
@@ -314,11 +234,13 @@
 <perspective_action id="com.altera.sbtgui.ui.debugPerspective"/>
 <hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
 <view id="org.eclipse.ui.navigator.ProjectExplorer"/>
+<view id="org.eclipse.ui.views.ContentOutline"/>
+<view id="org.eclipse.search.ui.views.SearchView"/>
+<view id="org.eclipse.rse.ui.view.SystemSearchView"/>
 <view id="org.eclipse.ui.views.ProblemView"/>
 <view id="org.eclipse.ui.views.TaskList"/>
-<view id="org.eclipse.ui.console.ConsoleView"/>
 <view id="org.eclipse.ui.views.PropertySheet"/>
-<view id="org.eclipse.ui.views.ContentOutline"/>
+<view id="org.eclipse.ui.console.ConsoleView"/>
 <fastViewBars/>
 <layout>
 <mainWindow>
@@ -333,39 +255,50 @@
 </presentation>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@13e5454" ratio="0.7495049" ratioLeft="757" ratioRight="253" relationship="2" relative="topLeft">
+<info folder="true" part="stickyFolderRight" ratio="0.7495049" ratioLeft="757" ratioRight="253" relationship="2" relative="topLeft">
 <folder appearance="2" expanded="2">
 <page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
 <page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
-<info part="org.eclipse.ui.editorss" ratio="0.24950495" ratioLeft="252" ratioRight="758" relationship="2" relative="topLeft"/>
-<info folder="true" part="bottom" ratio="0.84750736" ratioLeft="578" ratioRight="104" relationship="4" relative="org.eclipse.ui.editorss">
-<folder activePageID="com.altera.sbtgui.launch.hardware.ByteStreamConsoleView:USB-Blaster on localhost [2-1.6].1.0" appearance="2" expanded="2">
-<page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
-<page content="org.eclipse.ui.views.TaskList" label="Tasks"/>
-<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
-<page content="org.eclipse.ui.views.PropertySheet" label="Properties"/>
-<page content="com.altera.sbtgui.launch.hardware.ByteStreamConsoleView:USB-Blaster on localhost [2-1.6].1.0" label="Nios II Console"/>
+<info part="org.eclipse.ui.editorss" ratio="0.1840448" ratioLeft="263" ratioRight="1166" relationship="2" relative="topLeft"/>
+<info folder="true" part="bottom" ratio="0.74872667" ratioLeft="441" ratioRight="148" relationship="4" relative="org.eclipse.ui.editorss">
+<folder activePageID="com.altera.sbtgui.launch.hardware.ByteStreamConsoleView:USB-Blaster on localhost [2-1.7].1.0" appearance="2" expanded="2">
 <page content="com.altera.sbtgui.launch.hardware.ByteStreamConsoleView:USB-Blaster on localhost [2-1.7].1.0" label="LabelNotFound"/>
+<page content="com.altera.sbtgui.launch.hardware.ByteStreamConsoleView:USB-Blaster on localhost [2-1.8].1.0" label="LabelNotFound"/>
+<page content="com.altera.sbtgui.launch.hardware.ByteStreamConsoleView:USB-Blaster on localhost [2-1.5].1.0" label="LabelNotFound"/>
 <page content="com.altera.sbtgui.launch.hardware.ByteStreamConsoleView:*" label="LabelNotFound"/>
 <page content="com.altera.sbtgui.launch.hardware.ByteStreamConsoleView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="topRight" ratio="0.82972443" ratioLeft="843" ratioRight="173" relationship="2" relative="org.eclipse.ui.editorss">
+<folder activePageID="org.eclipse.rse.ui.view.SystemSearchView" appearance="2" expanded="2">
+<page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
+<page content="org.eclipse.search.ui.views.SearchView" label="Search"/>
+<page content="org.eclipse.rse.ui.view.SystemSearchView" label="Remote Search"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+<part id="2"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@a60ffc" ratio="0.92521995" ratioLeft="631" ratioRight="51" relationship="4" relative="org.eclipse.ui.editorss">
+<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
+<page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
+<page content="org.eclipse.ui.views.TaskList" label="Tasks"/>
+<page content="org.eclipse.ui.views.PropertySheet" label="Properties"/>
+<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
+<page content="com.altera.sbtgui.launch.hardware.ByteStreamConsoleView:USB-Blaster on localhost [2-1.6].1.0" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
 <part id="1"/>
 <part id="2"/>
 <part id="3"/>
-<part id="4"/>
-</presentation>
-</folder>
-</info>
-<info folder="true" part="topRight" ratio="0.74934036" ratioLeft="568" ratioRight="190" relationship="2" relative="org.eclipse.ui.editorss">
-<folder activePageID="org.eclipse.ui.views.ContentOutline" appearance="2" expanded="2">
-<page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
 </presentation>
 </folder>
 </info>
@@ -376,177 +309,13 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/electronic_engine_control/apps_motor_proc.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/electronic_engine_control/ui_proc.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/electronic_engine_control/proj_config.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/electronic_engine_control/failure_handler_proc.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/electronic_engine_control/failure_handler_proc.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/electronic_engine_control/tps_proc.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/electronic_engine_control/ui_proc.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/electronic_engine_control/util.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/electronic_engine_control/main.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/electronic_engine_control/test_config.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/electronic_engine_control/ui_proc.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/electronic_engine_control/main.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/electronic_engine_control/test_config.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/electronic_engine_control/tests/CuTest.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/electronic_engine_control/proj_config.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/electronic_engine_control/tests/testbench.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/electronic_engine_control/tests/CuTest.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/electronic_engine_control/apps_motor_proc.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/electronic_engine_control/tests/CuTest.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/electronic_engine_control/tests/testbench.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/electronic_engine_control/tests/memwatch.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/electronic_engine_control/tests/memwatch.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/lab2_bsp/system.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/lab2/lab2.c"/>
 </editors>
-<item historyLabel="ui_proc.c" index="1">
-<position info="not_deleted" x="351" y="0"/>
-</item>
-<item historyLabel="util.c" index="7">
-<position info="not_deleted" x="0" y="1365"/>
-</item>
-<item historyLabel="ui_proc.h" index="6">
-<position info="not_deleted" x="502" y="0"/>
-</item>
-<item historyLabel="tps_proc.c" index="5">
-<position info="not_deleted" x="840" y="0"/>
-</item>
-<item historyLabel="main.c" index="8">
-<position info="not_deleted" x="1288" y="0"/>
-</item>
-<item historyLabel="util.c" index="7">
-<position info="not_deleted" x="16" y="12"/>
-</item>
-<item historyLabel="failure_handler_proc.c" index="3">
-<position info="not_deleted" x="305" y="0"/>
-</item>
-<item historyLabel="failure_handler_proc.h" index="4">
-<position info="not_deleted" x="649" y="0"/>
-</item>
-<item historyLabel="proj_config.h" index="2">
-<position info="not_deleted" x="422" y="0"/>
-</item>
-<item historyLabel="test_config.h" index="9">
-<position info="not_deleted" x="35" y="0"/>
-</item>
-<item historyLabel="ui_proc.h" index="6">
-<position info="not_deleted" x="502" y="0"/>
-</item>
-<item historyLabel="util.c" index="7">
-<position info="not_deleted" x="16" y="12"/>
-</item>
-<item historyLabel="apps_motor_proc.c" index="0">
-<position info="not_deleted" x="0" y="3120"/>
-</item>
-<item historyLabel="ui_proc.c" index="10">
-<position info="not_deleted" x="1175" y="0"/>
-</item>
-<item historyLabel="ui_proc.c" index="10">
+<item historyLabel="system.h" index="0">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="main.c" index="11">
-<position info="not_deleted" x="922" y="0"/>
-</item>
-<item historyLabel="apps_motor_proc.c" index="0">
-<position info="not_deleted" x="121" y="0"/>
-</item>
-<item historyLabel="apps_motor_proc.c" index="0">
-<position info="not_deleted" x="1578" y="0"/>
-</item>
-<item historyLabel="apps_motor_proc.c" index="0">
-<position info="not_deleted" x="1561" y="0"/>
-</item>
-<item historyLabel="main.c" index="11">
-<position info="not_deleted" x="922" y="0"/>
-</item>
-<item historyLabel="test_config.h" index="12">
-<position info="not_deleted" x="35" y="0"/>
-</item>
-<item historyLabel="CuTest.h" index="13">
-<position info="not_deleted" x="114" y="0"/>
-</item>
-<item historyLabel="test_config.h" index="12">
-<position info="not_deleted" x="813" y="0"/>
-</item>
-<item historyLabel="main.c" index="11">
-<position info="not_deleted" x="396" y="19"/>
-</item>
-<item historyLabel="proj_config.h" index="14">
-<position info="not_deleted" x="422" y="0"/>
-</item>
-<item historyLabel="test_config.h" index="12">
-<position info="not_deleted" x="251" y="11"/>
-</item>
-<item historyLabel="proj_config.h" index="14">
-<position info="not_deleted" x="422" y="0"/>
-</item>
-<item historyLabel="test_config.h" index="12">
-<position info="not_deleted" x="814" y="0"/>
-</item>
-<item historyLabel="CuTest.h" index="13">
-<position info="not_deleted" x="3682" y="7"/>
-</item>
-<item historyLabel="test_config.h" index="12">
-<position info="not_deleted" x="785" y="0"/>
-</item>
-<item historyLabel="main.c" index="11">
-<position info="not_deleted" x="449" y="0"/>
-</item>
-<item historyLabel="testbench.c" index="15">
-<position info="not_deleted" x="338" y="0"/>
-</item>
-<item historyLabel="CuTest.h" index="13">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="testbench.c" index="15">
-<position/>
-</item>
-<item historyLabel="testbench.c" index="15">
-<position info="not_deleted" x="5778" y="0"/>
-</item>
-<item historyLabel="CuTest.c" index="16">
-<position info="not_deleted" x="1938" y="0"/>
-</item>
-<item historyLabel="CuTest.c" index="16">
-<position info="not_deleted" x="739" y="12"/>
-</item>
-<item historyLabel="main.c" index="11">
-<position info="not_deleted" x="1145" y="19"/>
-</item>
-<item historyLabel="testbench.c" index="15">
-<position info="not_deleted" x="5764" y="0"/>
-</item>
-<item historyLabel="testbench.c" index="15">
-<position info="not_deleted" x="5211" y="485"/>
-</item>
-<item historyLabel="main.c" index="11">
-<position info="not_deleted" x="992" y="0"/>
-</item>
-<item historyLabel="apps_motor_proc.c" index="0">
-<position info="not_deleted" x="1324" y="0"/>
-</item>
-<item historyLabel="main.c" index="11">
-<position info="not_deleted" x="992" y="0"/>
-</item>
-<item historyLabel="apps_motor_proc.c" index="17">
-<position info="not_deleted" x="1591" y="0"/>
-</item>
-<item historyLabel="main.c" index="11">
-<position info="not_deleted" x="739" y="0"/>
-</item>
-<item historyLabel="CuTest.c" index="18">
-<position info="not_deleted" x="739" y="12"/>
-</item>
-<item historyLabel="testbench.c" index="19">
-<position info="not_deleted" x="5355" y="0"/>
-</item>
-<item historyLabel="memwatch.c" index="20">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="memwatch.h" index="21">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item active="true" historyLabel="memwatch.c" index="20">
+<item active="true" historyLabel="lab2.c" index="1">
 <position info="not_deleted" x="0" y="0"/>
 </item>
 </navigationHistory>
@@ -567,50 +336,50 @@
 </trimLayout>
 </window>
 <mruList>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="memwatch.h" tooltip="electronic_engine_control/tests/memwatch.h">
-<persistable path="/electronic_engine_control/tests/memwatch.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="lab2.c" tooltip="lab2/lab2.c">
+<persistable path="/lab2/lab2.c"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="memwatch.c" tooltip="electronic_engine_control/tests/memwatch.c">
-<persistable path="/electronic_engine_control/tests/memwatch.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="system.h" tooltip="lab2_bsp/system.h">
+<persistable path="/lab2_bsp/system.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="CuTest.h" tooltip="electronic_engine_control/tests/CuTest.h">
-<persistable path="/electronic_engine_control/tests/CuTest.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="hello_world.c" tooltip="lab2/hello_world.c">
+<persistable path="/lab2/hello_world.c"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="fault_handler_proc.h" tooltip="electronic_engine_control/fault_handler_proc.h">
-<persistable path="/electronic_engine_control/fault_handler_proc.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="alt_types.h" tooltip="lab2_bsp/HAL/inc/alt_types.h">
+<persistable path="/lab2_bsp/HAL/inc/alt_types.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="fault_handler_proc.c" tooltip="electronic_engine_control/fault_handler_proc.c">
-<persistable path="/electronic_engine_control/fault_handler_proc.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="altera_nios2_qsys_irq.h" tooltip="lab2_bsp/HAL/inc/altera_nios2_qsys_irq.h">
+<persistable path="/lab2_bsp/HAL/inc/altera_nios2_qsys_irq.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="ui_proc.h" tooltip="electronic_engine_control/ui_proc.h">
-<persistable path="/electronic_engine_control/ui_proc.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="io.h" tooltip="lab2_bsp/HAL/inc/io.h">
+<persistable path="/lab2_bsp/HAL/inc/io.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="ui_proc.c" tooltip="electronic_engine_control/ui_proc.c">
-<persistable path="/electronic_engine_control/ui_proc.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="nios2.h" tooltip="lab2_bsp/HAL/inc/nios2.h">
+<persistable path="/lab2_bsp/HAL/inc/nios2.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="ucos_ii.h" tooltip="electronic_engine_control_bsp/UCOSII/inc/ucos_ii.h">
-<persistable path="/electronic_engine_control_bsp/UCOSII/inc/ucos_ii.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="linker.h" tooltip="lab2_bsp/linker.h">
+<persistable path="/lab2_bsp/linker.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="tps_proc.h" tooltip="electronic_engine_control/tps_proc.h">
-<persistable path="/electronic_engine_control/tps_proc.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="alt_alarm.h" tooltip="lab1_bsp/HAL/inc/sys/alt_alarm.h">
+<persistable path="/lab1_bsp/HAL/inc/sys/alt_alarm.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="tps_proc.c" tooltip="electronic_engine_control/tps_proc.c">
-<persistable path="/electronic_engine_control/tps_proc.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="alt_irq.h" tooltip="lab1_bsp/HAL/inc/sys/alt_irq.h">
+<persistable path="/lab1_bsp/HAL/inc/sys/alt_irq.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="apps_motor_proc.c" tooltip="electronic_engine_control/apps_motor_proc.c">
-<persistable path="/electronic_engine_control/apps_motor_proc.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="os_cpu.h" tooltip="lab1_bsp/HAL/inc/os_cpu.h">
+<persistable path="/lab1_bsp/HAL/inc/os_cpu.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="test_main.c" tooltip="electronic_engine_control/tests/test_main.c">
-<persistable path="/electronic_engine_control/tests/test_main.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="alt_sem_ucosii.h" tooltip="lab1_bsp/UCOSII/inc/priv/alt_sem_ucosii.h">
+<persistable path="/lab1_bsp/UCOSII/inc/priv/alt_sem_ucosii.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="os_cpu.h" tooltip="electronic_engine_control_bsp/HAL/inc/os_cpu.h">
-<persistable path="/electronic_engine_control_bsp/HAL/inc/os_cpu.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="alt_flag_ucosii.h" tooltip="lab1_bsp/UCOSII/inc/priv/alt_flag_ucosii.h">
+<persistable path="/lab1_bsp/UCOSII/inc/priv/alt_flag_ucosii.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="util.h" tooltip="electronic_engine_control/util.h">
-<persistable path="/electronic_engine_control/util.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="ucos_ii.h" tooltip="lab1_bsp/UCOSII/inc/ucos_ii.h">
+<persistable path="/lab1_bsp/UCOSII/inc/ucos_ii.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="util.c" tooltip="electronic_engine_control/util.c">
-<persistable path="/electronic_engine_control/util.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="lab2.c" tooltip="lab1/lab2.c">
+<persistable path="/lab1/lab2.c"/>
 </file>
 </mruList>
 </workbench>
