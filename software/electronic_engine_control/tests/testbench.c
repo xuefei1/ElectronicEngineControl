@@ -20,7 +20,6 @@
 #include <string.h>
 
 #include "CuTest.h"
-#include "memwatch.h"
 
 /*-------------------------------------------------------------------------*
  * apps_motor_proc Test

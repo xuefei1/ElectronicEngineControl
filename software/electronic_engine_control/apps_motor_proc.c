@@ -16,14 +16,17 @@
 /* Used to store new expected throttle position */
 OS_EVENT *expected_tps_reading_q;
 
-/* Used to signal TPS a new reading should be available */
-OS_EVENT *new_tps_reading_available;
-
 /* Used to accept possible commands from other modules */
 OS_EVENT *motor_cmd_q;
 
 /* Flag indicating possible APPS failure */
 OS_EVENT *apps_failure_flag;
+
+/* Flag indicating failures detected in other tasks */
+OS_EVENT *external_failure_flag;
+
+/* Flag indicating failure resolved */
+OS_EVENT *failure_resolved_flag;
 
 OS_EVENT* failure_msg_q;
 
@@ -46,6 +49,10 @@ void apps_motor_task(void* pdata) {
 
 	apps_failure_flag = OSSemCreate(SEM_FLAG_NO_ERROR);
 
+	external_failure_flag = OSSemCreate(SEM_FLAG_NO_ERROR);
+
+	failure_resolved_flag = OSSemCreate(SEM_FLAG_ERROR_UNRESOLVED);
+
 	static INT16U last_apps_1_reading = 0;
 	static INT16U last_apps_2_reading = 0;
 
@@ -63,23 +70,26 @@ void apps_motor_task(void* pdata) {
 		return;
 	}
 
-	new_tps_reading_available = OSSemCreate(NEW_TPS_READING_SEM_COUNT);
 	alt_alarm* alarm;
 
-	//free(alarm);
-
 	while (1) {
+		//failure checking
 		if(OSSemAccept(apps_failure_flag) != SEM_FLAG_NO_ERROR){
 			printf("possible APPS failure, block apps_motor_task\n");
 			apps_check_timer_activated = FALSE;
 			free(alarm);
-			INT16U msg = *(INT16U *) OSQPend(motor_cmd_q, Q_TIMEOUT_WAIT_FOREVER, &err);
+			OSSemPend(failure_resolved_flag, Q_TIMEOUT_WAIT_FOREVER, &err);
+		}else if(OSSemAccept(external_failure_flag) != SEM_FLAG_NO_ERROR){
+			printf("External failure, block apps_motor_task\n");
+			OSSemPend(failure_resolved_flag, Q_TIMEOUT_WAIT_FOREVER, &err);
 		}
+
 		alt_up_de0_nano_adc_update(adc);
 		INT16U apps_1_reading = alt_up_de0_nano_adc_read(adc,
 				APPS_1_ADC_CHANNEL);
+		//Must accommodate the natural difference in readings
 		INT16U apps_2_reading = alt_up_de0_nano_adc_read(adc,
-				APPS_2_ADC_CHANNEL);
+				APPS_2_ADC_CHANNEL) + APPS_SENSOR_OFFSET;
 
 		if (APPS_VALUE_CHANGED(apps_1_reading,
 				last_apps_1_reading)
@@ -105,8 +115,7 @@ void apps_motor_task(void* pdata) {
 				set_new_motor_position(final_apps_value);
 				INT16U expected_tps_value = get_expected_tps_reading(
 						final_apps_value);
-				//OSQPost(expected_tps_reading_q, (void*) expected_tps_value);
-				//Set timer interrupt for 1s
+				OSQPost(expected_tps_reading_q, (void*) expected_tps_value);
 
 			}
 			last_apps_1_reading = apps_1_reading;
@@ -122,11 +131,6 @@ void apps_motor_task(void* pdata) {
 /* Getter for expected motor position Q for TPS process to use */
 OS_EVENT* get_expected_motor_pos_q() {
 	return expected_tps_reading_q;
-}
-
-/* Getter for new TPS reading semaphore for TPS process to pend on */
-OS_EVENT* get_new_tps_reading_sem() {
-	return new_tps_reading_available;
 }
 
 /* Getter for motor command Q for other modules to use */
@@ -145,7 +149,7 @@ INT16U get_expected_tps_reading(INT16U apps_reading) {
 
 /* Set motor to reach a new position, return true if no error occurred */
 BOOL set_new_motor_position(INT16U apps_reading) {
-	//Not implemented yet
+	OSQPost(expected_tps_reading_q, (void*) apps_reading);
 	return TRUE;
 }
 

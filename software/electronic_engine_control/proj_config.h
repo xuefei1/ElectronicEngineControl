@@ -32,6 +32,9 @@ typedef INT8U BOOL;
 /* When APPS reading differ from last value by at least this much, we consider it as a new value */
 #define APPS_VALUE_CHANGE_THRESHOLD			100
 
+/* Natural difference in two APPS sensors */
+#define APPS_SENSOR_OFFSET					900
+
 /* When two APPS reading differ by this much percent, we have a failure */
 #define APPS_VALUE_DIFFERENCE_PERCENT		10
 
@@ -47,8 +50,8 @@ typedef INT8U BOOL;
 /* Position sensor value comparison time : 100 ms */
 #define SENSOR_VAL_COMP_DELAY_TICKS			100
 
-/* Solenoid will open for 200ms */
-#define SOLENOID_FIRE_DELAY		200
+/* Solenoids will open for 200 ms */
+#define SOLENOID_OPEN_DURATION_TICKS		200
 
 /* Time constraint for throttle plate to reach desired position: 1 second */
 #define MOTOR_DRIVE_DELAY_TICKS				1000
@@ -59,6 +62,9 @@ typedef INT8U BOOL;
 
 /* Since we use semaphores as flags, a return value of 0 from OSSemAccpet() indicating no failure */
 #define SEM_FLAG_NO_ERROR					0
+
+/* Since we use semaphores as flags, a return value of 0 from OSSemAccpet() indicating current error is unresolved*/
+#define SEM_FLAG_ERROR_UNRESOLVED			0
 
 /* Possible failure codes */
 #define ERR_UNKNOWN							0

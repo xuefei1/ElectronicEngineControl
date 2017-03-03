@@ -1,6 +1,4 @@
 eclipse.preferences.version=1
-newBspWizardPage.defaultLocation=/afs/ualberta.ca/home/x/u/xuefei1/Desktop/ECE492_Projects/niosII_microc_lab1/scripts/software/lab2
-newBspWizardPage.sopcinfoFile=/afs/ualberta.ca/home/x/u/xuefei1/Desktop/ECE492_Projects/niosII_microc_lab1/scripts/niosII_system.sopcinfo
-newSoftwareExampleWizardPage.defaultLocation=/afs/ualberta.ca/home/x/u/xuefei1/Desktop/ECE492_Projects/niosII_microc_lab1/scripts/software/lab2
-newSoftwareExampleWizardPage.sopcinfoFile=/afs/ualberta.ca/home/x/u/xuefei1/Desktop/ECE492_Projects/niosII_microc_lab1/scripts/niosII_system.sopcinfo
-newSoftwareExampleWizardPage2.newBspLocation=/afs/ualberta.ca/home/x/u/xuefei1/Desktop/ECE492_Projects/niosII_microc_lab1/scripts/software/lab2_bsp
+newSoftwareExampleWizardPage.defaultLocation=/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control
+newSoftwareExampleWizardPage.sopcinfoFile=/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/niosII_system.sopcinfo
+newSoftwareExampleWizardPage2.newBspLocation=/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control_bsp

@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;electronic_engine_control/solenoid.c&apos; to &apos;solenoid_proc.c&apos;" description="Rename resource &apos;solenoid.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="solenoid.c" name="solenoid_proc.c" stamp="1488496645476" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;electronic_engine_control/solenoid.h&apos; to &apos;solenoid_proc.h&apos;" description="Rename resource &apos;solenoid.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="solenoid.h" name="solenoid_proc.h" stamp="1488496659038" updateReferences="true"/>
+</session>

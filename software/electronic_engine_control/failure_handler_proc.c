@@ -28,7 +28,7 @@ void failure_handler_task(void* pdata) {
 		switch (msg) {
 
 		case ERR_EXPECTED_THROTTLE_POS_MISMATCH:
-
+			printf("Possible motor failure detected!\n");
 			break;
 
 		case ERR_APPS_READING_MISMATCH:
@@ -36,11 +36,11 @@ void failure_handler_task(void* pdata) {
 			break;
 
 		case ERR_TPS_READING_MISMATCH:
-
+			printf("Possible TPS failure detected!\n");
 			break;
 
 		case ERR_UNKNOWN:
-
+			printf("Unknown failure detected!\n");
 			break;
 
 		default:

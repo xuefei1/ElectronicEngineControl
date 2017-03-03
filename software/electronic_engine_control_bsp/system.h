@@ -4,7 +4,7 @@
  * Machine generated for CPU 'nios2_0' in SOPC Builder design 'niosII_system'
  * SOPC Builder design path: ../../niosII_system.sopcinfo
  *
- * Generated: Thu Feb 09 15:12:03 MST 2017
+ * Generated: Thu Mar 02 16:30:47 MST 2017
  */
 
 /*
@@ -132,6 +132,7 @@
 #define __ALTERA_NIOS2_QSYS
 #define __ALTERA_UP_AVALON_DE0_NANO_ADC
 #define __ALTPLL
+#define __SOLENOID_CONTROLLER
 
 
 /*
@@ -322,6 +323,20 @@
 
 
 /*
+ * solenoid_controller_0 configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_solenoid_controller_0 solenoid_controller
+#define SOLENOID_CONTROLLER_0_BASE 0x4009080
+#define SOLENOID_CONTROLLER_0_IRQ 2
+#define SOLENOID_CONTROLLER_0_IRQ_INTERRUPT_CONTROLLER_ID 0
+#define SOLENOID_CONTROLLER_0_NAME "/dev/solenoid_controller_0"
+#define SOLENOID_CONTROLLER_0_SPAN 1
+#define SOLENOID_CONTROLLER_0_TYPE "solenoid_controller"
+
+
+/*
  * switch configuration
  *
  */
@@ -360,7 +375,7 @@
 #define SYSID_QSYS_0_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define SYSID_QSYS_0_NAME "/dev/sysid_qsys_0"
 #define SYSID_QSYS_0_SPAN 8
-#define SYSID_QSYS_0_TIMESTAMP 1486677274
+#define SYSID_QSYS_0_TIMESTAMP 1488497298
 #define SYSID_QSYS_0_TYPE "altera_avalon_sysid_qsys"
 
 

@@ -150,7 +150,7 @@ C_SRCS += tests/testbench.c
 C_SRCS += tps_proc.c
 C_SRCS += ui_proc.c
 C_SRCS += failure_handler_proc.c
-C_SRCS += tests/memwatch.c
+C_SRCS += solenoid_proc.c
 CXX_SRCS :=
 ASM_SRCS :=
 
