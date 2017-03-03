@@ -22,6 +22,9 @@ OS_EVENT *motor_cmd_q;
 /* Flag indicating possible APPS failure */
 OS_EVENT *apps_failure_flag;
 
+/* Flag indicating possible motor failure */
+OS_EVENT *motor_failure_flag;
+
 /* Flag indicating failures detected in other tasks */
 OS_EVENT *external_failure_flag;
 
@@ -36,6 +39,10 @@ char expected_tps_reading_q_buf[EXPECTED_TPS_READING_Q_SIZE_BYTE];
 
 char motor_cmd_q_buf[MOTOR_CMD_Q_SIZE_BYTE];
 
+alt_u32 motor_pos_check_callback(void* context);
+
+INT16U expected_tps_value;
+
 /*  Task routine for pedal position sensor and motor */
 void apps_motor_task(void* pdata) {
 
@@ -45,9 +52,15 @@ void apps_motor_task(void* pdata) {
 
 	BOOL apps_check_timer_activated = FALSE;
 
+	alt_alarm* expected_pos_alarm;
+
+	BOOL expected_pos_check_timer_activated = FALSE;
+
 	failure_msg_q = get_failure_msg_q();
 
 	apps_failure_flag = OSSemCreate(SEM_FLAG_NO_ERROR);
+
+	motor_failure_flag = OSSemCreate(SEM_FLAG_NO_ERROR);
 
 	external_failure_flag = OSSemCreate(SEM_FLAG_NO_ERROR);
 
@@ -74,7 +87,12 @@ void apps_motor_task(void* pdata) {
 
 	while (1) {
 		//failure checking
-		if(OSSemAccept(apps_failure_flag) != SEM_FLAG_NO_ERROR){
+		if(OSSemAccept(motor_failure_flag) != SEM_FLAG_NO_ERROR){
+			printf("possible motor failure, block tps_task\n");
+			expected_pos_check_timer_activated = FALSE;
+			free(expected_pos_alarm);
+			OSSemPend(failure_resolved_flag, Q_TIMEOUT_WAIT_FOREVER, &err);
+		}else if(OSSemAccept(apps_failure_flag) != SEM_FLAG_NO_ERROR){
 			printf("possible APPS failure, block apps_motor_task\n");
 			apps_check_timer_activated = FALSE;
 			free(alarm);
@@ -107,13 +125,20 @@ void apps_motor_task(void* pdata) {
 			} else {
 				if(apps_check_timer_activated == TRUE){
 					printf("clear alarm\n");
-					alt_alarm_stop (alarm);
+					alt_alarm_stop(alarm);
 					free(alarm);
 					apps_check_timer_activated = FALSE;
 				}
 				INT16U final_apps_value = (apps_1_reading + apps_2_reading) / 2;
 				set_new_motor_position(final_apps_value);
-				INT16U expected_tps_value = get_expected_tps_reading(
+				//activate expected position checker
+				if(expected_pos_check_timer_activated == TRUE){
+					alt_alarm_stop(expected_pos_alarm);
+					free(expected_pos_alarm);
+				}
+				expected_pos_alarm = (alt_alarm*) malloc(sizeof(alt_alarm));
+				alt_alarm_start(expected_pos_alarm, MOTOR_DRIVE_DELAY_TICKS, &motor_pos_check_callback, NULL);
+				expected_tps_value = get_expected_tps_reading(
 						final_apps_value);
 				OSQPost(expected_tps_reading_q, (void*) expected_tps_value);
 
@@ -165,4 +190,14 @@ alt_u32 apps_value_comp_callback(void* context){
 		OSQPost(failure_msg_q, (void*) ERR_APPS_READING_MISMATCH);
 	}
 	return 0;
+}
+
+/* Callback function to check motor position */
+alt_u32 motor_pos_check_callback(void* context){
+	OSQPost(expected_tps_reading_q, (void*) expected_tps_value);
+	return 0;
+}
+
+OS_EVENT* get_motor_failure_flag(){
+	return motor_failure_flag;
 }

@@ -47,6 +47,8 @@ OS_EVENT* get_expected_motor_pos_q();
 
 OS_EVENT* get_motor_cmd_q();
 
+OS_EVENT* get_motor_failure_flag();
+
 INT16U get_expected_tps_reading(INT16U apps_reading);
 
 BOOL set_new_motor_position(INT16U apps_reading);

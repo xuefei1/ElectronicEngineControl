@@ -14,6 +14,7 @@
 
 #include "proj_config.h"
 #include "util.h"
+#include "apps_motor_proc.h"
 
 #define TPS_TASK_PRIORITY      				3
 
