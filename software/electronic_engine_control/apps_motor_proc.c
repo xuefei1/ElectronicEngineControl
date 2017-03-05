@@ -31,7 +31,7 @@ OS_EVENT *external_failure_flag;
 /* Flag indicating failure resolved */
 OS_EVENT *failure_resolved_flag;
 
-OS_EVENT* failure_msg_q;
+OS_EVENT *failure_msg_q;
 
 alt_up_de0_nano_adc_dev* adc;
 
@@ -41,7 +41,7 @@ char motor_cmd_q_buf[MOTOR_CMD_Q_SIZE_BYTE];
 
 alt_u32 motor_pos_check_callback(void* context);
 
-INT16U expected_tps_value;
+INT16U *expected_tps_value;
 
 /*  Task routine for pedal position sensor and motor */
 void apps_motor_task(void* pdata) {
@@ -138,7 +138,7 @@ void apps_motor_task(void* pdata) {
 				}
 				expected_pos_alarm = (alt_alarm*) malloc(sizeof(alt_alarm));
 				alt_alarm_start(expected_pos_alarm, MOTOR_DRIVE_DELAY_TICKS, &motor_pos_check_callback, NULL);
-				expected_tps_value = get_expected_tps_reading(
+				*expected_tps_value = get_expected_tps_reading(
 						final_apps_value);
 				OSQPost(expected_tps_reading_q, (void*) expected_tps_value);
 
