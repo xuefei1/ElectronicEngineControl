@@ -4,7 +4,7 @@
  * Machine generated for CPU 'nios2_0' in SOPC Builder design 'niosII_system'
  * SOPC Builder design path: ../../niosII_system.sopcinfo
  *
- * Generated: Tue Feb 07 13:48:24 MST 2017
+ * Generated: Sat Mar 04 16:34:19 MST 2017
  */
 
 /*
@@ -63,6 +63,7 @@
 #include "altera_avalon_sysid_qsys.h"
 #include "altera_avalon_timer.h"
 #include "altera_up_avalon_de0_nano_adc.h"
+#include "altera_up_avalon_rs232.h"
 
 /*
  * Allocate the device storage
@@ -73,6 +74,7 @@ ALTERA_AVALON_JTAG_UART_INSTANCE ( JTAG_UART_0, jtag_uart_0);
 ALTERA_AVALON_SYSID_QSYS_INSTANCE ( SYSID_QSYS_0, sysid_qsys_0);
 ALTERA_AVALON_TIMER_INSTANCE ( TIMER_0, timer_0);
 ALTERA_UP_AVALON_DE0_NANO_ADC_INSTANCE ( DE0_NANO_ADC_0, de0_nano_adc_0);
+ALTERA_UP_AVALON_RS232_INSTANCE ( RS232_0, rs232_0);
 
 /*
  * Initialize the interrupt controller devices
@@ -99,4 +101,5 @@ void alt_sys_init( void )
     ALTERA_AVALON_JTAG_UART_INIT ( JTAG_UART_0, jtag_uart_0);
     ALTERA_AVALON_SYSID_QSYS_INIT ( SYSID_QSYS_0, sysid_qsys_0);
     ALTERA_UP_AVALON_DE0_NANO_ADC_INIT ( DE0_NANO_ADC_0, de0_nano_adc_0);
+    ALTERA_UP_AVALON_RS232_INIT ( RS232_0, rs232_0);
 }

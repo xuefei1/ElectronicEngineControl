@@ -6,11 +6,14 @@
 
 library IEEE;
 use IEEE.std_logic_1164.all;
+use IEEE.std_logic_signed.all;
 use IEEE.numeric_std.all;
 
 entity pwm_generator is
 	port (
 		clock    			: in  std_logic                       := '0'; 			    		-- clock
+		write_en_period     : in  std_logic                       := '0'; 			    		-- write_enable
+		write_en_duty       : in  std_logic                       := '0'; 			    		-- write_enable
 		period 				: in  std_logic_vector(15 downto 0)   := "0000000000000000";        -- period in clock ticks
 		duty_count 			: in  std_logic_vector(15 downto 0)   := "0000000000000000";        -- duty must be less than or equal to period
 		pwm_out 			: out std_logic                       := '0';              		  	-- output pwm signal

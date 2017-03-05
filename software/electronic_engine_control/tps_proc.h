@@ -26,7 +26,7 @@
 #define TPS_TASK_DELAY_HOURS	  			0
 #define TPS_TASK_DELAY_MINUTES	  			0
 #define TPS_TASK_DELAY_SECONDS	  			0
-#define TPS_TASK_DELAY_MILLISEC	  			50
+#define TPS_TASK_DELAY_MILLISEC	  			10
 
 /* detect if TPS expected and actual value differ*/
 #define TPS_VALUE_DIFFER_FROM_EXPECTED(input, exp)	int16U_changed_by_threshold(input, exp, TPS_VALUE_TOLERANCE)

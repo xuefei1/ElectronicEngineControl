@@ -24,8 +24,8 @@ library ieee;
 	port
 	(
 		-- Input ports and 50 MHz Clock
-		KEY		: in  std_logic_vector (0 downto 0);
-		SW			: in 	std_logic_vector (0 downto 0);
+		KEY			: in  std_logic_vector (0 downto 0);
+		SW			: in  std_logic_vector (0 downto 0);
 		CLOCK_50	: in  std_logic;
 		
 		-- Green leds on board
@@ -41,9 +41,11 @@ library ieee;
 		DRAM_DQ		:	inout 	DE0_SDRAM_DATA_BUS;
 		DRAM_DQM	:	out 	DE0_SDRAM_DQM;
 		DRAM_RAS_N	: 	out	std_logic;
-		DRAM_WE_N	: 	out 	std_logic;
+		DRAM_WE_N	: 	out std_logic;
 
 		GPIO_0		:	in 	std_logic_vector (35 downto 0);
+
+		GPIO_2		:	out std_logic_vector (7 downto 0);
 
 		-- ADC
 		ADC_CS_N	:	out std_logic;
@@ -78,13 +80,20 @@ architecture structure of electronic_engine_control is
 			adc_sclk_from_the_de0_nano_adc_0      : out   std_logic;                                        -- adc_sclk
             adc_cs_n_from_the_de0_nano_adc_0      : out   std_logic;                                        -- adc_cs_n
             adc_dout_to_the_de0_nano_adc_0        : in    std_logic                     := 'X';             -- adc_dout
-            adc_din_from_the_de0_nano_adc_0       : out   std_logic      						            -- adc_din
+            adc_din_from_the_de0_nano_adc_0       : out   std_logic;      						            -- adc_din
+			pwm_generator_0_pwm_out_export        : out   std_logic                     := '0';             -- pwm_out
+            solenoid_controller_0_conduit_end_btn_shift_up_in    : in    std_logic      := '0';             -- btn_shift_up_in
+            solenoid_controller_0_conduit_end_btn_shift_down_in  : in    std_logic      := '0';             -- btn_shift_down_in
+            solenoid_controller_0_conduit_end_sol_shift_up_out   : out   std_logic;                         -- sol_shift_up_out
+            solenoid_controller_0_conduit_end_sol_shift_down_out : out   std_logic;                         -- sol_shift_down_out
+            rs232_0_external_interface_RXD                       : in    std_logic      := 'X';             -- RXD
+            rs232_0_external_interface_TXD                       : out   std_logic                          -- TXD
         );
     end component niosII_system;
 
 --	These signals are for matching the provided IP core to
 --  The specific SDRAM chip in our system	 
-	 signal BA	: std_logic_vector (1 downto 0);
+	 signal BA	:   std_logic_vector (1 downto 0);
 	 signal DQM	:	std_logic_vector (1 downto 0);
 	 
 
@@ -117,7 +126,14 @@ begin
 			adc_sclk_from_the_de0_nano_adc_0     => ADC_SCLK,
 			adc_cs_n_from_the_de0_nano_adc_0     => ADC_CS_N,
 			adc_dout_to_the_de0_nano_adc_0       => ADC_SDAT,
-			adc_din_from_the_de0_nano_adc_0      => ADC_SADDR
+			adc_din_from_the_de0_nano_adc_0      => ADC_SADDR,
+			pwm_generator_0_pwm_out_export		 => GPIO_2(0),
+			solenoid_controller_0_conduit_end_sol_shift_up_out		=> GPIO_2(2),
+			solenoid_controller_0_conduit_end_sol_shift_down_out	=> GPIO_2(3),
+			solenoid_controller_0_conduit_end_btn_shift_up_in   	=> GPIO_0(2),
+			solenoid_controller_0_conduit_end_btn_shift_down_in 	=> GPIO_0(3),
+			rs232_0_external_interface_TXD							=> GPIO_2(7),
+			rs232_0_external_interface_RXD							=> GPIO_0(7)
         );
 
 end structure;

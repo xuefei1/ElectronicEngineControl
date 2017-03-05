@@ -358,6 +358,13 @@ ucosii_C_LIB_SRCS := \
 	$(ucosii_SRCS_ROOT)/src/os_time.c \
 	$(ucosii_SRCS_ROOT)/src/os_tmr.c
 
+# up_avalon_rs232_driver sources root 
+up_avalon_rs232_driver_SRCS_ROOT := drivers
+
+# up_avalon_rs232_driver sources 
+up_avalon_rs232_driver_C_LIB_SRCS := \
+	$(up_avalon_rs232_driver_SRCS_ROOT)/src/altera_up_avalon_rs232.c
+
 
 # Assemble all component C source files 
 COMPONENT_C_LIB_SRCS += \
@@ -367,7 +374,8 @@ COMPONENT_C_LIB_SRCS += \
 	$(altera_nios2_qsys_ucosii_driver_C_LIB_SRCS) \
 	$(avalon_de0_nano_adc_driver_C_LIB_SRCS) \
 	$(hal_C_LIB_SRCS) \
-	$(ucosii_C_LIB_SRCS)
+	$(ucosii_C_LIB_SRCS) \
+	$(up_avalon_rs232_driver_C_LIB_SRCS)
 
 # Assemble all component assembly source files 
 COMPONENT_ASM_LIB_SRCS += \

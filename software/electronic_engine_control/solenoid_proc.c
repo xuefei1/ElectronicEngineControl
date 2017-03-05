@@ -22,6 +22,10 @@ static void isr_btn (void* context);
 
 alt_u32 solenoid_callback(void* context);
 
+void shift_up();
+
+void shift_down();
+
 /*  Task routine for solenoid */
 void solenoid_task(void* pdata) {
 
@@ -31,7 +35,7 @@ void solenoid_task(void* pdata) {
 
 	btn_input_q = OSQCreate((void*)solenoid_buf, SOLENOID_Q_SIZE_BYTE / sizeof(char));
 	
-	alt_ic_isr_register(SOLENOID_CONTROLLER_0_IRQ_INTERRUPT_CONTROLLER_ID, SOLENOID_CONTROLLER_0_IRQ, &isr_btn, NULL, NULL);
+	alt_ic_isr_register(SOLENOID_CONTROLLER_0_AVALON_SLAVE_READ_IRQ, SOLENOID_CONTROLLER_0_AVALON_SLAVE_READ_IRQ_INTERRUPT_CONTROLLER_ID, &isr_btn, NULL, NULL);
 	
 	while(1){
 
@@ -39,6 +43,7 @@ void solenoid_task(void* pdata) {
 		if (shift_command == BUTTON_INPUT_SHIFT_UP){
 			if (solenoid_open_timer_activated == FALSE){
 				solenoid_open_timer_activated = TRUE;
+				shift_up();
 				alarm = (alt_alarm*)malloc(sizeof(alt_alarm));
 				alt_alarm_start(alarm, SOLENOID_OPEN_DURATION_TICKS, &solenoid_callback, NULL);
 			}
@@ -46,7 +51,7 @@ void solenoid_task(void* pdata) {
 		else if (shift_command == BUTTON_INPUT_SHIFT_DOWN){
 			if (solenoid_open_timer_activated == FALSE){
 				solenoid_open_timer_activated = TRUE;
-				printf("set alarm\n");
+				shift_down();
 				alarm = (alt_alarm*)malloc(sizeof(alt_alarm));
 				alt_alarm_start(alarm, SOLENOID_OPEN_DURATION_TICKS, &solenoid_callback, NULL);
 			}
@@ -62,11 +67,13 @@ void solenoid_task(void* pdata) {
 
 
 void shift_up(){
-	//write 1 to control
+	//write shift up command
+	*(INT8U*) SOLENOID_CONTROLLER_0_AVALON_SLAVE_WRITE_BASE = BUTTON_INPUT_SHIFT_UP;
 }
 
 void shift_down(){
-	//write 2 to control
+	//write shift down command
+	*(INT8U*) SOLENOID_CONTROLLER_0_AVALON_SLAVE_WRITE_BASE = BUTTON_INPUT_SHIFT_DOWN;
 }
 
 /* Call back function after 200ms shift up or down */
@@ -78,7 +85,7 @@ alt_u32 solenoid_callback(void* context){
 
 static void isr_btn (void* context)
 {
-	INT8U *shift = (INT8U*) SOLENOID_CONTROLLER_0_BASE;
+	INT8U *shift = (INT8U*) SOLENOID_CONTROLLER_0_AVALON_SLAVE_READ_BASE;
 	OSQPost(btn_input_q, (void*) shift);
 
 }
