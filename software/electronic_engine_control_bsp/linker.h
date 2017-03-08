@@ -4,7 +4,7 @@
  * Machine generated for CPU 'nios2_0' in SOPC Builder design 'niosII_system'
  * SOPC Builder design path: ../../niosII_system.sopcinfo
  *
- * Generated: Wed Feb 08 16:51:42 MST 2017
+ * Generated: Tue Mar 07 13:44:16 MST 2017
  */
 
 /*
@@ -83,5 +83,22 @@
 #define ALT_RODATA_DEVICE SDRAM_0
 #define ALT_RWDATA_DEVICE SDRAM_0
 #define ALT_TEXT_DEVICE SDRAM_0
+
+
+/*
+ * Initialization code at the reset address is allowed (e.g. no external bootloader).
+ *
+ */
+
+#define ALT_ALLOW_CODE_AT_RESET
+
+
+/*
+ * The alt_load() facility is called from crt0 to copy sections into RAM.
+ *
+ */
+
+#define ALT_LOAD_COPY_EXCEPTIONS
+#define ALT_LOAD_COPY_RWDATA
 
 #endif /* __LINKER_H_ */

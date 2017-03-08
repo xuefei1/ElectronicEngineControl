@@ -18,16 +18,15 @@
 #define PROJ_CONFIG_H_
 #include <stdlib.h>
 #include <stdio.h>
-#include "includes.h"
-#include "system.h"
+#include "custom_types.h"
 #include "altera_up_avalon_de0_nano_adc.h"
+#include "sys/alt_timestamp.h"
+#include "test_config.h"
 
-typedef INT8U BOOL;
-#define TRUE  0xFF
-#define FALSE 0x00
+
 
 /* Definition of Task Stacks */
-#define TASK_STACKSIZE       2048
+#define TASK_STACKSIZE       				2048
 
 /* When APPS reading differ from last value by at least this much, we consider it as a new value */
 #define APPS_VALUE_CHANGE_THRESHOLD			100
@@ -73,6 +72,9 @@ typedef INT8U BOOL;
 #define ERR_TPS_READING_MISMATCH			3
 
 #define FAILURE_HANDLER_Q_SIZE_BYTE			256
+
+/* Time conversions */
+#define TIME_1_MS_IN_US						1000
 
 alt_up_de0_nano_adc_dev* get_adc();
 

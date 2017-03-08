@@ -52,7 +52,22 @@ void tps_task(void* pdata) {
 
 	BOOL tps_check_timer_activated = FALSE;
 
+#if defined(RUN_AVG_TASK_TIME_TEST)
+	if(alt_timestamp_start()<0)
+	{
+		printf("No timestamp timer\n");
+		return;
+	}
+	INT32U iteration_count = 0;
+	INT32U end_tick = 0;
+	INT32U start_tick = alt_timestamp();
+#endif
+
 	while (1) {
+
+#if defined(RUN_AVG_TASK_TIME_TEST)
+		INT16U expected_pos = 0;
+#else
 		//failure checking
 		if(OSSemAccept(tps_failure_flag) != SEM_FLAG_NO_ERROR){
 			printf("possible tps failure, block tps_task\n");
@@ -66,6 +81,7 @@ void tps_task(void* pdata) {
 
 		INT16U expected_pos = *(INT16U*) OSQPend(expected_tps_reading_q,
 				Q_TIMEOUT_WAIT_FOREVER, &err);
+
 		if (err)
 			disp_err(err, "Error pending on expected value q");
 
@@ -79,6 +95,7 @@ void tps_task(void* pdata) {
 			printf("External failure, block apps_motor_task\n");
 			OSSemPend(failure_resolved_flag, Q_TIMEOUT_WAIT_FOREVER, &err);
 		}
+#endif
 
 		curr_expected_pos = expected_pos;
 
@@ -105,6 +122,13 @@ void tps_task(void* pdata) {
 				OSQPost(failure_msg_q, (void*) ERR_EXPECTED_THROTTLE_POS_MISMATCH);
 			}
 		}
+#if defined(RUN_AVG_TASK_TIME_TEST)
+		iteration_count++;
+		if(iteration_count % AVG_ITERATION == 0){
+			end_tick = alt_timestamp();
+			printf("t%d:%d\n", iteration_count, (end_tick - start_tick)/iteration_count);
+		}
+#endif
 		OSTimeDlyHMSM(TPS_TASK_DELAY_HOURS, TPS_TASK_DELAY_MINUTES,
 				TPS_TASK_DELAY_SECONDS, TPS_TASK_DELAY_MILLISEC);
 	}

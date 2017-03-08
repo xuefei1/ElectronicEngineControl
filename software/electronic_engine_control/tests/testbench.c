@@ -11,7 +11,7 @@
  *	Reference: https://github.com/ennorehling/cutest
  *	
  */
-
+#include "../custom_types.h"
 #include "../test_config.h"
 #include <assert.h>
 #include <setjmp.h>
@@ -19,6 +19,7 @@
 #include <stdio.h>
 #include <string.h>
 
+#include "../util.h"
 #include "CuTest.h"
 
 /*-------------------------------------------------------------------------*
@@ -63,19 +64,7 @@
 //	CuAssertIntEquals(tc, Curr_get_failure_msg_q->OSEventCnt, failure_code_q->OSEventCnt);
 //	CuAssertStrEquals(tc, Curr_get_failure_msg_q->OSEventName, failure_code_q->OSEventName);
 //}
-//
-///*-------------------------------------------------------------------------*
-// * ui_proc Test
-// *-------------------------------------------------------------------------*/
-//void Test_get_lcd_msg_q(CuTest* tc){
-//	OS_EVENT* Curr_get_lcd_msg_q = get_lcd_msg_q();
-//	uAssertTrue(tc,Curr_get_lcd_msg_q != NULL);
-//	CuAssertIntEquals(tc, Curr_get_lcd_msg_q->OSEventType, lcd_msg_q->OSEventType);
-//	CuAssertIntEquals(tc, Curr_get_lcd_msg_q->OSEventGrp, lcd_msg_q->OSEventGrp);
-//	CuAssertIntEquals(tc, Curr_get_lcd_msg_q->OSEventCnt, lcd_msg_q->OSEventCnt);
-//	CuAssertStrEquals(tc, Curr_get_lcd_msg_q->OSEventName, lcd_msg_q->OSEventName);
-//}
-//
+
 ///*-------------------------------------------------------------------------*
 // * util Test
 // *-------------------------------------------------------------------------*/

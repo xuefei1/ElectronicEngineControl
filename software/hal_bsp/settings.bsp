@@ -2,8 +2,8 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>Mar 2, 2017 4:23:03 PM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1488496983594</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>Mar 7, 2017 3:28:48 PM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1488925728309</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>./</BspGeneratedLocation>
         <BspSettingsFile>/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/hal_bsp/settings.bsp</BspSettingsFile>
         <SopcDesignFile>../../niosII_system.sopcinfo</SopcDesignFile>
@@ -14,7 +14,7 @@
                 <SettingName>hal.sys_clk_timer</SettingName>
                 <Identifier>ALT_SYS_CLK</Identifier>
                 <Type>UnquotedString</Type>
-                <Value>timer_0</Value>
+                <Value>sys_clk_timer</Value>
                 <DefaultValue>none</DefaultValue>
                 <DestinationFile>system_h_define</DestinationFile>
                 <Description>Slave descriptor of the system clock timer device. This device provides a periodic interrupt ("tick") and is typically required for RTOS use. This setting defines the value of ALT_SYS_CLK in system.h.</Description>
@@ -26,7 +26,7 @@
                 <SettingName>hal.timestamp_timer</SettingName>
                 <Identifier>ALT_TIMESTAMP_CLK</Identifier>
                 <Type>UnquotedString</Type>
-                <Value>none</Value>
+                <Value>timestamp_timer</Value>
                 <DefaultValue>none</DefaultValue>
                 <DestinationFile>system_h_define</DestinationFile>
                 <Description>Slave descriptor of timestamp timer device. This device is used by Altera HAL timestamp drivers for high-resolution time measurement. This setting defines the value of ALT_TIMESTAMP_CLK in system.h.</Description>
@@ -851,6 +851,12 @@
                 <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
         </Setting>
         <MemoryMap>
+                <slaveDescriptor>timestamp_timer</slaveDescriptor>
+                <addressRange>0x00000000 - 0x0000001F</addressRange>
+                <addressSpan>32</addressSpan>
+                <attributes>timer</attributes>
+        </MemoryMap>
+        <MemoryMap>
                 <slaveDescriptor>sdram_0</slaveDescriptor>
                 <addressRange>0x02000000 - 0x03FFFFFF</addressRange>
                 <addressSpan>33554432</addressSpan>
@@ -869,7 +875,7 @@
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>timer_0</slaveDescriptor>
+                <slaveDescriptor>sys_clk_timer</slaveDescriptor>
                 <addressRange>0x04009020 - 0x0400903F</addressRange>
                 <addressSpan>32</addressSpan>
                 <attributes>timer</attributes>
@@ -893,20 +899,44 @@
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>jtag_uart_0</slaveDescriptor>
+                <slaveDescriptor>rs232_0</slaveDescriptor>
                 <addressRange>0x04009070 - 0x04009077</addressRange>
+                <addressSpan>8</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>jtag_uart_0</slaveDescriptor>
+                <addressRange>0x04009078 - 0x0400907F</addressRange>
                 <addressSpan>8</addressSpan>
                 <attributes>printable</attributes>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>sysid_qsys_0</slaveDescriptor>
-                <addressRange>0x04009078 - 0x0400907F</addressRange>
+                <addressRange>0x04009080 - 0x04009087</addressRange>
                 <addressSpan>8</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>solenoid_controller_0</slaveDescriptor>
-                <addressRange>0x04009080 - 0x04009080</addressRange>
+                <slaveDescriptor>pwm_generator_0_avalon_slave_duty</slaveDescriptor>
+                <addressRange>0x04009088 - 0x04009089</addressRange>
+                <addressSpan>2</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>pwm_generator_0_avalon_slave_period</slaveDescriptor>
+                <addressRange>0x0400908A - 0x0400908B</addressRange>
+                <addressSpan>2</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>solenoid_controller_0_avalon_slave_read</slaveDescriptor>
+                <addressRange>0x0400908C - 0x0400908C</addressRange>
+                <addressSpan>1</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>solenoid_controller_0_avalon_slave_write</slaveDescriptor>
+                <addressRange>0x0400908D - 0x0400908D</addressRange>
                 <addressSpan>1</addressSpan>
                 <attributes/>
         </MemoryMap>

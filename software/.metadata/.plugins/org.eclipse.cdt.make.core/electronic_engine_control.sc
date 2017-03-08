@@ -2,7 +2,7 @@
 <?scdStore version="2"?>
 
 <scannerInfo id="org.eclipse.cdt.make.core.discoveredScannerInfo">
-<instance id="preference.org.eclipse.cdt.managedbuilder.core.configurationDataProvider.1029227969;preference.org.eclipse.cdt.managedbuilder.core.configurationDataProvider.1029227969.;cdt.managedbuild.tool.gnu.cpp.compiler.base.430249755;cdt.managedbuild.tool.gnu.cpp.compiler.input.1489630942">
+<instance id="preference.org.eclipse.cdt.managedbuilder.core.configurationDataProvider.1075945922;preference.org.eclipse.cdt.managedbuilder.core.configurationDataProvider.1075945922.;cdt.managedbuild.tool.gnu.cpp.compiler.base.462417404;cdt.managedbuild.tool.gnu.cpp.compiler.input.327790575">
 <collector id="org.eclipse.cdt.make.core.PerProjectSICollector">
 <includePath path="/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control_bsp/UCOSII/inc"/>
 <includePath path="/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control_bsp/HAL/inc"/>
@@ -313,7 +313,7 @@
 <definedSymbol symbol="__ucosii__=1"/>
 </collector>
 </instance>
-<instance id="preference.org.eclipse.cdt.managedbuilder.core.configurationDataProvider.1029227969;preference.org.eclipse.cdt.managedbuilder.core.configurationDataProvider.1029227969.;cdt.managedbuild.tool.gnu.c.compiler.base.543203596;cdt.managedbuild.tool.gnu.c.compiler.input.127648330">
+<instance id="preference.org.eclipse.cdt.managedbuilder.core.configurationDataProvider.1075945922;preference.org.eclipse.cdt.managedbuilder.core.configurationDataProvider.1075945922.;cdt.managedbuild.tool.gnu.c.compiler.base.133521299;cdt.managedbuild.tool.gnu.c.compiler.input.944718589">
 <collector id="org.eclipse.cdt.make.core.PerProjectSICollector">
 <includePath path="/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control_bsp/UCOSII/inc"/>
 <includePath path="/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control_bsp/HAL/inc"/>

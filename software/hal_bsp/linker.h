@@ -4,7 +4,7 @@
  * Machine generated for CPU 'nios2_0' in SOPC Builder design 'niosII_system'
  * SOPC Builder design path: /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/niosII_system.sopcinfo
  *
- * Generated: Thu Feb 09 14:29:53 MST 2017
+ * Generated: Tue Mar 07 15:28:49 MST 2017
  */
 
 /*

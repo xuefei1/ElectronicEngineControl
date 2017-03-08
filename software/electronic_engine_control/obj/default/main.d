@@ -1,4 +1,4 @@
-obj/default/main.o: main.c proj_config.h \
+obj/default/main.o: main.c proj_config.h custom_types.h \
   ../electronic_engine_control_bsp//HAL/inc/includes.h \
   ../electronic_engine_control_bsp//HAL/inc/os_cpu.h \
   ../electronic_engine_control_bsp//HAL/inc/sys/alt_irq.h \
@@ -29,10 +29,16 @@ obj/default/main.o: main.c proj_config.h \
   ../electronic_engine_control_bsp//HAL/inc/sys/alt_warning.h \
   ../electronic_engine_control_bsp//drivers/inc/altera_up_avalon_de0_nano_adc_regs.h \
   ../electronic_engine_control_bsp//HAL/inc/io.h \
+  ../electronic_engine_control_bsp//HAL/inc/alt_types.h \
+  ../electronic_engine_control_bsp//HAL/inc/sys/alt_timestamp.h \
+  ../electronic_engine_control_bsp//drivers/inc/altera_avalon_timer.h \
   ../electronic_engine_control_bsp//HAL/inc/alt_types.h test_config.h \
-  apps_motor_proc.h util.h failure_handler_proc.h tps_proc.h ui_proc.h
+  tests/CuTest.h apps_motor_proc.h util.h tps_proc.h solenoid_proc.h \
+  failure_handler_proc.h
 
 proj_config.h:
+
+custom_types.h:
 
 ../electronic_engine_control_bsp//HAL/inc/includes.h:
 
@@ -96,14 +102,22 @@ proj_config.h:
 
 ../electronic_engine_control_bsp//HAL/inc/alt_types.h:
 
+../electronic_engine_control_bsp//HAL/inc/sys/alt_timestamp.h:
+
+../electronic_engine_control_bsp//drivers/inc/altera_avalon_timer.h:
+
+../electronic_engine_control_bsp//HAL/inc/alt_types.h:
+
 test_config.h:
+
+tests/CuTest.h:
 
 apps_motor_proc.h:
 
 util.h:
 
-failure_handler_proc.h:
-
 tps_proc.h:
 
-ui_proc.h:
+solenoid_proc.h:
+
+failure_handler_proc.h:

@@ -2,7 +2,7 @@
 <?scdStore version="2"?>
 
 <scannerInfo id="org.eclipse.cdt.make.core.discoveredScannerInfo">
-<instance id="preference.org.eclipse.cdt.managedbuilder.core.configurationDataProvider.1355550142;preference.org.eclipse.cdt.managedbuilder.core.configurationDataProvider.1355550142.;cdt.managedbuild.tool.gnu.cpp.compiler.base.848310207;cdt.managedbuild.tool.gnu.cpp.compiler.input.1459659893">
+<instance id="preference.org.eclipse.cdt.managedbuilder.core.configurationDataProvider.1040195937;preference.org.eclipse.cdt.managedbuilder.core.configurationDataProvider.1040195937.;cdt.managedbuild.tool.gnu.cpp.compiler.base.104060947;cdt.managedbuild.tool.gnu.cpp.compiler.input.72091646">
 <collector id="org.eclipse.cdt.make.core.PerProjectSICollector">
 <includePath path="/OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../../nios2-elf/include/c++/4.1.2"/>
 <includePath path="/OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../../nios2-elf/include/c++/4.1.2/nios2-elf"/>
@@ -304,7 +304,7 @@
 <definedSymbol symbol="nios2_little_endian=1"/>
 </collector>
 </instance>
-<instance id="preference.org.eclipse.cdt.managedbuilder.core.configurationDataProvider.1355550142;preference.org.eclipse.cdt.managedbuilder.core.configurationDataProvider.1355550142.;cdt.managedbuild.tool.gnu.c.compiler.base.1808025655;cdt.managedbuild.tool.gnu.c.compiler.input.208072213">
+<instance id="preference.org.eclipse.cdt.managedbuilder.core.configurationDataProvider.1040195937;preference.org.eclipse.cdt.managedbuilder.core.configurationDataProvider.1040195937.;cdt.managedbuild.tool.gnu.c.compiler.base.1089158846;cdt.managedbuild.tool.gnu.c.compiler.input.907160213">
 <collector id="org.eclipse.cdt.make.core.PerProjectSICollector">
 <includePath path="/OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/include"/>
 <includePath path="/OPT/altera/12.1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/include-fixed"/>

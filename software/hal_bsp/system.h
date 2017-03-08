@@ -4,7 +4,7 @@
  * Machine generated for CPU 'nios2_0' in SOPC Builder design 'niosII_system'
  * SOPC Builder design path: /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/niosII_system.sopcinfo
  *
- * Generated: Thu Mar 02 16:23:05 MST 2017
+ * Generated: Tue Mar 07 15:28:49 MST 2017
  */
 
 /*
@@ -131,7 +131,9 @@
 #define __ALTERA_AVALON_TIMER
 #define __ALTERA_NIOS2_QSYS
 #define __ALTERA_UP_AVALON_DE0_NANO_ADC
+#define __ALTERA_UP_AVALON_RS232
 #define __ALTPLL
+#define __PWM_GENERATOR
 #define __SOLENOID_CONTROLLER
 
 
@@ -141,8 +143,8 @@
  */
 
 #define ALT_DEVICE_FAMILY "Cyclone IV E"
-#define ALT_ENHANCED_INTERRUPT_API_PRESENT
 #define ALT_IRQ_BASE NULL
+#define ALT_LEGACY_INTERRUPT_API_PRESENT
 #define ALT_LOG_PORT "/dev/null"
 #define ALT_LOG_PORT_BASE 0x0
 #define ALT_LOG_PORT_DEV null
@@ -151,19 +153,19 @@
 #define ALT_NUM_INTERNAL_INTERRUPT_CONTROLLERS 1
 #define ALT_NUM_INTERRUPT_CONTROLLERS 1
 #define ALT_STDERR "/dev/jtag_uart_0"
-#define ALT_STDERR_BASE 0x4009070
+#define ALT_STDERR_BASE 0x4009078
 #define ALT_STDERR_DEV jtag_uart_0
 #define ALT_STDERR_IS_JTAG_UART
 #define ALT_STDERR_PRESENT
 #define ALT_STDERR_TYPE "altera_avalon_jtag_uart"
 #define ALT_STDIN "/dev/jtag_uart_0"
-#define ALT_STDIN_BASE 0x4009070
+#define ALT_STDIN_BASE 0x4009078
 #define ALT_STDIN_DEV jtag_uart_0
 #define ALT_STDIN_IS_JTAG_UART
 #define ALT_STDIN_PRESENT
 #define ALT_STDIN_TYPE "altera_avalon_jtag_uart"
 #define ALT_STDOUT "/dev/jtag_uart_0"
-#define ALT_STDOUT_BASE 0x4009070
+#define ALT_STDOUT_BASE 0x4009078
 #define ALT_STDOUT_DEV jtag_uart_0
 #define ALT_STDOUT_IS_JTAG_UART
 #define ALT_STDOUT_PRESENT
@@ -232,8 +234,8 @@
  */
 
 #define ALT_MAX_FD 32
-#define ALT_SYS_CLK TIMER_0
-#define ALT_TIMESTAMP_CLK none
+#define ALT_SYS_CLK SYS_CLK_TIMER
+#define ALT_TIMESTAMP_CLK TIMESTAMP_TIMER
 
 
 /*
@@ -242,7 +244,7 @@
  */
 
 #define ALT_MODULE_CLASS_jtag_uart_0 altera_avalon_jtag_uart
-#define JTAG_UART_0_BASE 0x4009070
+#define JTAG_UART_0_BASE 0x4009078
 #define JTAG_UART_0_IRQ 1
 #define JTAG_UART_0_IRQ_INTERRUPT_CONTROLLER_ID 0
 #define JTAG_UART_0_NAME "/dev/jtag_uart_0"
@@ -281,6 +283,48 @@
 #define ONCHIP_MEMORY2_0_SPAN 16384
 #define ONCHIP_MEMORY2_0_TYPE "altera_avalon_onchip_memory2"
 #define ONCHIP_MEMORY2_0_WRITABLE 1
+
+
+/*
+ * pwm_generator_0_avalon_slave_duty configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_pwm_generator_0_avalon_slave_duty pwm_generator
+#define PWM_GENERATOR_0_AVALON_SLAVE_DUTY_BASE 0x4009088
+#define PWM_GENERATOR_0_AVALON_SLAVE_DUTY_IRQ -1
+#define PWM_GENERATOR_0_AVALON_SLAVE_DUTY_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define PWM_GENERATOR_0_AVALON_SLAVE_DUTY_NAME "/dev/pwm_generator_0_avalon_slave_duty"
+#define PWM_GENERATOR_0_AVALON_SLAVE_DUTY_SPAN 2
+#define PWM_GENERATOR_0_AVALON_SLAVE_DUTY_TYPE "pwm_generator"
+
+
+/*
+ * pwm_generator_0_avalon_slave_period configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_pwm_generator_0_avalon_slave_period pwm_generator
+#define PWM_GENERATOR_0_AVALON_SLAVE_PERIOD_BASE 0x400908a
+#define PWM_GENERATOR_0_AVALON_SLAVE_PERIOD_IRQ -1
+#define PWM_GENERATOR_0_AVALON_SLAVE_PERIOD_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define PWM_GENERATOR_0_AVALON_SLAVE_PERIOD_NAME "/dev/pwm_generator_0_avalon_slave_period"
+#define PWM_GENERATOR_0_AVALON_SLAVE_PERIOD_SPAN 2
+#define PWM_GENERATOR_0_AVALON_SLAVE_PERIOD_TYPE "pwm_generator"
+
+
+/*
+ * rs232_0 configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_rs232_0 altera_up_avalon_rs232
+#define RS232_0_BASE 0x4009070
+#define RS232_0_IRQ 3
+#define RS232_0_IRQ_INTERRUPT_CONTROLLER_ID 0
+#define RS232_0_NAME "/dev/rs232_0"
+#define RS232_0_SPAN 8
+#define RS232_0_TYPE "altera_up_avalon_rs232"
 
 
 /*
@@ -323,17 +367,31 @@
 
 
 /*
- * solenoid_controller_0 configuration
+ * solenoid_controller_0_avalon_slave_read configuration
  *
  */
 
-#define ALT_MODULE_CLASS_solenoid_controller_0 solenoid_controller
-#define SOLENOID_CONTROLLER_0_BASE 0x4009080
-#define SOLENOID_CONTROLLER_0_IRQ 2
-#define SOLENOID_CONTROLLER_0_IRQ_INTERRUPT_CONTROLLER_ID 0
-#define SOLENOID_CONTROLLER_0_NAME "/dev/solenoid_controller_0"
-#define SOLENOID_CONTROLLER_0_SPAN 1
-#define SOLENOID_CONTROLLER_0_TYPE "solenoid_controller"
+#define ALT_MODULE_CLASS_solenoid_controller_0_avalon_slave_read solenoid_controller
+#define SOLENOID_CONTROLLER_0_AVALON_SLAVE_READ_BASE 0x400908c
+#define SOLENOID_CONTROLLER_0_AVALON_SLAVE_READ_IRQ 2
+#define SOLENOID_CONTROLLER_0_AVALON_SLAVE_READ_IRQ_INTERRUPT_CONTROLLER_ID 0
+#define SOLENOID_CONTROLLER_0_AVALON_SLAVE_READ_NAME "/dev/solenoid_controller_0_avalon_slave_read"
+#define SOLENOID_CONTROLLER_0_AVALON_SLAVE_READ_SPAN 1
+#define SOLENOID_CONTROLLER_0_AVALON_SLAVE_READ_TYPE "solenoid_controller"
+
+
+/*
+ * solenoid_controller_0_avalon_slave_write configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_solenoid_controller_0_avalon_slave_write solenoid_controller
+#define SOLENOID_CONTROLLER_0_AVALON_SLAVE_WRITE_BASE 0x400908d
+#define SOLENOID_CONTROLLER_0_AVALON_SLAVE_WRITE_IRQ -1
+#define SOLENOID_CONTROLLER_0_AVALON_SLAVE_WRITE_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define SOLENOID_CONTROLLER_0_AVALON_SLAVE_WRITE_NAME "/dev/solenoid_controller_0_avalon_slave_write"
+#define SOLENOID_CONTROLLER_0_AVALON_SLAVE_WRITE_SPAN 1
+#define SOLENOID_CONTROLLER_0_AVALON_SLAVE_WRITE_TYPE "solenoid_controller"
 
 
 /*
@@ -364,44 +422,70 @@
 
 
 /*
+ * sys_clk_timer configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_sys_clk_timer altera_avalon_timer
+#define SYS_CLK_TIMER_ALWAYS_RUN 0
+#define SYS_CLK_TIMER_BASE 0x4009020
+#define SYS_CLK_TIMER_COUNTER_SIZE 32
+#define SYS_CLK_TIMER_FIXED_PERIOD 0
+#define SYS_CLK_TIMER_FREQ 50000000u
+#define SYS_CLK_TIMER_IRQ 0
+#define SYS_CLK_TIMER_IRQ_INTERRUPT_CONTROLLER_ID 0
+#define SYS_CLK_TIMER_LOAD_VALUE 49999ull
+#define SYS_CLK_TIMER_MULT 0.0010
+#define SYS_CLK_TIMER_NAME "/dev/sys_clk_timer"
+#define SYS_CLK_TIMER_PERIOD 1
+#define SYS_CLK_TIMER_PERIOD_UNITS "ms"
+#define SYS_CLK_TIMER_RESET_OUTPUT 0
+#define SYS_CLK_TIMER_SNAPSHOT 1
+#define SYS_CLK_TIMER_SPAN 32
+#define SYS_CLK_TIMER_TICKS_PER_SEC 1000u
+#define SYS_CLK_TIMER_TIMEOUT_PULSE_OUTPUT 0
+#define SYS_CLK_TIMER_TYPE "altera_avalon_timer"
+
+
+/*
  * sysid_qsys_0 configuration
  *
  */
 
 #define ALT_MODULE_CLASS_sysid_qsys_0 altera_avalon_sysid_qsys
-#define SYSID_QSYS_0_BASE 0x4009078
+#define SYSID_QSYS_0_BASE 0x4009080
 #define SYSID_QSYS_0_ID 0
 #define SYSID_QSYS_0_IRQ -1
 #define SYSID_QSYS_0_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define SYSID_QSYS_0_NAME "/dev/sysid_qsys_0"
 #define SYSID_QSYS_0_SPAN 8
-#define SYSID_QSYS_0_TIMESTAMP 1488496429
+#define SYSID_QSYS_0_TIMESTAMP 1488924393
 #define SYSID_QSYS_0_TYPE "altera_avalon_sysid_qsys"
 
 
 /*
- * timer_0 configuration
+ * timestamp_timer configuration
  *
  */
 
-#define ALT_MODULE_CLASS_timer_0 altera_avalon_timer
-#define TIMER_0_ALWAYS_RUN 0
-#define TIMER_0_BASE 0x4009020
-#define TIMER_0_COUNTER_SIZE 32
-#define TIMER_0_FIXED_PERIOD 0
-#define TIMER_0_FREQ 50000000u
-#define TIMER_0_IRQ 0
-#define TIMER_0_IRQ_INTERRUPT_CONTROLLER_ID 0
-#define TIMER_0_LOAD_VALUE 49999ull
-#define TIMER_0_MULT 0.0010
-#define TIMER_0_NAME "/dev/timer_0"
-#define TIMER_0_PERIOD 1
-#define TIMER_0_PERIOD_UNITS "ms"
-#define TIMER_0_RESET_OUTPUT 0
-#define TIMER_0_SNAPSHOT 1
-#define TIMER_0_SPAN 32
-#define TIMER_0_TICKS_PER_SEC 1000u
-#define TIMER_0_TIMEOUT_PULSE_OUTPUT 0
-#define TIMER_0_TYPE "altera_avalon_timer"
+#define ALT_MODULE_CLASS_timestamp_timer altera_avalon_timer
+#define TIMESTAMP_TIMER_ALWAYS_RUN 0
+#define TIMESTAMP_TIMER_BASE 0x0
+#define TIMESTAMP_TIMER_COUNTER_SIZE 32
+#define TIMESTAMP_TIMER_FIXED_PERIOD 0
+#define TIMESTAMP_TIMER_FREQ 50000000u
+#define TIMESTAMP_TIMER_IRQ 4
+#define TIMESTAMP_TIMER_IRQ_INTERRUPT_CONTROLLER_ID 0
+#define TIMESTAMP_TIMER_LOAD_VALUE 49ull
+#define TIMESTAMP_TIMER_MULT 1.0E-6
+#define TIMESTAMP_TIMER_NAME "/dev/timestamp_timer"
+#define TIMESTAMP_TIMER_PERIOD 1
+#define TIMESTAMP_TIMER_PERIOD_UNITS "us"
+#define TIMESTAMP_TIMER_RESET_OUTPUT 0
+#define TIMESTAMP_TIMER_SNAPSHOT 1
+#define TIMESTAMP_TIMER_SPAN 32
+#define TIMESTAMP_TIMER_TICKS_PER_SEC 1000000u
+#define TIMESTAMP_TIMER_TIMEOUT_PULSE_OUTPUT 0
+#define TIMESTAMP_TIMER_TYPE "altera_avalon_timer"
 
 #endif /* __SYSTEM_H_ */

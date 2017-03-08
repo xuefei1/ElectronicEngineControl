@@ -1,5 +1,4 @@
-obj/default/tests/testbench.o: tests/testbench.c tests/../test_config.h \
-  tests/../proj_config.h \
+obj/default/tests/testbench.o: tests/testbench.c tests/../custom_types.h \
   ../electronic_engine_control_bsp//HAL/inc/includes.h \
   ../electronic_engine_control_bsp//HAL/inc/os_cpu.h \
   ../electronic_engine_control_bsp//HAL/inc/sys/alt_irq.h \
@@ -20,7 +19,9 @@ obj/default/tests/testbench.o: tests/testbench.c tests/../test_config.h \
   ../electronic_engine_control_bsp//UCOSII/inc/ucos_ii.h \
   ../electronic_engine_control_bsp//UCOSII/inc/os_cfg.h \
   ../electronic_engine_control_bsp//HAL/inc/os_cpu.h \
-  ../electronic_engine_control_bsp/system.h \
+  ../electronic_engine_control_bsp/system.h tests/../test_config.h \
+  tests/../tests/CuTest.h tests/../util.h tests/../proj_config.h \
+  tests/../custom_types.h \
   ../electronic_engine_control_bsp//drivers/inc/altera_up_avalon_de0_nano_adc.h \
   ../electronic_engine_control_bsp//HAL/inc/sys/alt_dev.h \
   ../electronic_engine_control_bsp//HAL/inc/sys/alt_llist.h \
@@ -31,13 +32,12 @@ obj/default/tests/testbench.o: tests/testbench.c tests/../test_config.h \
   ../electronic_engine_control_bsp//drivers/inc/altera_up_avalon_de0_nano_adc_regs.h \
   ../electronic_engine_control_bsp//HAL/inc/io.h \
   ../electronic_engine_control_bsp//HAL/inc/alt_types.h \
-  tests/../apps_motor_proc.h tests/../util.h \
-  tests/../failure_handler_proc.h tests/../tps_proc.h tests/../ui_proc.h \
-  tests/CuTest.h
+  ../electronic_engine_control_bsp//HAL/inc/sys/alt_timestamp.h \
+  ../electronic_engine_control_bsp//drivers/inc/altera_avalon_timer.h \
+  ../electronic_engine_control_bsp//HAL/inc/alt_types.h \
+  tests/../test_config.h tests/CuTest.h
 
-tests/../test_config.h:
-
-tests/../proj_config.h:
+tests/../custom_types.h:
 
 ../electronic_engine_control_bsp//HAL/inc/includes.h:
 
@@ -81,6 +81,16 @@ tests/../proj_config.h:
 
 ../electronic_engine_control_bsp/system.h:
 
+tests/../test_config.h:
+
+tests/../tests/CuTest.h:
+
+tests/../util.h:
+
+tests/../proj_config.h:
+
+tests/../custom_types.h:
+
 ../electronic_engine_control_bsp//drivers/inc/altera_up_avalon_de0_nano_adc.h:
 
 ../electronic_engine_control_bsp//HAL/inc/sys/alt_dev.h:
@@ -101,14 +111,12 @@ tests/../proj_config.h:
 
 ../electronic_engine_control_bsp//HAL/inc/alt_types.h:
 
-tests/../apps_motor_proc.h:
+../electronic_engine_control_bsp//HAL/inc/sys/alt_timestamp.h:
 
-tests/../util.h:
+../electronic_engine_control_bsp//drivers/inc/altera_avalon_timer.h:
 
-tests/../failure_handler_proc.h:
+../electronic_engine_control_bsp//HAL/inc/alt_types.h:
 
-tests/../tps_proc.h:
-
-tests/../ui_proc.h:
+tests/../test_config.h:
 
 tests/CuTest.h:

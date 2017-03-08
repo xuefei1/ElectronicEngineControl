@@ -4,7 +4,7 @@
  * Machine generated for CPU 'nios2_0' in SOPC Builder design 'niosII_system'
  * SOPC Builder design path: ../../niosII_system.sopcinfo
  *
- * Generated: Sat Mar 04 17:28:30 MST 2017
+ * Generated: Tue Mar 07 15:09:01 MST 2017
  */
 
 /*
@@ -234,8 +234,8 @@
  */
 
 #define ALT_MAX_FD 32
-#define ALT_SYS_CLK TIMER_0
-#define ALT_TIMESTAMP_CLK none
+#define ALT_SYS_CLK SYS_CLK_TIMER
+#define ALT_TIMESTAMP_CLK TIMESTAMP_TIMER
 
 
 /*
@@ -422,6 +422,32 @@
 
 
 /*
+ * sys_clk_timer configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_sys_clk_timer altera_avalon_timer
+#define SYS_CLK_TIMER_ALWAYS_RUN 0
+#define SYS_CLK_TIMER_BASE 0x4009020
+#define SYS_CLK_TIMER_COUNTER_SIZE 32
+#define SYS_CLK_TIMER_FIXED_PERIOD 0
+#define SYS_CLK_TIMER_FREQ 50000000u
+#define SYS_CLK_TIMER_IRQ 0
+#define SYS_CLK_TIMER_IRQ_INTERRUPT_CONTROLLER_ID 0
+#define SYS_CLK_TIMER_LOAD_VALUE 49999ull
+#define SYS_CLK_TIMER_MULT 0.0010
+#define SYS_CLK_TIMER_NAME "/dev/sys_clk_timer"
+#define SYS_CLK_TIMER_PERIOD 1
+#define SYS_CLK_TIMER_PERIOD_UNITS "ms"
+#define SYS_CLK_TIMER_RESET_OUTPUT 0
+#define SYS_CLK_TIMER_SNAPSHOT 1
+#define SYS_CLK_TIMER_SPAN 32
+#define SYS_CLK_TIMER_TICKS_PER_SEC 1000u
+#define SYS_CLK_TIMER_TIMEOUT_PULSE_OUTPUT 0
+#define SYS_CLK_TIMER_TYPE "altera_avalon_timer"
+
+
+/*
  * sysid_qsys_0 configuration
  *
  */
@@ -433,34 +459,34 @@
 #define SYSID_QSYS_0_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define SYSID_QSYS_0_NAME "/dev/sysid_qsys_0"
 #define SYSID_QSYS_0_SPAN 8
-#define SYSID_QSYS_0_TIMESTAMP 1488673496
+#define SYSID_QSYS_0_TIMESTAMP 1488924393
 #define SYSID_QSYS_0_TYPE "altera_avalon_sysid_qsys"
 
 
 /*
- * timer_0 configuration
+ * timestamp_timer configuration
  *
  */
 
-#define ALT_MODULE_CLASS_timer_0 altera_avalon_timer
-#define TIMER_0_ALWAYS_RUN 0
-#define TIMER_0_BASE 0x4009020
-#define TIMER_0_COUNTER_SIZE 32
-#define TIMER_0_FIXED_PERIOD 0
-#define TIMER_0_FREQ 50000000u
-#define TIMER_0_IRQ 0
-#define TIMER_0_IRQ_INTERRUPT_CONTROLLER_ID 0
-#define TIMER_0_LOAD_VALUE 49999ull
-#define TIMER_0_MULT 0.0010
-#define TIMER_0_NAME "/dev/timer_0"
-#define TIMER_0_PERIOD 1
-#define TIMER_0_PERIOD_UNITS "ms"
-#define TIMER_0_RESET_OUTPUT 0
-#define TIMER_0_SNAPSHOT 1
-#define TIMER_0_SPAN 32
-#define TIMER_0_TICKS_PER_SEC 1000u
-#define TIMER_0_TIMEOUT_PULSE_OUTPUT 0
-#define TIMER_0_TYPE "altera_avalon_timer"
+#define ALT_MODULE_CLASS_timestamp_timer altera_avalon_timer
+#define TIMESTAMP_TIMER_ALWAYS_RUN 0
+#define TIMESTAMP_TIMER_BASE 0x0
+#define TIMESTAMP_TIMER_COUNTER_SIZE 32
+#define TIMESTAMP_TIMER_FIXED_PERIOD 0
+#define TIMESTAMP_TIMER_FREQ 50000000u
+#define TIMESTAMP_TIMER_IRQ 4
+#define TIMESTAMP_TIMER_IRQ_INTERRUPT_CONTROLLER_ID 0
+#define TIMESTAMP_TIMER_LOAD_VALUE 49ull
+#define TIMESTAMP_TIMER_MULT 1.0E-6
+#define TIMESTAMP_TIMER_NAME "/dev/timestamp_timer"
+#define TIMESTAMP_TIMER_PERIOD 1
+#define TIMESTAMP_TIMER_PERIOD_UNITS "us"
+#define TIMESTAMP_TIMER_RESET_OUTPUT 0
+#define TIMESTAMP_TIMER_SNAPSHOT 1
+#define TIMESTAMP_TIMER_SPAN 32
+#define TIMESTAMP_TIMER_TICKS_PER_SEC 1000000u
+#define TIMESTAMP_TIMER_TIMEOUT_PULSE_OUTPUT 0
+#define TIMESTAMP_TIMER_TYPE "altera_avalon_timer"
 
 
 /*
@@ -528,7 +554,7 @@
 #define OS_TASK_TMR_PRIO 0
 #define OS_TASK_TMR_STK_SIZE 512
 #define OS_THREAD_SAFE_NEWLIB 1
-#define OS_TICKS_PER_SEC TIMER_0_TICKS_PER_SEC
+#define OS_TICKS_PER_SEC SYS_CLK_TIMER_TICKS_PER_SEC
 #define OS_TICK_STEP_EN 1
 #define OS_TIME_DLY_HMSM_EN 1
 #define OS_TIME_DLY_RESUME_EN 1

@@ -4,13 +4,13 @@
 		<item value="224" key="DIALOG_Y_ORIGIN"/>
 		<item value="409" key="DIALOG_X_ORIGIN"/>
 	</section>
-	<section name="WORKBENCH_SETTINGS">
-		<list key="ENABLED_TRANSFERS">
-		</list>
-	</section>
 	<section name="ExternalProjectImportWizard">
 		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
 		<item value="true" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
+	</section>
+	<section name="WORKBENCH_SETTINGS">
+		<list key="ENABLED_TRANSFERS">
+		</list>
 	</section>
 	<section name="NewWizardAction">
 		<item value="com.altera.sbtgui.ui.newSoftwareExample" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>

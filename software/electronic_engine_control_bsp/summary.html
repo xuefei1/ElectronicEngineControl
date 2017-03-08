@@ -22,10 +22,10 @@
 <td width="20%" bgcolor="#77BBFF">BSP Version:</td><td>default</td>
 </tr>
 <tr mode="wrap">
-<td width="20%" bgcolor="#77BBFF">BSP Generated On:</td><td>Mar 4, 2017 5:38:45 PM</td>
+<td width="20%" bgcolor="#77BBFF">BSP Generated On:</td><td>Mar 7, 2017 3:25:03 PM</td>
 </tr>
 <tr mode="wrap">
-<td width="20%" bgcolor="#77BBFF">BSP Generated Timestamp:</td><td>1488674325473</td>
+<td width="20%" bgcolor="#77BBFF">BSP Generated Timestamp:</td><td>1488925503158</td>
 </tr>
 <tr mode="wrap">
 <td width="20%" bgcolor="#77BBFF">BSP Generated Location:</td><td>/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control_bsp</td>
@@ -68,7 +68,7 @@
 <td>switch</td><td>0x04009040 - 0x0400904F</td><td>16</td><td class="listing">&nbsp;</td>
 </tr>
 <tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
-<td>timer_0</td><td>0x04009020 - 0x0400903F</td><td>32</td><td class="listing">timer</td>
+<td>sys_clk_timer</td><td>0x04009020 - 0x0400903F</td><td>32</td><td class="listing">timer</td>
 </tr>
 <tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
 <td>de0_nano_adc_0</td><td>0x04009000 - 0x0400901F</td><td>32</td><td class="listing">&nbsp;</td>
@@ -78,6 +78,9 @@
 </tr>
 <tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
 <td>sdram_0</td><td>0x02000000 - 0x03FFFFFF</td><td>33554432</td><td class="listing">memory</td>
+</tr>
+<tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
+<td>timestamp_timer</td><td>0x00000000 - 0x0000001F</td><td>32</td><td class="listing">timer</td>
 </tr>
 </table>
 <br>
@@ -504,7 +507,7 @@
 <td width="20%">Default Value:</td><td>0</td>
 </tr>
 <tr>
-<td width="20%">Value:</td><td>0</td>
+<td width="20%">Value:</td><td>1</td>
 </tr>
 <tr>
 <td width="20%">Type:</td><td>Boolean</td>
@@ -531,7 +534,7 @@
 <td width="20%">Default Value:</td><td>0</td>
 </tr>
 <tr>
-<td width="20%">Value:</td><td>0</td>
+<td width="20%">Value:</td><td>1</td>
 </tr>
 <tr>
 <td width="20%">Type:</td><td>Boolean</td>
@@ -558,7 +561,7 @@
 <td width="20%">Default Value:</td><td>0</td>
 </tr>
 <tr>
-<td width="20%">Value:</td><td>0</td>
+<td width="20%">Value:</td><td>1</td>
 </tr>
 <tr>
 <td width="20%">Type:</td><td>Boolean</td>
@@ -612,7 +615,7 @@
 <td width="20%">Default Value:</td><td>0</td>
 </tr>
 <tr>
-<td width="20%">Value:</td><td>0</td>
+<td width="20%">Value:</td><td>1</td>
 </tr>
 <tr>
 <td width="20%">Type:</td><td>Boolean</td>
@@ -1962,7 +1965,7 @@
 <td width="20%">Default Value:</td><td>none</td>
 </tr>
 <tr>
-<td width="20%">Value:</td><td>timer_0</td>
+<td width="20%">Value:</td><td>sys_clk_timer</td>
 </tr>
 <tr>
 <td width="20%">Type:</td><td>UnquotedString</td>
@@ -1989,7 +1992,7 @@
 <td width="20%">Default Value:</td><td>none</td>
 </tr>
 <tr>
-<td width="20%">Value:</td><td>none</td>
+<td width="20%">Value:</td><td>timestamp_timer</td>
 </tr>
 <tr>
 <td width="20%">Type:</td><td>UnquotedString</td>

@@ -12,6 +12,7 @@
  *		*See proj_config.h for acronym translations
  */
 #include "apps_motor_proc.h"
+#include "altera_avalon_timer.h"
 
 /* Used to store new expected throttle position */
 OS_EVENT *expected_tps_reading_q;
@@ -85,8 +86,21 @@ void apps_motor_task(void* pdata) {
 
 	alt_alarm* alarm;
 
+#if defined(RUN_AVG_TASK_TIME_TEST)
+	if(alt_timestamp_start()<0)
+	{
+		printf("No timestamp timer\n");
+		return;
+	}
+	INT32U iteration_count = 0;
+	INT32U end_tick = 0;
+	INT32U start_tick = alt_timestamp();
+#endif
+
+	//main loop
 	while (1) {
 		//failure checking
+#if !defined(RUN_AVG_TASK_TIME_TEST)
 		if(OSSemAccept(motor_failure_flag) != SEM_FLAG_NO_ERROR){
 			printf("possible motor failure, block tps_task\n");
 			expected_pos_check_timer_activated = FALSE;
@@ -101,7 +115,7 @@ void apps_motor_task(void* pdata) {
 			printf("External failure, block apps_motor_task\n");
 			OSSemPend(failure_resolved_flag, Q_TIMEOUT_WAIT_FOREVER, &err);
 		}
-
+#endif
 		alt_up_de0_nano_adc_update(adc);
 		INT16U apps_1_reading = alt_up_de0_nano_adc_read(adc,
 				APPS_1_ADC_CHANNEL);
@@ -112,8 +126,10 @@ void apps_motor_task(void* pdata) {
 		if (APPS_VALUE_CHANGED(apps_1_reading,
 				last_apps_1_reading)
 				|| APPS_VALUE_CHANGED(apps_2_reading, last_apps_2_reading)) {
+#if !defined(RUN_AVG_TASK_TIME_TEST)
 			printf("apps1 read value:%d\n", apps_1_reading);
 			printf("apps2 read value:%d\n", apps_2_reading);
+#endif
 			if (APPS_VALUE_MISMATCH(apps_1_reading, apps_2_reading)) {
 				//we have a mismatch, check again after 100 ms
 				if(apps_check_timer_activated == FALSE){
@@ -146,6 +162,13 @@ void apps_motor_task(void* pdata) {
 			last_apps_1_reading = apps_1_reading;
 			last_apps_2_reading = apps_2_reading;
 		}
+#if defined(RUN_AVG_TASK_TIME_TEST)
+		iteration_count++;
+		if(iteration_count % AVG_ITERATION == 0){
+			end_tick = alt_timestamp();
+			printf("a%d:%d\n", iteration_count, (end_tick - start_tick)/iteration_count);
+		}
+#endif
 		OSTimeDlyHMSM(APPS_MOTOR_TASK_DELAY_HOURS,
 				APPS_MOTOR_TASK_DELAY_MINUTES, APPS_MOTOR_TASK_DELAY_SECONDS,
 				APPS_MOTOR_TASK_DELAY_MILLISEC);

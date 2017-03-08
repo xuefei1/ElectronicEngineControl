@@ -4,7 +4,7 @@
  * Machine generated for CPU 'nios2_0' in SOPC Builder design 'niosII_system'
  * SOPC Builder design path: ../../niosII_system.sopcinfo
  *
- * Generated: Sat Mar 04 16:34:19 MST 2017
+ * Generated: Tue Mar 07 14:59:35 MST 2017
  */
 
 /*
@@ -72,7 +72,8 @@
 ALTERA_NIOS2_QSYS_IRQ_INSTANCE ( NIOS2_0, nios2_0);
 ALTERA_AVALON_JTAG_UART_INSTANCE ( JTAG_UART_0, jtag_uart_0);
 ALTERA_AVALON_SYSID_QSYS_INSTANCE ( SYSID_QSYS_0, sysid_qsys_0);
-ALTERA_AVALON_TIMER_INSTANCE ( TIMER_0, timer_0);
+ALTERA_AVALON_TIMER_INSTANCE ( SYS_CLK_TIMER, sys_clk_timer);
+ALTERA_AVALON_TIMER_INSTANCE ( TIMESTAMP_TIMER, timestamp_timer);
 ALTERA_UP_AVALON_DE0_NANO_ADC_INSTANCE ( DE0_NANO_ADC_0, de0_nano_adc_0);
 ALTERA_UP_AVALON_RS232_INSTANCE ( RS232_0, rs232_0);
 
@@ -97,7 +98,8 @@ void alt_irq_init ( const void* base )
 
 void alt_sys_init( void )
 {
-    ALTERA_AVALON_TIMER_INIT ( TIMER_0, timer_0);
+    ALTERA_AVALON_TIMER_INIT ( SYS_CLK_TIMER, sys_clk_timer);
+    ALTERA_AVALON_TIMER_INIT ( TIMESTAMP_TIMER, timestamp_timer);
     ALTERA_AVALON_JTAG_UART_INIT ( JTAG_UART_0, jtag_uart_0);
     ALTERA_AVALON_SYSID_QSYS_INIT ( SYSID_QSYS_0, sysid_qsys_0);
     ALTERA_UP_AVALON_DE0_NANO_ADC_INIT ( DE0_NANO_ADC_0, de0_nano_adc_0);

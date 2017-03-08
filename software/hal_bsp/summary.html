@@ -22,10 +22,10 @@
 <td width="20%" bgcolor="#77BBFF">BSP Version:</td><td>default</td>
 </tr>
 <tr mode="wrap">
-<td width="20%" bgcolor="#77BBFF">BSP Generated On:</td><td>Mar 2, 2017 4:23:03 PM</td>
+<td width="20%" bgcolor="#77BBFF">BSP Generated On:</td><td>Mar 7, 2017 3:28:48 PM</td>
 </tr>
 <tr mode="wrap">
-<td width="20%" bgcolor="#77BBFF">BSP Generated Timestamp:</td><td>1488496983594</td>
+<td width="20%" bgcolor="#77BBFF">BSP Generated Timestamp:</td><td>1488925728309</td>
 </tr>
 <tr mode="wrap">
 <td width="20%" bgcolor="#77BBFF">BSP Generated Location:</td><td>./</td>
@@ -38,13 +38,25 @@
 <th align="left" width="20%">Slave Descriptor</th><th align="left" width="40%">Address Range</th><th align="left" width="20%">Size</th><th align="left" width="20%">Attributes</th>
 </tr>
 <tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
-<td>solenoid_controller_0</td><td>0x04009080 - 0x04009080</td><td>1</td><td class="listing">&nbsp;</td>
+<td>solenoid_controller_0_avalon_slave_write</td><td>0x0400908D - 0x0400908D</td><td>1</td><td class="listing">&nbsp;</td>
 </tr>
 <tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
-<td>sysid_qsys_0</td><td>0x04009078 - 0x0400907F</td><td>8</td><td class="listing">&nbsp;</td>
+<td>solenoid_controller_0_avalon_slave_read</td><td>0x0400908C - 0x0400908C</td><td>1</td><td class="listing">&nbsp;</td>
 </tr>
 <tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
-<td>jtag_uart_0</td><td>0x04009070 - 0x04009077</td><td>8</td><td class="listing">printable</td>
+<td>pwm_generator_0_avalon_slave_period</td><td>0x0400908A - 0x0400908B</td><td>2</td><td class="listing">&nbsp;</td>
+</tr>
+<tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
+<td>pwm_generator_0_avalon_slave_duty</td><td>0x04009088 - 0x04009089</td><td>2</td><td class="listing">&nbsp;</td>
+</tr>
+<tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
+<td>sysid_qsys_0</td><td>0x04009080 - 0x04009087</td><td>8</td><td class="listing">&nbsp;</td>
+</tr>
+<tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
+<td>jtag_uart_0</td><td>0x04009078 - 0x0400907F</td><td>8</td><td class="listing">printable</td>
+</tr>
+<tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
+<td>rs232_0</td><td>0x04009070 - 0x04009077</td><td>8</td><td class="listing">&nbsp;</td>
 </tr>
 <tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
 <td>altpll_0</td><td>0x04009060 - 0x0400906F</td><td>16</td><td class="listing">&nbsp;</td>
@@ -56,7 +68,7 @@
 <td>switch</td><td>0x04009040 - 0x0400904F</td><td>16</td><td class="listing">&nbsp;</td>
 </tr>
 <tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
-<td>timer_0</td><td>0x04009020 - 0x0400903F</td><td>32</td><td class="listing">timer</td>
+<td>sys_clk_timer</td><td>0x04009020 - 0x0400903F</td><td>32</td><td class="listing">timer</td>
 </tr>
 <tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
 <td>de0_nano_adc_0</td><td>0x04009000 - 0x0400901F</td><td>32</td><td class="listing">&nbsp;</td>
@@ -66,6 +78,9 @@
 </tr>
 <tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
 <td>sdram_0</td><td>0x02000000 - 0x03FFFFFF</td><td>33554432</td><td class="listing">memory</td>
+</tr>
+<tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
+<td>timestamp_timer</td><td>0x00000000 - 0x0000001F</td><td>32</td><td class="listing">timer</td>
 </tr>
 </table>
 <br>
@@ -1950,7 +1965,7 @@
 <td width="20%">Default Value:</td><td>none</td>
 </tr>
 <tr>
-<td width="20%">Value:</td><td>timer_0</td>
+<td width="20%">Value:</td><td>sys_clk_timer</td>
 </tr>
 <tr>
 <td width="20%">Type:</td><td>UnquotedString</td>
@@ -1977,7 +1992,7 @@
 <td width="20%">Default Value:</td><td>none</td>
 </tr>
 <tr>
-<td width="20%">Value:</td><td>none</td>
+<td width="20%">Value:</td><td>timestamp_timer</td>
 </tr>
 <tr>
 <td width="20%">Type:</td><td>UnquotedString</td>

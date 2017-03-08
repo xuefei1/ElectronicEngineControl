@@ -18,6 +18,7 @@
 <coolItem id="group.nav" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="190" y="36"/>
 <coolItem id="group.editor" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.DefaultTextEditor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="org.eclipse.cdt.ui.editor.CEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="group.help" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.help" itemType="typeToolBarContribution" x="-1" y="-1"/>
@@ -45,87 +46,77 @@
 <part id="14"/>
 <part id="15"/>
 <part id="16"/>
-<part id="17"/>
-<part id="18"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="test_config.h" partName="test_config.h" path="/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/test_config.h" title="test_config.h" tooltip="electronic_engine_control/test_config.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/electronic_engine_control/test_config.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="785" selectionTopPixel="194"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="proj_config.h" partName="proj_config.h" path="/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/proj_config.h" title="proj_config.h" tooltip="electronic_engine_control/proj_config.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/electronic_engine_control/proj_config.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="18" selectionOffset="746" selectionTopPixel="206"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="apps_motor_proc.h" partName="apps_motor_proc.h" path="/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/apps_motor_proc.h" title="apps_motor_proc.h" tooltip="electronic_engine_control/apps_motor_proc.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/electronic_engine_control/apps_motor_proc.h"/>
-<editorState selectionHorizontalPixel="209" selectionLength="0" selectionOffset="790" selectionTopPixel="284"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="CuTest.c" partName="CuTest.c" path="/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/tests/CuTest.c" title="CuTest.c" tooltip="electronic_engine_control/tests/CuTest.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/electronic_engine_control/tests/CuTest.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="12" selectionOffset="739" selectionTopPixel="341"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="util.c" partName="util.c" path="/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/util.c" title="util.c" tooltip="electronic_engine_control/util.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/electronic_engine_control/util.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="6" selectionOffset="1030" selectionTopPixel="314"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="util.h" partName="util.h" path="/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/util.h" title="util.h" tooltip="electronic_engine_control/util.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/electronic_engine_control/util.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="336" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="testbench.c" partName="testbench.c" path="/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/tests/testbench.c" title="testbench.c" tooltip="electronic_engine_control/tests/testbench.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/electronic_engine_control/tests/testbench.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="341" selectionTopPixel="687"/>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="system.h" partName="system.h" path="/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control_bsp/system.h" title="system.h" tooltip="electronic_engine_control_bsp/system.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/electronic_engine_control_bsp/system.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="5924"/>
 </editor>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="apps_motor_proc.c" partName="apps_motor_proc.c" path="/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/apps_motor_proc.c" title="apps_motor_proc.c" tooltip="electronic_engine_control/apps_motor_proc.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/electronic_engine_control/apps_motor_proc.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="270" selectionTopPixel="894"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="tps_proc.c" partName="tps_proc.c" path="/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/tps_proc.c" title="tps_proc.c" tooltip="electronic_engine_control/tps_proc.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/electronic_engine_control/tps_proc.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="851" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="tps_proc.h" partName="tps_proc.h" path="/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/tps_proc.h" title="tps_proc.h" tooltip="electronic_engine_control/tps_proc.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/electronic_engine_control/tps_proc.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="689" selectionTopPixel="29"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="ui_proc.c" partName="ui_proc.c" path="/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/ui_proc.c" title="ui_proc.c" tooltip="electronic_engine_control/ui_proc.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/electronic_engine_control/ui_proc.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="25" selectionOffset="749" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="ui_proc.h" partName="ui_proc.h" path="/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/ui_proc.h" title="ui_proc.h" tooltip="electronic_engine_control/ui_proc.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/electronic_engine_control/ui_proc.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="210" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="failure_handler_proc.c" partName="failure_handler_proc.c" path="/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/failure_handler_proc.c" title="failure_handler_proc.c" tooltip="electronic_engine_control/failure_handler_proc.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/electronic_engine_control/failure_handler_proc.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="597" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="failure_handler_proc.h" partName="failure_handler_proc.h" path="/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/failure_handler_proc.h" title="failure_handler_proc.h" tooltip="electronic_engine_control/failure_handler_proc.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/electronic_engine_control/failure_handler_proc.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="642" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="CuTest.h" partName="CuTest.h" path="/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/tests/CuTest.h" title="CuTest.h" tooltip="electronic_engine_control/tests/CuTest.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/electronic_engine_control/tests/CuTest.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="8" selectionOffset="387" selectionTopPixel="51"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="memwatch.h" partName="memwatch.h" path="/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/tests/memwatch.h" title="memwatch.h" tooltip="electronic_engine_control/tests/memwatch.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/electronic_engine_control/tests/memwatch.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="solenoid_proc.h" partName="solenoid_proc.h" path="/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/solenoid_proc.h" title="solenoid_proc.h" tooltip="electronic_engine_control/solenoid_proc.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/electronic_engine_control/solenoid_proc.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="114" selectionTopPixel="0"/>
-</editor>
-<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="solenoid_proc.c" partName="solenoid_proc.c" path="/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/solenoid_proc.c" title="solenoid_proc.c" tooltip="electronic_engine_control/solenoid_proc.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/electronic_engine_control/solenoid_proc.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="206" selectionTopPixel="275"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4066" selectionTopPixel="2237"/>
 </editor>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/main.c" title="main.c" tooltip="electronic_engine_control/main.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/electronic_engine_control/main.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="789" selectionTopPixel="275"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1253" selectionTopPixel="611"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="solenoid_proc.c" partName="solenoid_proc.c" path="/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/solenoid_proc.c" title="solenoid_proc.c" tooltip="electronic_engine_control/solenoid_proc.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/electronic_engine_control/solenoid_proc.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2196" selectionTopPixel="1653"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="solenoid_proc.h" partName="solenoid_proc.h" path="/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/solenoid_proc.h" title="solenoid_proc.h" tooltip="electronic_engine_control/solenoid_proc.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/electronic_engine_control/solenoid_proc.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="346" selectionTopPixel="42"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="alt_legacy_irq.h" partName="alt_legacy_irq.h" path="/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control_bsp/HAL/inc/priv/alt_legacy_irq.h" title="alt_legacy_irq.h" tooltip="electronic_engine_control_bsp/HAL/inc/priv/alt_legacy_irq.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/electronic_engine_control_bsp/HAL/inc/priv/alt_legacy_irq.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3127" selectionTopPixel="744"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="alt_irq.h" partName="alt_irq.h" path="/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control_bsp/HAL/inc/sys/alt_irq.h" title="alt_irq.h" tooltip="electronic_engine_control_bsp/HAL/inc/sys/alt_irq.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/electronic_engine_control_bsp/HAL/inc/sys/alt_irq.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="10" selectionOffset="3601" selectionTopPixel="1065"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="altera_avalon_timer_regs.h" partName="altera_avalon_timer_regs.h" path="/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control_bsp/drivers/inc/altera_avalon_timer_regs.h" title="altera_avalon_timer_regs.h" tooltip="electronic_engine_control_bsp/drivers/inc/altera_avalon_timer_regs.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/electronic_engine_control_bsp/drivers/inc/altera_avalon_timer_regs.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="proj_config.h" partName="proj_config.h" path="/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/proj_config.h" title="proj_config.h" tooltip="electronic_engine_control/proj_config.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/electronic_engine_control/proj_config.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="471" selectionTopPixel="102"/>
+</editor>
+<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="test_config.h" partName="test_config.h" path="/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/test_config.h" title="test_config.h" tooltip="electronic_engine_control/test_config.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/electronic_engine_control/test_config.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="641" selectionTopPixel="256"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="tps_proc.c" partName="tps_proc.c" path="/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/tps_proc.c" title="tps_proc.c" tooltip="electronic_engine_control/tps_proc.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/electronic_engine_control/tps_proc.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1319" selectionTopPixel="1432"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="apps_motor_proc.h" partName="apps_motor_proc.h" path="/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/apps_motor_proc.h" title="apps_motor_proc.h" tooltip="electronic_engine_control/apps_motor_proc.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/electronic_engine_control/apps_motor_proc.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="627" selectionTopPixel="214"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="failure_handler_proc.c" partName="failure_handler_proc.c" path="/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/failure_handler_proc.c" title="failure_handler_proc.c" tooltip="electronic_engine_control/failure_handler_proc.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/electronic_engine_control/failure_handler_proc.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="487" selectionTopPixel="101"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="failure_handler_proc.h" partName="failure_handler_proc.h" path="/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/failure_handler_proc.h" title="failure_handler_proc.h" tooltip="electronic_engine_control/failure_handler_proc.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/electronic_engine_control/failure_handler_proc.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="288" selectionTopPixel="82"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="CuTest.h" partName="CuTest.h" path="/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/tests/CuTest.h" title="CuTest.h" tooltip="electronic_engine_control/tests/CuTest.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/electronic_engine_control/tests/CuTest.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="7" selectionOffset="3682" selectionTopPixel="1200"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="tps_proc.h" partName="tps_proc.h" path="/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/tps_proc.h" title="tps_proc.h" tooltip="electronic_engine_control/tps_proc.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/electronic_engine_control/tps_proc.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="567" selectionTopPixel="160"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="testbench.c" partName="testbench.c" path="/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/tests/testbench.c" title="testbench.c" tooltip="electronic_engine_control/tests/testbench.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/electronic_engine_control/tests/testbench.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="505" selectionTopPixel="1597"/>
 </editor>
 </editors>
 <views>
@@ -138,7 +129,10 @@
 <view id="org.eclipse.cdt.make.ui.views.MakeView" partName="Make Target"/>
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
-<columnWidths org.eclipse.ui.ide.locationField="105" org.eclipse.ui.ide.markerType="471" org.eclipse.ui.ide.pathField="140" org.eclipse.ui.ide.resourceField="105" org.eclipse.ui.ide.severityAndDescriptionField="350"/>
+<expanded>
+<category IMemento.internal.id="Warnings (3 items)"/>
+</expanded>
+<columnWidths org.eclipse.ui.ide.locationField="105" org.eclipse.ui.ide.markerType="471" org.eclipse.ui.ide.pathField="140" org.eclipse.ui.ide.resourceField="105" org.eclipse.ui.ide.severityAndDescriptionField="611"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.pathField"/>
@@ -337,14 +331,14 @@
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
-<info part="org.eclipse.ui.editorss" ratio="0.24950495" ratioLeft="252" ratioRight="758" relationship="2" relative="topLeft"/>
-<info folder="true" part="bottom" ratio="0.91935486" ratioLeft="627" ratioRight="55" relationship="4" relative="org.eclipse.ui.editorss">
-<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
+<info part="org.eclipse.ui.editorss" ratio="0.21063681" ratioLeft="301" ratioRight="1128" relationship="2" relative="topLeft"/>
+<info folder="true" part="bottom" ratio="0.6583578" ratioLeft="449" ratioRight="233" relationship="4" relative="org.eclipse.ui.editorss">
+<folder activePageID="com.altera.sbtgui.launch.hardware.ByteStreamConsoleView:USB-Blaster on localhost [2-1.6].1.0" appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
 <page content="org.eclipse.ui.views.TaskList" label="Tasks"/>
 <page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
 <page content="org.eclipse.ui.views.PropertySheet" label="Properties"/>
-<page content="com.altera.sbtgui.launch.hardware.ByteStreamConsoleView:USB-Blaster on localhost [2-1.6].1.0" label="LabelNotFound"/>
+<page content="com.altera.sbtgui.launch.hardware.ByteStreamConsoleView:USB-Blaster on localhost [2-1.6].1.0" label="Nios II Console"/>
 <page content="com.altera.sbtgui.launch.hardware.ByteStreamConsoleView:USB-Blaster on localhost [2-1.7].1.0" label="LabelNotFound"/>
 <page content="com.altera.sbtgui.launch.hardware.ByteStreamConsoleView:*" label="LabelNotFound"/>
 <page content="com.altera.sbtgui.launch.hardware.ByteStreamConsoleView" label="LabelNotFound"/>
@@ -353,6 +347,7 @@
 <part id="1"/>
 <part id="2"/>
 <part id="3"/>
+<part id="4"/>
 </presentation>
 </folder>
 </info>
@@ -371,176 +366,178 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/electronic_engine_control/main.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/electronic_engine_control/tps_proc.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/electronic_engine_control/apps_motor_proc.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/electronic_engine_control/apps_motor_proc.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/electronic_engine_control/proj_config.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/electronic_engine_control/ui_proc.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/electronic_engine_control/solenoid_proc.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/electronic_engine_control/failure_handler_proc.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/electronic_engine_control_bsp/system.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/electronic_engine_control/solenoid_proc.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/electronic_engine_control/util.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/electronic_engine_control/util.h"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/electronic_engine_control/test_config.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/electronic_engine_control/solenoid_proc.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/electronic_engine_control/tps_proc.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/electronic_engine_control_bsp/system.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/electronic_engine_control_bsp/HAL/inc/includes.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/electronic_engine_control_bsp/system.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/electronic_engine_control/proj_config.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/electronic_engine_control/failure_handler_proc.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/electronic_engine_control/failure_handler_proc.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/electronic_engine_control/solenoid_proc.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/electronic_engine_control/tps_proc.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/electronic_engine_control/failure_handler_proc.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/electronic_engine_control/proj_config.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/electronic_engine_control/test_config.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/electronic_engine_control/tests/testbench.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/electronic_engine_control/main.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/electronic_engine_control/apps_motor_proc.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/electronic_engine_control/tps_proc.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/electronic_engine_control/tps_proc.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/electronic_engine_control/solenoid_proc.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/electronic_engine_control/solenoid_proc.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/electronic_engine_control/apps_motor_proc.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/electronic_engine_control/solenoid_proc.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/electronic_engine_control/failure_handler_proc.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/electronic_engine_control/apps_motor_proc.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/electronic_engine_control/test_config.h"/>
 </editors>
-<item historyLabel="system.h" index="8">
-<position info="not_deleted" x="9849" y="0"/>
+<item historyLabel="proj_config.h" index="3">
+<position info="not_deleted" x="1625" y="0"/>
 </item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="789" y="0"/>
+<item historyLabel="solenoid_proc.c" index="0">
+<position info="not_deleted" x="340" y="0"/>
 </item>
-<item historyLabel="system.h" index="8">
-<position info="not_deleted" x="6371" y="19"/>
+<item historyLabel="solenoid_proc.h" index="6">
+<position info="not_deleted" x="121" y="0"/>
 </item>
-<item historyLabel="solenoid_proc.c" index="6">
+<item historyLabel="test_config.h" index="1">
+<position info="not_deleted" x="414" y="0"/>
+</item>
+<item historyLabel="tps_proc.c" index="2">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="tps_proc.h" index="7">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="failure_handler_proc.c" index="4">
+<position info="not_deleted" x="916" y="0"/>
+</item>
+<item historyLabel="proj_config.h" index="3">
+<position info="not_deleted" x="2010" y="11"/>
+</item>
+<item historyLabel="failure_handler_proc.c" index="4">
+<position info="not_deleted" x="234" y="0"/>
+</item>
+<item historyLabel="failure_handler_proc.h" index="5">
+<position info="not_deleted" x="288" y="0"/>
+</item>
+<item historyLabel="proj_config.h" index="3">
+<position info="not_deleted" x="579" y="0"/>
+</item>
+<item historyLabel="failure_handler_proc.h" index="5">
+<position info="not_deleted" x="288" y="0"/>
+</item>
+<item historyLabel="failure_handler_proc.c" index="4">
 <position info="not_deleted" x="630" y="0"/>
 </item>
-<item historyLabel="solenoid_proc.h" index="9">
-<position info="not_deleted" x="107" y="11"/>
+<item historyLabel="failure_handler_proc.h" index="8">
+<position info="not_deleted" x="288" y="0"/>
 </item>
-<item historyLabel="solenoid_proc.h" index="9">
-<position info="not_deleted" x="114" y="0"/>
+<item historyLabel="proj_config.h" index="9">
+<position info="not_deleted" x="2063" y="34"/>
 </item>
-<item historyLabel="proj_config.h" index="4">
-<position info="not_deleted" x="374" y="0"/>
+<item historyLabel="test_config.h" index="10">
+<position info="not_deleted" x="240" y="0"/>
 </item>
-<item historyLabel="system.h" index="8">
-<position info="not_deleted" x="9833" y="26"/>
+<item historyLabel="testbench.c" index="11">
+<position info="not_deleted" x="505" y="0"/>
 </item>
-<item historyLabel="solenoid_proc.c" index="6">
-<position info="not_deleted" x="93" y="0"/>
+<item historyLabel="failure_handler_proc.c" index="4">
+<position info="not_deleted" x="487" y="0"/>
 </item>
-<item historyLabel="util.c" index="10">
-<position info="not_deleted" x="998" y="0"/>
+<item historyLabel="proj_config.h" index="9">
+<position info="not_deleted" x="1679" y="22"/>
 </item>
-<item historyLabel="util.h" index="11">
-<position info="not_deleted" x="336" y="0"/>
+<item historyLabel="proj_config.h" index="9">
+<position info="not_deleted" x="477" y="0"/>
 </item>
-<item historyLabel="util.c" index="10">
-<position info="not_deleted" x="1199" y="0"/>
+<item historyLabel="test_config.h" index="10">
+<position info="not_deleted" x="240" y="0"/>
 </item>
-<item historyLabel="util.h" index="11">
-<position info="not_deleted" x="336" y="0"/>
+<item historyLabel="main.c" index="12">
+<position info="not_deleted" x="210" y="11"/>
 </item>
-<item historyLabel="util.c" index="10">
-<position info="not_deleted" x="257" y="27"/>
+<item historyLabel="test_config.h" index="10">
+<position info="not_deleted" x="788" y="0"/>
 </item>
-<item historyLabel="apps_motor_proc.c" index="2">
-<position info="not_deleted" x="4455" y="0"/>
+<item historyLabel="apps_motor_proc.c" index="13">
+<position info="not_deleted" x="2057" y="22"/>
 </item>
-<item historyLabel="apps_motor_proc.h" index="3">
-<position info="not_deleted" x="260" y="11"/>
+<item historyLabel="proj_config.h" index="9">
+<position info="not_deleted" x="471" y="0"/>
 </item>
-<item historyLabel="test_config.h" index="12">
-<position info="not_deleted" x="785" y="0"/>
+<item historyLabel="test_config.h" index="10">
+<position info="not_deleted" x="860" y="22"/>
 </item>
-<item historyLabel="proj_config.h" index="4">
-<position info="not_deleted" x="770" y="0"/>
+<item historyLabel="failure_handler_proc.c" index="4">
+<position info="not_deleted" x="487" y="0"/>
 </item>
-<item historyLabel="solenoid_proc.c" index="6">
-<position info="not_deleted" x="93" y="0"/>
+<item historyLabel="apps_motor_proc.c" index="13">
+<position info="not_deleted" x="2057" y="22"/>
 </item>
-<item historyLabel="failure_handler_proc.c" index="7">
-<position info="not_deleted" x="597" y="0"/>
+<item historyLabel="apps_motor_proc.c" index="13">
+<position/>
 </item>
-<item historyLabel="proj_config.h" index="4">
-<position info="not_deleted" x="746" y="18"/>
+<item historyLabel="apps_motor_proc.c" index="13">
+<position info="not_deleted" x="2044" y="0"/>
 </item>
-<item historyLabel="apps_motor_proc.h" index="3">
-<position info="not_deleted" x="790" y="0"/>
+<item historyLabel="failure_handler_proc.c" index="4">
+<position info="not_deleted" x="487" y="0"/>
 </item>
-<item historyLabel="util.h" index="11">
-<position info="not_deleted" x="336" y="0"/>
+<item historyLabel="main.c" index="12">
+<position info="not_deleted" x="210" y="11"/>
 </item>
-<item historyLabel="util.c" index="10">
-<position info="not_deleted" x="1030" y="6"/>
-</item>
-<item historyLabel="tps_proc.c" index="1">
-<position info="not_deleted" x="851" y="0"/>
-</item>
-<item historyLabel="apps_motor_proc.c" index="2">
-<position info="not_deleted" x="2464" y="0"/>
-</item>
-<item historyLabel="solenoid_proc.c" index="6">
-<position info="not_deleted" x="93" y="0"/>
-</item>
-<item historyLabel="apps_motor_proc.h" index="3">
-<position info="not_deleted" x="790" y="0"/>
-</item>
-<item historyLabel="apps_motor_proc.c" index="2">
-<position info="not_deleted" x="2190" y="0"/>
-</item>
-<item historyLabel="solenoid_proc.c" index="6">
-<position info="not_deleted" x="93" y="0"/>
-</item>
-<item historyLabel="ui_proc.c" index="5">
-<position info="not_deleted" x="749" y="25"/>
-</item>
-<item historyLabel="apps_motor_proc.c" index="2">
-<position info="not_deleted" x="277" y="0"/>
-</item>
-<item historyLabel="solenoid_proc.c" index="6">
-<position info="not_deleted" x="93" y="0"/>
-</item>
-<item historyLabel="apps_motor_proc.c" index="2">
-<position info="not_deleted" x="277" y="0"/>
-</item>
-<item historyLabel="apps_motor_proc.c" index="2">
+<item historyLabel="tps_proc.h" index="14">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="solenoid_proc.c" index="13">
-<position info="not_deleted" x="93" y="0"/>
-</item>
-<item historyLabel="tps_proc.c" index="14">
-<position info="not_deleted" x="851" y="0"/>
-</item>
-<item historyLabel="apps_motor_proc.c" index="2">
+<item historyLabel="tps_proc.c" index="15">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="system.h" index="15">
-<position info="not_deleted" x="9833" y="26"/>
+<item historyLabel="solenoid_proc.c" index="16">
+<position info="not_deleted" x="340" y="0"/>
 </item>
-<item historyLabel="includes.h" index="16">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="apps_motor_proc.c" index="17">
+<position info="not_deleted" x="2044" y="0"/>
 </item>
-<item historyLabel="apps_motor_proc.c" index="2">
-<position info="not_deleted" x="270" y="0"/>
+<item historyLabel="solenoid_proc.h" index="18">
+<position info="not_deleted" x="121" y="0"/>
 </item>
-<item historyLabel="system.h" index="17">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="solenoid_proc.c" index="16">
+<position info="not_deleted" x="2196" y="0"/>
 </item>
-<item historyLabel="system.h" index="17">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="main.c" index="12">
+<position info="not_deleted" x="1254" y="198"/>
 </item>
-<item historyLabel="solenoid_proc.c" index="18">
-<position info="not_deleted" x="93" y="0"/>
+<item historyLabel="solenoid_proc.c" index="16">
+<position info="not_deleted" x="2196" y="0"/>
 </item>
-<item historyLabel="system.h" index="17">
-<position info="not_deleted" x="9181" y="0"/>
+<item historyLabel="main.c" index="12">
+<position info="not_deleted" x="1254" y="198"/>
 </item>
-<item historyLabel="solenoid_proc.c" index="18">
-<position info="not_deleted" x="93" y="0"/>
+<item historyLabel="failure_handler_proc.c" index="19">
+<position info="not_deleted" x="487" y="0"/>
 </item>
-<item historyLabel="system.h" index="17">
-<position info="not_deleted" x="11920" y="44"/>
+<item historyLabel="apps_motor_proc.c" index="17">
+<position info="not_deleted" x="4066" y="0"/>
 </item>
-<item historyLabel="solenoid_proc.c" index="19">
-<position info="not_deleted" x="93" y="0"/>
+<item historyLabel="main.c" index="12">
+<position info="not_deleted" x="1254" y="198"/>
 </item>
-<item historyLabel="system.h" index="17">
-<position info="not_deleted" x="12079" y="0"/>
+<item historyLabel="apps_motor_proc.h" index="20">
+<position info="not_deleted" x="436" y="0"/>
 </item>
-<item active="true" historyLabel="solenoid_proc.c" index="19">
-<position info="not_deleted" x="93" y="0"/>
+<item historyLabel="apps_motor_proc.c" index="17">
+<position info="not_deleted" x="4066" y="0"/>
+</item>
+<item historyLabel="apps_motor_proc.h" index="20">
+<position info="not_deleted" x="627" y="0"/>
+</item>
+<item historyLabel="tps_proc.h" index="14">
+<position info="not_deleted" x="567" y="0"/>
+</item>
+<item historyLabel="solenoid_proc.h" index="18">
+<position info="not_deleted" x="121" y="0"/>
+</item>
+<item active="true" historyLabel="test_config.h" index="21">
+<position info="not_deleted" x="862" y="22"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -560,50 +557,50 @@
 </trimLayout>
 </window>
 <mruList>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="includes.h" tooltip="electronic_engine_control_bsp/HAL/inc/includes.h">
-<persistable path="/electronic_engine_control_bsp/HAL/inc/includes.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="testbench.c" tooltip="electronic_engine_control/tests/testbench.c">
+<persistable path="/electronic_engine_control/tests/testbench.c"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="system.h" tooltip="electronic_engine_control_bsp/system.h">
-<persistable path="/electronic_engine_control_bsp/system.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="electronic_engine_control/main.c">
-<persistable path="/electronic_engine_control/main.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="solenoid_proc.c" tooltip="electronic_engine_control/solenoid_proc.c">
-<persistable path="/electronic_engine_control/solenoid_proc.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="solenoid.h" tooltip="electronic_engine_control/solenoid.h">
-<persistable path="/electronic_engine_control/solenoid.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="solenoid.c" tooltip="electronic_engine_control/solenoid.c">
-<persistable path="/electronic_engine_control/solenoid.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="memwatch.h" tooltip="electronic_engine_control/tests/memwatch.h">
-<persistable path="/electronic_engine_control/tests/memwatch.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="memwatch.c" tooltip="electronic_engine_control/tests/memwatch.c">
-<persistable path="/electronic_engine_control/tests/memwatch.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="tps_proc.h" tooltip="electronic_engine_control/tps_proc.h">
+<persistable path="/electronic_engine_control/tps_proc.h"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="CuTest.h" tooltip="electronic_engine_control/tests/CuTest.h">
 <persistable path="/electronic_engine_control/tests/CuTest.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="fault_handler_proc.h" tooltip="electronic_engine_control/fault_handler_proc.h">
-<persistable path="/electronic_engine_control/fault_handler_proc.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="failure_handler_proc.h" tooltip="electronic_engine_control/failure_handler_proc.h">
+<persistable path="/electronic_engine_control/failure_handler_proc.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="fault_handler_proc.c" tooltip="electronic_engine_control/fault_handler_proc.c">
-<persistable path="/electronic_engine_control/fault_handler_proc.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="failure_handler_proc.c" tooltip="electronic_engine_control/failure_handler_proc.c">
+<persistable path="/electronic_engine_control/failure_handler_proc.c"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="ui_proc.h" tooltip="electronic_engine_control/ui_proc.h">
-<persistable path="/electronic_engine_control/ui_proc.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="apps_motor_proc.h" tooltip="electronic_engine_control/apps_motor_proc.h">
+<persistable path="/electronic_engine_control/apps_motor_proc.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="ui_proc.c" tooltip="electronic_engine_control/ui_proc.c">
-<persistable path="/electronic_engine_control/ui_proc.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="tps_proc.c" tooltip="electronic_engine_control/tps_proc.c">
+<persistable path="/electronic_engine_control/tps_proc.c"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="ucos_ii.h" tooltip="electronic_engine_control_bsp/UCOSII/inc/ucos_ii.h">
-<persistable path="/electronic_engine_control_bsp/UCOSII/inc/ucos_ii.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="test_config.h" tooltip="electronic_engine_control/test_config.h">
+<persistable path="/electronic_engine_control/test_config.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="tps_proc.h" tooltip="electronic_engine_control/tps_proc.h">
-<persistable path="/electronic_engine_control/tps_proc.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="proj_config.h" tooltip="electronic_engine_control/proj_config.h">
+<persistable path="/electronic_engine_control/proj_config.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="altera_avalon_timer.h" tooltip="electronic_engine_control_bsp/drivers/inc/altera_avalon_timer.h">
+<persistable path="/electronic_engine_control_bsp/drivers/inc/altera_avalon_timer.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="altera_avalon_timer_regs.h" tooltip="electronic_engine_control_bsp/drivers/inc/altera_avalon_timer_regs.h">
+<persistable path="/electronic_engine_control_bsp/drivers/inc/altera_avalon_timer_regs.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="alt_irq.h" tooltip="electronic_engine_control_bsp/HAL/inc/sys/alt_irq.h">
+<persistable path="/electronic_engine_control_bsp/HAL/inc/sys/alt_irq.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="alt_legacy_irq.h" tooltip="electronic_engine_control_bsp/HAL/inc/priv/alt_legacy_irq.h">
+<persistable path="/electronic_engine_control_bsp/HAL/inc/priv/alt_legacy_irq.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="alt_iic.c" tooltip="electronic_engine_control_bsp/HAL/src/alt_iic.c">
+<persistable path="/electronic_engine_control_bsp/HAL/src/alt_iic.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="alt_sys_init.c" tooltip="electronic_engine_control_bsp/alt_sys_init.c">
+<persistable path="/electronic_engine_control_bsp/alt_sys_init.c"/>
 </file>
 </mruList>
 </workbench>
