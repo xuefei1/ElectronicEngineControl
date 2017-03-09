@@ -9,6 +9,7 @@
 #define SOLENOID_PROC_H_
 
 #include "proj_config.h"
+#include "apps_motor_proc.h"
 
 #define SOLENOID_TASK_PRIORITY      		4
 
@@ -18,7 +19,7 @@
 #define SOLENOID_TASK_DELAY_SECONDS	  		0
 #define SOLENOID_TASK_DELAY_MILLISEC	 	10
 
-#define SOLENOID_Q_SIZE_BYTE				256
+#define SOLENOID_Q_SIZE_ELEMENTS			256
 
 #define BUTTON_INPUT_SHIFT_UP				1
 #define BUTTON_INPUT_SHIFT_DOWN				2

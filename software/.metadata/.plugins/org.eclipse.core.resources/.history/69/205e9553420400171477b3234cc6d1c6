@@ -1,0 +1,43 @@
+/*
+ * pwm_gen.c
+ *
+ *  Created on: Mar 8, 2017
+ *      Author: xuefei1
+ *
+ *  Status: C
+ */
+
+#include "pwm_gen.h"
+
+void set_period(INT16U period_us){
+
+}
+
+void set_duty_cycle(INT8U percent){
+
+}
+
+INT16U get_period(){
+
+}
+
+INT8U get_duty_cycle(){
+
+}
+
+static void update_pwm_params(INT16U period_us, INT8U percent, INT8U flags){
+
+}
+
+static INT16U update_period(INT8U flag, INT16U period_us){
+	static INT16U period = 0;
+
+}
+
+static INT8U update_duty_cycle(INT8U flag, INT8U percent){
+	static INT8U duty_cycle = 0;
+	if(flag == PWM_PARAM_SET){
+		duty_cycle = percent;
+	}
+	return duty_cycle;
+}

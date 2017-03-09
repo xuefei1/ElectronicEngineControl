@@ -1,7 +1,7 @@
 /*
  * apps_motor_proc.c
  *
- * Status: C
+ * Status: E
  *
  *  Created on: Feb 2, 2017
  *      Author: Fred
@@ -36,9 +36,9 @@ OS_EVENT *failure_msg_q;
 
 alt_up_de0_nano_adc_dev* adc;
 
-char expected_tps_reading_q_buf[EXPECTED_TPS_READING_Q_SIZE_BYTE];
+INT16U expected_tps_reading_q_buf[EXPECTED_TPS_READING_Q_SIZE_ELEMENTS];
 
-char motor_cmd_q_buf[MOTOR_CMD_Q_SIZE_BYTE];
+INT16U motor_cmd_q_buf[MOTOR_CMD_Q_SIZE_ELEMENTS];
 
 alt_u32 motor_pos_check_callback(void* context);
 
@@ -71,14 +71,14 @@ void apps_motor_task(void* pdata) {
 	static INT16U last_apps_2_reading = 0;
 
 	expected_tps_reading_q = OSQCreate((void*) expected_tps_reading_q_buf,
-			EXPECTED_TPS_READING_Q_SIZE_BYTE / sizeof(INT16U));
+			EXPECTED_TPS_READING_Q_SIZE_ELEMENTS);
 	if (expected_tps_reading_q == NULL) {
 		printf("failed to init q\n");
 		return;
 	}
 
 	motor_cmd_q = OSQCreate((void*) motor_cmd_q_buf,
-			MOTOR_CMD_Q_SIZE_BYTE / sizeof(INT16U));
+			MOTOR_CMD_Q_SIZE_ELEMENTS);
 	if (motor_cmd_q == NULL) {
 		printf("failed to init q\n");
 		return;
@@ -116,6 +116,11 @@ void apps_motor_task(void* pdata) {
 			OSSemPend(failure_resolved_flag, Q_TIMEOUT_WAIT_FOREVER, &err);
 		}
 #endif
+		//WSS checking
+
+		//Shift matching
+
+		//APPS checking
 		alt_up_de0_nano_adc_update(adc);
 		INT16U apps_1_reading = alt_up_de0_nano_adc_read(adc,
 				APPS_1_ADC_CHANNEL);

@@ -3,7 +3,7 @@
 <stringAttribute key="byteStreamDeviceCableName" value="USB-Blaster on localhost [2-1.6]"/>
 <stringAttribute key="byteStreamDeviceDeviceID" value="1"/>
 <stringAttribute key="byteStreamDeviceInstanceID" value="0"/>
-<stringAttribute key="com.altera.sbtgui.launch.REMOTE_PORT" value="52620"/>
+<stringAttribute key="com.altera.sbtgui.launch.REMOTE_PORT" value="57609"/>
 <booleanAttribute key="downloadProgram" value="true"/>
 <stringAttribute key="elfFile" value="/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf"/>
 <stringAttribute key="elfUserFile" value="/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf"/>

@@ -23,6 +23,10 @@ end entity pwm_generator;
 
 architecture pwm of pwm_generator is
 
+	signal curr_period 	: std_logic_vector(15 downto 0) := "0000000000000000"; 
+
+	signal curr_duty_count 	: std_logic_vector(15 downto 0) := "0000000000000000"; 
+
 	signal period_count 	: std_logic_vector(15 downto 0) := "0000000000000000"; 
 
 begin
@@ -31,18 +35,30 @@ begin
 	begin
 		if(reset = '1') then
 			period_count <= "0000000000000000"; 
+			curr_period <= "0000000000000000"; 
+			curr_duty_count <= "0000000000000000"; 
 		elsif(rising_edge(clock)) then
-			if(period_count < period) then
+
+			if(write_en_period = '1') then
+				curr_period <= period;
+			end if;
+
+			if(write_en_duty = '1') then
+				curr_duty_count <= duty_count;
+			end if;
+
+			if(period_count < curr_period) then
 				period_count <= period_count + 1;
 			else
 				period_count <= "0000000000000000"; 
 			end if;
+
 		end if;
 	end process;
 	
-	gen: process(period_count, duty_count)
+	gen: process(period_count)
 	begin
-		if(period_count < duty_count) then
+		if(period_count < curr_duty_count) then
 			pwm_out <= '1';
 		else
 			pwm_out <= '0';

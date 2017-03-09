@@ -16,6 +16,17 @@
 
 #include "tests/CuTest.h"
 
+/* Set this flag to enable running all unit tests*/
+#define RUN_UNIT_TESTS
+
+/* Set this flag to get average time required for each task*/
+//#define RUN_AVG_TASK_TIME_TEST
+#define AVG_ITERATION 						1000
+
+/* Set this flag to run pwm gen test, this test must be run from within a task*/
+//#define RUN_PWM_GEN_SWEEP_TEST
+#define RUN_PWM_GEN_SINGLE_TEST
+
 #define CHANGED_BY_THRESHOLD_INPUT_1		100
 #define CHANGED_BY_THRESHOLD_INPUT_2		500
 #define CHANGED_BY_THRESHOLD_INPUT_3		150
@@ -26,14 +37,26 @@
 #define DIFFER_BY_PERCENT_INPUT_4			15
 #define DIFFER_BY_PERCENT_INPUT_5			25
 
-/* Set this flag to enable running all unit tests*/
-#define RUN_UNIT_TESTS
+#define PWM_TEST_PERIOD_START				1000
+#define PWM_TEST_PERIOD_END					60000
+#define PWM_TEST_PERIOD_INCREMENT			1000
+#define PWM_TEST_DUTY_START					0
+#define PWM_TEST_DUTY_END					100
+#define PWM_TEST_DUTY_INCREMENT				10
+#define PWM_TEST_SLEEP_DURATION_US			5000000
 
-/* Set this flag to get average time required for each task*/
-//#define RUN_AVG_TASK_TIME_TEST
-//#define AVG_ITERATION 						1000
+#if defined(RUN_PWM_GEN_SWEEP_TEST)
+	#define TEST_PWM_SWEEP()	Test_pwm_gen_sweep()
+	#define TEST_PWM(period, duty)
+#elif defined(RUN_PWM_GEN_SINGLE_TEST)
+	#define TEST_PWM_SWEEP()
+	#define TEST_PWM(period, duty)	Test_pwm_gen(period, duty)
+#else
+	#define TEST_PWM_SWEEP()
+	#define TEST_PWM(period, duty)
+#endif
 
-int run_all_tests();
+int run_all_unit_tests();
 CuSuite* CuGetSuite();
 void Test_int16U_differ_by_percent(CuTest* tc);
 void Test_int16U_changed_by_threshold(CuTest* tc);
@@ -46,4 +69,7 @@ void Test_get_expected_tps_reading(CuTest* tc);
 void Test_set_new_motor_position(CuTest* tc);
 static void X_CompareAsserts(CuTest* tc, const char *file, int line, const char* message, const char* expected, CuString *actual);
 
+void Test_pwm_gen_sweep();
+
+void Test_pwm_gen(INT16U period, INT8U duty);
 #endif /* TEST_CONFIG_H_ */

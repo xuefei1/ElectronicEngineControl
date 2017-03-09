@@ -22,6 +22,8 @@
 /* ADC channel assignments */
 #define APPS_1_ADC_CHANNEL			  		0
 #define APPS_2_ADC_CHANNEL			  		1
+#define WSS_1_ADC_CHANNEL			  		4
+#define WSS_2_ADC_CHANNEL			  		5
 
 /* Task Delays*/
 #define APPS_MOTOR_TASK_DELAY_HOURS	  		0
@@ -35,11 +37,13 @@
 /* detect if APPS reading differs by a percentage */
 #define APPS_VALUE_MISMATCH(input1, input2)		int16U_differ_by_percent(input1, input2, APPS_VALUE_DIFFERENCE_PERCENT, PERCENT_DIFF_ACCURACY)
 
-#define EXPECTED_TPS_READING_Q_SIZE_BYTE	256
+#define EXPECTED_TPS_READING_Q_SIZE_ELEMENTS		256
 
-#define MOTOR_CMD_Q_SIZE_BYTE				64
+#define MOTOR_CMD_Q_SIZE_ELEMENTS					64
 
-#define NEW_TPS_READING_SEM_COUNT			0
+#define NEW_TPS_READING_SEM_COUNT					0
+
+#define OS_SEM_RPM_NOT_REACHED						0
 
 void apps_motor_task(void* pdata);
 

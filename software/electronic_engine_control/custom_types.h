@@ -9,7 +9,6 @@
 #define CUSTOM_TYPES_H_
 
 #include "includes.h"
-#include "system.h"
 
 typedef INT8U BOOL;
 #define TRUE  0xFF

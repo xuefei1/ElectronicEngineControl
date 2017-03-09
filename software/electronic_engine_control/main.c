@@ -1,7 +1,7 @@
 /*
  * main.c
  *
- * Status: C
+ * Status: T
  *
  *  Created on: Feb 2, 2017
  *      Author: Fred
@@ -29,7 +29,7 @@ alt_up_de0_nano_adc_dev* adc;
 /* Used to store failure code */
 OS_EVENT *failure_code_q;
 
-INT8U failure_code_buf[FAILURE_HANDLER_Q_SIZE_BYTE];
+INT8U failure_code_buf[FAILURE_HANDLER_Q_SIZE_ELEMENTS];
 
 /* The main function */
 int main(void) {
@@ -37,16 +37,21 @@ int main(void) {
 	adc = alt_up_de0_nano_adc_open_dev(DE0_NANO_ADC_0_NAME);
 
 	failure_code_q = OSQCreate((void*) failure_code_buf,
-			FAILURE_HANDLER_Q_SIZE_BYTE / sizeof(INT16U));
+			FAILURE_HANDLER_Q_SIZE_ELEMENTS);
 
 #if defined(RUN_UNIT_TESTS)
-	printf("%d tests failed\n", run_all_tests());
+	printf("%d tests failed\n", run_all_unit_tests());
 #endif
 	printf("alive\n");
-//	OSTaskCreateExt(failure_handler_task, NULL,
-//			(void *) &failure_handler_task_stk[TASK_STACKSIZE - 1],
-//			FAILURE_HANDLER_TASK_PRIORITY, FAILURE_HANDLER_TASK_PRIORITY,
-//			failure_handler_task_stk, TASK_STACKSIZE, NULL, 0);
+
+	throttle_data_init();
+
+	TEST_PWM(50000, 100);
+
+	OSTaskCreateExt(failure_handler_task, NULL,
+			(void *) &failure_handler_task_stk[TASK_STACKSIZE - 1],
+			FAILURE_HANDLER_TASK_PRIORITY, FAILURE_HANDLER_TASK_PRIORITY,
+			failure_handler_task_stk, TASK_STACKSIZE, NULL, 0);
 
 	OSTaskCreateExt(apps_motor_task, NULL,
 			(void *) &apps_motor_task_stk[TASK_STACKSIZE - 1],

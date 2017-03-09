@@ -6,3 +6,5 @@
 1488926058456	Delete resource 'electronic_engine_control/ui_proc.c'
 1488926061960	Delete resource 'electronic_engine_control/ui_proc.h'
 1488929159181	Delete resource 'electronic_engine_control/tests/avg_task_time_test.c'
+1488994013281	Delete resource 'electronic_engine_control/custom_types.h'
+1488994151928	Delete resource 'electronic_engine_control/pwm_gen'

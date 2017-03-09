@@ -1,7 +1,7 @@
 /*
  * util.c
  *
- * Status: C
+ * Status: T
  *
  *  Created on: Feb 3, 2017
  *      Author: Fred
@@ -54,5 +54,17 @@ BOOL int16U_differ_by_percent(INT16U src1, INT16U src2, INT16U percent,
 		return FALSE;
 	else
 		return TRUE;
+}
+
+static INT8U get_gear_ratio(INT8U gear){
+	if(gear == 1){
+		return GEAR_RATIO_1ST;
+	}else if(gear == 2){
+		return GEAR_RATIO_2ND;
+	}else if(gear == 4){
+		return GEAR_RATIO_4TH;
+	}else{
+		return GEAR_RATIO_3RD;
+	}
 }
 

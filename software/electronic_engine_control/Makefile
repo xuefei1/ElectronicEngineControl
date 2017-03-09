@@ -150,6 +150,8 @@ C_SRCS += tests/testbench.c
 C_SRCS += tps_proc.c
 C_SRCS += util.c
 C_SRCS += main.c
+C_SRCS += pwm_gen.c
+C_SRCS += throttle_data.c
 CXX_SRCS :=
 ASM_SRCS :=
 
