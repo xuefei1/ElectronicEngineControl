@@ -44,6 +44,12 @@
 /* Actual TPS reading can be different from expect position by at most this much */
 #define TPS_VALUE_TOLERANCE					50
 
+/* Detects slip if difference is beyond this percent */
+#define WSS_VALUE_DIFFERENCE_PERCENT		30
+
+/* In slip control, throttle will be set to this value */
+#define SLIP_CONTROL_THROTTLE_POS			20
+
 /* 1000000 will given an accuracy of 6 significant figures when calculating percent diff of two integers */
 #define PERCENT_DIFF_ACCURACY 				1000000
 
@@ -64,6 +70,8 @@
 
 #define MAX_SCALED_RPM						60
 
+#define RPM_SCALE_FACTOR					100
+
 #define NUM_GEARS							4
 
 #define GEAR_RATIO_1ST						18
@@ -79,6 +87,8 @@
 
 /* Since we use semaphores as flags, a return value of 0 from OSSemAccpet() indicating current error is unresolved*/
 #define SEM_FLAG_ERROR_UNRESOLVED			0
+
+#define FAILURE_INDICATION_LED				0xFF
 
 /* Possible failure codes */
 #define ERR_UNKNOWN							0

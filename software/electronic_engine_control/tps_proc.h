@@ -37,4 +37,8 @@
 
 void tps_task(void* pdata);
 
+OS_EVENT* get_tps_task_external_failure_flag();
+
+OS_EVENT* get_tps_task_failure_resolved_flag();
+
 #endif /* TPS_PROC_H_ */

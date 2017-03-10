@@ -56,7 +56,7 @@ BOOL int16U_differ_by_percent(INT16U src1, INT16U src2, INT16U percent,
 		return TRUE;
 }
 
-static INT8U get_gear_ratio(INT8U gear){
+INT8U get_gear_ratio(INT8U gear){
 	if(gear == 1){
 		return GEAR_RATIO_1ST;
 	}else if(gear == 2){

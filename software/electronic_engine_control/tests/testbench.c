@@ -27,45 +27,45 @@
 /*-------------------------------------------------------------------------*
  * apps_motor_proc Test
  *-------------------------------------------------------------------------*/
-void Test_get_expected_motor_pos_q(CuTest* tc){
-	OS_EVENT* Curr_expected_tps_reading_q = get_expected_motor_pos_q();
-	CuAssertTrue(tc,Curr_expected_tps_reading_q != NULL);
-	CuAssertIntEquals(tc, Curr_expected_tps_reading_q->OSEventType, expected_tps_reading_q->OSEventType);
-	CuAssertIntEquals(tc, Curr_expected_tps_reading_q->OSEventGrp, expected_tps_reading_q->OSEventGrp);
-	CuAssertIntEquals(tc, Curr_expected_tps_reading_q->OSEventCnt, expected_tps_reading_q->OSEventCnt);
-	CuAssertStrEquals(tc, Curr_expected_tps_reading_q->OSEventName, expected_tps_reading_q->OSEventName);
-}
-void Test_get_new_tps_reading_sem(CuTest* tc){
-	OS_EVENT* Curr_get_new_tps_reading_sem = get_new_tps_reading_sem();
-	CuAssertTrue(tc,Curr_get_new_tps_reading_sem != NULL);
-	CuAssertIntEquals(tc, Curr_get_new_tps_reading_sem->OSEventType, new_tps_reading_available->OSEventType);
-	CuAssertIntEquals(tc, Curr_get_new_tps_reading_sem->OSEventGrp, new_tps_reading_available->OSEventGrp);
-	CuAssertIntEquals(tc, Curr_get_new_tps_reading_sem->OSEventCnt, new_tps_reading_available->OSEventCnt);
-	CuAssertStrEquals(tc, Curr_get_new_tps_reading_sem->OSEventName, new_tps_reading_available->OSEventName);
-}
-void Test_get_motor_cmd_q(CuTest* tc){
-	OS_EVENT* motor_cmd_q = get_motor_cmd_q();
-	CuAssertTrue(tc,motor_cmd_q != NULL);
-	CuAssertIntEquals(tc, motor_cmd_q->OSEventType, motor_cmd_q->OSEventType);
-	CuAssertIntEquals(tc, motor_cmd_q->OSEventGrp, motor_cmd_q->OSEventGrp);
-	CuAssertIntEquals(tc, motor_cmd_q->OSEventCnt, motor_cmd_q->OSEventCnt);
-	CuAssertStrEquals(tc, motor_cmd_q->OSEventName, motor_cmd_q->OSEventName);
-}
-void Test_get_expected_tps_reading(CuTest* tc);
-void Test_set_new_motor_position(CuTest* tc);
-
-
-/*-------------------------------------------------------------------------*
- * failure_handler_proc Test
- *-------------------------------------------------------------------------*/
-void Test_get_failure_msg_q(CuTest* tc){
-	OS_EVENT* Curr_get_failure_msg_q = get_failure_msg_q();
-	CuAssertTrue(tc,Curr_get_failure_msg_q != NULL);
-	CuAssertIntEquals(tc, Curr_get_failure_msg_q->OSEventType, failure_code_q->OSEventType);
-	CuAssertIntEquals(tc, Curr_get_failure_msg_q->OSEventGrp, failure_code_q->OSEventGrp);
-	CuAssertIntEquals(tc, Curr_get_failure_msg_q->OSEventCnt, failure_code_q->OSEventCnt);
-	CuAssertStrEquals(tc, Curr_get_failure_msg_q->OSEventName, failure_code_q->OSEventName);
-}
+//void Test_get_expected_motor_pos_q(CuTest* tc){
+//	OS_EVENT* Curr_expected_tps_reading_q = get_expected_motor_pos_q();
+//	CuAssertTrue(tc,Curr_expected_tps_reading_q != NULL);
+//	CuAssertIntEquals(tc, Curr_expected_tps_reading_q->OSEventType, expected_tps_reading_q->OSEventType);
+//	CuAssertIntEquals(tc, Curr_expected_tps_reading_q->OSEventGrp, expected_tps_reading_q->OSEventGrp);
+//	CuAssertIntEquals(tc, Curr_expected_tps_reading_q->OSEventCnt, expected_tps_reading_q->OSEventCnt);
+//	CuAssertStrEquals(tc, Curr_expected_tps_reading_q->OSEventName, expected_tps_reading_q->OSEventName);
+//}
+//void Test_get_new_tps_reading_sem(CuTest* tc){
+//	OS_EVENT* Curr_get_new_tps_reading_sem = get_new_tps_reading_sem();
+//	CuAssertTrue(tc,Curr_get_new_tps_reading_sem != NULL);
+//	CuAssertIntEquals(tc, Curr_get_new_tps_reading_sem->OSEventType, new_tps_reading_available->OSEventType);
+//	CuAssertIntEquals(tc, Curr_get_new_tps_reading_sem->OSEventGrp, new_tps_reading_available->OSEventGrp);
+//	CuAssertIntEquals(tc, Curr_get_new_tps_reading_sem->OSEventCnt, new_tps_reading_available->OSEventCnt);
+//	CuAssertStrEquals(tc, Curr_get_new_tps_reading_sem->OSEventName, new_tps_reading_available->OSEventName);
+//}
+//void Test_get_motor_cmd_q(CuTest* tc){
+//	OS_EVENT* motor_cmd_q = get_motor_cmd_q();
+//	CuAssertTrue(tc,motor_cmd_q != NULL);
+//	CuAssertIntEquals(tc, motor_cmd_q->OSEventType, motor_cmd_q->OSEventType);
+//	CuAssertIntEquals(tc, motor_cmd_q->OSEventGrp, motor_cmd_q->OSEventGrp);
+//	CuAssertIntEquals(tc, motor_cmd_q->OSEventCnt, motor_cmd_q->OSEventCnt);
+//	CuAssertStrEquals(tc, motor_cmd_q->OSEventName, motor_cmd_q->OSEventName);
+//}
+//void Test_get_expected_tps_reading(CuTest* tc);
+//void Test_set_new_motor_position(CuTest* tc);
+//
+//
+///*-------------------------------------------------------------------------*
+// * failure_handler_proc Test
+// *-------------------------------------------------------------------------*/
+//void Test_get_failure_msg_q(CuTest* tc){
+//	OS_EVENT* Curr_get_failure_msg_q = get_failure_msg_q();
+//	CuAssertTrue(tc,Curr_get_failure_msg_q != NULL);
+//	CuAssertIntEquals(tc, Curr_get_failure_msg_q->OSEventType, failure_code_q->OSEventType);
+//	CuAssertIntEquals(tc, Curr_get_failure_msg_q->OSEventGrp, failure_code_q->OSEventGrp);
+//	CuAssertIntEquals(tc, Curr_get_failure_msg_q->OSEventCnt, failure_code_q->OSEventCnt);
+//	CuAssertStrEquals(tc, Curr_get_failure_msg_q->OSEventName, failure_code_q->OSEventName);
+//}
 
 ///*-------------------------------------------------------------------------*
 // * util Test
@@ -95,13 +95,12 @@ void Test_int16U_differ_by_percent(CuTest* tc){
 CuSuite* CuGetSuite(void){
 	CuSuite* suite = CuSuiteNew();
 
-	SUITE_ADD_TEST(suite, Test_get_expected_motor_pos_q);
-	SUITE_ADD_TEST(suite, Test_get_new_tps_reading_sem);
-	SUITE_ADD_TEST(suite, Test_get_motor_cmd_q);
-	SUITE_ADD_TEST(suite, Test_get_expected_tps_reading);
-	SUITE_ADD_TEST(suite, Test_set_new_motor_position);
-	SUITE_ADD_TEST(suite, Test_get_failure_msg_q);
-	SUITE_ADD_TEST(suite, Test_get_lcd_msg_q);
+//	SUITE_ADD_TEST(suite, Test_get_expected_motor_pos_q);
+//	SUITE_ADD_TEST(suite, Test_get_new_tps_reading_sem);
+//	SUITE_ADD_TEST(suite, Test_get_motor_cmd_q);
+//	SUITE_ADD_TEST(suite, Test_get_expected_tps_reading);
+//	SUITE_ADD_TEST(suite, Test_set_new_motor_position);
+//	SUITE_ADD_TEST(suite, Test_get_failure_msg_q);
 	SUITE_ADD_TEST(suite, Test_int16U_changed_by_threshold);
 	SUITE_ADD_TEST(suite, Test_int16U_differ_by_percent);
 

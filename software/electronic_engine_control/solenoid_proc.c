@@ -143,6 +143,8 @@ void shift_down(){
 alt_u32 solenoid_callback(void* context){
 	//clear control
 	if(alarm != NULL) free(alarm);
+	*(INT8U*) SOLENOID_CONTROLLER_0_AVALON_SLAVE_WRITE_BASE = DONE_SHIFTING;
+	signal_exit_shift_matching();
 	return 0;
 }
 
@@ -151,4 +153,16 @@ static void isr_btn (void* context, alt_u32 id)
 	INT8U *shift = (INT8U*) SOLENOID_CONTROLLER_0_AVALON_SLAVE_READ_BASE;
 	OSQPost(btn_input_q, (void*) shift);
 
+}
+
+OS_EVENT* get_solenoid_task_external_failure_flag(){
+	return external_failure_flag;
+}
+
+OS_EVENT* get_solenoid_task_failure_resolved_flag(){
+	return failure_resolved_flag;
+}
+
+void signal_shift_start(){
+	OSSemPost(rpm_reached_flag);
 }

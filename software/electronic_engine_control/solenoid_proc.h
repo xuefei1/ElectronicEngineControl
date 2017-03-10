@@ -21,9 +21,16 @@
 
 #define SOLENOID_Q_SIZE_ELEMENTS			256
 
+#define DONE_SHIFTING						0
 #define BUTTON_INPUT_SHIFT_UP				1
 #define BUTTON_INPUT_SHIFT_DOWN				2
 
 void solenoid_task(void* pdata);
+
+void signal_shift_start();
+
+OS_EVENT* get_solenoid_task_external_failure_flag();
+
+OS_EVENT* get_solenoid_task_failure_resolved_flag();
 
 #endif /* SOLENOID_PROC_H_ */

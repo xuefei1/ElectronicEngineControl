@@ -150,3 +150,11 @@ alt_u32 tps_value_comp_callback(void* context){
 	}
 	return 0;
 }
+
+OS_EVENT* get_tps_task_failure_resolved_flag(){
+	return failure_resolved_flag;
+}
+
+OS_EVENT* get_tps_task_external_failure_flag(){
+	return external_failure_flag;
+}

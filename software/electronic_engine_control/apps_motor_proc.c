@@ -34,6 +34,8 @@ OS_EVENT *failure_resolved_flag;
 
 OS_EVENT *failure_msg_q;
 
+OS_EVENT *exit_shift_matching_flag;
+
 alt_up_de0_nano_adc_dev* adc;
 
 INT16U expected_tps_reading_q_buf[EXPECTED_TPS_READING_Q_SIZE_ELEMENTS];
@@ -43,6 +45,8 @@ INT16U motor_cmd_q_buf[MOTOR_CMD_Q_SIZE_ELEMENTS];
 alt_u32 motor_pos_check_callback(void* context);
 
 INT16U *expected_tps_value;
+
+BOOL set_new_motor_position_by_tps(INT16U *tps_reading);
 
 /*  Task routine for pedal position sensor and motor */
 void apps_motor_task(void* pdata) {
@@ -66,6 +70,14 @@ void apps_motor_task(void* pdata) {
 	external_failure_flag = OSSemCreate(SEM_FLAG_NO_ERROR);
 
 	failure_resolved_flag = OSSemCreate(SEM_FLAG_ERROR_UNRESOLVED);
+
+	exit_shift_matching_flag = OSSemCreate(SHIFT_MATCHING_IN_PROGRESS);
+
+	BOOL shift_matching_mode = FALSE;
+
+	INT16U target_RPM = 0;
+
+	BOOL slip_control_mode = FALSE;
 
 	static INT16U last_apps_1_reading = 0;
 	static INT16U last_apps_2_reading = 0;
@@ -117,8 +129,39 @@ void apps_motor_task(void* pdata) {
 		}
 #endif
 		//WSS checking
+		alt_up_de0_nano_adc_update(adc);
+		if(WSS_VALUE_MISMATCH(WSS_1_ADC_CHANNEL, WSS_2_ADC_CHANNEL)){
+			if(slip_control_mode == TRUE){
+				continue;
+			}
+			slip_control_mode = TRUE;
+			set_new_motor_position_by_tps(SLIP_CONTROL_THROTTLE_POS);
+			continue;
+		}else{
+			slip_control_mode = FALSE;
+		}
 
 		//Shift matching
+		alt_up_de0_nano_adc_update(adc);
+		if(shift_matching_mode == TRUE){
+			if(alt_up_de0_nano_adc_read(adc, RPM_ADC_CHANNEL) == target_RPM){
+				signal_shift_start();
+				OSSemPend(exit_shift_matching_flag, Q_TIMEOUT_WAIT_FOREVER, &err);
+			}else{
+				continue;
+			}
+		}
+		void* ptr = NULL;
+		if(shift_matching_mode == FALSE){
+			ptr = OSQAccept(motor_cmd_q, &err);
+		}
+		if(ptr != NULL && shift_matching_mode == FALSE){
+			shift_matching_mode = TRUE;
+			INT16U new_gear = *(INT16U*) ptr;
+			INT16U new_throttle_pos = get_throttle_pos_for_RPM_gear(new_gear, alt_up_de0_nano_adc_read(adc, RPM_ADC_CHANNEL) / RPM_SCALE_FACTOR);
+			set_new_motor_position_by_tps(&new_throttle_pos);
+			continue;
+		}
 
 		//APPS checking
 		alt_up_de0_nano_adc_update(adc);
@@ -151,7 +194,7 @@ void apps_motor_task(void* pdata) {
 					apps_check_timer_activated = FALSE;
 				}
 				INT16U final_apps_value = (apps_1_reading + apps_2_reading) / 2;
-				set_new_motor_position(final_apps_value);
+				set_new_motor_position(&final_apps_value);
 				//activate expected position checker
 				if(expected_pos_check_timer_activated == TRUE){
 					alt_alarm_stop(expected_pos_alarm);
@@ -201,8 +244,15 @@ INT16U get_expected_tps_reading(INT16U apps_reading) {
 }
 
 /* Set motor to reach a new position, return true if no error occurred */
-BOOL set_new_motor_position(INT16U apps_reading) {
+BOOL set_new_motor_position(INT16U *apps_reading) {
 	OSQPost(expected_tps_reading_q, (void*) apps_reading);
+	return TRUE;
+}
+
+BOOL set_new_motor_position_by_tps(INT16U *tps_reading) {
+
+	OSQPost(expected_tps_reading_q, (void*) tps_reading);
+
 	return TRUE;
 }
 
@@ -228,4 +278,16 @@ alt_u32 motor_pos_check_callback(void* context){
 
 OS_EVENT* get_motor_failure_flag(){
 	return motor_failure_flag;
+}
+
+OS_EVENT* get_apps_motor_task_external_failure_flag(){
+	return external_failure_flag;
+}
+
+OS_EVENT* get_apps_motor_task_failure_resolved_flag(){
+	return failure_resolved_flag;
+}
+
+void signal_exit_shift_matching(){
+	OSSemPost(exit_shift_matching_flag);
 }

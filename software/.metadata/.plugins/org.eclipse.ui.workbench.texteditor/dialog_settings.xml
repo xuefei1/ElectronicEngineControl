@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item value="311" key="DIALOG_WIDTH"/>
+		<item value="315" key="DIALOG_WIDTH"/>
 		<item value="132" key="DIALOG_Y_ORIGIN"/>
 		<item value="737" key="DIALOG_X_ORIGIN"/>
-		<item value="479" key="DIALOG_HEIGHT"/>
+		<item value="481" key="DIALOG_HEIGHT"/>
 		<item value="1|Cantarell|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
@@ -13,13 +13,16 @@
 		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wholeword"/>
-		<item value="shift_up" key="selection"/>
+		<item value="" key="selection"/>
 		<list key="findhistory">
+			<item value="get_gear"/>
+			<item value="WSS"/>
+			<item value="SCALE"/>
+			<item value="set_new_motor_position"/>
 			<item value="shift_up"/>
 			<item value="new_tps_reading_available"/>
 			<item value="apps_motor_task_stk"/>
 			<item value="va_list"/>
-			<item value="v"/>
 		</list>
 		<list key="replacehistory">
 		</list>

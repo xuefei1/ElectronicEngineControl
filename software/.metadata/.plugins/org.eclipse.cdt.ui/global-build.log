@@ -4,146 +4,6 @@
 make all 
 Info: Building ../electronic_engine_control_bsp/
 make --no-print-directory -C ../electronic_engine_control_bsp/
-[BSP build complete]
-Info: Compiling apps_motor_proc.c to obj/default/apps_motor_proc.o
-nios2-elf-gcc -xc -MP -MMD -c -I../electronic_engine_control_bsp//UCOSII/inc -I../electronic_engine_control_bsp//HAL/inc -I../electronic_engine_control_bsp/ -I../electronic_engine_control_bsp//drivers/inc  -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall   -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx  -o obj/default/apps_motor_proc.o apps_motor_proc.c
-apps_motor_proc.c: In function 'apps_motor_task':
-Info: Compiling main.c to obj/default/main.o
-apps_motor_proc.c:133: warning: large integer implicitly truncated to unsigned type
-nios2-elf-gcc -xc -MP -MMD -c -I../electronic_engine_control_bsp//UCOSII/inc -I../electronic_engine_control_bsp//HAL/inc -I../electronic_engine_control_bsp/ -I../electronic_engine_control_bsp//drivers/inc  -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall   -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx  -o obj/default/main.o main.c
-apps_motor_proc.c: In function 'set_new_motor_position':
-Info: Compiling solenoid_proc.c to obj/default/solenoid_proc.o
-apps_motor_proc.c:200: warning: cast to pointer from integer of different size
-nios2-elf-gcc -xc -MP -MMD -c -I../electronic_engine_control_bsp//UCOSII/inc -I../electronic_engine_control_bsp//HAL/inc -I../electronic_engine_control_bsp/ -I../electronic_engine_control_bsp//drivers/inc  -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall   -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx  -o obj/default/solenoid_proc.o solenoid_proc.c
-apps_motor_proc.c: In function 'apps_value_comp_callback':
-apps_motor_proc.c:211: warning: large integer implicitly truncated to unsigned type
-apps_motor_proc.c: At top level:
-test_config.h:70: warning: 'X_CompareAsserts' declared 'static' but never defined
-test_config.h:70: warning: 'X_CompareAsserts' declared 'static' but never defined
-solenoid_proc.c:14: error: 'SOLENOID_Q_SIZE_ELEMENT' undeclared here (not in a function)
-make: *** [obj/default/solenoid_proc.o] Error 1
-
-**** Build Finished ****
-
-**** Build of configuration Nios II for project electronic_engine_control ****
-
-make all 
-Info: Building ../electronic_engine_control_bsp/
-make --no-print-directory -C ../electronic_engine_control_bsp/
-[BSP build complete]
-Info: Compiling apps_motor_proc.c to obj/default/apps_motor_proc.o
-nios2-elf-gcc -xc -MP -MMD -c -I../electronic_engine_control_bsp//UCOSII/inc -I../electronic_engine_control_bsp//HAL/inc -I../electronic_engine_control_bsp/ -I../electronic_engine_control_bsp//drivers/inc  -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall   -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx  -o obj/default/apps_motor_proc.o apps_motor_proc.c
-apps_motor_proc.c: In function 'apps_motor_task':
-Info: Compiling main.c to obj/default/main.o
-apps_motor_proc.c:133: warning: large integer implicitly truncated to unsigned type
-nios2-elf-gcc -xc -MP -MMD -c -I../electronic_engine_control_bsp//UCOSII/inc -I../electronic_engine_control_bsp//HAL/inc -I../electronic_engine_control_bsp/ -I../electronic_engine_control_bsp//drivers/inc  -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall   -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx  -o obj/default/main.o main.c
-apps_motor_proc.c: In function 'set_new_motor_position':
-Info: Compiling solenoid_proc.c to obj/default/solenoid_proc.o
-apps_motor_proc.c:200: warning: cast to pointer from integer of different size
-nios2-elf-gcc -xc -MP -MMD -c -I../electronic_engine_control_bsp//UCOSII/inc -I../electronic_engine_control_bsp//HAL/inc -I../electronic_engine_control_bsp/ -I../electronic_engine_control_bsp//drivers/inc  -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall   -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx  -o obj/default/solenoid_proc.o solenoid_proc.c
-apps_motor_proc.c: In function 'apps_value_comp_callback':
-apps_motor_proc.c:211: warning: large integer implicitly truncated to unsigned type
-apps_motor_proc.c: At top level:
-test_config.h:70: warning: 'X_CompareAsserts' declared 'static' but never defined
-test_config.h:70: warning: 'X_CompareAsserts' declared 'static' but never defined
-solenoid_proc.c:14: error: 'SOLENOID_Q_SIZE_ELEMENT' undeclared here (not in a function)
-make: *** [obj/default/solenoid_proc.o] Error 1
-
-**** Build Finished ****
-
-**** Build of configuration Nios II for project electronic_engine_control ****
-
-make all 
-Info: Building ../electronic_engine_control_bsp/
-make --no-print-directory -C ../electronic_engine_control_bsp/
-[BSP build complete]
-Info: Compiling solenoid_proc.c to obj/default/solenoid_proc.o
-nios2-elf-gcc -xc -MP -MMD -c -I../electronic_engine_control_bsp//UCOSII/inc -I../electronic_engine_control_bsp//HAL/inc -I../electronic_engine_control_bsp/ -I../electronic_engine_control_bsp//drivers/inc  -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall   -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx  -o obj/default/solenoid_proc.o solenoid_proc.c
-test_config.h:70: warning: 'X_CompareAsserts' declared 'static' but never defined
-Info: Compiling tps_proc.c to obj/default/tps_proc.o
-tps_proc.c: In function 'tps_task':
-nios2-elf-gcc -xc -MP -MMD -c -I../electronic_engine_control_bsp//UCOSII/inc -I../electronic_engine_control_bsp//HAL/inc -I../electronic_engine_control_bsp/ -I../electronic_engine_control_bsp//drivers/inc  -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall   -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx  -o obj/default/tps_proc.o tps_proc.c
-tps_proc.c:105: warning: large integer implicitly truncated to unsigned type
-Info: Linking electronic_engine_control.elf
-tps_proc.c: In function 'tps_value_comp_callback':
-nios2-elf-g++  -T'../electronic_engine_control_bsp//linker.x' -msys-crt0='../electronic_engine_control_bsp//obj/HAL/src/crt0.o' -msys-lib=ucosii_bsp -L../electronic_engine_control_bsp/   -Wl,-Map=electronic_engine_control.map   -O0 -g -Wall   -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx  -o electronic_engine_control.elf obj/default/apps_motor_proc.o obj/default/failure_handler_proc.o obj/default/main.o obj/default/pwm_gen.o obj/default/solenoid_proc.o obj/default/tests/CuTest.o obj/default/tests/testbench.o obj/default/tps_proc.o obj/default/util.o -lm 
-tps_proc.c:142: warning: large integer implicitly truncated to unsigned type
-nios2-elf-insert electronic_engine_control.elf --thread_model ucosii --cpu_name nios2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x4009080 --timestamp 1488924393 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name niosII_system --quartus_project_dir "/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control" --jdi /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control_bsp/../../electronic_engine_control.jdi --sopcinfo /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control_bsp/../../niosII_system.sopcinfo
-tps_proc.c: At top level:
-test_config.h:70: warning: 'X_CompareAsserts' declared 'static' but never defined
-Info: (electronic_engine_control.elf) 157 KBytes program size (code + initialized data).
-Info:                                 32603 KBytes free for stack + heap.
-Info: Creating electronic_engine_control.objdump
-nios2-elf-objdump --disassemble --syms --all-header --source electronic_engine_control.elf >electronic_engine_control.objdump
-[electronic_engine_control build complete]
-
-**** Build Finished ****
-
-**** Build of configuration Nios II for project electronic_engine_control ****
-
-make all 
-Info: Building ../electronic_engine_control_bsp/
-make --no-print-directory -C ../electronic_engine_control_bsp/
-[BSP build complete]
-Info: Compiling solenoid_proc.c to obj/default/solenoid_proc.o
-nios2-elf-gcc -xc -MP -MMD -c -I../electronic_engine_control_bsp//UCOSII/inc -I../electronic_engine_control_bsp//HAL/inc -I../electronic_engine_control_bsp/ -I../electronic_engine_control_bsp//drivers/inc  -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall   -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx  -o obj/default/solenoid_proc.o solenoid_proc.c
-test_config.h:70: warning: 'X_CompareAsserts' declared 'static' but never defined
-Info: Linking electronic_engine_control.elf
-nios2-elf-g++  -T'../electronic_engine_control_bsp//linker.x' -msys-crt0='../electronic_engine_control_bsp//obj/HAL/src/crt0.o' -msys-lib=ucosii_bsp -L../electronic_engine_control_bsp/   -Wl,-Map=electronic_engine_control.map   -O0 -g -Wall   -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx  -o electronic_engine_control.elf obj/default/apps_motor_proc.o obj/default/failure_handler_proc.o obj/default/main.o obj/default/pwm_gen.o obj/default/solenoid_proc.o obj/default/tests/CuTest.o obj/default/tests/testbench.o obj/default/tps_proc.o obj/default/util.o -lm 
-nios2-elf-insert electronic_engine_control.elf --thread_model ucosii --cpu_name nios2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x4009080 --timestamp 1488924393 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name niosII_system --quartus_project_dir "/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control" --jdi /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control_bsp/../../electronic_engine_control.jdi --sopcinfo /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control_bsp/../../niosII_system.sopcinfo
-Info: (electronic_engine_control.elf) 157 KBytes program size (code + initialized data).
-Info:                                 32603 KBytes free for stack + heap.
-Info: Creating electronic_engine_control.objdump
-nios2-elf-objdump --disassemble --syms --all-header --source electronic_engine_control.elf >electronic_engine_control.objdump
-[electronic_engine_control build complete]
-
-**** Build Finished ****
-
-**** Build of configuration Nios II for project electronic_engine_control ****
-
-make all 
-Info: Building ../electronic_engine_control_bsp/
-make --no-print-directory -C ../electronic_engine_control_bsp/
-[BSP build complete]
-Info: Compiling solenoid_proc.c to obj/default/solenoid_proc.o
-nios2-elf-gcc -xc -MP -MMD -c -I../electronic_engine_control_bsp//UCOSII/inc -I../electronic_engine_control_bsp//HAL/inc -I../electronic_engine_control_bsp/ -I../electronic_engine_control_bsp//drivers/inc  -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall   -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx  -o obj/default/solenoid_proc.o solenoid_proc.c
-test_config.h:70: warning: 'X_CompareAsserts' declared 'static' but never defined
-Info: Linking electronic_engine_control.elf
-nios2-elf-g++  -T'../electronic_engine_control_bsp//linker.x' -msys-crt0='../electronic_engine_control_bsp//obj/HAL/src/crt0.o' -msys-lib=ucosii_bsp -L../electronic_engine_control_bsp/   -Wl,-Map=electronic_engine_control.map   -O0 -g -Wall   -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx  -o electronic_engine_control.elf obj/default/apps_motor_proc.o obj/default/failure_handler_proc.o obj/default/main.o obj/default/pwm_gen.o obj/default/solenoid_proc.o obj/default/tests/CuTest.o obj/default/tests/testbench.o obj/default/tps_proc.o obj/default/util.o -lm 
-nios2-elf-insert electronic_engine_control.elf --thread_model ucosii --cpu_name nios2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x4009080 --timestamp 1488924393 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name niosII_system --quartus_project_dir "/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control" --jdi /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control_bsp/../../electronic_engine_control.jdi --sopcinfo /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control_bsp/../../niosII_system.sopcinfo
-Info: (electronic_engine_control.elf) 157 KBytes program size (code + initialized data).
-Info:                                 32603 KBytes free for stack + heap.
-Info: Creating electronic_engine_control.objdump
-nios2-elf-objdump --disassemble --syms --all-header --source electronic_engine_control.elf >electronic_engine_control.objdump
-[electronic_engine_control build complete]
-
-**** Build Finished ****
-
-**** Build of configuration Nios II for project electronic_engine_control ****
-
-make all 
-Info: Building ../electronic_engine_control_bsp/
-make --no-print-directory -C ../electronic_engine_control_bsp/
-[BSP build complete]
-Info: Compiling solenoid_proc.c to obj/default/solenoid_proc.o
-nios2-elf-gcc -xc -MP -MMD -c -I../electronic_engine_control_bsp//UCOSII/inc -I../electronic_engine_control_bsp//HAL/inc -I../electronic_engine_control_bsp/ -I../electronic_engine_control_bsp//drivers/inc  -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall   -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx  -o obj/default/solenoid_proc.o solenoid_proc.c
-test_config.h:70: warning: 'X_CompareAsserts' declared 'static' but never defined
-Info: Linking electronic_engine_control.elf
-nios2-elf-g++  -T'../electronic_engine_control_bsp//linker.x' -msys-crt0='../electronic_engine_control_bsp//obj/HAL/src/crt0.o' -msys-lib=ucosii_bsp -L../electronic_engine_control_bsp/   -Wl,-Map=electronic_engine_control.map   -O0 -g -Wall   -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx  -o electronic_engine_control.elf obj/default/apps_motor_proc.o obj/default/failure_handler_proc.o obj/default/main.o obj/default/pwm_gen.o obj/default/solenoid_proc.o obj/default/tests/CuTest.o obj/default/tests/testbench.o obj/default/tps_proc.o obj/default/util.o -lm 
-nios2-elf-insert electronic_engine_control.elf --thread_model ucosii --cpu_name nios2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x4009080 --timestamp 1488924393 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name niosII_system --quartus_project_dir "/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control" --jdi /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control_bsp/../../electronic_engine_control.jdi --sopcinfo /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control_bsp/../../niosII_system.sopcinfo
-Info: (electronic_engine_control.elf) 157 KBytes program size (code + initialized data).
-Info:                                 32603 KBytes free for stack + heap.
-Info: Creating electronic_engine_control.objdump
-nios2-elf-objdump --disassemble --syms --all-header --source electronic_engine_control.elf >electronic_engine_control.objdump
-[electronic_engine_control build complete]
-
-**** Build Finished ****
-
-**** Build of configuration Nios II for project electronic_engine_control ****
-
-make all 
-Info: Building ../electronic_engine_control_bsp/
-make --no-print-directory -C ../electronic_engine_control_bsp/
 Compiling alt_alarm_start.c...
 nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/HAL/src/alt_alarm_start.o HAL/src/alt_alarm_start.c
 Compiling alt_busy_sleep.c...
@@ -240,11 +100,17 @@ Compiling alt_usleep.c...
 nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/HAL/src/alt_usleep.o HAL/src/alt_usleep.c
 Compiling alt_write.c...
 nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/HAL/src/alt_write.o HAL/src/alt_write.c
+drivers/src/altera_avalon_timer_ts.c: In function 'alt_timestamp':
 Compiling altera_nios2_qsys_irq.c...
+drivers/src/altera_avalon_timer_ts.c:108: warning: large integer implicitly truncated to unsigned type
 nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/HAL/src/altera_nios2_qsys_irq.o HAL/src/altera_nios2_qsys_irq.c
+drivers/src/altera_avalon_timer_ts.c:122: warning: left shift count >= width of type
 Compiling crt0.S...
+drivers/src/altera_avalon_timer_ts.c:122: warning: left shift count >= width of type
 nios2-elf-gcc -MP -MMD -c   -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx    -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__  -Wa,-gdwarf2  -o obj/HAL/src/crt0.o HAL/src/crt0.S
+drivers/src/altera_up_avalon_rs232.c: In function 'alt_up_rs232_read_fd':
 Compiling os_cpu_a.S...
+drivers/src/altera_up_avalon_rs232.c:110: warning: pointer targets in passing argument 2 of 'alt_up_rs232_read_data' differ in signedness
 nios2-elf-gcc -MP -MMD -c   -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx    -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__  -Wa,-gdwarf2  -o obj/HAL/src/os_cpu_a.o HAL/src/os_cpu_a.S
 Compiling os_cpu_c.c...
 nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/HAL/src/os_cpu_c.o HAL/src/os_cpu_c.c
@@ -258,284 +124,59 @@ Compiling os_dbg.c...
 nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/UCOSII/src/os_dbg.o UCOSII/src/os_dbg.c
 Compiling os_flag.c...
 nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/UCOSII/src/os_flag.o UCOSII/src/os_flag.c
+apps_motor_proc.c: In function 'apps_motor_task':
 Compiling os_mbox.c...
+apps_motor_proc.c:133: warning: large integer implicitly truncated to unsigned type
 nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/UCOSII/src/os_mbox.o UCOSII/src/os_mbox.c
+apps_motor_proc.c:138: warning: passing argument 1 of 'set_new_motor_position_by_tps' makes pointer from integer without a cast
 Compiling os_mem.c...
+apps_motor_proc.c:181: warning: large integer implicitly truncated to unsigned type
 nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/UCOSII/src/os_mem.o UCOSII/src/os_mem.c
+apps_motor_proc.c: In function 'apps_value_comp_callback':
 Compiling os_mutex.c...
+apps_motor_proc.c:266: warning: large integer implicitly truncated to unsigned type
 nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/UCOSII/src/os_mutex.o UCOSII/src/os_mutex.c
+apps_motor_proc.c: At top level:
 Compiling os_q.c...
+test_config.h:70: warning: 'X_CompareAsserts' declared 'static' but never defined
 nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/UCOSII/src/os_q.o UCOSII/src/os_q.c
+failure_handler_proc.c: In function 'failure_handler_task':
 Compiling os_sem.c...
+failure_handler_proc.c:27: warning: cast from pointer to integer of different size
+failure_handler_proc.c: At top level:
 nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/UCOSII/src/os_sem.o UCOSII/src/os_sem.c
+test_config.h:70: warning: 'X_CompareAsserts' declared 'static' but never defined
 Compiling os_task.c...
+test_config.h:70: warning: 'X_CompareAsserts' declared 'static' but never defined
 nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/UCOSII/src/os_task.o UCOSII/src/os_task.c
+test_config.h:70: warning: 'X_CompareAsserts' declared 'static' but never defined
 Compiling os_time.c...
+tests/testbench.c: In function 'Test_int16U_differ_by_percent':
 nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/UCOSII/src/os_time.o UCOSII/src/os_time.c
+tests/testbench.c:83: warning: large integer implicitly truncated to unsigned type
 Compiling os_tmr.c...
+tests/testbench.c:85: warning: large integer implicitly truncated to unsigned type
 nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/UCOSII/src/os_tmr.o UCOSII/src/os_tmr.c
+tests/testbench.c:87: warning: large integer implicitly truncated to unsigned type
 Compiling alt_sys_init.c...
+tests/testbench.c: At top level:
 nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/alt_sys_init.o alt_sys_init.c
 Compiling altera_avalon_jtag_uart_fd.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/drivers/src/altera_avalon_jtag_uart_fd.o drivers/src/altera_avalon_jtag_uart_fd.c
-Compiling altera_avalon_jtag_uart_init.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/drivers/src/altera_avalon_jtag_uart_init.o drivers/src/altera_avalon_jtag_uart_init.c
-Compiling altera_avalon_jtag_uart_ioctl.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/drivers/src/altera_avalon_jtag_uart_ioctl.o drivers/src/altera_avalon_jtag_uart_ioctl.c
-Compiling altera_avalon_jtag_uart_read.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/drivers/src/altera_avalon_jtag_uart_read.o drivers/src/altera_avalon_jtag_uart_read.c
-Compiling altera_avalon_jtag_uart_write.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/drivers/src/altera_avalon_jtag_uart_write.o drivers/src/altera_avalon_jtag_uart_write.c
-Compiling altera_avalon_sysid_qsys.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/drivers/src/altera_avalon_sysid_qsys.o drivers/src/altera_avalon_sysid_qsys.c
-Compiling altera_avalon_timer_sc.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/drivers/src/altera_avalon_timer_sc.o drivers/src/altera_avalon_timer_sc.c
-drivers/src/altera_avalon_timer_ts.c: In function 'alt_timestamp':
-Compiling altera_avalon_timer_ts.c...
-drivers/src/altera_avalon_timer_ts.c:108: warning: large integer implicitly truncated to unsigned type
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/drivers/src/altera_avalon_timer_ts.o drivers/src/altera_avalon_timer_ts.c
-drivers/src/altera_avalon_timer_ts.c:122: warning: left shift count >= width of type
-Compiling altera_avalon_timer_vars.c...
-drivers/src/altera_avalon_timer_ts.c:122: warning: left shift count >= width of type
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/drivers/src/altera_avalon_timer_vars.o drivers/src/altera_avalon_timer_vars.c
-Compiling altera_up_avalon_de0_nano_adc.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/drivers/src/altera_up_avalon_de0_nano_adc.o drivers/src/altera_up_avalon_de0_nano_adc.c
-drivers/src/altera_up_avalon_rs232.c: In function 'alt_up_rs232_read_fd':
-Compiling altera_up_avalon_rs232.c...
-drivers/src/altera_up_avalon_rs232.c:110: warning: pointer targets in passing argument 2 of 'alt_up_rs232_read_data' differ in signedness
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/drivers/src/altera_up_avalon_rs232.o drivers/src/altera_up_avalon_rs232.c
-Creating libucosii_bsp.a...
-rm -f -f libucosii_bsp.a
-nios2-elf-ar -src libucosii_bsp.a obj/HAL/src/alt_alarm_start.o obj/HAL/src/alt_busy_sleep.o obj/HAL/src/alt_close.o obj/HAL/src/alt_dcache_flush.o obj/HAL/src/alt_dcache_flush_all.o obj/HAL/src/alt_dcache_flush_no_writeback.o obj/HAL/src/alt_dev.o obj/HAL/src/alt_dev_llist_insert.o obj/HAL/src/alt_dma_rxchan_open.o obj/HAL/src/alt_dma_txchan_open.o obj/HAL/src/alt_do_ctors.o obj/HAL/src/alt_do_dtors.o obj/HAL/src/alt_environ.o obj/HAL/src/alt_errno.o obj/HAL/src/alt_exception_entry.o obj/HAL/src/alt_exception_muldiv.o obj/HAL/src/alt_exception_trap.o obj/HAL/src/alt_execve.o obj/HAL/src/alt_exit.o obj/HAL/src/alt_fcntl.o obj/HAL/src/alt_fd_lock.o obj/HAL/src/alt_fd_unlock.o obj/HAL/src/alt_find_dev.o obj/HAL/src/alt_find_file.o obj/HAL/src/alt_flash_dev.o obj/HAL/src/alt_fork.o obj/HAL/src/alt_fs_reg.o obj/HAL/src/alt_fstat.o obj/HAL/src/alt_get_fd.o obj/HAL/src/alt_getchar.o obj/HAL/src/alt_getpid.o obj/HAL/src/alt_gettod.o obj/HAL/src/alt_gmon.o obj/HAL/src/alt_icache_flush.o obj/HAL/src/alt_icache_flush_all.o obj/HAL/src/alt_iic.o obj/HAL/src/alt_iic_isr_register.o obj/HAL/src/alt_instruction_exception_entry.o obj/HAL/src/alt_instruction_exception_register.o obj/HAL/src/alt_io_redirect.o obj/HAL/src/alt_ioctl.o obj/HAL/src/alt_irq_entry.o obj/HAL/src/alt_irq_handler.o obj/HAL/src/alt_irq_register.o obj/HAL/src/alt_irq_vars.o obj/HAL/src/alt_isatty.o obj/HAL/src/alt_kill.o obj/HAL/src/alt_link.o obj/HAL/src/alt_load.o obj/HAL/src/alt_log_macro.o obj/HAL/src/alt_log_printf.o obj/HAL/src/alt_lseek.o obj/HAL/src/alt_main.o obj/HAL/src/alt_mcount.o obj/HAL/src/alt_open.o obj/HAL/src/alt_printf.o obj/HAL/src/alt_putchar.o obj/HAL/src/alt_putstr.o obj/HAL/src/alt_read.o obj/HAL/src/alt_release_fd.o obj/HAL/src/alt_remap_cached.o obj/HAL/src/alt_remap_uncached.o obj/HAL/src/alt_rename.o obj/HAL/src/alt_sbrk.o obj/HAL/src/alt_settod.o obj/HAL/src/alt_software_exception.o obj/HAL/src/alt_stat.o obj/HAL/src/alt_tick.o obj/HAL/src/alt_times.o obj/HAL/src/alt_uncached_free.o obj/HAL/src/alt_uncached_malloc.o obj/HAL/src/alt_unlink.o obj/HAL/src/alt_usleep.o obj/HAL/src/alt_wait.o obj/HAL/src/alt_write.o obj/HAL/src/altera_nios2_qsys_irq.o obj/HAL/src/crt0.o obj/HAL/src/os_cpu_a.o obj/HAL/src/os_cpu_c.o obj/UCOSII/src/alt_env_lock.o obj/UCOSII/src/alt_malloc_lock.o obj/UCOSII/src/os_core.o obj/UCOSII/src/os_dbg.o obj/UCOSII/src/os_flag.o obj/UCOSII/src/os_mbox.o obj/UCOSII/src/os_mem.o obj/UCOSII/src/os_mutex.o obj/UCOSII/src/os_q.o obj/UCOSII/src/os_sem.o obj/UCOSII/src/os_task.o obj/UCOSII/src/os_time.o obj/UCOSII/src/os_tmr.o obj/alt_sys_init.o obj/drivers/src/altera_avalon_jtag_uart_fd.o obj/drivers/src/altera_avalon_jtag_uart_init.o obj/drivers/src/altera_avalon_jtag_uart_ioctl.o obj/drivers/src/altera_avalon_jtag_uart_read.o obj/drivers/src/altera_avalon_jtag_uart_write.o obj/drivers/src/altera_avalon_sysid_qsys.o obj/drivers/src/altera_avalon_timer_sc.o obj/drivers/src/altera_avalon_timer_ts.o obj/drivers/src/altera_avalon_timer_vars.o obj/drivers/src/altera_up_avalon_de0_nano_adc.o obj/drivers/src/altera_up_avalon_rs232.o
-[BSP build complete]
-Info: Compiling apps_motor_proc.c to obj/default/apps_motor_proc.o
-nios2-elf-gcc -xc -MP -MMD -c -I../electronic_engine_control_bsp//UCOSII/inc -I../electronic_engine_control_bsp//HAL/inc -I../electronic_engine_control_bsp/ -I../electronic_engine_control_bsp//drivers/inc  -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall   -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx  -o obj/default/apps_motor_proc.o apps_motor_proc.c
-apps_motor_proc.c: In function 'apps_motor_task':
-Info: Compiling failure_handler_proc.c to obj/default/failure_handler_proc.o
-apps_motor_proc.c:133: warning: large integer implicitly truncated to unsigned type
-nios2-elf-gcc -xc -MP -MMD -c -I../electronic_engine_control_bsp//UCOSII/inc -I../electronic_engine_control_bsp//HAL/inc -I../electronic_engine_control_bsp/ -I../electronic_engine_control_bsp//drivers/inc  -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall   -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx  -o obj/default/failure_handler_proc.o failure_handler_proc.c
-apps_motor_proc.c: In function 'set_new_motor_position':
-Info: Compiling main.c to obj/default/main.o
-apps_motor_proc.c:200: warning: cast to pointer from integer of different size
-nios2-elf-gcc -xc -MP -MMD -c -I../electronic_engine_control_bsp//UCOSII/inc -I../electronic_engine_control_bsp//HAL/inc -I../electronic_engine_control_bsp/ -I../electronic_engine_control_bsp//drivers/inc  -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall   -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx  -o obj/default/main.o main.c
-apps_motor_proc.c: In function 'apps_value_comp_callback':
-Info: Compiling pwm_gen.c to obj/default/pwm_gen.o
-apps_motor_proc.c:211: warning: large integer implicitly truncated to unsigned type
-nios2-elf-gcc -xc -MP -MMD -c -I../electronic_engine_control_bsp//UCOSII/inc -I../electronic_engine_control_bsp//HAL/inc -I../electronic_engine_control_bsp/ -I../electronic_engine_control_bsp//drivers/inc  -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall   -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx  -o obj/default/pwm_gen.o pwm_gen.c
-apps_motor_proc.c: At top level:
-Info: Compiling solenoid_proc.c to obj/default/solenoid_proc.o
-test_config.h:70: warning: 'X_CompareAsserts' declared 'static' but never defined
-nios2-elf-gcc -xc -MP -MMD -c -I../electronic_engine_control_bsp//UCOSII/inc -I../electronic_engine_control_bsp//HAL/inc -I../electronic_engine_control_bsp/ -I../electronic_engine_control_bsp//drivers/inc  -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall   -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx  -o obj/default/solenoid_proc.o solenoid_proc.c
-failure_handler_proc.c: In function 'failure_handler_task':
-Info: Compiling tests/testbench.c to obj/default/tests/testbench.o
-failure_handler_proc.c:23: warning: cast from pointer to integer of different size
-nios2-elf-gcc -xc -MP -MMD -c -I../electronic_engine_control_bsp//UCOSII/inc -I../electronic_engine_control_bsp//HAL/inc -I../electronic_engine_control_bsp/ -I../electronic_engine_control_bsp//drivers/inc  -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall   -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx  -o obj/default/tests/testbench.o tests/testbench.c
-failure_handler_proc.c: At top level:
-Info: Compiling tps_proc.c to obj/default/tps_proc.o
-test_config.h:70: warning: 'X_CompareAsserts' declared 'static' but never defined
-nios2-elf-gcc -xc -MP -MMD -c -I../electronic_engine_control_bsp//UCOSII/inc -I../electronic_engine_control_bsp//HAL/inc -I../electronic_engine_control_bsp/ -I../electronic_engine_control_bsp//drivers/inc  -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall   -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx  -o obj/default/tps_proc.o tps_proc.c
-test_config.h:70: warning: 'X_CompareAsserts' declared 'static' but never defined
-Info: Compiling util.c to obj/default/util.o
-test_config.h:70: warning: 'X_CompareAsserts' declared 'static' but never defined
-nios2-elf-gcc -xc -MP -MMD -c -I../electronic_engine_control_bsp//UCOSII/inc -I../electronic_engine_control_bsp//HAL/inc -I../electronic_engine_control_bsp/ -I../electronic_engine_control_bsp//drivers/inc  -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall   -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx  -o obj/default/util.o util.c
-tests/testbench.c: In function 'Test_int16U_differ_by_percent':
-Info: Linking electronic_engine_control.elf
-tests/testbench.c:83: warning: large integer implicitly truncated to unsigned type
-nios2-elf-g++  -T'../electronic_engine_control_bsp//linker.x' -msys-crt0='../electronic_engine_control_bsp//obj/HAL/src/crt0.o' -msys-lib=ucosii_bsp -L../electronic_engine_control_bsp/   -Wl,-Map=electronic_engine_control.map   -O0 -g -Wall   -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx  -o electronic_engine_control.elf obj/default/apps_motor_proc.o obj/default/failure_handler_proc.o obj/default/main.o obj/default/pwm_gen.o obj/default/solenoid_proc.o obj/default/tests/CuTest.o obj/default/tests/testbench.o obj/default/tps_proc.o obj/default/util.o -lm 
-tests/testbench.c:85: warning: large integer implicitly truncated to unsigned type
-tests/testbench.c:87: warning: large integer implicitly truncated to unsigned type
-tests/testbench.c: At top level:
 tests/../test_config.h:70: warning: 'X_CompareAsserts' declared 'static' but never defined
+nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/drivers/src/altera_avalon_jtag_uart_fd.o drivers/src/altera_avalon_jtag_uart_fd.c
+test_config.h:70: warning: 'X_CompareAsserts' declared 'static' but never defined
+Compiling altera_avalon_jtag_uart_init.c...
 tps_proc.c: In function 'tps_task':
+nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/drivers/src/altera_avalon_jtag_uart_init.o drivers/src/altera_avalon_jtag_uart_init.c
 tps_proc.c:105: warning: large integer implicitly truncated to unsigned type
 tps_proc.c: In function 'tps_value_comp_callback':
 tps_proc.c:142: warning: large integer implicitly truncated to unsigned type
-tps_proc.c: At top level:
-test_config.h:70: warning: 'X_CompareAsserts' declared 'static' but never defined
-test_config.h:70: warning: 'X_CompareAsserts' declared 'static' but never defined
-nios2-elf-insert electronic_engine_control.elf --thread_model ucosii --cpu_name nios2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x4009080 --timestamp 1489012261 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name niosII_system --quartus_project_dir "/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control" --jdi /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control_bsp/../../electronic_engine_control.jdi --sopcinfo /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control_bsp/../../niosII_system.sopcinfo
-Info: (electronic_engine_control.elf) 157 KBytes program size (code + initialized data).
-Info:                                 32603 KBytes free for stack + heap.
-Info: Creating electronic_engine_control.objdump
-nios2-elf-objdump --disassemble --syms --all-header --source electronic_engine_control.elf >electronic_engine_control.objdump
-[electronic_engine_control build complete]
-
-**** Build Finished ****
-
-**** Build of configuration Nios II for project electronic_engine_control ****
-
-make all 
-Info: Building ../electronic_engine_control_bsp/
-make --no-print-directory -C ../electronic_engine_control_bsp/
-[BSP build complete]
-[electronic_engine_control build complete]
-
-**** Build Finished ****
-
-**** Build of configuration Nios II for project electronic_engine_control ****
-
-make all 
-Info: Building ../electronic_engine_control_bsp/
-make --no-print-directory -C ../electronic_engine_control_bsp/
-[BSP build complete]
-Info: Compiling solenoid_proc.c to obj/default/solenoid_proc.o
-nios2-elf-gcc -xc -MP -MMD -c -I../electronic_engine_control_bsp//UCOSII/inc -I../electronic_engine_control_bsp//HAL/inc -I../electronic_engine_control_bsp/ -I../electronic_engine_control_bsp//drivers/inc  -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall   -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx  -o obj/default/solenoid_proc.o solenoid_proc.c
-test_config.h:70: warning: 'X_CompareAsserts' declared 'static' but never defined
-Info: Linking electronic_engine_control.elf
-nios2-elf-g++  -T'../electronic_engine_control_bsp//linker.x' -msys-crt0='../electronic_engine_control_bsp//obj/HAL/src/crt0.o' -msys-lib=ucosii_bsp -L../electronic_engine_control_bsp/   -Wl,-Map=electronic_engine_control.map   -O0 -g -Wall   -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx  -o electronic_engine_control.elf obj/default/apps_motor_proc.o obj/default/failure_handler_proc.o obj/default/main.o obj/default/pwm_gen.o obj/default/solenoid_proc.o obj/default/tests/CuTest.o obj/default/tests/testbench.o obj/default/tps_proc.o obj/default/util.o -lm 
-nios2-elf-insert electronic_engine_control.elf --thread_model ucosii --cpu_name nios2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x4009080 --timestamp 1489012261 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name niosII_system --quartus_project_dir "/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control" --jdi /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control_bsp/../../electronic_engine_control.jdi --sopcinfo /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control_bsp/../../niosII_system.sopcinfo
-Info: (electronic_engine_control.elf) 157 KBytes program size (code + initialized data).
-Info:                                 32603 KBytes free for stack + heap.
-Info: Creating electronic_engine_control.objdump
-nios2-elf-objdump --disassemble --syms --all-header --source electronic_engine_control.elf >electronic_engine_control.objdump
-[electronic_engine_control build complete]
-
-**** Build Finished ****
-
-**** Build of configuration Nios II for project electronic_engine_control ****
-
-make all 
-Info: Building ../electronic_engine_control_bsp/
-make --no-print-directory -C ../electronic_engine_control_bsp/
-Compiling alt_alarm_start.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/HAL/src/alt_alarm_start.o HAL/src/alt_alarm_start.c
-Compiling alt_busy_sleep.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/HAL/src/alt_busy_sleep.o HAL/src/alt_busy_sleep.c
-Compiling alt_close.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/HAL/src/alt_close.o HAL/src/alt_close.c
-Compiling alt_dcache_flush.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/HAL/src/alt_dcache_flush.o HAL/src/alt_dcache_flush.c
-Compiling alt_dcache_flush_all.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/HAL/src/alt_dcache_flush_all.o HAL/src/alt_dcache_flush_all.c
-Compiling alt_dcache_flush_no_writeback.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/HAL/src/alt_dcache_flush_no_writeback.o HAL/src/alt_dcache_flush_no_writeback.c
-Compiling alt_dev.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/HAL/src/alt_dev.o HAL/src/alt_dev.c
-Compiling alt_dma_rxchan_open.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/HAL/src/alt_dma_rxchan_open.o HAL/src/alt_dma_rxchan_open.c
-Compiling alt_dma_txchan_open.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/HAL/src/alt_dma_txchan_open.o HAL/src/alt_dma_txchan_open.c
-Compiling alt_exception_entry.S...
-nios2-elf-gcc -MP -MMD -c   -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx    -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__  -Wa,-gdwarf2  -o obj/HAL/src/alt_exception_entry.o HAL/src/alt_exception_entry.S
-Compiling alt_exit.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/HAL/src/alt_exit.o HAL/src/alt_exit.c
-Compiling alt_fcntl.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/HAL/src/alt_fcntl.o HAL/src/alt_fcntl.c
-Compiling alt_fd_lock.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/HAL/src/alt_fd_lock.o HAL/src/alt_fd_lock.c
-Compiling alt_fd_unlock.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/HAL/src/alt_fd_unlock.o HAL/src/alt_fd_unlock.c
-Compiling alt_find_dev.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/HAL/src/alt_find_dev.o HAL/src/alt_find_dev.c
-Compiling alt_find_file.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/HAL/src/alt_find_file.o HAL/src/alt_find_file.c
-Compiling alt_flash_dev.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/HAL/src/alt_flash_dev.o HAL/src/alt_flash_dev.c
-Compiling alt_fs_reg.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/HAL/src/alt_fs_reg.o HAL/src/alt_fs_reg.c
-Compiling alt_fstat.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/HAL/src/alt_fstat.o HAL/src/alt_fstat.c
-Compiling alt_get_fd.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/HAL/src/alt_get_fd.o HAL/src/alt_get_fd.c
-Compiling alt_gmon.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/HAL/src/alt_gmon.o HAL/src/alt_gmon.c
-Compiling alt_icache_flush.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/HAL/src/alt_icache_flush.o HAL/src/alt_icache_flush.c
-Compiling alt_icache_flush_all.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/HAL/src/alt_icache_flush_all.o HAL/src/alt_icache_flush_all.c
-Compiling alt_iic.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/HAL/src/alt_iic.o HAL/src/alt_iic.c
-Compiling alt_iic_isr_register.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/HAL/src/alt_iic_isr_register.o HAL/src/alt_iic_isr_register.c
-Compiling alt_instruction_exception_entry.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/HAL/src/alt_instruction_exception_entry.o HAL/src/alt_instruction_exception_entry.c
-Compiling alt_instruction_exception_register.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/HAL/src/alt_instruction_exception_register.o HAL/src/alt_instruction_exception_register.c
-Compiling alt_io_redirect.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/HAL/src/alt_io_redirect.o HAL/src/alt_io_redirect.c
-Compiling alt_ioctl.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/HAL/src/alt_ioctl.o HAL/src/alt_ioctl.c
-Compiling alt_irq_entry.S...
-nios2-elf-gcc -MP -MMD -c   -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx    -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__  -Wa,-gdwarf2  -o obj/HAL/src/alt_irq_entry.o HAL/src/alt_irq_entry.S
-Compiling alt_irq_handler.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/HAL/src/alt_irq_handler.o HAL/src/alt_irq_handler.c
-Compiling alt_irq_register.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/HAL/src/alt_irq_register.o HAL/src/alt_irq_register.c
-Compiling alt_irq_vars.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/HAL/src/alt_irq_vars.o HAL/src/alt_irq_vars.c
-Compiling alt_isatty.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/HAL/src/alt_isatty.o HAL/src/alt_isatty.c
-Compiling alt_lseek.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/HAL/src/alt_lseek.o HAL/src/alt_lseek.c
-Compiling alt_main.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/HAL/src/alt_main.o HAL/src/alt_main.c
-Compiling alt_open.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/HAL/src/alt_open.o HAL/src/alt_open.c
-Compiling alt_read.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/HAL/src/alt_read.o HAL/src/alt_read.c
-Compiling alt_release_fd.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/HAL/src/alt_release_fd.o HAL/src/alt_release_fd.c
-Compiling alt_remap_cached.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/HAL/src/alt_remap_cached.o HAL/src/alt_remap_cached.c
-Compiling alt_remap_uncached.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/HAL/src/alt_remap_uncached.o HAL/src/alt_remap_uncached.c
-Compiling alt_sbrk.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/HAL/src/alt_sbrk.o HAL/src/alt_sbrk.c
-Compiling alt_software_exception.S...
-nios2-elf-gcc -MP -MMD -c   -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx    -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__  -Wa,-gdwarf2  -o obj/HAL/src/alt_software_exception.o HAL/src/alt_software_exception.S
-Compiling alt_tick.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/HAL/src/alt_tick.o HAL/src/alt_tick.c
-Compiling alt_uncached_free.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/HAL/src/alt_uncached_free.o HAL/src/alt_uncached_free.c
-Compiling alt_uncached_malloc.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/HAL/src/alt_uncached_malloc.o HAL/src/alt_uncached_malloc.c
-Compiling alt_usleep.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/HAL/src/alt_usleep.o HAL/src/alt_usleep.c
-Compiling alt_write.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/HAL/src/alt_write.o HAL/src/alt_write.c
-Compiling altera_nios2_qsys_irq.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/HAL/src/altera_nios2_qsys_irq.o HAL/src/altera_nios2_qsys_irq.c
-Compiling crt0.S...
-nios2-elf-gcc -MP -MMD -c   -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx    -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__  -Wa,-gdwarf2  -o obj/HAL/src/crt0.o HAL/src/crt0.S
-Compiling os_cpu_a.S...
-nios2-elf-gcc -MP -MMD -c   -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx    -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__  -Wa,-gdwarf2  -o obj/HAL/src/os_cpu_a.o HAL/src/os_cpu_a.S
-Compiling os_cpu_c.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/HAL/src/os_cpu_c.o HAL/src/os_cpu_c.c
-Compiling alt_env_lock.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/UCOSII/src/alt_env_lock.o UCOSII/src/alt_env_lock.c
-Compiling alt_malloc_lock.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/UCOSII/src/alt_malloc_lock.o UCOSII/src/alt_malloc_lock.c
-Compiling os_core.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/UCOSII/src/os_core.o UCOSII/src/os_core.c
-Compiling os_dbg.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/UCOSII/src/os_dbg.o UCOSII/src/os_dbg.c
-Compiling os_flag.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/UCOSII/src/os_flag.o UCOSII/src/os_flag.c
-Compiling os_mbox.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/UCOSII/src/os_mbox.o UCOSII/src/os_mbox.c
-Compiling os_mem.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/UCOSII/src/os_mem.o UCOSII/src/os_mem.c
-Compiling os_mutex.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/UCOSII/src/os_mutex.o UCOSII/src/os_mutex.c
-Compiling os_q.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/UCOSII/src/os_q.o UCOSII/src/os_q.c
-Compiling os_sem.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/UCOSII/src/os_sem.o UCOSII/src/os_sem.c
-Compiling os_task.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/UCOSII/src/os_task.o UCOSII/src/os_task.c
-Compiling os_time.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/UCOSII/src/os_time.o UCOSII/src/os_time.c
-Compiling os_tmr.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/UCOSII/src/os_tmr.o UCOSII/src/os_tmr.c
-Compiling alt_sys_init.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/alt_sys_init.o alt_sys_init.c
-Compiling altera_avalon_jtag_uart_fd.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/drivers/src/altera_avalon_jtag_uart_fd.o drivers/src/altera_avalon_jtag_uart_fd.c
-Compiling altera_avalon_jtag_uart_init.c...
-nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/drivers/src/altera_avalon_jtag_uart_init.o drivers/src/altera_avalon_jtag_uart_init.c
 Compiling altera_avalon_jtag_uart_ioctl.c...
+tps_proc.c: At top level:
 nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/drivers/src/altera_avalon_jtag_uart_ioctl.o drivers/src/altera_avalon_jtag_uart_ioctl.c
+test_config.h:70: warning: 'X_CompareAsserts' declared 'static' but never defined
 Compiling altera_avalon_jtag_uart_read.c...
+test_config.h:70: warning: 'X_CompareAsserts' declared 'static' but never defined
 nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/drivers/src/altera_avalon_jtag_uart_read.o drivers/src/altera_avalon_jtag_uart_read.c
 Compiling altera_avalon_jtag_uart_write.c...
 nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/drivers/src/altera_avalon_jtag_uart_write.o drivers/src/altera_avalon_jtag_uart_write.c
@@ -543,17 +184,11 @@ Compiling altera_avalon_sysid_qsys.c...
 nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/drivers/src/altera_avalon_sysid_qsys.o drivers/src/altera_avalon_sysid_qsys.c
 Compiling altera_avalon_timer_sc.c...
 nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/drivers/src/altera_avalon_timer_sc.o drivers/src/altera_avalon_timer_sc.c
-drivers/src/altera_avalon_timer_ts.c: In function 'alt_timestamp':
 Compiling altera_avalon_timer_ts.c...
-drivers/src/altera_avalon_timer_ts.c:108: warning: large integer implicitly truncated to unsigned type
 nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/drivers/src/altera_avalon_timer_ts.o drivers/src/altera_avalon_timer_ts.c
-drivers/src/altera_avalon_timer_ts.c:122: warning: left shift count >= width of type
 Compiling altera_avalon_timer_vars.c...
-drivers/src/altera_avalon_timer_ts.c:122: warning: left shift count >= width of type
 nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/drivers/src/altera_avalon_timer_vars.o drivers/src/altera_avalon_timer_vars.c
-drivers/src/altera_up_avalon_rs232.c: In function 'alt_up_rs232_read_fd':
 Compiling altera_up_avalon_de0_nano_adc.c...
-drivers/src/altera_up_avalon_rs232.c:110: warning: pointer targets in passing argument 2 of 'alt_up_rs232_read_data' differ in signedness
 nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/drivers/src/altera_up_avalon_de0_nano_adc.o drivers/src/altera_up_avalon_de0_nano_adc.c
 Compiling altera_up_avalon_rs232.c...
 nios2-elf-gcc -xc -MP -MMD -c  -I./UCOSII/inc -I./HAL/inc -I. -I./drivers/inc -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall  -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx   -o obj/drivers/src/altera_up_avalon_rs232.o drivers/src/altera_up_avalon_rs232.c
@@ -563,52 +198,27 @@ nios2-elf-ar -src libucosii_bsp.a obj/HAL/src/alt_alarm_start.o obj/HAL/src/alt_
 [BSP build complete]
 Info: Compiling apps_motor_proc.c to obj/default/apps_motor_proc.o
 nios2-elf-gcc -xc -MP -MMD -c -I../electronic_engine_control_bsp//UCOSII/inc -I../electronic_engine_control_bsp//HAL/inc -I../electronic_engine_control_bsp/ -I../electronic_engine_control_bsp//drivers/inc  -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall   -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx  -o obj/default/apps_motor_proc.o apps_motor_proc.c
-apps_motor_proc.c: In function 'apps_motor_task':
 Info: Compiling failure_handler_proc.c to obj/default/failure_handler_proc.o
-apps_motor_proc.c:133: warning: large integer implicitly truncated to unsigned type
 nios2-elf-gcc -xc -MP -MMD -c -I../electronic_engine_control_bsp//UCOSII/inc -I../electronic_engine_control_bsp//HAL/inc -I../electronic_engine_control_bsp/ -I../electronic_engine_control_bsp//drivers/inc  -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall   -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx  -o obj/default/failure_handler_proc.o failure_handler_proc.c
-apps_motor_proc.c: In function 'set_new_motor_position':
 Info: Compiling main.c to obj/default/main.o
-apps_motor_proc.c:200: warning: cast to pointer from integer of different size
 nios2-elf-gcc -xc -MP -MMD -c -I../electronic_engine_control_bsp//UCOSII/inc -I../electronic_engine_control_bsp//HAL/inc -I../electronic_engine_control_bsp/ -I../electronic_engine_control_bsp//drivers/inc  -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall   -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx  -o obj/default/main.o main.c
-apps_motor_proc.c: In function 'apps_value_comp_callback':
 Info: Compiling pwm_gen.c to obj/default/pwm_gen.o
-apps_motor_proc.c:211: warning: large integer implicitly truncated to unsigned type
 nios2-elf-gcc -xc -MP -MMD -c -I../electronic_engine_control_bsp//UCOSII/inc -I../electronic_engine_control_bsp//HAL/inc -I../electronic_engine_control_bsp/ -I../electronic_engine_control_bsp//drivers/inc  -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall   -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx  -o obj/default/pwm_gen.o pwm_gen.c
-apps_motor_proc.c: At top level:
 Info: Compiling solenoid_proc.c to obj/default/solenoid_proc.o
-test_config.h:70: warning: 'X_CompareAsserts' declared 'static' but never defined
 nios2-elf-gcc -xc -MP -MMD -c -I../electronic_engine_control_bsp//UCOSII/inc -I../electronic_engine_control_bsp//HAL/inc -I../electronic_engine_control_bsp/ -I../electronic_engine_control_bsp//drivers/inc  -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall   -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx  -o obj/default/solenoid_proc.o solenoid_proc.c
-failure_handler_proc.c: In function 'failure_handler_task':
 Info: Compiling tests/testbench.c to obj/default/tests/testbench.o
-failure_handler_proc.c:23: warning: cast from pointer to integer of different size
 nios2-elf-gcc -xc -MP -MMD -c -I../electronic_engine_control_bsp//UCOSII/inc -I../electronic_engine_control_bsp//HAL/inc -I../electronic_engine_control_bsp/ -I../electronic_engine_control_bsp//drivers/inc  -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall   -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx  -o obj/default/tests/testbench.o tests/testbench.c
-failure_handler_proc.c: At top level:
+Info: Compiling throttle_data.c to obj/default/throttle_data.o
+nios2-elf-gcc -xc -MP -MMD -c -I../electronic_engine_control_bsp//UCOSII/inc -I../electronic_engine_control_bsp//HAL/inc -I../electronic_engine_control_bsp/ -I../electronic_engine_control_bsp//drivers/inc  -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall   -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx  -o obj/default/throttle_data.o throttle_data.c
 Info: Compiling tps_proc.c to obj/default/tps_proc.o
-test_config.h:70: warning: 'X_CompareAsserts' declared 'static' but never defined
 nios2-elf-gcc -xc -MP -MMD -c -I../electronic_engine_control_bsp//UCOSII/inc -I../electronic_engine_control_bsp//HAL/inc -I../electronic_engine_control_bsp/ -I../electronic_engine_control_bsp//drivers/inc  -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall   -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx  -o obj/default/tps_proc.o tps_proc.c
-test_config.h:70: warning: 'X_CompareAsserts' declared 'static' but never defined
 Info: Compiling util.c to obj/default/util.o
-test_config.h:70: warning: 'X_CompareAsserts' declared 'static' but never defined
 nios2-elf-gcc -xc -MP -MMD -c -I../electronic_engine_control_bsp//UCOSII/inc -I../electronic_engine_control_bsp//HAL/inc -I../electronic_engine_control_bsp/ -I../electronic_engine_control_bsp//drivers/inc  -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall   -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx  -o obj/default/util.o util.c
-tests/testbench.c: In function 'Test_int16U_differ_by_percent':
 Info: Linking electronic_engine_control.elf
-tests/testbench.c:83: warning: large integer implicitly truncated to unsigned type
-nios2-elf-g++  -T'../electronic_engine_control_bsp//linker.x' -msys-crt0='../electronic_engine_control_bsp//obj/HAL/src/crt0.o' -msys-lib=ucosii_bsp -L../electronic_engine_control_bsp/   -Wl,-Map=electronic_engine_control.map   -O0 -g -Wall   -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx  -o electronic_engine_control.elf obj/default/apps_motor_proc.o obj/default/failure_handler_proc.o obj/default/main.o obj/default/pwm_gen.o obj/default/solenoid_proc.o obj/default/tests/CuTest.o obj/default/tests/testbench.o obj/default/tps_proc.o obj/default/util.o -lm 
-tests/testbench.c:85: warning: large integer implicitly truncated to unsigned type
-nios2-elf-insert electronic_engine_control.elf --thread_model ucosii --cpu_name nios2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x4009080 --timestamp 1489013348 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name niosII_system --quartus_project_dir "/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control" --jdi /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control_bsp/../../electronic_engine_control.jdi --sopcinfo /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control_bsp/../../niosII_system.sopcinfo
-tests/testbench.c:87: warning: large integer implicitly truncated to unsigned type
-tests/testbench.c: At top level:
-tests/../test_config.h:70: warning: 'X_CompareAsserts' declared 'static' but never defined
-tps_proc.c: In function 'tps_task':
-tps_proc.c:105: warning: large integer implicitly truncated to unsigned type
-tps_proc.c: In function 'tps_value_comp_callback':
-tps_proc.c:142: warning: large integer implicitly truncated to unsigned type
-tps_proc.c: At top level:
-test_config.h:70: warning: 'X_CompareAsserts' declared 'static' but never defined
-test_config.h:70: warning: 'X_CompareAsserts' declared 'static' but never defined
-Info: (electronic_engine_control.elf) 157 KBytes program size (code + initialized data).
-Info:                                 32603 KBytes free for stack + heap.
+nios2-elf-g++  -T'../electronic_engine_control_bsp//linker.x' -msys-crt0='../electronic_engine_control_bsp//obj/HAL/src/crt0.o' -msys-lib=ucosii_bsp -L../electronic_engine_control_bsp/   -Wl,-Map=electronic_engine_control.map   -O0 -g -Wall   -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx  -o electronic_engine_control.elf obj/default/apps_motor_proc.o obj/default/failure_handler_proc.o obj/default/main.o obj/default/pwm_gen.o obj/default/solenoid_proc.o obj/default/tests/CuTest.o obj/default/tests/testbench.o obj/default/throttle_data.o obj/default/tps_proc.o obj/default/util.o -lm 
+nios2-elf-insert electronic_engine_control.elf --thread_model ucosii --cpu_name nios2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x4009080 --timestamp 1489181242 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name niosII_system --quartus_project_dir "/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control" --jdi /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control_bsp/../../electronic_engine_control.jdi --sopcinfo /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control_bsp/../../niosII_system.sopcinfo
+Info: (electronic_engine_control.elf) 160 KBytes program size (code + initialized data).
+Info:                                 32600 KBytes free for stack + heap.
 Info: Creating electronic_engine_control.objdump
 nios2-elf-objdump --disassemble --syms --all-header --source electronic_engine_control.elf >electronic_engine_control.objdump
 [electronic_engine_control build complete]
@@ -631,16 +241,16 @@ make all
 Info: Building ../electronic_engine_control_bsp/
 make --no-print-directory -C ../electronic_engine_control_bsp/
 [BSP build complete]
-Info: Compiling solenoid_proc.c to obj/default/solenoid_proc.o
-nios2-elf-gcc -xc -MP -MMD -c -I../electronic_engine_control_bsp//UCOSII/inc -I../electronic_engine_control_bsp//HAL/inc -I../electronic_engine_control_bsp/ -I../electronic_engine_control_bsp//drivers/inc  -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -D__ucosii__    -O0 -g -Wall   -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx  -o obj/default/solenoid_proc.o solenoid_proc.c
-test_config.h:70: warning: 'X_CompareAsserts' declared 'static' but never defined
-Info: Linking electronic_engine_control.elf
-nios2-elf-g++  -T'../electronic_engine_control_bsp//linker.x' -msys-crt0='../electronic_engine_control_bsp//obj/HAL/src/crt0.o' -msys-lib=ucosii_bsp -L../electronic_engine_control_bsp/   -Wl,-Map=electronic_engine_control.map   -O0 -g -Wall   -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx  -o electronic_engine_control.elf obj/default/apps_motor_proc.o obj/default/failure_handler_proc.o obj/default/main.o obj/default/pwm_gen.o obj/default/solenoid_proc.o obj/default/tests/CuTest.o obj/default/tests/testbench.o obj/default/tps_proc.o obj/default/util.o -lm 
-nios2-elf-insert electronic_engine_control.elf --thread_model ucosii --cpu_name nios2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x4009080 --timestamp 1489013348 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name niosII_system --quartus_project_dir "/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control" --jdi /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control_bsp/../../electronic_engine_control.jdi --sopcinfo /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control_bsp/../../niosII_system.sopcinfo
-Info: (electronic_engine_control.elf) 157 KBytes program size (code + initialized data).
-Info:                                 32603 KBytes free for stack + heap.
-Info: Creating electronic_engine_control.objdump
-nios2-elf-objdump --disassemble --syms --all-header --source electronic_engine_control.elf >electronic_engine_control.objdump
+[electronic_engine_control build complete]
+
+**** Build Finished ****
+
+**** Build of configuration Nios II for project electronic_engine_control ****
+
+make all 
+Info: Building ../electronic_engine_control_bsp/
+make --no-print-directory -C ../electronic_engine_control_bsp/
+[BSP build complete]
 [electronic_engine_control build complete]
 
 **** Build Finished ****

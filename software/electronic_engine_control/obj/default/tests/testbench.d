@@ -35,7 +35,8 @@ obj/default/tests/testbench.o: tests/testbench.c tests/../custom_types.h \
   ../electronic_engine_control_bsp//HAL/inc/sys/alt_timestamp.h \
   ../electronic_engine_control_bsp//drivers/inc/altera_avalon_timer.h \
   ../electronic_engine_control_bsp//HAL/inc/alt_types.h \
-  tests/../test_config.h tests/../pwm_gen.h tests/CuTest.h
+  tests/../test_config.h tests/../throttle_data.h tests/../pwm_gen.h \
+  tests/CuTest.h
 
 tests/../custom_types.h:
 
@@ -118,6 +119,8 @@ tests/../custom_types.h:
 ../electronic_engine_control_bsp//HAL/inc/alt_types.h:
 
 tests/../test_config.h:
+
+tests/../throttle_data.h:
 
 tests/../pwm_gen.h:
 

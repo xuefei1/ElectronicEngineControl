@@ -33,7 +33,7 @@ obj/default/util.o: util.c util.h proj_config.h custom_types.h \
   ../electronic_engine_control_bsp//HAL/inc/sys/alt_timestamp.h \
   ../electronic_engine_control_bsp//drivers/inc/altera_avalon_timer.h \
   ../electronic_engine_control_bsp//HAL/inc/alt_types.h test_config.h \
-  tests/CuTest.h
+  tests/CuTest.h throttle_data.h
 
 util.h:
 
@@ -112,3 +112,5 @@ custom_types.h:
 test_config.h:
 
 tests/CuTest.h:
+
+throttle_data.h:

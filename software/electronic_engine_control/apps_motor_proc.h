@@ -15,6 +15,7 @@
 #define APPS_MOTOR_PROC_H_
 
 #include "proj_config.h"
+#include "solenoid_proc.h"
 #include "util.h"
 
 #define APPS_MOTOR_TASK_PRIORITY      		2
@@ -24,6 +25,7 @@
 #define APPS_2_ADC_CHANNEL			  		1
 #define WSS_1_ADC_CHANNEL			  		4
 #define WSS_2_ADC_CHANNEL			  		5
+#define RPM_ADC_CHANNEL			  			6
 
 /* Task Delays*/
 #define APPS_MOTOR_TASK_DELAY_HOURS	  		0
@@ -37,6 +39,8 @@
 /* detect if APPS reading differs by a percentage */
 #define APPS_VALUE_MISMATCH(input1, input2)		int16U_differ_by_percent(input1, input2, APPS_VALUE_DIFFERENCE_PERCENT, PERCENT_DIFF_ACCURACY)
 
+#define WSS_VALUE_MISMATCH(input1, input2)		int16U_differ_by_percent(input1, input2, WSS_VALUE_DIFFERENCE_PERCENT, PERCENT_DIFF_ACCURACY)
+
 #define EXPECTED_TPS_READING_Q_SIZE_ELEMENTS		256
 
 #define MOTOR_CMD_Q_SIZE_ELEMENTS					64
@@ -44,6 +48,8 @@
 #define NEW_TPS_READING_SEM_COUNT					0
 
 #define OS_SEM_RPM_NOT_REACHED						0
+
+#define SHIFT_MATCHING_IN_PROGRESS					0
 
 void apps_motor_task(void* pdata);
 
@@ -53,10 +59,16 @@ OS_EVENT* get_motor_cmd_q();
 
 OS_EVENT* get_motor_failure_flag();
 
+OS_EVENT* get_apps_motor_task_external_failure_flag();
+
+OS_EVENT* get_apps_motor_task_failure_resolved_flag();
+
 INT16U get_expected_tps_reading(INT16U apps_reading);
 
-BOOL set_new_motor_position(INT16U apps_reading);
+BOOL set_new_motor_position(INT16U *apps_reading);
 
 alt_u32 apps_value_comp_callback(void* context);
+
+void signal_exit_shift_matching();
 
 #endif /* APPS_MOTOR_PROC_H_ */

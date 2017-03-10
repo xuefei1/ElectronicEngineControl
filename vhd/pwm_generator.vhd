@@ -14,8 +14,8 @@ entity pwm_generator is
 		clock    			: in  std_logic                       := '0'; 			    		-- clock
 		write_en_period     : in  std_logic                       := '0'; 			    		-- write_enable
 		write_en_duty       : in  std_logic                       := '0'; 			    		-- write_enable
-		period 				: in  std_logic_vector(15 downto 0)   := "0000000000000000";        -- period in clock ticks
-		duty_count 			: in  std_logic_vector(15 downto 0)   := "0000000000000000";        -- duty must be less than or equal to period
+		period 				: in  std_logic_vector(15 downto 0)   := "0000100000000000";        -- period in clock ticks
+		duty_count 			: in  std_logic_vector(15 downto 0)   := "0000000100000000";        -- duty must be less than or equal to period
 		pwm_out 			: out std_logic                       := '0';              		  	-- output pwm signal
 		reset    			: in  std_logic                       := '0'  						-- reset
 	);
@@ -35,8 +35,8 @@ begin
 	begin
 		if(reset = '1') then
 			period_count <= "0000000000000000"; 
-			curr_period <= "0000000000000000"; 
-			curr_duty_count <= "0000000000000000"; 
+			curr_period <= "0000100000000000"; 
+			curr_duty_count <= "0000000100000000"; 
 		elsif(rising_edge(clock)) then
 
 			if(write_en_period = '1') then

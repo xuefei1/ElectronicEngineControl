@@ -33,7 +33,7 @@ obj/default/tps_proc.o: tps_proc.c tps_proc.h proj_config.h \
   ../electronic_engine_control_bsp//HAL/inc/sys/alt_timestamp.h \
   ../electronic_engine_control_bsp//drivers/inc/altera_avalon_timer.h \
   ../electronic_engine_control_bsp//HAL/inc/alt_types.h test_config.h \
-  tests/CuTest.h util.h apps_motor_proc.h
+  tests/CuTest.h throttle_data.h util.h apps_motor_proc.h solenoid_proc.h
 
 tps_proc.h:
 
@@ -113,6 +113,10 @@ test_config.h:
 
 tests/CuTest.h:
 
+throttle_data.h:
+
 util.h:
 
 apps_motor_proc.h:
+
+solenoid_proc.h:

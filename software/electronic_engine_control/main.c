@@ -48,23 +48,23 @@ int main(void) {
 
 	TEST_PWM(50000, 100);
 
-	OSTaskCreateExt(failure_handler_task, NULL,
-			(void *) &failure_handler_task_stk[TASK_STACKSIZE - 1],
-			FAILURE_HANDLER_TASK_PRIORITY, FAILURE_HANDLER_TASK_PRIORITY,
-			failure_handler_task_stk, TASK_STACKSIZE, NULL, 0);
-
-	OSTaskCreateExt(apps_motor_task, NULL,
-			(void *) &apps_motor_task_stk[TASK_STACKSIZE - 1],
-			APPS_MOTOR_TASK_PRIORITY, APPS_MOTOR_TASK_PRIORITY,
-			apps_motor_task_stk, TASK_STACKSIZE, NULL, 0);
-
-	OSTaskCreateExt(tps_task, NULL, (void *) &tps_task_stk[TASK_STACKSIZE - 1],
-			TPS_TASK_PRIORITY, TPS_TASK_PRIORITY, tps_task_stk, TASK_STACKSIZE,
-			NULL, 0);
-
-	OSTaskCreateExt(solenoid_task, NULL, (void *) &solenoid_task_stk[TASK_STACKSIZE - 1],
-			SOLENOID_TASK_PRIORITY, SOLENOID_TASK_PRIORITY, solenoid_task_stk, TASK_STACKSIZE,
-			NULL, 0);
+//	OSTaskCreateExt(failure_handler_task, NULL,
+//			(void *) &failure_handler_task_stk[TASK_STACKSIZE - 1],
+//			FAILURE_HANDLER_TASK_PRIORITY, FAILURE_HANDLER_TASK_PRIORITY,
+//			failure_handler_task_stk, TASK_STACKSIZE, NULL, 0);
+//
+//	OSTaskCreateExt(apps_motor_task, NULL,
+//			(void *) &apps_motor_task_stk[TASK_STACKSIZE - 1],
+//			APPS_MOTOR_TASK_PRIORITY, APPS_MOTOR_TASK_PRIORITY,
+//			apps_motor_task_stk, TASK_STACKSIZE, NULL, 0);
+//
+//	OSTaskCreateExt(tps_task, NULL, (void *) &tps_task_stk[TASK_STACKSIZE - 1],
+//			TPS_TASK_PRIORITY, TPS_TASK_PRIORITY, tps_task_stk, TASK_STACKSIZE,
+//			NULL, 0);
+//
+//	OSTaskCreateExt(solenoid_task, NULL, (void *) &solenoid_task_stk[TASK_STACKSIZE - 1],
+//			SOLENOID_TASK_PRIORITY, SOLENOID_TASK_PRIORITY, solenoid_task_stk, TASK_STACKSIZE,
+//			NULL, 0);
 
 	OSStart();
 
