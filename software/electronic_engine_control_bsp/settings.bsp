@@ -2,8 +2,8 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>ucosii</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>Mar 10, 2017 2:32:22 PM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1489181542460</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>Mar 10, 2017 7:04:38 PM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1489197878141</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control_bsp</BspGeneratedLocation>
         <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>../../niosII_system.sopcinfo</SopcDesignFile>
@@ -1691,12 +1691,6 @@
                 <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
         </Setting>
         <MemoryMap>
-                <slaveDescriptor>timestamp_timer</slaveDescriptor>
-                <addressRange>0x00000000 - 0x0000001F</addressRange>
-                <addressSpan>32</addressSpan>
-                <attributes>timer</attributes>
-        </MemoryMap>
-        <MemoryMap>
                 <slaveDescriptor>sdram_0</slaveDescriptor>
                 <addressRange>0x02000000 - 0x03FFFFFF</addressRange>
                 <addressSpan>33554432</addressSpan>
@@ -1709,74 +1703,80 @@
                 <attributes>memory</attributes>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>de0_nano_adc_0</slaveDescriptor>
+                <slaveDescriptor>timestamp_timer</slaveDescriptor>
                 <addressRange>0x04009000 - 0x0400901F</addressRange>
+                <addressSpan>32</addressSpan>
+                <attributes>timer</attributes>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>de0_nano_adc_0</slaveDescriptor>
+                <addressRange>0x04009020 - 0x0400903F</addressRange>
                 <addressSpan>32</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>sys_clk_timer</slaveDescriptor>
-                <addressRange>0x04009020 - 0x0400903F</addressRange>
+                <addressRange>0x04009040 - 0x0400905F</addressRange>
                 <addressSpan>32</addressSpan>
                 <attributes>timer</attributes>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>switch</slaveDescriptor>
-                <addressRange>0x04009040 - 0x0400904F</addressRange>
-                <addressSpan>16</addressSpan>
-                <attributes/>
-        </MemoryMap>
-        <MemoryMap>
-                <slaveDescriptor>green_leds</slaveDescriptor>
-                <addressRange>0x04009050 - 0x0400905F</addressRange>
-                <addressSpan>16</addressSpan>
-                <attributes/>
-        </MemoryMap>
-        <MemoryMap>
-                <slaveDescriptor>altpll_0</slaveDescriptor>
                 <addressRange>0x04009060 - 0x0400906F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
+                <slaveDescriptor>green_leds</slaveDescriptor>
+                <addressRange>0x04009070 - 0x0400907F</addressRange>
+                <addressSpan>16</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>altpll_0</slaveDescriptor>
+                <addressRange>0x04009080 - 0x0400908F</addressRange>
+                <addressSpan>16</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
                 <slaveDescriptor>rs232_0</slaveDescriptor>
-                <addressRange>0x04009070 - 0x04009077</addressRange>
+                <addressRange>0x04009090 - 0x04009097</addressRange>
                 <addressSpan>8</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>jtag_uart_0</slaveDescriptor>
-                <addressRange>0x04009078 - 0x0400907F</addressRange>
+                <addressRange>0x04009098 - 0x0400909F</addressRange>
                 <addressSpan>8</addressSpan>
                 <attributes>printable</attributes>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>sysid_qsys_0</slaveDescriptor>
-                <addressRange>0x04009080 - 0x04009087</addressRange>
+                <addressRange>0x040090A0 - 0x040090A7</addressRange>
                 <addressSpan>8</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>pwm_generator_0_avalon_slave_duty</slaveDescriptor>
-                <addressRange>0x04009088 - 0x04009089</addressRange>
+                <addressRange>0x040090A8 - 0x040090A9</addressRange>
                 <addressSpan>2</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>pwm_generator_0_avalon_slave_period</slaveDescriptor>
-                <addressRange>0x0400908A - 0x0400908B</addressRange>
+                <addressRange>0x040090AA - 0x040090AB</addressRange>
                 <addressSpan>2</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>solenoid_controller_0_avalon_slave_read</slaveDescriptor>
-                <addressRange>0x0400908C - 0x0400908C</addressRange>
+                <addressRange>0x040090AC - 0x040090AC</addressRange>
                 <addressSpan>1</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>solenoid_controller_0_avalon_slave_write</slaveDescriptor>
-                <addressRange>0x0400908D - 0x0400908D</addressRange>
+                <addressRange>0x040090AD - 0x040090AD</addressRange>
                 <addressSpan>1</addressSpan>
                 <attributes/>
         </MemoryMap>

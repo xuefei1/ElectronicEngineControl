@@ -4,7 +4,7 @@
  * Machine generated for CPU 'nios2_0' in SOPC Builder design 'niosII_system'
  * SOPC Builder design path: ../../niosII_system.sopcinfo
  *
- * Generated: Fri Mar 10 14:31:38 MST 2017
+ * Generated: Fri Mar 10 19:04:38 MST 2017
  */
 
 /*
@@ -153,19 +153,19 @@
 #define ALT_NUM_INTERNAL_INTERRUPT_CONTROLLERS 1
 #define ALT_NUM_INTERRUPT_CONTROLLERS 1
 #define ALT_STDERR "/dev/jtag_uart_0"
-#define ALT_STDERR_BASE 0x4009078
+#define ALT_STDERR_BASE 0x4009098
 #define ALT_STDERR_DEV jtag_uart_0
 #define ALT_STDERR_IS_JTAG_UART
 #define ALT_STDERR_PRESENT
 #define ALT_STDERR_TYPE "altera_avalon_jtag_uart"
 #define ALT_STDIN "/dev/jtag_uart_0"
-#define ALT_STDIN_BASE 0x4009078
+#define ALT_STDIN_BASE 0x4009098
 #define ALT_STDIN_DEV jtag_uart_0
 #define ALT_STDIN_IS_JTAG_UART
 #define ALT_STDIN_PRESENT
 #define ALT_STDIN_TYPE "altera_avalon_jtag_uart"
 #define ALT_STDOUT "/dev/jtag_uart_0"
-#define ALT_STDOUT_BASE 0x4009078
+#define ALT_STDOUT_BASE 0x4009098
 #define ALT_STDOUT_DEV jtag_uart_0
 #define ALT_STDOUT_IS_JTAG_UART
 #define ALT_STDOUT_PRESENT
@@ -178,7 +178,7 @@
  *
  */
 
-#define ALTPLL_0_BASE 0x4009060
+#define ALTPLL_0_BASE 0x4009080
 #define ALTPLL_0_IRQ -1
 #define ALTPLL_0_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define ALTPLL_0_NAME "/dev/altpll_0"
@@ -193,7 +193,7 @@
  */
 
 #define ALT_MODULE_CLASS_de0_nano_adc_0 altera_up_avalon_de0_nano_adc
-#define DE0_NANO_ADC_0_BASE 0x4009000
+#define DE0_NANO_ADC_0_BASE 0x4009020
 #define DE0_NANO_ADC_0_IRQ -1
 #define DE0_NANO_ADC_0_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define DE0_NANO_ADC_0_NAME "/dev/de0_nano_adc_0"
@@ -207,7 +207,7 @@
  */
 
 #define ALT_MODULE_CLASS_green_leds altera_avalon_pio
-#define GREEN_LEDS_BASE 0x4009050
+#define GREEN_LEDS_BASE 0x4009070
 #define GREEN_LEDS_BIT_CLEARING_EDGE_REGISTER 0
 #define GREEN_LEDS_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define GREEN_LEDS_CAPTURE 0
@@ -244,7 +244,7 @@
  */
 
 #define ALT_MODULE_CLASS_jtag_uart_0 altera_avalon_jtag_uart
-#define JTAG_UART_0_BASE 0x4009078
+#define JTAG_UART_0_BASE 0x4009098
 #define JTAG_UART_0_IRQ 1
 #define JTAG_UART_0_IRQ_INTERRUPT_CONTROLLER_ID 0
 #define JTAG_UART_0_NAME "/dev/jtag_uart_0"
@@ -291,7 +291,7 @@
  */
 
 #define ALT_MODULE_CLASS_pwm_generator_0_avalon_slave_duty pwm_generator
-#define PWM_GENERATOR_0_AVALON_SLAVE_DUTY_BASE 0x4009088
+#define PWM_GENERATOR_0_AVALON_SLAVE_DUTY_BASE 0x40090a8
 #define PWM_GENERATOR_0_AVALON_SLAVE_DUTY_IRQ -1
 #define PWM_GENERATOR_0_AVALON_SLAVE_DUTY_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define PWM_GENERATOR_0_AVALON_SLAVE_DUTY_NAME "/dev/pwm_generator_0_avalon_slave_duty"
@@ -305,7 +305,7 @@
  */
 
 #define ALT_MODULE_CLASS_pwm_generator_0_avalon_slave_period pwm_generator
-#define PWM_GENERATOR_0_AVALON_SLAVE_PERIOD_BASE 0x400908a
+#define PWM_GENERATOR_0_AVALON_SLAVE_PERIOD_BASE 0x40090aa
 #define PWM_GENERATOR_0_AVALON_SLAVE_PERIOD_IRQ -1
 #define PWM_GENERATOR_0_AVALON_SLAVE_PERIOD_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define PWM_GENERATOR_0_AVALON_SLAVE_PERIOD_NAME "/dev/pwm_generator_0_avalon_slave_period"
@@ -319,7 +319,7 @@
  */
 
 #define ALT_MODULE_CLASS_rs232_0 altera_up_avalon_rs232
-#define RS232_0_BASE 0x4009070
+#define RS232_0_BASE 0x4009090
 #define RS232_0_IRQ 3
 #define RS232_0_IRQ_INTERRUPT_CONTROLLER_ID 0
 #define RS232_0_NAME "/dev/rs232_0"
@@ -372,7 +372,7 @@
  */
 
 #define ALT_MODULE_CLASS_solenoid_controller_0_avalon_slave_read solenoid_controller
-#define SOLENOID_CONTROLLER_0_AVALON_SLAVE_READ_BASE 0x400908c
+#define SOLENOID_CONTROLLER_0_AVALON_SLAVE_READ_BASE 0x40090ac
 #define SOLENOID_CONTROLLER_0_AVALON_SLAVE_READ_IRQ 2
 #define SOLENOID_CONTROLLER_0_AVALON_SLAVE_READ_IRQ_INTERRUPT_CONTROLLER_ID 0
 #define SOLENOID_CONTROLLER_0_AVALON_SLAVE_READ_NAME "/dev/solenoid_controller_0_avalon_slave_read"
@@ -386,7 +386,7 @@
  */
 
 #define ALT_MODULE_CLASS_solenoid_controller_0_avalon_slave_write solenoid_controller
-#define SOLENOID_CONTROLLER_0_AVALON_SLAVE_WRITE_BASE 0x400908d
+#define SOLENOID_CONTROLLER_0_AVALON_SLAVE_WRITE_BASE 0x40090ad
 #define SOLENOID_CONTROLLER_0_AVALON_SLAVE_WRITE_IRQ -1
 #define SOLENOID_CONTROLLER_0_AVALON_SLAVE_WRITE_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define SOLENOID_CONTROLLER_0_AVALON_SLAVE_WRITE_NAME "/dev/solenoid_controller_0_avalon_slave_write"
@@ -400,7 +400,7 @@
  */
 
 #define ALT_MODULE_CLASS_switch altera_avalon_pio
-#define SWITCH_BASE 0x4009040
+#define SWITCH_BASE 0x4009060
 #define SWITCH_BIT_CLEARING_EDGE_REGISTER 0
 #define SWITCH_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define SWITCH_CAPTURE 0
@@ -428,7 +428,7 @@
 
 #define ALT_MODULE_CLASS_sys_clk_timer altera_avalon_timer
 #define SYS_CLK_TIMER_ALWAYS_RUN 0
-#define SYS_CLK_TIMER_BASE 0x4009020
+#define SYS_CLK_TIMER_BASE 0x4009040
 #define SYS_CLK_TIMER_COUNTER_SIZE 32
 #define SYS_CLK_TIMER_FIXED_PERIOD 0
 #define SYS_CLK_TIMER_FREQ 50000000u
@@ -453,13 +453,13 @@
  */
 
 #define ALT_MODULE_CLASS_sysid_qsys_0 altera_avalon_sysid_qsys
-#define SYSID_QSYS_0_BASE 0x4009080
+#define SYSID_QSYS_0_BASE 0x40090a0
 #define SYSID_QSYS_0_ID 0
 #define SYSID_QSYS_0_IRQ -1
 #define SYSID_QSYS_0_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define SYSID_QSYS_0_NAME "/dev/sysid_qsys_0"
 #define SYSID_QSYS_0_SPAN 8
-#define SYSID_QSYS_0_TIMESTAMP 1489181242
+#define SYSID_QSYS_0_TIMESTAMP 1489197688
 #define SYSID_QSYS_0_TYPE "altera_avalon_sysid_qsys"
 
 
@@ -470,7 +470,7 @@
 
 #define ALT_MODULE_CLASS_timestamp_timer altera_avalon_timer
 #define TIMESTAMP_TIMER_ALWAYS_RUN 0
-#define TIMESTAMP_TIMER_BASE 0x0
+#define TIMESTAMP_TIMER_BASE 0x4009000
 #define TIMESTAMP_TIMER_COUNTER_SIZE 32
 #define TIMESTAMP_TIMER_FIXED_PERIOD 0
 #define TIMESTAMP_TIMER_FREQ 50000000u

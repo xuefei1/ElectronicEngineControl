@@ -5898,3 +5898,887 @@ Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.pa
 
 !ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 14:39:28.229
 !MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.7]' --device=1 --instance=0 --go --sidp=0x4009080 --id=0x0 --timestamp=1489181242 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+!SESSION 2017-03-10 14:43:41.697 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 4 0 2017-03-10 14:44:37.586
+!MESSAGE Unable to validate connection settings.
+!STACK 0
+java.lang.Exception: System timestamp mismatch - connected: "1489181242", expected: "1489182059".
+	at com.altera.embeddedsw.flash.model.internal.SystemConsoleConnectionModel.assertTrue(SystemConsoleConnectionModel.java:645)
+	at com.altera.embeddedsw.flash.model.internal.SystemConsoleConnectionModel.validateSystemId(SystemConsoleConnectionModel.java:631)
+	at com.altera.embeddedsw.flash.model.internal.SystemConsoleConnectionModel.validateConnectionSettings(SystemConsoleConnectionModel.java:511)
+	at com.altera.sbtgui.launch.hardware.AbstractNios2CLaunchDelegate.launch(AbstractNios2CLaunchDelegate.java:115)
+	at com.altera.sbtgui.launch.hardware.Nios2HardwareLaunchDelegate.launch(Nios2HardwareLaunchDelegate.java:98)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:854)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:703)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:937)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1141)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.altera.sbtgui.launch 4 0 2017-03-10 14:44:37.667
+!MESSAGE Unable to validate connection settings.
+!STACK 0
+java.lang.Exception: System timestamp mismatch - connected: "1489181242", expected: "1489182059".
+	at com.altera.embeddedsw.flash.model.internal.SystemConsoleConnectionModel.assertTrue(SystemConsoleConnectionModel.java:645)
+	at com.altera.embeddedsw.flash.model.internal.SystemConsoleConnectionModel.validateSystemId(SystemConsoleConnectionModel.java:631)
+	at com.altera.embeddedsw.flash.model.internal.SystemConsoleConnectionModel.validateConnectionSettings(SystemConsoleConnectionModel.java:511)
+	at com.altera.sbtgui.launch.hardware.AbstractNios2CLaunchDelegate.launch(AbstractNios2CLaunchDelegate.java:115)
+	at com.altera.sbtgui.launch.hardware.Nios2HardwareLaunchDelegate.launch(Nios2HardwareLaunchDelegate.java:98)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:854)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:703)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:937)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1141)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SESSION 2017-03-10 14:44:55.164 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 14:45:14.236
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.7]' --device=1 --instance=0 --stop --sidp=0x4009080 --id=0x0 --timestamp=1489182059]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 14:45:15.927
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.7]' --device=1 --instance=0 --go --sidp=0x4009080 --id=0x0 --timestamp=1489182059 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+!SESSION 2017-03-10 14:57:58.419 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 14:59:56.963
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.7]' --device=1 --instance=0 --stop --sidp=0x4009080 --id=0x0 --timestamp=1489182821]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 14:59:58.452
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.7]' --device=1 --instance=0 --go --sidp=0x4009080 --id=0x0 --timestamp=1489182821 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+!SESSION 2017-03-10 15:07:19.746 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 15:09:37.787
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.7]' --device=1 --instance=0 --stop --sidp=0x4009080 --id=0x0 --timestamp=1489183408]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2017-03-10 15:09:39.004
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [2-1.7]', --device=1, --instance=0, --stop, --sidp=0x4009080, --id=0x0, --timestamp=1489183408] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 15:09:39.237
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.7]' --device=1 --instance=0 --go --sidp=0x4009080 --id=0x0 --timestamp=1489183408 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2017-03-10 15:09:40.788
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [2-1.7]', --device=1, --instance=0, --go, --sidp=0x4009080, --id=0x0, --timestamp=1489183408, /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 4 0 2017-03-10 15:09:40.814
+!MESSAGE Downloading ELF Process failed
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 15:09:49.584
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.5]' --device=1 --instance=0 --stop --sidp=0x4009080 --id=0x0 --timestamp=1489183408]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 15:09:51.130
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.5]' --device=1 --instance=0 --go --sidp=0x4009080 --id=0x0 --timestamp=1489183408 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 15:11:53.766
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.5]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 15:11:54.283
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.5]' --device=1 --instance=0 --stop --sidp=0x4009080 --id=0x0 --timestamp=1489183408]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 15:11:55.779
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.5]' --device=1 --instance=0 --go --sidp=0x4009080 --id=0x0 --timestamp=1489183408 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 15:12:48.153
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.5]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 15:12:48.911
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.5]' --device=1 --instance=0 --stop --sidp=0x4009080 --id=0x0 --timestamp=1489183408]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 15:12:50.483
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.5]' --device=1 --instance=0 --go --sidp=0x4009080 --id=0x0 --timestamp=1489183408 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+!SESSION 2017-03-10 15:18:58.563 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 4 0 2017-03-10 15:19:49.446
+!MESSAGE Unable to validate connection settings.
+!STACK 0
+java.lang.Exception: System timestamp mismatch - connected: "1489183408", expected: "1489184197".
+	at com.altera.embeddedsw.flash.model.internal.SystemConsoleConnectionModel.assertTrue(SystemConsoleConnectionModel.java:645)
+	at com.altera.embeddedsw.flash.model.internal.SystemConsoleConnectionModel.validateSystemId(SystemConsoleConnectionModel.java:631)
+	at com.altera.embeddedsw.flash.model.internal.SystemConsoleConnectionModel.validateConnectionSettings(SystemConsoleConnectionModel.java:511)
+	at com.altera.sbtgui.launch.hardware.AbstractNios2CLaunchDelegate.launch(AbstractNios2CLaunchDelegate.java:115)
+	at com.altera.sbtgui.launch.hardware.Nios2HardwareLaunchDelegate.launch(Nios2HardwareLaunchDelegate.java:98)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:854)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:703)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:937)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1141)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.altera.sbtgui.launch 4 0 2017-03-10 15:19:49.518
+!MESSAGE Unable to validate connection settings.
+!STACK 0
+java.lang.Exception: System timestamp mismatch - connected: "1489183408", expected: "1489184197".
+	at com.altera.embeddedsw.flash.model.internal.SystemConsoleConnectionModel.assertTrue(SystemConsoleConnectionModel.java:645)
+	at com.altera.embeddedsw.flash.model.internal.SystemConsoleConnectionModel.validateSystemId(SystemConsoleConnectionModel.java:631)
+	at com.altera.embeddedsw.flash.model.internal.SystemConsoleConnectionModel.validateConnectionSettings(SystemConsoleConnectionModel.java:511)
+	at com.altera.sbtgui.launch.hardware.AbstractNios2CLaunchDelegate.launch(AbstractNios2CLaunchDelegate.java:115)
+	at com.altera.sbtgui.launch.hardware.Nios2HardwareLaunchDelegate.launch(Nios2HardwareLaunchDelegate.java:98)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:854)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:703)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:937)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1141)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SESSION 2017-03-10 15:20:35.619 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 15:21:48.446
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.5]' --device=1 --instance=0 --stop --sidp=0x4009080 --id=0x0 --timestamp=1489184197]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 15:21:49.959
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.5]' --device=1 --instance=0 --go --sidp=0x4009080 --id=0x0 --timestamp=1489184197 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 15:22:33.748
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.5]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 15:22:34.690
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.5]' --device=1 --instance=0 --stop --sidp=0x4009080 --id=0x0 --timestamp=1489184197]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 15:22:36.161
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.5]' --device=1 --instance=0 --go --sidp=0x4009080 --id=0x0 --timestamp=1489184197 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 15:23:09.222
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.5]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 15:23:09.851
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.5]' --device=1 --instance=0 --sidp=0x4009080 --id=0x0 --timestamp=1489184197 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 15:23:12.150
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.5]' --device=1 --instance=0 --tcpport=auto --sidp=0x4009080 --id=0x0 --timestamp=1489184197]
+
+!ENTRY org.eclipse.cdt.debug.mi.core 4 42 2017-03-10 15:23:48.263
+!MESSAGE Internal Error
+!STACK 0
+org.eclipse.cdt.debug.mi.core.cdi.MI2CDIException: Inferior terminated[]
+	at org.eclipse.cdt.debug.mi.core.cdi.SharedLibraryManager.getMIShareds(SharedLibraryManager.java:123)
+	at org.eclipse.cdt.debug.mi.core.cdi.SharedLibraryManager.updateState(SharedLibraryManager.java:188)
+	at org.eclipse.cdt.debug.mi.core.cdi.SharedLibraryManager.update(SharedLibraryManager.java:136)
+	at org.eclipse.cdt.debug.mi.core.cdi.EventManager.processSuspendedEvent(EventManager.java:326)
+	at org.eclipse.cdt.debug.mi.core.cdi.EventManager.update(EventManager.java:100)
+	at java.util.Observable.notifyObservers(Unknown Source)
+	at org.eclipse.cdt.debug.mi.core.MISession.notifyObservers(MISession.java:791)
+	at org.eclipse.cdt.debug.mi.core.EventThread.run(EventThread.java:46)
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 15:24:08.137
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.5]' --device=1 --instance=0 --sidp=0x4009080 --id=0x0 --timestamp=1489184197 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 15:24:10.241
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.5]' --device=1 --instance=0 --tcpport=auto --sidp=0x4009080 --id=0x0 --timestamp=1489184197]
+!SESSION 2017-03-10 15:46:05.217 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 15:47:15.425
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.5]' --device=1 --instance=0 --stop --sidp=0x4009080 --id=0x0 --timestamp=1489184957]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 15:47:16.941
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.5]' --device=1 --instance=0 --go --sidp=0x4009080 --id=0x0 --timestamp=1489184957 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 15:50:24.642
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.5]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 15:50:25.434
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.5]' --device=1 --instance=0 --stop --sidp=0x4009080 --id=0x0 --timestamp=1489184957]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 15:50:26.985
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.5]' --device=1 --instance=0 --go --sidp=0x4009080 --id=0x0 --timestamp=1489184957 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 15:54:02.482
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.5]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 15:54:03.290
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.5]' --device=1 --instance=0 --stop --sidp=0x4009080 --id=0x0 --timestamp=1489184957]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 15:54:04.779
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.5]' --device=1 --instance=0 --go --sidp=0x4009080 --id=0x0 --timestamp=1489184957 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 15:54:29.152
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.5]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 15:54:29.897
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.5]' --device=1 --instance=0 --stop --sidp=0x4009080 --id=0x0 --timestamp=1489184957]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 15:54:31.499
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.5]' --device=1 --instance=0 --go --sidp=0x4009080 --id=0x0 --timestamp=1489184957 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+!SESSION 2017-03-10 16:00:36.400 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 16:01:04.316
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.5]' --device=1 --instance=0 --stop --sidp=0x4009080 --id=0x0 --timestamp=1489186682]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2017-03-10 16:01:05.543
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [2-1.5]', --device=1, --instance=0, --stop, --sidp=0x4009080, --id=0x0, --timestamp=1489186682] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 16:01:05.609
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.5]' --device=1 --instance=0 --go --sidp=0x4009080 --id=0x0 --timestamp=1489186682 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2017-03-10 16:01:07.175
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [2-1.5]', --device=1, --instance=0, --go, --sidp=0x4009080, --id=0x0, --timestamp=1489186682, /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 4 0 2017-03-10 16:01:07.201
+!MESSAGE Downloading ELF Process failed
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 16:01:24.394
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x4009080 --id=0x0 --timestamp=1489186682]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 16:01:25.763
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x4009080 --id=0x0 --timestamp=1489186682 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+!SESSION 2017-03-10 16:11:27.398 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 16:11:56.859
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x4009080 --id=0x0 --timestamp=1489187282]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 16:11:58.374
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x4009080 --id=0x0 --timestamp=1489187282 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+!SESSION 2017-03-10 16:22:42.189 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 16:23:27.196
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x4009080 --id=0x0 --timestamp=1489187957]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 16:23:28.713
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x4009080 --id=0x0 --timestamp=1489187957 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 16:24:28.342
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 16:24:28.668
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x4009080 --id=0x0 --timestamp=1489187957]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 16:24:30.126
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x4009080 --id=0x0 --timestamp=1489187957 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+!SESSION 2017-03-10 16:32:57.362 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 16:33:21.777
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x4009080 --id=0x0 --timestamp=1489188615]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 16:33:23.297
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x4009080 --id=0x0 --timestamp=1489188615 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 16:33:35.381
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 16:33:35.756
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x4009080 --id=0x0 --timestamp=1489188615]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 16:33:37.244
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x4009080 --id=0x0 --timestamp=1489188615 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 16:34:22.278
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 16:34:22.686
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x4009080 --id=0x0 --timestamp=1489188615]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 16:34:24.212
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x4009080 --id=0x0 --timestamp=1489188615 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 16:34:41.912
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 16:34:42.323
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x4009080 --id=0x0 --timestamp=1489188615]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 16:34:43.905
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x4009080 --id=0x0 --timestamp=1489188615 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 16:36:05.960
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 16:36:06.458
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x4009080 --id=0x0 --timestamp=1489188615]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 16:36:08.033
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x4009080 --id=0x0 --timestamp=1489188615 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 16:37:04.190
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 16:37:04.750
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x4009080 --id=0x0 --timestamp=1489188615]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 16:37:06.317
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x4009080 --id=0x0 --timestamp=1489188615 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 16:37:30.567
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 16:37:30.878
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x4009080 --id=0x0 --timestamp=1489188615]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 16:37:32.430
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x4009080 --id=0x0 --timestamp=1489188615 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 16:37:43.988
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 16:37:44.239
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --sidp=0x4009080 --id=0x0 --timestamp=1489188615 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 16:37:46.575
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --tcpport=auto --sidp=0x4009080 --id=0x0 --timestamp=1489188615]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 16:39:44.141
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x4009080 --id=0x0 --timestamp=1489188615]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 16:39:45.665
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x4009080 --id=0x0 --timestamp=1489188615 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 16:40:03.702
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 16:40:04.112
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x4009080 --id=0x0 --timestamp=1489188615]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 16:40:05.616
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x4009080 --id=0x0 --timestamp=1489188615 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 16:40:21.306
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 16:40:21.635
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --sidp=0x4009080 --id=0x0 --timestamp=1489188615 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 16:40:23.729
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --tcpport=auto --sidp=0x4009080 --id=0x0 --timestamp=1489188615]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 16:48:31.588
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x4009080 --id=0x0 --timestamp=1489188615]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 16:48:33.007
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x4009080 --id=0x0 --timestamp=1489188615 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 16:48:47.493
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 16:49:07.722
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x4009080 --id=0x0 --timestamp=1489188615]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 16:49:09.251
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x4009080 --id=0x0 --timestamp=1489188615 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 16:49:28.151
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 16:49:48.377
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x4009080 --id=0x0 --timestamp=1489188615]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 16:49:50.005
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x4009080 --id=0x0 --timestamp=1489188615 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 16:50:03.495
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 16:50:23.712
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --sidp=0x4009080 --id=0x0 --timestamp=1489188615 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 16:50:25.837
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --tcpport=auto --sidp=0x4009080 --id=0x0 --timestamp=1489188615]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 16:51:13.578
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --sidp=0x4009080 --id=0x0 --timestamp=1489188615 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 16:51:15.694
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --tcpport=auto --sidp=0x4009080 --id=0x0 --timestamp=1489188615]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 16:52:42.281
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --sidp=0x4009080 --id=0x0 --timestamp=1489188615 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 16:52:44.365
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --tcpport=auto --sidp=0x4009080 --id=0x0 --timestamp=1489188615]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 16:54:13.167
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --sidp=0x4009080 --id=0x0 --timestamp=1489188615 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 16:54:15.440
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --tcpport=auto --sidp=0x4009080 --id=0x0 --timestamp=1489188615]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 16:56:56.832
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --sidp=0x4009080 --id=0x0 --timestamp=1489188615 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 16:56:58.960
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --tcpport=auto --sidp=0x4009080 --id=0x0 --timestamp=1489188615]
+
+!ENTRY org.eclipse.jface 2 0 2017-03-10 16:58:58.277
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2017-03-10 16:58:58.277
+!MESSAGE A conflict occurred for CTRL+G:
+Binding(CTRL+G,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.search.finddecl,Find Declaration,
+		Find Declaration,
+		Category(org.eclipse.cdt.ui.category.source,C/C++ Source,C/C++ Source Actions,true),
+		LegacyHandlerWrapper(ActionHandler(action=org.eclipse.cdt.internal.ui.search.actions.FindDeclarationsAction@91220a)),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cEditorScope,,,system)
+Binding(CTRL+G,
+	ParameterizedCommand(Command(org.eclipse.debug.ui.command.gotoaddress,Go to Address,
+		Go to Address,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.debug.ui.memory.abstractasynctablerendering,,,system)
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 17:01:43.338
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --sidp=0x4009080 --id=0x0 --timestamp=1489188615 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 17:01:45.569
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --tcpport=auto --sidp=0x4009080 --id=0x0 --timestamp=1489188615]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 17:04:52.923
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x4009080 --id=0x0 --timestamp=1489188615]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 17:04:54.370
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x4009080 --id=0x0 --timestamp=1489188615 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 17:08:04.720
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 17:08:24.946
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x4009080 --id=0x0 --timestamp=1489188615]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 17:08:26.406
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x4009080 --id=0x0 --timestamp=1489188615 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 17:08:57.679
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 17:09:17.903
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --sidp=0x4009080 --id=0x0 --timestamp=1489188615 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 17:09:20.002
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --tcpport=auto --sidp=0x4009080 --id=0x0 --timestamp=1489188615]
+!SESSION 2017-03-10 17:14:43.465 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 17:15:13.387
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x4009080 --id=0x0 --timestamp=1489191126]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 17:15:14.910
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x4009080 --id=0x0 --timestamp=1489191126 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 17:15:23.935
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 17:15:24.209
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --sidp=0x4009080 --id=0x0 --timestamp=1489191126 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 17:15:26.555
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --tcpport=auto --sidp=0x4009080 --id=0x0 --timestamp=1489191126]
+!SESSION 2017-03-10 17:25:00.562 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 17:25:27.579
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x4009080 --id=0x0 --timestamp=1489191755]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 17:25:29.091
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x4009080 --id=0x0 --timestamp=1489191755 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 17:25:53.454
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 17:25:53.995
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x4009080 --id=0x0 --timestamp=1489191755]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 17:25:55.566
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x4009080 --id=0x0 --timestamp=1489191755 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 17:26:11.570
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 17:26:11.967
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --sidp=0x4009080 --id=0x0 --timestamp=1489191755 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 17:26:14.357
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --tcpport=auto --sidp=0x4009080 --id=0x0 --timestamp=1489191755]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 17:27:08.918
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x4009080 --id=0x0 --timestamp=1489191755]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 17:27:10.340
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x4009080 --id=0x0 --timestamp=1489191755 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 17:27:29.805
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 17:27:30.290
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x4009080 --id=0x0 --timestamp=1489191755]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 17:27:31.866
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x4009080 --id=0x0 --timestamp=1489191755 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+!SESSION 2017-03-10 17:32:51.978 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 17:33:13.076
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --sidp=0x4009080 --id=0x0 --timestamp=1489192210 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 17:33:15.337
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --tcpport=auto --sidp=0x4009080 --id=0x0 --timestamp=1489192210]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 17:34:12.585
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --sidp=0x4009080 --id=0x0 --timestamp=1489192210 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 17:34:15.458
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --tcpport=auto --sidp=0x4009080 --id=0x0 --timestamp=1489192210]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 17:35:01.701
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x4009080 --id=0x0 --timestamp=1489192210]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 17:35:03.149
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x4009080 --id=0x0 --timestamp=1489192210 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 17:35:18.211
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 17:35:18.418
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x4009080 --id=0x0 --timestamp=1489192210]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 17:35:19.783
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x4009080 --id=0x0 --timestamp=1489192210 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 17:35:44.078
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 17:35:44.294
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x4009080 --id=0x0 --timestamp=1489192210]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 17:35:45.657
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x4009080 --id=0x0 --timestamp=1489192210 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 17:36:00.556
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 17:36:00.784
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x4009080 --id=0x0 --timestamp=1489192210]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 17:36:02.154
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x4009080 --id=0x0 --timestamp=1489192210 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 17:36:29.182
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 17:36:29.404
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --sidp=0x4009080 --id=0x0 --timestamp=1489192210 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 17:36:31.572
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --tcpport=auto --sidp=0x4009080 --id=0x0 --timestamp=1489192210]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 17:37:35.096
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --sidp=0x4009080 --id=0x0 --timestamp=1489192210 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 17:37:37.693
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --tcpport=auto --sidp=0x4009080 --id=0x0 --timestamp=1489192210]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 17:44:22.776
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x4009080 --id=0x0 --timestamp=1489192210]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 17:44:24.146
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x4009080 --id=0x0 --timestamp=1489192210 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 17:44:45.036
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 17:44:45.257
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x4009080 --id=0x0 --timestamp=1489192210]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 17:45:03.386
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x4009080 --id=0x0 --timestamp=1489192210 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 17:46:12.274
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 17:46:12.490
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --sidp=0x4009080 --id=0x0 --timestamp=1489192210 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 17:46:14.840
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --tcpport=auto --sidp=0x4009080 --id=0x0 --timestamp=1489192210]
+!SESSION 2017-03-10 17:52:45.646 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 17:53:22.262
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --sidp=0x4009080 --id=0x0 --timestamp=1489193407 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 17:53:24.524
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --tcpport=auto --sidp=0x4009080 --id=0x0 --timestamp=1489193407]
+!SESSION 2017-03-10 18:03:23.539 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 18:03:46.703
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --sidp=0x4009080 --id=0x0 --timestamp=1489194037 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 18:03:48.976
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --tcpport=auto --sidp=0x4009080 --id=0x0 --timestamp=1489194037]
+!SESSION 2017-03-10 18:10:25.640 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 18:11:09.280
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --sidp=0x40090a0 --id=0x0 --timestamp=1489194482 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 18:11:11.577
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --tcpport=auto --sidp=0x40090a0 --id=0x0 --timestamp=1489194482]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 18:12:00.633
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x40090a0 --id=0x0 --timestamp=1489194482]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 18:12:01.999
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x40090a0 --id=0x0 --timestamp=1489194482 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 18:12:16.404
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 18:12:16.606
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x40090a0 --id=0x0 --timestamp=1489194482]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 18:12:17.966
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x40090a0 --id=0x0 --timestamp=1489194482 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 18:12:33.176
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 18:12:33.366
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x40090a0 --id=0x0 --timestamp=1489194482]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 18:12:34.732
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x40090a0 --id=0x0 --timestamp=1489194482 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+!SESSION 2017-03-10 18:24:20.581 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 18:24:48.705
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --sidp=0x40090a0 --id=0x0 --timestamp=1489195312 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 18:24:50.974
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --tcpport=auto --sidp=0x40090a0 --id=0x0 --timestamp=1489195312]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 18:26:00.945
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x40090a0 --id=0x0 --timestamp=1489195312]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 18:26:02.310
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x40090a0 --id=0x0 --timestamp=1489195312 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+!SESSION 2017-03-10 18:31:25.518 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 18:31:45.464
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --sidp=0x40090a0 --id=0x0 --timestamp=1489195717 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 18:31:48.003
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --tcpport=auto --sidp=0x40090a0 --id=0x0 --timestamp=1489195717]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 18:34:26.488
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x40090a0 --id=0x0 --timestamp=1489195717]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 18:34:27.855
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x40090a0 --id=0x0 --timestamp=1489195717 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 18:34:51.113
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 18:34:51.299
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x40090a0 --id=0x0 --timestamp=1489195717]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 18:34:52.669
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x40090a0 --id=0x0 --timestamp=1489195717 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 18:35:37.572
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 18:35:37.765
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x40090a0 --id=0x0 --timestamp=1489195717]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 18:35:39.134
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x40090a0 --id=0x0 --timestamp=1489195717 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 18:36:26.131
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 18:36:26.329
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x40090a0 --id=0x0 --timestamp=1489195717]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 18:36:27.696
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x40090a0 --id=0x0 --timestamp=1489195717 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 18:36:41.704
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 18:36:41.903
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x40090a0 --id=0x0 --timestamp=1489195717]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 18:36:43.274
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x40090a0 --id=0x0 --timestamp=1489195717 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 18:36:59.085
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 18:36:59.269
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --sidp=0x40090a0 --id=0x0 --timestamp=1489195717 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 18:37:01.384
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --tcpport=auto --sidp=0x40090a0 --id=0x0 --timestamp=1489195717]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 18:38:42.922
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x40090a0 --id=0x0 --timestamp=1489195717]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 18:38:44.291
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x40090a0 --id=0x0 --timestamp=1489195717 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 18:39:09.096
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 18:39:09.292
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x40090a0 --id=0x0 --timestamp=1489195717]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 18:39:10.660
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x40090a0 --id=0x0 --timestamp=1489195717 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 18:39:27.680
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 18:39:27.871
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x40090a0 --id=0x0 --timestamp=1489195717]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 18:39:29.241
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x40090a0 --id=0x0 --timestamp=1489195717 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+!SESSION 2017-03-10 18:50:15.974 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 18:50:36.288
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x40090a0 --id=0x0 --timestamp=1489196880]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 18:50:37.810
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x40090a0 --id=0x0 --timestamp=1489196880 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 18:52:23.435
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [2-1.6]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 18:52:23.641
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x40090a0 --id=0x0 --timestamp=1489196880]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 18:52:25.006
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x40090a0 --id=0x0 --timestamp=1489196880 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+!SESSION 2017-03-10 18:59:33.745 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 18:59:57.956
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x40090a0 --id=0x0 --timestamp=1489197425]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 18:59:59.464
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x40090a0 --id=0x0 --timestamp=1489197425 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]
+!SESSION 2017-03-10 19:04:04.635 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 19:04:47.692
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --stop --sidp=0x40090a0 --id=0x0 --timestamp=1489197688]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2017-03-10 19:04:49.194
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [2-1.6]' --device=1 --instance=0 --go --sidp=0x40090a0 --id=0x0 --timestamp=1489197688 /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/software/electronic_engine_control/electronic_engine_control.elf]

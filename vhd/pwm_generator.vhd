@@ -6,7 +6,6 @@
 
 library IEEE;
 use IEEE.std_logic_1164.all;
-use IEEE.std_logic_signed.all;
 use IEEE.numeric_std.all;
 
 entity pwm_generator is
@@ -14,8 +13,8 @@ entity pwm_generator is
 		clock    			: in  std_logic                       := '0'; 			    		-- clock
 		write_en_period     : in  std_logic                       := '0'; 			    		-- write_enable
 		write_en_duty       : in  std_logic                       := '0'; 			    		-- write_enable
-		period 				: in  std_logic_vector(15 downto 0)   := "0000100000000000";        -- period in clock ticks
-		duty_count 			: in  std_logic_vector(15 downto 0)   := "0000000100000000";        -- duty must be less than or equal to period
+		period 				: in  std_logic_vector(15 downto 0)   := "0000000000000000";        -- period in clock ticks
+		duty_count 			: in  std_logic_vector(15 downto 0)   := "0000000000000000";        -- duty must be less than or equal to period
 		pwm_out 			: out std_logic                       := '0';              		  	-- output pwm signal
 		reset    			: in  std_logic                       := '0'  						-- reset
 	);
@@ -23,7 +22,7 @@ end entity pwm_generator;
 
 architecture pwm of pwm_generator is
 
-	signal curr_period 	: std_logic_vector(15 downto 0) := "0000000000000000"; 
+	signal curr_period 		: std_logic_vector(15 downto 0) := "1000000000000000"; 
 
 	signal curr_duty_count 	: std_logic_vector(15 downto 0) := "0000000000000000"; 
 
@@ -35,35 +34,31 @@ begin
 	begin
 		if(reset = '1') then
 			period_count <= "0000000000000000"; 
-			curr_period <= "0000100000000000"; 
-			curr_duty_count <= "0000000100000000"; 
 		elsif(rising_edge(clock)) then
 
 			if(write_en_period = '1') then
 				curr_period <= period;
+			else
+				if(unsigned(period_count) < unsigned(curr_period)) then
+					period_count <= std_logic_vector( unsigned(period_count) + 1 );
+				else
+					period_count <= "0000000000000000"; 
+				end if;
 			end if;
 
 			if(write_en_duty = '1') then
 				curr_duty_count <= duty_count;
 			end if;
 
-			if(period_count < curr_period) then
-				period_count <= period_count + 1;
+			if(unsigned(period_count) < unsigned(curr_duty_count)) then
+				pwm_out <= '1';
 			else
-				period_count <= "0000000000000000"; 
+				pwm_out <= '0';
 			end if;
 
 		end if;
 	end process;
 	
-	gen: process(period_count)
-	begin
-		if(period_count < curr_duty_count) then
-			pwm_out <= '1';
-		else
-			pwm_out <= '0';
-		end if;
-	end process;
 
 end architecture pwm; -- of pwm_generator
 

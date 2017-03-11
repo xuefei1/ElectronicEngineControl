@@ -46,7 +46,7 @@ int main(void) {
 
 	throttle_data_init();
 
-	TEST_PWM(50000, 100);
+	TEST_PWM(16384, 100);
 
 //	OSTaskCreateExt(failure_handler_task, NULL,
 //			(void *) &failure_handler_task_stk[TASK_STACKSIZE - 1],
@@ -66,7 +66,7 @@ int main(void) {
 //			SOLENOID_TASK_PRIORITY, SOLENOID_TASK_PRIORITY, solenoid_task_stk, TASK_STACKSIZE,
 //			NULL, 0);
 
-	OSStart();
+	//OSStart();
 
 	return 0;
 }
