@@ -43,9 +43,9 @@ library ieee;
 		DRAM_RAS_N	: 	out	std_logic;
 		DRAM_WE_N	: 	out std_logic;
 
-		GPIO_0		:	in 	std_logic_vector (35 downto 0);
+		GPIO_0		:	out std_logic_vector (35 downto 0);
 
-		GPIO_2		:	out std_logic_vector (7 downto 0);
+		GPIO_2		:	in std_logic_vector (7 downto 0);
 
 		-- ADC
 		ADC_CS_N	:	out std_logic;
@@ -82,12 +82,10 @@ architecture structure of electronic_engine_control is
             adc_dout_to_the_de0_nano_adc_0        : in    std_logic                     := 'X';             -- adc_dout
             adc_din_from_the_de0_nano_adc_0       : out   std_logic;      						            -- adc_din
 			pwm_generator_0_pwm_out_export        : out   std_logic                     := '0';             -- pwm_out
-            solenoid_controller_0_conduit_end_btn_shift_up_in    : in    std_logic      := '0';             -- btn_shift_up_in
-            solenoid_controller_0_conduit_end_btn_shift_down_in  : in    std_logic      := '0';             -- btn_shift_down_in
-            solenoid_controller_0_conduit_end_sol_shift_up_out   : out   std_logic;                         -- sol_shift_up_out
-            solenoid_controller_0_conduit_end_sol_shift_down_out : out   std_logic;                         -- sol_shift_down_out
             rs232_0_external_interface_RXD                       : in    std_logic      := 'X';             -- RXD
-            rs232_0_external_interface_TXD                       : out   std_logic                          -- TXD
+            rs232_0_external_interface_TXD                       : out   std_logic;                          -- TXD
+			solenoid_out_external_connection_export 			 : out   std_logic_vector(7 downto 0)  := "00000000"; -- export solenid drivin pins
+            buttons_external_connection_export                   : in    std_logic_vector(7 downto 0)  := "00000000"  -- export buttons
         );
     end component niosII_system;
 
@@ -127,13 +125,13 @@ begin
 			adc_cs_n_from_the_de0_nano_adc_0     => ADC_CS_N,
 			adc_dout_to_the_de0_nano_adc_0       => ADC_SDAT,
 			adc_din_from_the_de0_nano_adc_0      => ADC_SADDR,
-			pwm_generator_0_pwm_out_export		 => GPIO_2(0),
-			solenoid_controller_0_conduit_end_sol_shift_up_out		=> GPIO_2(2),
-			solenoid_controller_0_conduit_end_sol_shift_down_out	=> GPIO_2(3),
-			solenoid_controller_0_conduit_end_btn_shift_up_in   	=> GPIO_0(2),
-			solenoid_controller_0_conduit_end_btn_shift_down_in 	=> GPIO_0(3),
-			rs232_0_external_interface_TXD							=> GPIO_2(7),
-			rs232_0_external_interface_RXD							=> GPIO_0(7)
+			pwm_generator_0_pwm_out_export		 => GPIO_0(0),
+			solenoid_out_external_connection_export(2)				=> GPIO_0(2),
+			solenoid_out_external_connection_export(3)				=> GPIO_0(3),
+			buttons_external_connection_export(2)  			   		=> GPIO_2(2),
+			buttons_external_connection_export(3)  			   		=> GPIO_2(3),
+			rs232_0_external_interface_TXD							=> GPIO_0(7),
+			rs232_0_external_interface_RXD							=> GPIO_2(7)
         );
 
 end structure;

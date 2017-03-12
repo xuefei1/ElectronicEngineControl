@@ -34,8 +34,9 @@ obj/default/failure_handler_proc.o: failure_handler_proc.c \
   ../electronic_engine_control_bsp//HAL/inc/sys/alt_timestamp.h \
   ../electronic_engine_control_bsp//drivers/inc/altera_avalon_timer.h \
   ../electronic_engine_control_bsp//HAL/inc/alt_types.h test_config.h \
-  tests/CuTest.h throttle_data.h apps_motor_proc.h solenoid_proc.h util.h \
-  tps_proc.h
+  tests/CuTest.h throttle_data.h apps_motor_proc.h solenoid_proc.h \
+  ../electronic_engine_control_bsp//drivers/inc/altera_avalon_pio_regs.h \
+  util.h tps_proc.h
 
 failure_handler_proc.h:
 
@@ -120,6 +121,8 @@ throttle_data.h:
 apps_motor_proc.h:
 
 solenoid_proc.h:
+
+../electronic_engine_control_bsp//drivers/inc/altera_avalon_pio_regs.h:
 
 util.h:
 

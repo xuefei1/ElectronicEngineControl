@@ -17,7 +17,7 @@
 #include "tests/CuTest.h"
 
 /* Set this flag to enable running all unit tests*/
-#define RUN_UNIT_TESTS
+//#define RUN_UNIT_TESTS
 
 /* Set this flag to get average time required for each task*/
 //#define RUN_AVG_TASK_TIME_TEST

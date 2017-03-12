@@ -25,9 +25,26 @@ OS_EVENT 	*failure_resolved_flag;
 /* Flag indicating target RPM reached */
 OS_EVENT 	*rpm_reached_flag;
 
+/* Flag indicating shifting in progress */
+OS_EVENT 	*timer_active_flag;
+
 alt_alarm   *alarm;
 
-static void isr_btn (void* context, alt_u32 id);
+static void isr_btn (void* context, alt_u32 id)
+{
+	static INT32U data = 0;
+	data = IORD_ALTERA_AVALON_PIO_EDGE_CAP(BUTTONS_BASE);
+	//data = IORD_ALTERA_AVALON_PIO_DATA(BUTTONS_BASE);
+	INT32U *ptr = &data;
+	if(data == BUTTON_INPUT_SHIFT_UP){
+		OSQPost(btn_input_q, (void*) ptr);
+	}else if(data == BUTTON_INPUT_SHIFT_DOWN){
+		OSQPost(btn_input_q, (void*) ptr);
+	}
+	IOWR_ALTERA_AVALON_PIO_EDGE_CAP(BUTTONS_BASE, 0);
+
+	IOWR_ALTERA_AVALON_PIO_IRQ_MASK(BUTTONS_BASE, BUTTON_INPUT_SHIFT_UP | BUTTON_INPUT_SHIFT_DOWN);
+}
 
 alt_u32 solenoid_callback(void* context);
 
@@ -39,23 +56,26 @@ void shift_down();
 void solenoid_task(void* pdata) {
 
 	INT8U err;
-	
-	BOOL solenoid_open_timer_activated = FALSE;
 
 	btn_input_q = OSQCreate((void*)solenoid_buf, SOLENOID_Q_SIZE_ELEMENTS);
-	
-	alt_irq_register(SOLENOID_CONTROLLER_0_AVALON_SLAVE_READ_IRQ,NULL,  &isr_btn);
-	
+
 	external_failure_flag = OSSemCreate(SEM_FLAG_NO_ERROR);
 
 	failure_resolved_flag = OSSemCreate(SEM_FLAG_ERROR_UNRESOLVED);
 
 	rpm_reached_flag = OSSemCreate(OS_SEM_RPM_NOT_REACHED);
 
+	timer_active_flag = OSSemCreate(OS_SEM_FLAG_NOT_SHIFTING);
+
 	OS_EVENT *shift_matching_q = get_motor_cmd_q();
 
 	INT8U curr_gear = 1;
 
+	printf("clamp a\n");
+	IOWR_ALTERA_AVALON_PIO_IRQ_MASK(BUTTONS_BASE, BUTTON_INPUT_SHIFT_UP | BUTTON_INPUT_SHIFT_DOWN);
+	IOWR_ALTERA_AVALON_PIO_EDGE_CAP(BUTTONS_BASE, 0);
+	INT8U rc = alt_irq_register(BUTTONS_IRQ, NULL,  &isr_btn);
+	printf("clamp b, rc:%d\n", rc);
 #if defined(RUN_AVG_TASK_TIME_TEST)
 	if(alt_timestamp_start()<0)
 	{
@@ -73,7 +93,15 @@ void solenoid_task(void* pdata) {
 #if defined(RUN_AVG_TASK_TIME_TEST)
 		INT8U shift_command = BUTTON_INPUT_SHIFT_UP;
 #else
-		INT8U shift_command = *(INT8U *) OSQPend(btn_input_q, Q_TIMEOUT_WAIT_FOREVER, &err);
+		INT32U shift_command = *(INT32U *) OSQPend(btn_input_q, Q_TIMEOUT_WAIT_FOREVER, &err);
+		if(OSSemAccept(external_failure_flag) != SEM_FLAG_NO_ERROR){
+			printf("External failure, block apps_motor_task\n");
+			OSSemPend(failure_resolved_flag, Q_TIMEOUT_WAIT_FOREVER, &err);
+		}
+		printf("cmd:%d\n", shift_command);
+		if (OSSemAccept(timer_active_flag) == OS_SEM_FLAG_SHIFTING){
+			continue;
+		}
 		INT16U new_gear = curr_gear;
 		if(shift_command == BUTTON_INPUT_SHIFT_UP){
 			if(curr_gear == NUM_GEARS)
@@ -84,33 +112,22 @@ void solenoid_task(void* pdata) {
 				continue;
 			new_gear--;
 		}
+		printf("putting new gear %d into matching q\n", new_gear);
 		OSQPost(shift_matching_q, (void*)&new_gear);
-
-		OSSemPend(rpm_reached_flag, Q_TIMEOUT_WAIT_FOREVER, &err);
-
-		if(err)
-			printf("error pending on sem\n");
-
-		if(OSSemAccept(external_failure_flag) != SEM_FLAG_NO_ERROR){
-			printf("External failure, block apps_motor_task\n");
-			OSSemPend(failure_resolved_flag, Q_TIMEOUT_WAIT_FOREVER, &err);
-		}
+		curr_gear = new_gear;
+		//OSSemPend(rpm_reached_flag, Q_TIMEOUT_WAIT_FOREVER, &err);
 #endif
 		if (shift_command == BUTTON_INPUT_SHIFT_UP){
-			if (solenoid_open_timer_activated == FALSE){
-				solenoid_open_timer_activated = TRUE;
-				shift_up();
-				alarm = (alt_alarm*)malloc(sizeof(alt_alarm));
-				alt_alarm_start(alarm, SOLENOID_OPEN_DURATION_TICKS, &solenoid_callback, NULL);
-			}
+			shift_up();
+			alarm = (alt_alarm*)malloc(sizeof(alt_alarm));
+			printf("setting up alarm\n");
+			alt_alarm_start(alarm, SOLENOID_OPEN_DURATION_TICKS, &solenoid_callback, NULL);
 		}
 		else if (shift_command == BUTTON_INPUT_SHIFT_DOWN){
-			if (solenoid_open_timer_activated == FALSE){
-				solenoid_open_timer_activated = TRUE;
-				shift_down();
-				alarm = (alt_alarm*)malloc(sizeof(alt_alarm));
-				alt_alarm_start(alarm, SOLENOID_OPEN_DURATION_TICKS, &solenoid_callback, NULL);
-			}
+			shift_down();
+			printf("setting down alarm\n");
+			alarm = (alt_alarm*)malloc(sizeof(alt_alarm));
+			alt_alarm_start(alarm, SOLENOID_OPEN_DURATION_TICKS, &solenoid_callback, NULL);
 		}else {
 			printf("Unknown shift command received: %d\n", shift_command);
 		}
@@ -128,31 +145,25 @@ void solenoid_task(void* pdata) {
 	}
 }
 
-
 void shift_up(){
 	//write shift up command
-	*(INT8U*) SOLENOID_CONTROLLER_0_AVALON_SLAVE_WRITE_BASE = BUTTON_INPUT_SHIFT_UP;
+	IOWR_ALTERA_AVALON_PIO_DATA(SOLENOID_OUT_BASE, BUTTON_INPUT_SHIFT_UP);
 }
 
 void shift_down(){
 	//write shift down command
-	*(INT8U*) SOLENOID_CONTROLLER_0_AVALON_SLAVE_WRITE_BASE = BUTTON_INPUT_SHIFT_DOWN;
+	IOWR_ALTERA_AVALON_PIO_DATA(SOLENOID_OUT_BASE, BUTTON_INPUT_SHIFT_DOWN);
 }
 
 /* Call back function after 200ms shift up or down */
 alt_u32 solenoid_callback(void* context){
 	//clear control
 	if(alarm != NULL) free(alarm);
-	*(INT8U*) SOLENOID_CONTROLLER_0_AVALON_SLAVE_WRITE_BASE = DONE_SHIFTING;
+	printf("cancelling up alarm\n");
+	IOWR_ALTERA_AVALON_PIO_DATA(SOLENOID_OUT_BASE, 0);
 	signal_exit_shift_matching();
+	OSSemPost(timer_active_flag);
 	return 0;
-}
-
-static void isr_btn (void* context, alt_u32 id)
-{
-	INT8U *shift = (INT8U*) SOLENOID_CONTROLLER_0_AVALON_SLAVE_READ_BASE;
-	OSQPost(btn_input_q, (void*) shift);
-
 }
 
 OS_EVENT* get_solenoid_task_external_failure_flag(){

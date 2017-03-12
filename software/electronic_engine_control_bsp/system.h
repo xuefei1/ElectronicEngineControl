@@ -4,7 +4,7 @@
  * Machine generated for CPU 'nios2_0' in SOPC Builder design 'niosII_system'
  * SOPC Builder design path: ../../niosII_system.sopcinfo
  *
- * Generated: Fri Mar 10 19:04:38 MST 2017
+ * Generated: Sun Mar 12 16:16:47 MDT 2017
  */
 
 /*
@@ -134,7 +134,6 @@
 #define __ALTERA_UP_AVALON_RS232
 #define __ALTPLL
 #define __PWM_GENERATOR
-#define __SOLENOID_CONTROLLER
 
 
 /*
@@ -153,19 +152,19 @@
 #define ALT_NUM_INTERNAL_INTERRUPT_CONTROLLERS 1
 #define ALT_NUM_INTERRUPT_CONTROLLERS 1
 #define ALT_STDERR "/dev/jtag_uart_0"
-#define ALT_STDERR_BASE 0x4009098
+#define ALT_STDERR_BASE 0x40090c8
 #define ALT_STDERR_DEV jtag_uart_0
 #define ALT_STDERR_IS_JTAG_UART
 #define ALT_STDERR_PRESENT
 #define ALT_STDERR_TYPE "altera_avalon_jtag_uart"
 #define ALT_STDIN "/dev/jtag_uart_0"
-#define ALT_STDIN_BASE 0x4009098
+#define ALT_STDIN_BASE 0x40090c8
 #define ALT_STDIN_DEV jtag_uart_0
 #define ALT_STDIN_IS_JTAG_UART
 #define ALT_STDIN_PRESENT
 #define ALT_STDIN_TYPE "altera_avalon_jtag_uart"
 #define ALT_STDOUT "/dev/jtag_uart_0"
-#define ALT_STDOUT_BASE 0x4009098
+#define ALT_STDOUT_BASE 0x40090c8
 #define ALT_STDOUT_DEV jtag_uart_0
 #define ALT_STDOUT_IS_JTAG_UART
 #define ALT_STDOUT_PRESENT
@@ -178,7 +177,7 @@
  *
  */
 
-#define ALTPLL_0_BASE 0x4009080
+#define ALTPLL_0_BASE 0x40090b0
 #define ALTPLL_0_IRQ -1
 #define ALTPLL_0_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define ALTPLL_0_NAME "/dev/altpll_0"
@@ -188,12 +187,39 @@
 
 
 /*
+ * buttons configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_buttons altera_avalon_pio
+#define BUTTONS_BASE 0x4009080
+#define BUTTONS_BIT_CLEARING_EDGE_REGISTER 0
+#define BUTTONS_BIT_MODIFYING_OUTPUT_REGISTER 0
+#define BUTTONS_CAPTURE 1
+#define BUTTONS_DATA_WIDTH 8
+#define BUTTONS_DO_TEST_BENCH_WIRING 0
+#define BUTTONS_DRIVEN_SIM_VALUE 0x0
+#define BUTTONS_EDGE_TYPE "RISING"
+#define BUTTONS_FREQ 50000000u
+#define BUTTONS_HAS_IN 1
+#define BUTTONS_HAS_OUT 0
+#define BUTTONS_HAS_TRI 0
+#define BUTTONS_IRQ 5
+#define BUTTONS_IRQ_INTERRUPT_CONTROLLER_ID 0
+#define BUTTONS_IRQ_TYPE "EDGE"
+#define BUTTONS_NAME "/dev/buttons"
+#define BUTTONS_RESET_VALUE 0x0
+#define BUTTONS_SPAN 16
+#define BUTTONS_TYPE "altera_avalon_pio"
+
+
+/*
  * de0_nano_adc_0 configuration
  *
  */
 
 #define ALT_MODULE_CLASS_de0_nano_adc_0 altera_up_avalon_de0_nano_adc
-#define DE0_NANO_ADC_0_BASE 0x4009020
+#define DE0_NANO_ADC_0_BASE 0x4009040
 #define DE0_NANO_ADC_0_IRQ -1
 #define DE0_NANO_ADC_0_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define DE0_NANO_ADC_0_NAME "/dev/de0_nano_adc_0"
@@ -207,7 +233,7 @@
  */
 
 #define ALT_MODULE_CLASS_green_leds altera_avalon_pio
-#define GREEN_LEDS_BASE 0x4009070
+#define GREEN_LEDS_BASE 0x40090a0
 #define GREEN_LEDS_BIT_CLEARING_EDGE_REGISTER 0
 #define GREEN_LEDS_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define GREEN_LEDS_CAPTURE 0
@@ -244,7 +270,7 @@
  */
 
 #define ALT_MODULE_CLASS_jtag_uart_0 altera_avalon_jtag_uart
-#define JTAG_UART_0_BASE 0x4009098
+#define JTAG_UART_0_BASE 0x40090c8
 #define JTAG_UART_0_IRQ 1
 #define JTAG_UART_0_IRQ_INTERRUPT_CONTROLLER_ID 0
 #define JTAG_UART_0_NAME "/dev/jtag_uart_0"
@@ -291,11 +317,11 @@
  */
 
 #define ALT_MODULE_CLASS_pwm_generator_0_avalon_slave_duty pwm_generator
-#define PWM_GENERATOR_0_AVALON_SLAVE_DUTY_BASE 0x40090a8
+#define PWM_GENERATOR_0_AVALON_SLAVE_DUTY_BASE 0x40090d8
 #define PWM_GENERATOR_0_AVALON_SLAVE_DUTY_IRQ -1
 #define PWM_GENERATOR_0_AVALON_SLAVE_DUTY_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define PWM_GENERATOR_0_AVALON_SLAVE_DUTY_NAME "/dev/pwm_generator_0_avalon_slave_duty"
-#define PWM_GENERATOR_0_AVALON_SLAVE_DUTY_SPAN 2
+#define PWM_GENERATOR_0_AVALON_SLAVE_DUTY_SPAN 4
 #define PWM_GENERATOR_0_AVALON_SLAVE_DUTY_TYPE "pwm_generator"
 
 
@@ -305,11 +331,11 @@
  */
 
 #define ALT_MODULE_CLASS_pwm_generator_0_avalon_slave_period pwm_generator
-#define PWM_GENERATOR_0_AVALON_SLAVE_PERIOD_BASE 0x40090aa
+#define PWM_GENERATOR_0_AVALON_SLAVE_PERIOD_BASE 0x40090dc
 #define PWM_GENERATOR_0_AVALON_SLAVE_PERIOD_IRQ -1
 #define PWM_GENERATOR_0_AVALON_SLAVE_PERIOD_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define PWM_GENERATOR_0_AVALON_SLAVE_PERIOD_NAME "/dev/pwm_generator_0_avalon_slave_period"
-#define PWM_GENERATOR_0_AVALON_SLAVE_PERIOD_SPAN 2
+#define PWM_GENERATOR_0_AVALON_SLAVE_PERIOD_SPAN 4
 #define PWM_GENERATOR_0_AVALON_SLAVE_PERIOD_TYPE "pwm_generator"
 
 
@@ -319,8 +345,8 @@
  */
 
 #define ALT_MODULE_CLASS_rs232_0 altera_up_avalon_rs232
-#define RS232_0_BASE 0x4009090
-#define RS232_0_IRQ 3
+#define RS232_0_BASE 0x40090c0
+#define RS232_0_IRQ 2
 #define RS232_0_IRQ_INTERRUPT_CONTROLLER_ID 0
 #define RS232_0_NAME "/dev/rs232_0"
 #define RS232_0_SPAN 8
@@ -367,31 +393,30 @@
 
 
 /*
- * solenoid_controller_0_avalon_slave_read configuration
+ * solenoid_out configuration
  *
  */
 
-#define ALT_MODULE_CLASS_solenoid_controller_0_avalon_slave_read solenoid_controller
-#define SOLENOID_CONTROLLER_0_AVALON_SLAVE_READ_BASE 0x40090ac
-#define SOLENOID_CONTROLLER_0_AVALON_SLAVE_READ_IRQ 2
-#define SOLENOID_CONTROLLER_0_AVALON_SLAVE_READ_IRQ_INTERRUPT_CONTROLLER_ID 0
-#define SOLENOID_CONTROLLER_0_AVALON_SLAVE_READ_NAME "/dev/solenoid_controller_0_avalon_slave_read"
-#define SOLENOID_CONTROLLER_0_AVALON_SLAVE_READ_SPAN 1
-#define SOLENOID_CONTROLLER_0_AVALON_SLAVE_READ_TYPE "solenoid_controller"
-
-
-/*
- * solenoid_controller_0_avalon_slave_write configuration
- *
- */
-
-#define ALT_MODULE_CLASS_solenoid_controller_0_avalon_slave_write solenoid_controller
-#define SOLENOID_CONTROLLER_0_AVALON_SLAVE_WRITE_BASE 0x40090ad
-#define SOLENOID_CONTROLLER_0_AVALON_SLAVE_WRITE_IRQ -1
-#define SOLENOID_CONTROLLER_0_AVALON_SLAVE_WRITE_IRQ_INTERRUPT_CONTROLLER_ID -1
-#define SOLENOID_CONTROLLER_0_AVALON_SLAVE_WRITE_NAME "/dev/solenoid_controller_0_avalon_slave_write"
-#define SOLENOID_CONTROLLER_0_AVALON_SLAVE_WRITE_SPAN 1
-#define SOLENOID_CONTROLLER_0_AVALON_SLAVE_WRITE_TYPE "solenoid_controller"
+#define ALT_MODULE_CLASS_solenoid_out altera_avalon_pio
+#define SOLENOID_OUT_BASE 0x4009000
+#define SOLENOID_OUT_BIT_CLEARING_EDGE_REGISTER 0
+#define SOLENOID_OUT_BIT_MODIFYING_OUTPUT_REGISTER 1
+#define SOLENOID_OUT_CAPTURE 0
+#define SOLENOID_OUT_DATA_WIDTH 8
+#define SOLENOID_OUT_DO_TEST_BENCH_WIRING 0
+#define SOLENOID_OUT_DRIVEN_SIM_VALUE 0x0
+#define SOLENOID_OUT_EDGE_TYPE "NONE"
+#define SOLENOID_OUT_FREQ 50000000u
+#define SOLENOID_OUT_HAS_IN 0
+#define SOLENOID_OUT_HAS_OUT 1
+#define SOLENOID_OUT_HAS_TRI 0
+#define SOLENOID_OUT_IRQ -1
+#define SOLENOID_OUT_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define SOLENOID_OUT_IRQ_TYPE "NONE"
+#define SOLENOID_OUT_NAME "/dev/solenoid_out"
+#define SOLENOID_OUT_RESET_VALUE 0x0
+#define SOLENOID_OUT_SPAN 32
+#define SOLENOID_OUT_TYPE "altera_avalon_pio"
 
 
 /*
@@ -400,7 +425,7 @@
  */
 
 #define ALT_MODULE_CLASS_switch altera_avalon_pio
-#define SWITCH_BASE 0x4009060
+#define SWITCH_BASE 0x4009090
 #define SWITCH_BIT_CLEARING_EDGE_REGISTER 0
 #define SWITCH_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define SWITCH_CAPTURE 0
@@ -428,7 +453,7 @@
 
 #define ALT_MODULE_CLASS_sys_clk_timer altera_avalon_timer
 #define SYS_CLK_TIMER_ALWAYS_RUN 0
-#define SYS_CLK_TIMER_BASE 0x4009040
+#define SYS_CLK_TIMER_BASE 0x4009060
 #define SYS_CLK_TIMER_COUNTER_SIZE 32
 #define SYS_CLK_TIMER_FIXED_PERIOD 0
 #define SYS_CLK_TIMER_FREQ 50000000u
@@ -453,13 +478,13 @@
  */
 
 #define ALT_MODULE_CLASS_sysid_qsys_0 altera_avalon_sysid_qsys
-#define SYSID_QSYS_0_BASE 0x40090a0
+#define SYSID_QSYS_0_BASE 0x40090d0
 #define SYSID_QSYS_0_ID 0
 #define SYSID_QSYS_0_IRQ -1
 #define SYSID_QSYS_0_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define SYSID_QSYS_0_NAME "/dev/sysid_qsys_0"
 #define SYSID_QSYS_0_SPAN 8
-#define SYSID_QSYS_0_TIMESTAMP 1489197688
+#define SYSID_QSYS_0_TIMESTAMP 1489356836
 #define SYSID_QSYS_0_TYPE "altera_avalon_sysid_qsys"
 
 
@@ -470,11 +495,11 @@
 
 #define ALT_MODULE_CLASS_timestamp_timer altera_avalon_timer
 #define TIMESTAMP_TIMER_ALWAYS_RUN 0
-#define TIMESTAMP_TIMER_BASE 0x4009000
+#define TIMESTAMP_TIMER_BASE 0x4009020
 #define TIMESTAMP_TIMER_COUNTER_SIZE 32
 #define TIMESTAMP_TIMER_FIXED_PERIOD 0
 #define TIMESTAMP_TIMER_FREQ 50000000u
-#define TIMESTAMP_TIMER_IRQ 4
+#define TIMESTAMP_TIMER_IRQ 3
 #define TIMESTAMP_TIMER_IRQ_INTERRUPT_CONTROLLER_ID 0
 #define TIMESTAMP_TIMER_LOAD_VALUE 49ull
 #define TIMESTAMP_TIMER_MULT 1.0E-6

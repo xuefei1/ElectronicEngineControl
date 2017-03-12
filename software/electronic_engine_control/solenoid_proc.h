@@ -10,6 +10,7 @@
 
 #include "proj_config.h"
 #include "apps_motor_proc.h"
+#include "altera_avalon_pio_regs.h"
 
 #define SOLENOID_TASK_PRIORITY      		4
 
@@ -22,8 +23,12 @@
 #define SOLENOID_Q_SIZE_ELEMENTS			256
 
 #define DONE_SHIFTING						0
-#define BUTTON_INPUT_SHIFT_UP				1
-#define BUTTON_INPUT_SHIFT_DOWN				2
+#define BUTTON_INPUT_SHIFT_UP				4
+#define BUTTON_INPUT_SHIFT_DOWN				8
+#define CLEAR_BUTTON_IRQ					128
+
+#define OS_SEM_FLAG_SHIFTING				0
+#define OS_SEM_FLAG_NOT_SHIFTING			1
 
 void solenoid_task(void* pdata);
 

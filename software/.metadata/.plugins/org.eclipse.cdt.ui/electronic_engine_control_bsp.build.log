@@ -1,7 +1,7 @@
 
-**** Clean-only build of configuration Nios II for project electronic_engine_control_bsp ****
+**** Build of configuration Nios II for project electronic_engine_control_bsp ****
 
-make clean 
-[BSP clean complete]
+make all 
+[BSP build complete]
 
 **** Build Finished ****

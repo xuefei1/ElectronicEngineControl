@@ -38,15 +38,15 @@ int main(void) {
 
 	failure_code_q = OSQCreate((void*) failure_code_buf,
 			FAILURE_HANDLER_Q_SIZE_ELEMENTS);
-
+	printf("alive\n");
 #if defined(RUN_UNIT_TESTS)
 	printf("%d tests failed\n", run_all_unit_tests());
 #endif
-	printf("alive\n");
 
-	throttle_data_init();
 
-	TEST_PWM(16384, 100);
+	//throttle_data_init();
+
+	//TEST_PWM(2048, 10);
 
 //	OSTaskCreateExt(failure_handler_task, NULL,
 //			(void *) &failure_handler_task_stk[TASK_STACKSIZE - 1],
@@ -62,11 +62,11 @@ int main(void) {
 //			TPS_TASK_PRIORITY, TPS_TASK_PRIORITY, tps_task_stk, TASK_STACKSIZE,
 //			NULL, 0);
 //
-//	OSTaskCreateExt(solenoid_task, NULL, (void *) &solenoid_task_stk[TASK_STACKSIZE - 1],
-//			SOLENOID_TASK_PRIORITY, SOLENOID_TASK_PRIORITY, solenoid_task_stk, TASK_STACKSIZE,
-//			NULL, 0);
+	OSTaskCreateExt(solenoid_task, NULL, (void *) &solenoid_task_stk[TASK_STACKSIZE - 1],
+			SOLENOID_TASK_PRIORITY, SOLENOID_TASK_PRIORITY, solenoid_task_stk, TASK_STACKSIZE,
+			NULL, 0);
 
-	//OSStart();
+	OSStart();
 
 	return 0;
 }

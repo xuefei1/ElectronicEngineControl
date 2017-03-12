@@ -27,17 +27,17 @@ static INT8U update_stored_duty_cycle(INT8U flag, INT8U percent){
 
 static void update_pwm_period(){
 	INT16U period = get_period();
-	*(INT16U*)PWM_GENERATOR_0_AVALON_SLAVE_PERIOD_BASE = period;
+	*(INT32U*)PWM_GENERATOR_0_AVALON_SLAVE_PERIOD_BASE = period;
 }
 
 static void update_pwm_duty(){
 	INT16U duty = get_period() * get_duty_cycle() / DUTY_SCALE_FACTOR;
-	*(INT16U*)PWM_GENERATOR_0_AVALON_SLAVE_DUTY_BASE = duty;
+	*(INT32U*)PWM_GENERATOR_0_AVALON_SLAVE_DUTY_BASE = duty;
 }
 
 void set_period(INT16U period){
 	update_stored_period(PWM_PARAM_SET, period);
-	update_pwm_period();
+	//update_pwm_period();
 }
 
 void set_duty_cycle(INT8U percent){

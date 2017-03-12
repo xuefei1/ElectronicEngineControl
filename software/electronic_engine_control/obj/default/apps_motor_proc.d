@@ -34,7 +34,9 @@ obj/default/apps_motor_proc.o: apps_motor_proc.c apps_motor_proc.h \
   ../electronic_engine_control_bsp//HAL/inc/sys/alt_timestamp.h \
   ../electronic_engine_control_bsp//drivers/inc/altera_avalon_timer.h \
   ../electronic_engine_control_bsp//HAL/inc/alt_types.h test_config.h \
-  tests/CuTest.h throttle_data.h solenoid_proc.h util.h \
+  tests/CuTest.h throttle_data.h solenoid_proc.h \
+  ../electronic_engine_control_bsp//drivers/inc/altera_avalon_pio_regs.h \
+  util.h \
   ../electronic_engine_control_bsp//drivers/inc/altera_avalon_timer.h
 
 apps_motor_proc.h:
@@ -118,6 +120,8 @@ tests/CuTest.h:
 throttle_data.h:
 
 solenoid_proc.h:
+
+../electronic_engine_control_bsp//drivers/inc/altera_avalon_pio_regs.h:
 
 util.h:
 
