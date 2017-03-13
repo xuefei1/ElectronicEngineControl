@@ -266,7 +266,7 @@ BOOL set_new_motor_position_by_tps(INT16U *tps_reading) {
  * desired position is not allowed. This function is designed to run a hobby
  * servo but will be changed to run the DC motor later.
  */
-INT16U hitec_servo_demo(INT16U commanded_position) {
+INT32U hitec_servo_demo(INT16U commanded_position) {
 	if(commanded_position > THROTTLE_POSITION_MAX
 			|| commanded_position < THROTTLE_POSITION_MIN) {
 		return ILLEGAL_THROTTLE_POSITION;
@@ -308,23 +308,23 @@ INT16U hitec_servo_demo(INT16U commanded_position) {
 	//  80  |  800  |   533   |  1733  |  8665 | 8.66667
 	//  90  |  900  |   600   |  1800  |  9000 | 9
 
-	INT16U duty_cycle = (commanded_position * 2 / 3 + 1200) * 5;
+	INT32U duty_cycle = (commanded_position * 2 / 3 + 1200) * 5;
 
 	return duty_cycle;
 }
 
 /* Callback function after 100 ms position sensor comparison timeout */
 alt_u32 apps_value_comp_callback(void* context){
-	alt_up_de0_nano_adc_update(adc);
-	INT16U apps_1_reading = alt_up_de0_nano_adc_read(adc,
-			APPS_1_ADC_CHANNEL);
-	INT16U apps_2_reading = alt_up_de0_nano_adc_read(adc,
-			APPS_2_ADC_CHANNEL);
-
-	if (APPS_VALUE_MISMATCH(apps_1_reading, apps_2_reading)) {
-		OSSemPost(apps_failure_flag);
-		OSQPost(failure_msg_q, (void*) ERR_APPS_READING_MISMATCH);
-	}
+//	alt_up_de0_nano_adc_update(adc);
+//	INT16U apps_1_reading = alt_up_de0_nano_adc_read(adc,
+//			APPS_1_ADC_CHANNEL);
+//	INT16U apps_2_reading = alt_up_de0_nano_adc_read(adc,
+//			APPS_2_ADC_CHANNEL);
+//
+//	if (APPS_VALUE_MISMATCH(apps_1_reading, apps_2_reading)) {
+//		OSSemPost(apps_failure_flag);
+//		OSQPost(failure_msg_q, (void*) ERR_APPS_READING_MISMATCH);
+//	}
 
 	return 0;
 }

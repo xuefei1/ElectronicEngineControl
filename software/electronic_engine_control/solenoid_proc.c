@@ -8,6 +8,9 @@
 
 #include "solenoid_proc.h"
 
+#include "pwm_gen.h"
+#include "apps_motor_proc.h"
+
 /* Used to store shift commands */
 OS_EVENT 	*btn_input_q;
 
@@ -44,6 +47,7 @@ static void isr_btn (void* context, alt_u32 id)
 	IOWR_ALTERA_AVALON_PIO_EDGE_CAP(BUTTONS_BASE, 0);
 
 	IOWR_ALTERA_AVALON_PIO_IRQ_MASK(BUTTONS_BASE, BUTTON_INPUT_SHIFT_UP | BUTTON_INPUT_SHIFT_DOWN);
+
 }
 
 alt_u32 solenoid_callback(void* context);
@@ -54,6 +58,24 @@ void shift_down();
 
 /*  Task routine for solenoid */
 void solenoid_task(void* pdata) {
+
+//	INT16U pos = 0;
+//
+//		while(1) {
+//			//Hitec HS-635HB Servo Test
+//			//Runs a sweep from 0 to 90 degrees then back again.
+//			for(pos = 0; pos <= 1000; pos += 10) {
+//				INT32U duty_cycle = hitec_servo_demo(pos);
+//				set_duty_cycle(duty_cycle);
+//				OSTimeDly(1000);
+//			}
+//
+//			for(pos = 1000; pos > 50; pos -= 10) {
+//				INT32U duty_cycle = hitec_servo_demo(pos);
+//				set_duty_cycle(duty_cycle);
+//				OSTimeDly(1000);
+//			}
+//		}
 
 	INT8U err;
 

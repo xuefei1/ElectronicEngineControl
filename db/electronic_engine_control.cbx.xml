@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="electronic_engine_control">
+		<CBX_INST_ENTRY INSTANCE_NAME="|electronic_engine_control|niosII_system:u0|niosII_system_nios2_0:nios2_0|niosII_system_nios2_0_register_bank_b_module:niosII_system_nios2_0_register_bank_b|altsyncram:the_altsyncram" CBX_FILE_NAME="altsyncram_34h1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|electronic_engine_control|niosII_system:u0|niosII_system_jtag_uart_0:jtag_uart_0|niosII_system_jtag_uart_0_scfifo_r:the_niosII_system_jtag_uart_0_scfifo_r|scfifo:rfifo" CBX_FILE_NAME="scfifo_jr21.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|electronic_engine_control|niosII_system:u0|niosII_system_onchip_memory2_0:onchip_memory2_0|altsyncram:the_altsyncram" CBX_FILE_NAME="altsyncram_9od1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|electronic_engine_control|niosII_system:u0|niosII_system_rs232_0:rs232_0|altera_up_rs232_out_serializer:RS232_Out_Serializer|altera_up_sync_fifo:RS232_Out_FIFO|scfifo:Sync_FIFO" CBX_FILE_NAME="scfifo_a341.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|electronic_engine_control|niosII_system:u0|niosII_system_jtag_uart_0:jtag_uart_0|niosII_system_jtag_uart_0_scfifo_w:the_niosII_system_jtag_uart_0_scfifo_w|scfifo:wfifo" CBX_FILE_NAME="scfifo_jr21.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|electronic_engine_control|niosII_system:u0|niosII_system_nios2_0:nios2_0|niosII_system_nios2_0_nios2_oci:the_niosII_system_nios2_0_nios2_oci|niosII_system_nios2_0_nios2_oci_im:the_niosII_system_nios2_0_nios2_oci_im|niosII_system_nios2_0_traceram_lpm_dram_bdp_component_module:niosII_system_nios2_0_traceram_lpm_dram_bdp_component|altsyncram:the_altsyncram" CBX_FILE_NAME="altsyncram_0a02.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|electronic_engine_control|niosII_system:u0|niosII_system_nios2_0:nios2_0|niosII_system_nios2_0_nios2_oci:the_niosII_system_nios2_0_nios2_oci|niosII_system_nios2_0_nios2_ocimem:the_niosII_system_nios2_0_nios2_ocimem|niosII_system_nios2_0_ociram_lpm_dram_bdp_component_module:niosII_system_nios2_0_ociram_lpm_dram_bdp_component|altsyncram:the_altsyncram" CBX_FILE_NAME="altsyncram_fu82.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|electronic_engine_control|niosII_system:u0|niosII_system_nios2_0:nios2_0|niosII_system_nios2_0_register_bank_a_module:niosII_system_nios2_0_register_bank_a|altsyncram:the_altsyncram" CBX_FILE_NAME="altsyncram_24h1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|electronic_engine_control|niosII_system:u0|niosII_system_rs232_0:rs232_0|altera_up_rs232_in_deserializer:RS232_In_Deserializer|altera_up_sync_fifo:RS232_In_FIFO|scfifo:Sync_FIFO" CBX_FILE_NAME="scfifo_a341.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

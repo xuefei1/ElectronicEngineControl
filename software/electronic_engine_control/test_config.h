@@ -71,5 +71,5 @@ static void X_CompareAsserts(CuTest* tc, const char *file, int line, const char*
 
 void Test_pwm_gen_sweep();
 
-void Test_pwm_gen(INT16U period, INT8U duty);
+void Test_pwm_gen(INT16U period, INT16U duty);
 #endif /* TEST_CONFIG_H_ */

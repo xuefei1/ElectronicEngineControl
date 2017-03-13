@@ -19,8 +19,8 @@ static INT16U update_stored_period(INT8U flag, INT16U p){
 	return period;
 }
 
-static INT8U update_stored_duty_cycle(INT8U flag, INT8U percent){
-	static INT8U duty_cycle = 0;
+static INT32U update_stored_duty_cycle(INT8U flag, INT32U percent){
+	static INT32U duty_cycle = 0;
 
 	if(PWM_PARAM_SET == flag){
 		duty_cycle = percent;
@@ -35,7 +35,7 @@ static void update_pwm_period(){
 }
 
 static void update_pwm_duty(){
-	INT16U duty = get_period() * get_duty_cycle() / DUTY_SCALE_FACTOR;
+	INT32U duty = get_period() * get_duty_cycle() / DUTY_SCALE_FACTOR;
 	*(INT32U*)PWM_GENERATOR_0_AVALON_SLAVE_DUTY_BASE = duty;
 }
 
@@ -44,10 +44,7 @@ void set_period(INT16U period){
 	//update_pwm_period();
 }
 
-/* The input to this function is a scaled integer from 0 to 1000 representing
- * duty cycles from 0% to 10.000%.
- */
-void set_duty_cycle(INT16U percent){
+void set_duty_cycle(INT32U percent){
 	update_stored_duty_cycle(PWM_PARAM_SET, percent);
 	update_pwm_duty();
 }

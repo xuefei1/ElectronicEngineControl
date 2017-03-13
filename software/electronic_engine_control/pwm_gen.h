@@ -23,11 +23,11 @@
 
 #define PWM_PARAM_SET			1
 
-#define DUTY_SCALE_FACTOR		100
+#define DUTY_SCALE_FACTOR		50
 
 void set_period(INT16U period_us);
 
-void set_duty_cycle(INT8U percent);
+void set_duty_cycle(INT32U percent);
 
 INT16U get_period();
 

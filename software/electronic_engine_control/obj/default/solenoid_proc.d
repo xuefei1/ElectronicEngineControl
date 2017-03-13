@@ -35,7 +35,8 @@ obj/default/solenoid_proc.o: solenoid_proc.c solenoid_proc.h \
   ../electronic_engine_control_bsp//drivers/inc/altera_avalon_timer.h \
   ../electronic_engine_control_bsp//HAL/inc/alt_types.h test_config.h \
   tests/CuTest.h throttle_data.h apps_motor_proc.h util.h \
-  ../electronic_engine_control_bsp//drivers/inc/altera_avalon_pio_regs.h
+  ../electronic_engine_control_bsp//drivers/inc/altera_avalon_pio_regs.h \
+  pwm_gen.h
 
 solenoid_proc.h:
 
@@ -122,3 +123,5 @@ apps_motor_proc.h:
 util.h:
 
 ../electronic_engine_control_bsp//drivers/inc/altera_avalon_pio_regs.h:
+
+pwm_gen.h:

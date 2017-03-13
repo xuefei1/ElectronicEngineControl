@@ -39,27 +39,14 @@ int main(void) {
 	failure_code_q = OSQCreate((void*) failure_code_buf,
 			FAILURE_HANDLER_Q_SIZE_ELEMENTS);
 	printf("alive\n");
+	set_period(1000000);
 #if defined(RUN_UNIT_TESTS)
 	printf("%d tests failed\n", run_all_unit_tests());
 #endif
 
-	//Hitec HS-635HB Servo Test
-	//Runs a sweep from 0 to 90 degrees then back again.
-	for(int pos = 0; pos <= 90; pos += 5) {
-		INT16U duty_cycle = hitec_servo_demo(pos);
-		set_duty_cycle(duty_cycle);
-		OSTimeDelayHMSM(0, 0, 0, 200);
-	}
-
-	for(int pos = 90; pos >= 0; pos -= 5) {
-		INT16U duty_cycle = hitec_servo_demo(pos);
-		set_duty_cycle(duty_cycle);
-		OSTimeDelayHMSM(0, 0, 0, 200);
-	}
-
 	//throttle_data_init();
 
-	//TEST_PWM(2048, 10);
+	//TEST_PWM(1000000, 600000);
 
 //	OSTaskCreateExt(failure_handler_task, NULL,
 //			(void *) &failure_handler_task_stk[TASK_STACKSIZE - 1],

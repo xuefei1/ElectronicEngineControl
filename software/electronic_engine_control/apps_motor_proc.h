@@ -74,7 +74,7 @@ BOOL set_new_motor_position(INT16U *apps_reading);
 
 BOOL set_new_motor_position_by_tps(INT16U *tps_reading);
 
-INT16U hitec_servo_demo(INT16U commanded_position);
+INT32U hitec_servo_demo(INT16U commanded_position);
 
 alt_u32 apps_value_comp_callback(void* context);
 

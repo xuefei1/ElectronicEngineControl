@@ -119,7 +119,7 @@ int run_all_unit_tests(void){
 	return suite->failCount;
 }
 
-void Test_pwm_gen(INT16U period, INT8U duty){
+void Test_pwm_gen(INT16U period, INT16U duty){
 	set_period(period);
 	set_duty_cycle(duty);
 }
