@@ -1,5 +1,5 @@
 
--- This file is modified from lab1 top level vjdl file provided in eclass
+-- This file is modified from lab1 top level vhdl file provided in eclass
 
 -- A library clause declares a name as a library.  It 
 -- does not create the library; it simply forward declares 
@@ -63,29 +63,29 @@ architecture structure of electronic_engine_control is
 	
 	 component niosII_system is
         port (
-            clk_0                                 : in    std_logic                     := 'X';             -- clk
-            reset_n                               : in    std_logic                     := 'X';             -- reset_n
-            sdram_0_wire_addr                     : out   DE0_SDRAM_ADDR_BUS;                               -- addr
-            sdram_0_wire_ba                       : out   std_logic_vector(1 downto 0);                     -- ba
-            sdram_0_wire_cas_n                    : out   std_logic;                                        -- cas_n
-            sdram_0_wire_cke                      : out   std_logic;                                        -- cke
-            sdram_0_wire_cs_n                     : out   std_logic;                                        -- cs_n
-            sdram_0_wire_dq                       : inout DE0_SDRAM_DATA_BUS := (others => 'X');            -- dq
-            sdram_0_wire_dqm                      : out   std_logic_vector(1 downto 0);                     -- dqm
-            sdram_0_wire_ras_n                    : out   std_logic;                                        -- ras_n
-            sdram_0_wire_we_n                     : out   std_logic;                                        -- we_n
-            altpll_0_c0_out                       : out   std_logic;                                        -- clk
-            out_port_from_the_green_leds          : out   DE0_LED_GREEN;                                    -- led out 
-            in_port_to_the_switch                 : in    std_logic                     := 'X';             -- switch in 
-			adc_sclk_from_the_de0_nano_adc_0      : out   std_logic;                                        -- adc_sclk
-            adc_cs_n_from_the_de0_nano_adc_0      : out   std_logic;                                        -- adc_cs_n
-            adc_dout_to_the_de0_nano_adc_0        : in    std_logic                     := 'X';             -- adc_dout
-            adc_din_from_the_de0_nano_adc_0       : out   std_logic;      						            -- adc_din
-			pwm_generator_0_pwm_out_export        : out   std_logic                     := '0';             -- pwm_out
-            rs232_0_external_interface_RXD                       : in    std_logic      := 'X';             -- RXD
-            rs232_0_external_interface_TXD                       : out   std_logic;                          -- TXD
-			solenoid_out_external_connection_export 			 : out   std_logic_vector(7 downto 0)  := "00000000"; -- export solenid drivin pins
-            buttons_external_connection_export                   : in    std_logic_vector(7 downto 0)  := "00000000"  -- export buttons
+            clk_0                                 		: in    std_logic                     := 'X';             -- clk
+            reset_n                               		: in    std_logic                     := 'X';             -- reset_n
+            sdram_0_wire_addr                     		: out   DE0_SDRAM_ADDR_BUS;                               -- addr
+            sdram_0_wire_ba                       		: out   std_logic_vector(1 downto 0);                     -- ba
+            sdram_0_wire_cas_n                    		: out   std_logic;                                        -- cas_n
+            sdram_0_wire_cke                      		: out   std_logic;                                        -- cke
+            sdram_0_wire_cs_n                     		: out   std_logic;                                        -- cs_n
+            sdram_0_wire_dq                       		: inout DE0_SDRAM_DATA_BUS := (others => 'X');            -- dq
+            sdram_0_wire_dqm                      		: out   std_logic_vector(1 downto 0);                     -- dqm
+            sdram_0_wire_ras_n                    		: out   std_logic;                                        -- ras_n
+            sdram_0_wire_we_n                     		: out   std_logic;                                        -- we_n
+            altpll_0_c0_out                       		: out   std_logic;                                        -- clk
+            out_port_from_the_green_leds          		: out   DE0_LED_GREEN;                                    -- led out 
+            in_port_to_the_switch                 		: in    std_logic                     := 'X';             -- switch in 
+				adc_sclk_from_the_de0_nano_adc_0      		: out   std_logic;                                        -- adc_sclk
+            adc_cs_n_from_the_de0_nano_adc_0      		: out   std_logic;                                        -- adc_cs_n
+            adc_dout_to_the_de0_nano_adc_0        		: in    std_logic                     := 'X';             -- adc_dout
+            adc_din_from_the_de0_nano_adc_0       		: out   std_logic;      						            -- adc_din
+				pwm_generator_0_pwm_out_export        		: out   std_logic                     := '0';             -- pwm_out
+            rs232_0_external_interface_RXD            : in    std_logic      := 'X';             -- RXD
+            rs232_0_external_interface_TXD            : out   std_logic;                          -- TXD
+				solenoid_out_external_connection_export 	: out   std_logic_vector(7 downto 0)  := "00000000"; -- export solenid drivin pins
+            buttons_external_connection_export        : in    std_logic_vector(7 downto 0)  := "00000000"  -- export buttons
         );
     end component niosII_system;
 
@@ -107,31 +107,31 @@ begin
 	
 	  u0 : component niosII_system
         port map (
-            clk_0                                => CLOCK_50,                                
-            reset_n                              => KEY(0),                          
-            sdram_0_wire_addr                    => DRAM_ADDR,                      
-            sdram_0_wire_ba                      => BA,                        
-            sdram_0_wire_cas_n                   => DRAM_CAS_N,                      
-            sdram_0_wire_cke                     => DRAM_CKE,                       
-            sdram_0_wire_cs_n                    => DRAM_CS_N,                      
-            sdram_0_wire_dq                      => DRAM_DQ,                         
-            sdram_0_wire_dqm                     => DQM,                        
-            sdram_0_wire_ras_n                   => DRAM_RAS_N,                     
-            sdram_0_wire_we_n                    => DRAM_WE_N,                       
-            altpll_0_c0_out                      => DRAM_CLK,                        
-            out_port_from_the_green_leds         => LED,  
-            in_port_to_the_switch                => SW(0),                  
-			adc_sclk_from_the_de0_nano_adc_0     => ADC_SCLK,
-			adc_cs_n_from_the_de0_nano_adc_0     => ADC_CS_N,
-			adc_dout_to_the_de0_nano_adc_0       => ADC_SDAT,
-			adc_din_from_the_de0_nano_adc_0      => ADC_SADDR,
-			pwm_generator_0_pwm_out_export		 => GPIO_0(0),
-			solenoid_out_external_connection_export(2)				=> GPIO_0(2),
-			solenoid_out_external_connection_export(3)				=> GPIO_0(3),
-			buttons_external_connection_export(2)  			   		=> GPIO_2(2),
-			buttons_external_connection_export(3)  			   		=> GPIO_2(3),
-			rs232_0_external_interface_TXD							=> GPIO_0(7),
-			rs232_0_external_interface_RXD							=> GPIO_2(7)
+            clk_0                                			=> CLOCK_50,                                
+            reset_n                              			=> KEY(0),                          
+            sdram_0_wire_addr                    			=> DRAM_ADDR,                      
+            sdram_0_wire_ba                      			=> BA,                        
+            sdram_0_wire_cas_n                   			=> DRAM_CAS_N,                      
+            sdram_0_wire_cke                     			=> DRAM_CKE,                       
+            sdram_0_wire_cs_n                    			=> DRAM_CS_N,                      
+            sdram_0_wire_dq                      			=> DRAM_DQ,                         
+            sdram_0_wire_dqm                     			=> DQM,                        
+            sdram_0_wire_ras_n                   			=> DRAM_RAS_N,                     
+            sdram_0_wire_we_n                    			=> DRAM_WE_N,                       
+            altpll_0_c0_out                      			=> DRAM_CLK,                        
+            out_port_from_the_green_leds         			=> LED,  
+            in_port_to_the_switch                			=> SW(0),                  
+				adc_sclk_from_the_de0_nano_adc_0     			=> ADC_SCLK,
+				adc_cs_n_from_the_de0_nano_adc_0     			=> ADC_CS_N,
+				adc_dout_to_the_de0_nano_adc_0       			=> ADC_SDAT,
+				adc_din_from_the_de0_nano_adc_0      			=> ADC_SADDR,
+				pwm_generator_0_pwm_out_export		 			=> GPIO_0(0),
+				solenoid_out_external_connection_export(2)	=> GPIO_0(2),
+				solenoid_out_external_connection_export(3)	=> GPIO_0(3),
+				buttons_external_connection_export(2)  		=> GPIO_2(2),
+				buttons_external_connection_export(3)  		=> GPIO_2(3),
+				rs232_0_external_interface_TXD					=> GPIO_0(7),
+				rs232_0_external_interface_RXD					=> GPIO_2(7)
         );
 
 end structure;
