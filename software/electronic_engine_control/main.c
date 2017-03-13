@@ -43,6 +43,19 @@ int main(void) {
 	printf("%d tests failed\n", run_all_unit_tests());
 #endif
 
+	//Hitec HS-635HB Servo Test
+	//Runs a sweep from 0 to 90 degrees then back again.
+	for(int pos = 0; pos <= 90; pos += 5) {
+		INT16U duty_cycle = hitec_servo_demo(pos);
+		set_duty_cycle(duty_cycle);
+		OSTimeDelayHMSM(0, 0, 0, 200);
+	}
+
+	for(int pos = 90; pos >= 0; pos -= 5) {
+		INT16U duty_cycle = hitec_servo_demo(pos);
+		set_duty_cycle(duty_cycle);
+		OSTimeDelayHMSM(0, 0, 0, 200);
+	}
 
 	//throttle_data_init();
 

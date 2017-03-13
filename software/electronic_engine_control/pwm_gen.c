@@ -44,7 +44,10 @@ void set_period(INT16U period){
 	//update_pwm_period();
 }
 
-void set_duty_cycle(INT8U percent){
+/* The input to this function is a scaled integer from 0 to 1000 representing
+ * duty cycles from 0% to 10.000%.
+ */
+void set_duty_cycle(INT16U percent){
 	update_stored_duty_cycle(PWM_PARAM_SET, percent);
 	update_pwm_duty();
 }

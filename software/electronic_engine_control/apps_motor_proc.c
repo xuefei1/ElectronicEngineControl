@@ -261,11 +261,12 @@ BOOL set_new_motor_position_by_tps(INT16U *tps_reading) {
 /* The input to this function is a scaled integer from 0 to 1000 representing
  * throttle positions from 0% (fully closed) to 100.0% (fully open).
  *
- * Returns 0 on success, or ILLEGAL_THROTTLE_POSITION if the desired position
- * is not allowed. This function is currently designed to run a hobby servo
- * but will be changed to run the DC motor later.
+ * On success, returns a scaled integer from 0 to 10000 representing duty
+ * cycle from 0% to 10.000%. Returns ILLEGAL_THROTTLE_POSITION if the
+ * desired position is not allowed. This function is designed to run a hobby
+ * servo but will be changed to run the DC motor later.
  */
-INT16U turn_throttle_to_position(INT16U commanded_position) {
+INT16U hitec_servo_demo(INT16U commanded_position) {
 	if(commanded_position > THROTTLE_POSITION_MAX
 			|| commanded_position < THROTTLE_POSITION_MIN) {
 		return ILLEGAL_THROTTLE_POSITION;
@@ -309,7 +310,7 @@ INT16U turn_throttle_to_position(INT16U commanded_position) {
 
 	INT16U duty_cycle = (commanded_position * 2 / 3 + 1200) * 5;
 
-	return 0;
+	return duty_cycle;
 }
 
 /* Callback function after 100 ms position sensor comparison timeout */

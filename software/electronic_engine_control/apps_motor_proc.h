@@ -54,7 +54,7 @@
 
 #define THROTTLE_POSITION_MAX						1000
 #define THROTTLE_POSITION_MIN						0
-#define ILLEGAL_THROTTLE_POSITION					1
+#define ILLEGAL_THROTTLE_POSITION					0xFFFF
 
 void apps_motor_task(void* pdata);
 
@@ -74,7 +74,7 @@ BOOL set_new_motor_position(INT16U *apps_reading);
 
 BOOL set_new_motor_position_by_tps(INT16U *tps_reading);
 
-void turn_throttle_to_position(INT16U commanded_position);
+INT16U hitec_servo_demo(INT16U commanded_position);
 
 alt_u32 apps_value_comp_callback(void* context);
 
