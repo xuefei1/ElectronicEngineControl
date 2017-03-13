@@ -23,6 +23,7 @@
 /* ADC channel assignments */
 #define APPS_1_ADC_CHANNEL			  		0
 #define APPS_2_ADC_CHANNEL			  		1
+
 #define WSS_1_ADC_CHANNEL			  		4
 #define WSS_2_ADC_CHANNEL			  		5
 #define RPM_ADC_CHANNEL			  			6
@@ -51,6 +52,10 @@
 
 #define SHIFT_MATCHING_IN_PROGRESS					0
 
+#define THROTTLE_POSITION_MAX						1000
+#define THROTTLE_POSITION_MIN						0
+#define ILLEGAL_THROTTLE_POSITION					1
+
 void apps_motor_task(void* pdata);
 
 OS_EVENT* get_expected_motor_pos_q();
@@ -67,7 +72,13 @@ INT16U get_expected_tps_reading(INT16U apps_reading);
 
 BOOL set_new_motor_position(INT16U *apps_reading);
 
+BOOL set_new_motor_position_by_tps(INT16U *tps_reading);
+
+void turn_throttle_to_position(INT16U commanded_position);
+
 alt_u32 apps_value_comp_callback(void* context);
+
+alt_u32 motor_pos_check_callback(void* context);
 
 void signal_exit_shift_matching();
 
