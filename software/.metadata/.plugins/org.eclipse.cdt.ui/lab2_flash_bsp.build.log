@@ -1,7 +1,0 @@
-
-**** Clean-only build of configuration Nios II for project lab2_flash_bsp ****
-
-make clean 
-[BSP clean complete]
-
-**** Build Finished ****

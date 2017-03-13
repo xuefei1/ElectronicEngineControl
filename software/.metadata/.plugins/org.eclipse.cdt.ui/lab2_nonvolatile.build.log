@@ -1,7 +1,0 @@
-
-**** Clean-only build of configuration Nios II for project lab2_nonvolatile ****
-
-make clean 
-[lab2_nonvolatile clean complete]
-
-**** Build Finished ****
