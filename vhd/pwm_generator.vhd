@@ -10,13 +10,13 @@ use IEEE.numeric_std.all;
 
 entity pwm_generator is
 	port (
-		clock    			: in  std_logic                       := '0'; 			    		-- clock
-		write_en_period     : in  std_logic                       := '0'; 			    		-- write_enable
-		write_en_duty       : in  std_logic                       := '0'; 			    		-- write_enable
-		period 				: in  std_logic_vector(31 downto 0)   := "00000000000000000000000000000000";        -- period in clock ticks
-		duty_count 			: in  std_logic_vector(31 downto 0)   := "00000000000000000000000000000000";        -- duty must be less than or equal to period
-		pwm_out 			: out std_logic                       := '0';              		  	-- output pwm signal
-		reset    			: in  std_logic                       := '0'  						-- reset
+		clock    			: in		std_logic                       := '0'; 			    		-- clock
+		write_en_period   : in  	std_logic                       := '0'; 			    		-- write_enable
+		write_en_duty     : in  	std_logic                       := '0'; 			    		-- write_enable
+		period 				: in  	std_logic_vector(31 downto 0)   := "00000000000000000000000000000000";        -- period in clock ticks
+		duty_count 			: in  	std_logic_vector(31 downto 0)   := "00000000000000000000000000000000";        -- duty must be less than or equal to period
+		pwm_out 				: out 	std_logic                       := '0';              		  	-- output pwm signal
+		reset    			: in  	std_logic                       := '0'  						-- reset
 	);
 end entity pwm_generator;
 
@@ -26,7 +26,7 @@ architecture pwm of pwm_generator is
 
 	signal curr_duty_count 	: std_logic_vector(31 downto 0) := "00000000000000000000000000000000"; 
 
-	signal period_count 	: std_logic_vector(31 downto 0) := "00000000000000000000000000000000"; 
+	signal period_count 		: std_logic_vector(31 downto 0) := "00000000000000000000000000000000"; 
 
 begin
 

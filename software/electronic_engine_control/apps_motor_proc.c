@@ -275,6 +275,7 @@ INT16U turn_throttle_to_position(INT16U commanded_position) {
 	//degrees for the IO demo. Hobby servos use a PWM with frequency of
 	//50Hz and varying pulse widths to command different angles with
 	//0.9ms being 0, 1.5ms being 90, and 2.1ms being 180.
+	//http://hitecrcd.com/faqs/servos/general-servos
 	//
 	//The pulse_width will be a scaled integer from 0 to 2000 with 0
 	//being 0ms and 2000 being 2.000ms. This is chosen as the motor

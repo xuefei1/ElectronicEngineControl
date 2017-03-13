@@ -11,17 +11,21 @@
 
 static INT16U update_stored_period(INT8U flag, INT16U p){
 	static INT16U period = 0;
+
 	if(PWM_PARAM_SET == flag){
 		period = p;
 	}
+
 	return period;
 }
 
 static INT8U update_stored_duty_cycle(INT8U flag, INT8U percent){
 	static INT8U duty_cycle = 0;
+
 	if(PWM_PARAM_SET == flag){
 		duty_cycle = percent;
 	}
+
 	return duty_cycle;
 }
 
