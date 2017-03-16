@@ -57,25 +57,24 @@ void failure_handler_task(void* pdata) {
 			break;
 
 		default:
-			printf("Unknow failure code\n");
+			printf("Unknown failure code\n");
 			OSSemPost(get_apps_motor_task_external_failure_flag());
 			OSSemPost(get_solenoid_task_external_failure_flag());
 			OSSemPost(get_tps_task_external_failure_flag());
 			break;
-
-			//wait for outside command
-			*(INT8U*)GREEN_LEDS_BASE = FAILURE_INDICATION_LED;
-			OSSemPend(failure_resolved_flag, SEM_TIMEOUT_WAIT_FOREVER, &err);
-			*(INT8U*)GREEN_LEDS_BASE = 0;
-			OSSemPost(get_apps_motor_task_failure_resolved_flag());
-			OSSemPost(get_solenoid_task_failure_resolved_flag());
-			OSSemPost(get_tps_task_failure_resolved_flag());
-
-			OSTimeDlyHMSM(FAILURE_HANDLER_TASK_DELAY_HOURS,
-					FAILURE_HANDLER_TASK_DELAY_MINUTES,
-					FAILURE_HANDLER_TASK_DELAY_SECONDS,
-					FAILURE_HANDLER_TASK_DELAY_MILLISEC);
 		}
+		//wait for outside command
+		*(INT8U*)GREEN_LEDS_BASE = FAILURE_INDICATION_LED;
+		OSSemPend(failure_resolved_flag, SEM_TIMEOUT_WAIT_FOREVER, &err);
+		*(INT8U*)GREEN_LEDS_BASE = 0;
+		OSSemPost(get_apps_motor_task_failure_resolved_flag());
+		OSSemPost(get_solenoid_task_failure_resolved_flag());
+		OSSemPost(get_tps_task_failure_resolved_flag());
+
+		OSTimeDlyHMSM(FAILURE_HANDLER_TASK_DELAY_HOURS,
+				FAILURE_HANDLER_TASK_DELAY_MINUTES,
+				FAILURE_HANDLER_TASK_DELAY_SECONDS,
+				FAILURE_HANDLER_TASK_DELAY_MILLISEC);
 	}
 }
 
