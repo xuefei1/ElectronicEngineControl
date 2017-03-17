@@ -26,7 +26,6 @@
 
 #define WSS_1_ADC_CHANNEL			  		4
 #define WSS_2_ADC_CHANNEL			  		5
-#define RPM_ADC_CHANNEL			  			6
 
 /* Task Delays*/
 #define APPS_MOTOR_TASK_DELAY_HOURS	  		0

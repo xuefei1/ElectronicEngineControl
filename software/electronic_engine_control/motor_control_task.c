@@ -21,21 +21,43 @@ BOOL failure_encountered = FALSE;
 
 alt_up_de0_nano_adc_dev* adc;
 
+alt_alarm* watchdog;
+
+alt_alarm* tps_check_alarm;
+
 OSEVENT* post_new_request(motor_control_request* req){
 	OSQPost(request_q, req);
 	return request_q;
 }
 
-void turn_motor_cw(pwm_gen_module* pwm){
-	set_duty_cycle(pwm, MOTOR_PWM_DUTY_CYCLE_CW);
-}
-
-void turn_motor_ccw(pwm_gen_module* pwm){
+void increase_throttle(pwm_gen_module* pwm){
 	set_duty_cycle(pwm, MOTOR_PWM_DUTY_CYCLE_CCW);
 }
 
-void stop_motor(pwm_gen_module* pwm){
+void decrease_throttle(pwm_gen_module* pwm){
+	set_duty_cycle(pwm, MOTOR_PWM_DUTY_CYCLE_CW);
+}
+
+void hold_throttle(pwm_gen_module* pwm){
 	set_duty_cycle(pwm, MOTOR_PWM_DUTY_CYCLE_IDLE);
+}
+
+alt_u32 watchdog_callback(void* context){
+	free(watchdog);
+	failure_encountered = TRUE;
+}
+
+/* Callback function to check TPS agreement position */
+alt_u32 tps_value_comp_callback(void* context){
+	alt_up_de0_nano_adc_update(adc);
+	INT16U tps_1_reading = alt_up_de0_nano_adc_read(adc, TPS_1_ADC_CHANNEL);
+	INT16U tps_2_reading = alt_up_de0_nano_adc_read(adc, TPS_2_ADC_CHANNEL);
+	if (TPS_VALUE_MISMATCH(tps_1_reading, tps_2_reading)) {
+		failure_encountered = TRUE;
+	}
+	free(tps_check_alarm);
+	*(BOOL*)context = FALSE;
+	return 0;
 }
 
 void motor_control_task(void* pdata) {
@@ -43,35 +65,64 @@ void motor_control_task(void* pdata) {
 	adc = get_adc();
 	request_q = OSQCreate((void*) request_q_buf, REQUEST_Q_SIZE_ELEMENTS);
 	result_q = OSQCreate((void*) result_q_buf, RESULT_Q_SIZE_ELEMENTS);
-	alt_alarm* watchdog;
 	BOOL serving_request = FALSE;
 	INT16U expected_pos = 0;
 	INT16U expected_rpm = 0;
 	motor_control_request* req;
 	pwm_gen_module* pwm;
 	get_new_pwm_module(pwm, p_base, d_base, c_base, MOTOR_PWM_PERIOD_TICKS, MOTOR_PWM_DUTY_CYCLE_IDLE);
-
+	BOOL tps_check_timer_activated = FALSE;
 	enable_pwm_output(pwm);
 	while(1){
 		if(serving_request == FALSE){
 			req = OSQPend(request_q, Q_TIMEOUT_WAIT_FOREVER, &err);
+			watchdog = malloc(sizeof(alt_alarm));
 			if(req != NULL && req->request_type == MOTOR_CONTROL_REQ_TPS_POS){
 				serving_request = TRUE;
 				expected_pos = req->value;
+				alt_alarm_start(alarm, MOTOR_DRIVE_DELAY_TICKS, &apps_value_comp_callback, NULL);
 			}else if(req != NULL && req->request_type == MOTOR_CONTROL_REQ_RPM){
 				serving_request = TRUE;
 				expected_rpm = req->value;
+				alt_alarm_start(alarm, MOTOR_RPM_DRIVE_DELAY_TICKS, &apps_value_comp_callback, NULL);
 			}
 		}
 		if(failure_encountered == TRUE){
 			serving_request = FALSE;
 			OSQPost(req_result_q, REQUEST_RESULT_FAIL);
+			continue;
 		}
-
+		alt_up_de0_nano_adc_update(adc);
 		if(req != NULL && req->request_type == MOTOR_CONTROL_REQ_TPS_POS){
-
+			INT16U tps_1_reading = alt_up_de0_nano_adc_read(adc, TPS_1_ADC_CHANNEL);
+			INT16U tps_2_reading = alt_up_de0_nano_adc_read(adc, TPS_2_ADC_CHANNEL);
+			if (TPS_VALUE_MISMATCH(tps_1_reading, tps_2_reading)) {
+				if(tps_check_timer_activated == FALSE){
+					tps_check_alarm = (alt_alarm*) malloc(sizeof(alt_alarm));
+					alt_alarm_start(tps_check_alarm, SENSOR_VAL_COMP_DELAY_TICKS, &tps_value_comp_callback, &tps_check_timer_activated);
+				}
+			}
+			INT16U avg_tps_reading = (tps_1_reading + tps_2_reading)/2;
+			if(!TPS_VALUE_DIFFER_FROM_EXPECTED(avg_tps_reading, expected_pos)){
+				hold_throttle();
+				serving_request = FALSE;
+				OSQPost(req_result_q, REQUEST_RESULT_OK);
+			}else if(avg_tps_reading > expected_pos){
+				decrease_throttle();
+			}else{
+				increase_throttle();
+			}
 		}else if(req != NULL && req->request_type == MOTOR_CONTROL_REQ_RPM){
-
+			INT16U rpm_reading = alt_up_de0_nano_adc_read(adc, RPM_ADC_CHANNEL);
+			if(!RPM_VALUE_DIFFER_FROM_EXPECTED(rpm_reading, expected_rpm)){
+				hold_throttle();
+				serving_request = FALSE;
+				OSQPost(req_result_q, REQUEST_RESULT_OK);
+			}else if(rpm_reading > expected_rpm){
+				decrease_throttle();
+			}else{
+				increase_throttle();
+			}
 		}
 
 		OSTimeDlyHMSM(MOTOR_CONTROL_TASK_DELAY_HOURS,

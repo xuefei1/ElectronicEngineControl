@@ -6,9 +6,7 @@
  *  Created on: Feb 4, 2017
  *      Author: xuefei1
  *
- *      Throttle Position Sensor process
- *
- *      *See proj_config.h for acronym translations
+ *      Obsolete, to be removed
  */
 
 #include "tps_task.h"
