@@ -45,14 +45,9 @@
 #define PWM_TEST_DUTY_INCREMENT				10
 #define PWM_TEST_SLEEP_DURATION_US			5000000
 
-#if defined(RUN_PWM_GEN_SWEEP_TEST)
-	#define TEST_PWM_SWEEP()	Test_pwm_gen_sweep()
-	#define TEST_PWM(period, duty)
-#elif defined(RUN_PWM_GEN_SINGLE_TEST)
-	#define TEST_PWM_SWEEP()
+#if defined(RUN_PWM_GEN_SINGLE_TEST)
 	#define TEST_PWM(period, duty)	Test_pwm_gen(period, duty)
 #else
-	#define TEST_PWM_SWEEP()
 	#define TEST_PWM(period, duty)
 #endif
 

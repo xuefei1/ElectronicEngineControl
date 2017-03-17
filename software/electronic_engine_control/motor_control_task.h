@@ -42,14 +42,14 @@
 
 
 
-struct motor_control_request {
+typedef struct  {
    INT32U value;
    INT8U  request_type;
-};
+} motor_control_request;
 
 void motor_control_task(void* pdata);
 
 //post a new request, get a queue indicating result
-OSEVENT* post_new_request(motor_control_request* req);
+OS_EVENT* post_new_request(motor_control_request* req);
 
 #endif /* MOTOR_CONTROL_TASK_H_ */

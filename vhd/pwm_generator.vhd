@@ -27,23 +27,23 @@ architecture pwm of pwm_generator is
 begin
 
 	inc: process(clock, reset)
-	variable period 		: integer range 0 to 4294967295;
-	variable duty_count 	: integer range 0 to 4294967295;
-	variable count 			: integer range 0 to 4294967295;
-	variable output_enable	:std_logic := '0';
+	variable period 		: std_logic_vector(31 downto 0) := "00000000000000000000000000000000";
+	variable duty_count 	: std_logic_vector(31 downto 0) := "00000000000000000000000000000000";
+	variable count 			: std_logic_vector(31 downto 0) := "00000000000000000000000000000000";
+	variable output_enable	: std_logic := '0';
 	begin
 		if(reset = '1') then
-			period := 0; 
-			duty_count := 0;
-			output_enable <= '0';
+			period := "00000000000000000000000000000000"; 
+			duty_count := "00000000000000000000000000000000";
+			output_enable := '0';
 		elsif(rising_edge(clock)) then
 
 			if(write_en_period = '1') then
-				period := unsigned(period_in);
+				period := period_in;
 			end if;
 
 			if(write_en_duty = '1') then
-				duty_count := unsigned(duty_in); 
+				duty_count := duty_in; 
 				if(duty_count > period) then
 					duty_count := period;
 				end if;
@@ -53,18 +53,20 @@ begin
 				output_enable := control_in(0); 
 			end if;
 			
-			if(count = period - 1) then
-				count := 0; 
+			if(unsigned(count) = unsigned(period) - 1) then
+				count := "00000000000000000000000000000000"; 
 			else
-				count := count + 1;
+				count := std_logic_vector(unsigned(count) + 1);
 			end if;
 			
 			if(output_enable = '1') then
-				if(count < duty_count) then
+				if(unsigned(count) < unsigned(duty_count)) then
 					pwm_out <= '1';
 				else
 					pwm_out <= '0';
 				end if;
+			else
+				pwm_out <= '0';
 			end if;
 		end if;
 	end process;

@@ -1,5 +1,5 @@
 EDA Netlist Writer report for electronic_engine_control
-Mon Mar 13 14:53:04 2017
+Fri Mar 17 16:51:24 2017
 Quartus II 32-bit Version 12.1 Build 243 01/31/2013 Service Pack 1 SJ Full Version
 
 
@@ -36,7 +36,7 @@ applicable agreement for further details.
 +-------------------------------------------------------------------+
 ; EDA Netlist Writer Summary                                        ;
 +---------------------------+---------------------------------------+
-; EDA Netlist Writer Status ; Successful - Mon Mar 13 14:53:04 2017 ;
+; EDA Netlist Writer Status ; Successful - Fri Mar 17 16:51:24 2017 ;
 ; Revision Name             ; electronic_engine_control             ;
 ; Top-level Entity Name     ; electronic_engine_control             ;
 ; Family                    ; Cyclone IV E                          ;
@@ -66,20 +66,20 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------------------------+------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------+
-; Simulation Generated Files                                                                                                                   ;
-+----------------------------------------------------------------------------------------------------------------------------------------------+
-; Generated Files                                                                                                                              ;
-+----------------------------------------------------------------------------------------------------------------------------------------------+
-; /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/simulation/modelsim/electronic_engine_control_7_1200mv_85c_slow.vho      ;
-; /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/simulation/modelsim/electronic_engine_control_7_1200mv_0c_slow.vho       ;
-; /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/simulation/modelsim/electronic_engine_control_min_1200mv_0c_fast.vho     ;
-; /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/simulation/modelsim/electronic_engine_control.vho                        ;
-; /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/simulation/modelsim/electronic_engine_control_7_1200mv_85c_vhd_slow.sdo  ;
-; /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/simulation/modelsim/electronic_engine_control_7_1200mv_0c_vhd_slow.sdo   ;
-; /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/simulation/modelsim/electronic_engine_control_min_1200mv_0c_vhd_fast.sdo ;
-; /afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/simulation/modelsim/electronic_engine_control_vhd.sdo                    ;
-+----------------------------------------------------------------------------------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Simulation Generated Files                                                                                                                         ;
++----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Generated Files                                                                                                                                    ;
++----------------------------------------------------------------------------------------------------------------------------------------------------+
+; /afs/ualberta.ca/home/x/u/xuefei1/Desktop/eec_git/ElectronicEngineControl/simulation/modelsim/electronic_engine_control_7_1200mv_85c_slow.vho      ;
+; /afs/ualberta.ca/home/x/u/xuefei1/Desktop/eec_git/ElectronicEngineControl/simulation/modelsim/electronic_engine_control_7_1200mv_0c_slow.vho       ;
+; /afs/ualberta.ca/home/x/u/xuefei1/Desktop/eec_git/ElectronicEngineControl/simulation/modelsim/electronic_engine_control_min_1200mv_0c_fast.vho     ;
+; /afs/ualberta.ca/home/x/u/xuefei1/Desktop/eec_git/ElectronicEngineControl/simulation/modelsim/electronic_engine_control.vho                        ;
+; /afs/ualberta.ca/home/x/u/xuefei1/Desktop/eec_git/ElectronicEngineControl/simulation/modelsim/electronic_engine_control_7_1200mv_85c_vhd_slow.sdo  ;
+; /afs/ualberta.ca/home/x/u/xuefei1/Desktop/eec_git/ElectronicEngineControl/simulation/modelsim/electronic_engine_control_7_1200mv_0c_vhd_slow.sdo   ;
+; /afs/ualberta.ca/home/x/u/xuefei1/Desktop/eec_git/ElectronicEngineControl/simulation/modelsim/electronic_engine_control_min_1200mv_0c_vhd_fast.sdo ;
+; /afs/ualberta.ca/home/x/u/xuefei1/Desktop/eec_git/ElectronicEngineControl/simulation/modelsim/electronic_engine_control_vhd.sdo                    ;
++----------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +-----------------------------+
@@ -88,20 +88,20 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II 32-bit EDA Netlist Writer
     Info: Version 12.1 Build 243 01/31/2013 Service Pack 1 SJ Full Version
-    Info: Processing started: Mon Mar 13 14:52:52 2017
+    Info: Processing started: Fri Mar 17 16:51:13 2017
 Info: Command: quartus_eda --read_settings_files=off --write_settings_files=off electronic_engine_control -c electronic_engine_control
-Info (204019): Generated file electronic_engine_control_7_1200mv_85c_slow.vho in folder "/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/simulation/modelsim/" for EDA simulation tool
-Info (204019): Generated file electronic_engine_control_7_1200mv_0c_slow.vho in folder "/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/simulation/modelsim/" for EDA simulation tool
-Info (204019): Generated file electronic_engine_control_min_1200mv_0c_fast.vho in folder "/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/simulation/modelsim/" for EDA simulation tool
-Info (204019): Generated file electronic_engine_control.vho in folder "/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/simulation/modelsim/" for EDA simulation tool
-Info (204019): Generated file electronic_engine_control_7_1200mv_85c_vhd_slow.sdo in folder "/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/simulation/modelsim/" for EDA simulation tool
-Info (204019): Generated file electronic_engine_control_7_1200mv_0c_vhd_slow.sdo in folder "/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/simulation/modelsim/" for EDA simulation tool
-Info (204019): Generated file electronic_engine_control_min_1200mv_0c_vhd_fast.sdo in folder "/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/simulation/modelsim/" for EDA simulation tool
-Info (204019): Generated file electronic_engine_control_vhd.sdo in folder "/afs/ualberta.ca/home/x/u/xuefei1/Desktop/electronic_engine_control/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file electronic_engine_control_7_1200mv_85c_slow.vho in folder "/afs/ualberta.ca/home/x/u/xuefei1/Desktop/eec_git/ElectronicEngineControl/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file electronic_engine_control_7_1200mv_0c_slow.vho in folder "/afs/ualberta.ca/home/x/u/xuefei1/Desktop/eec_git/ElectronicEngineControl/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file electronic_engine_control_min_1200mv_0c_fast.vho in folder "/afs/ualberta.ca/home/x/u/xuefei1/Desktop/eec_git/ElectronicEngineControl/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file electronic_engine_control.vho in folder "/afs/ualberta.ca/home/x/u/xuefei1/Desktop/eec_git/ElectronicEngineControl/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file electronic_engine_control_7_1200mv_85c_vhd_slow.sdo in folder "/afs/ualberta.ca/home/x/u/xuefei1/Desktop/eec_git/ElectronicEngineControl/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file electronic_engine_control_7_1200mv_0c_vhd_slow.sdo in folder "/afs/ualberta.ca/home/x/u/xuefei1/Desktop/eec_git/ElectronicEngineControl/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file electronic_engine_control_min_1200mv_0c_vhd_fast.sdo in folder "/afs/ualberta.ca/home/x/u/xuefei1/Desktop/eec_git/ElectronicEngineControl/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file electronic_engine_control_vhd.sdo in folder "/afs/ualberta.ca/home/x/u/xuefei1/Desktop/eec_git/ElectronicEngineControl/simulation/modelsim/" for EDA simulation tool
 Info: Quartus II 32-bit EDA Netlist Writer was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 342 megabytes
-    Info: Processing ended: Mon Mar 13 14:53:05 2017
-    Info: Elapsed time: 00:00:13
-    Info: Total CPU time (on all processors): 00:00:06
+    Info: Peak virtual memory: 346 megabytes
+    Info: Processing ended: Fri Mar 17 16:51:25 2017
+    Info: Elapsed time: 00:00:12
+    Info: Total CPU time (on all processors): 00:00:07
 
 

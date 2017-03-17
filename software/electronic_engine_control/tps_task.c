@@ -132,23 +132,6 @@ void tps_task(void* pdata) {
 	}
 }
 
-/* Callback function to check TPS agreement position */
-alt_u32 tps_value_comp_callback(void* context){
-	alt_up_de0_nano_adc_update(adc);
-	INT16U tps_1_reading = alt_up_de0_nano_adc_read(adc, TPS_1_ADC_CHANNEL);
-	INT16U tps_2_reading = alt_up_de0_nano_adc_read(adc, TPS_2_ADC_CHANNEL);
-	if (TPS_VALUE_MISMATCH(tps_1_reading, tps_2_reading)) {
-		OSSemPost(tps_failure_flag);
-		OSQPost(failure_msg_q, (void*) ERR_TPS_READING_MISMATCH);
-	}
-	if (TPS_VALUE_DIFFER_FROM_EXPECTED(tps_2_reading, curr_expected_pos)
-			|| TPS_VALUE_DIFFER_FROM_EXPECTED(tps_1_reading, curr_expected_pos)) {
-		OSSemPost(get_motor_failure_flag());
-		OSQPost(failure_msg_q, (void*) ERR_EXPECTED_THROTTLE_POS_MISMATCH);
-	}
-	return 0;
-}
-
 OS_EVENT* get_tps_task_failure_resolved_flag(){
 	return failure_resolved_flag;
 }

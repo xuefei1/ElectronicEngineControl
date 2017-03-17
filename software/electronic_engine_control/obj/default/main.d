@@ -33,9 +33,9 @@ obj/default/main.o: main.c proj_config.h custom_types.h \
   ../electronic_engine_control_bsp//HAL/inc/sys/alt_timestamp.h \
   ../electronic_engine_control_bsp//drivers/inc/altera_avalon_timer.h \
   ../electronic_engine_control_bsp//HAL/inc/alt_types.h test_config.h \
-  tests/CuTest.h throttle_data.h apps_motor_proc.h solenoid_proc.h \
+  tests/CuTest.h throttle_data.h apps_motor_task.h solenoid_task.h \
   ../electronic_engine_control_bsp//drivers/inc/altera_avalon_pio_regs.h \
-  util.h tps_proc.h failure_handler_proc.h
+  util.h motor_control_task.h pwm_gen.h tps_task.h failure_handler_task.h
 
 proj_config.h:
 
@@ -115,14 +115,18 @@ tests/CuTest.h:
 
 throttle_data.h:
 
-apps_motor_proc.h:
+apps_motor_task.h:
 
-solenoid_proc.h:
+solenoid_task.h:
 
 ../electronic_engine_control_bsp//drivers/inc/altera_avalon_pio_regs.h:
 
 util.h:
 
-tps_proc.h:
+motor_control_task.h:
 
-failure_handler_proc.h:
+pwm_gen.h:
+
+tps_task.h:
+
+failure_handler_task.h:

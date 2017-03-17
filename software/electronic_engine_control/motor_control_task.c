@@ -25,7 +25,7 @@ alt_alarm* watchdog;
 
 alt_alarm* tps_check_alarm;
 
-OSEVENT* post_new_request(motor_control_request* req){
+OS_EVENT* post_new_request(motor_control_request* req){
 	OSQPost(request_q, req);
 	return request_q;
 }
@@ -64,13 +64,12 @@ void motor_control_task(void* pdata) {
 	INT8U err;
 	adc = get_adc();
 	request_q = OSQCreate((void*) request_q_buf, REQUEST_Q_SIZE_ELEMENTS);
-	result_q = OSQCreate((void*) result_q_buf, RESULT_Q_SIZE_ELEMENTS);
+	req_result_q = OSQCreate((void*) result_q_buf, RESULT_Q_SIZE_ELEMENTS);
 	BOOL serving_request = FALSE;
 	INT16U expected_pos = 0;
 	INT16U expected_rpm = 0;
 	motor_control_request* req;
-	pwm_gen_module* pwm;
-	get_new_pwm_module(pwm, p_base, d_base, c_base, MOTOR_PWM_PERIOD_TICKS, MOTOR_PWM_DUTY_CYCLE_IDLE);
+	pwm_gen_module* pwm = get_new_pwm_module(PWM_GENERATOR_0_AVALON_SLAVE_PERIOD_BASE, PWM_GENERATOR_0_AVALON_SLAVE_DUTY_BASE, PWM_GENERATOR_0_AVALON_SLAVE_CONTROL_BASE, MOTOR_PWM_PERIOD_TICKS, MOTOR_PWM_DUTY_CYCLE_IDLE);
 	BOOL tps_check_timer_activated = FALSE;
 	enable_pwm_output(pwm);
 	while(1){
@@ -80,16 +79,16 @@ void motor_control_task(void* pdata) {
 			if(req != NULL && req->request_type == MOTOR_CONTROL_REQ_TPS_POS){
 				serving_request = TRUE;
 				expected_pos = req->value;
-				alt_alarm_start(alarm, MOTOR_DRIVE_DELAY_TICKS, &apps_value_comp_callback, NULL);
+				alt_alarm_start(watchdog, MOTOR_DRIVE_DELAY_TICKS, &watchdog_callback, NULL);
 			}else if(req != NULL && req->request_type == MOTOR_CONTROL_REQ_RPM){
 				serving_request = TRUE;
 				expected_rpm = req->value;
-				alt_alarm_start(alarm, MOTOR_RPM_DRIVE_DELAY_TICKS, &apps_value_comp_callback, NULL);
+				alt_alarm_start(watchdog, MOTOR_RPM_DRIVE_DELAY_TICKS, &watchdog_callback, NULL);
 			}
 		}
 		if(failure_encountered == TRUE){
 			serving_request = FALSE;
-			OSQPost(req_result_q, REQUEST_RESULT_FAIL);
+			OSQPost(req_result_q, (void*)REQUEST_RESULT_FAIL);
 			continue;
 		}
 		alt_up_de0_nano_adc_update(adc);
@@ -104,24 +103,24 @@ void motor_control_task(void* pdata) {
 			}
 			INT16U avg_tps_reading = (tps_1_reading + tps_2_reading)/2;
 			if(!TPS_VALUE_DIFFER_FROM_EXPECTED(avg_tps_reading, expected_pos)){
-				hold_throttle();
+				hold_throttle(pwm);
 				serving_request = FALSE;
 				OSQPost(req_result_q, REQUEST_RESULT_OK);
 			}else if(avg_tps_reading > expected_pos){
-				decrease_throttle();
+				decrease_throttle(pwm);
 			}else{
-				increase_throttle();
+				increase_throttle(pwm);
 			}
 		}else if(req != NULL && req->request_type == MOTOR_CONTROL_REQ_RPM){
 			INT16U rpm_reading = alt_up_de0_nano_adc_read(adc, RPM_ADC_CHANNEL);
 			if(!RPM_VALUE_DIFFER_FROM_EXPECTED(rpm_reading, expected_rpm)){
-				hold_throttle();
+				hold_throttle(pwm);
 				serving_request = FALSE;
 				OSQPost(req_result_q, REQUEST_RESULT_OK);
 			}else if(rpm_reading > expected_rpm){
-				decrease_throttle();
+				decrease_throttle(pwm);
 			}else{
-				increase_throttle();
+				increase_throttle(pwm);
 			}
 		}
 

@@ -14,6 +14,6 @@
    <frequency preferredWidth="365" />
   </columns>
  </clocktable>
- <library expandedCategories="Library,Project" />
+ <library expandedCategories="Project,Library" />
  <window width="1460" height="856" x="-9" y="20" />
 </preferences>

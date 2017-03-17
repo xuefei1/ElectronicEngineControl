@@ -120,19 +120,7 @@ int run_all_unit_tests(void){
 }
 
 void Test_pwm_gen(INT16U period, INT16U duty){
-	set_period(period);
-	set_duty_cycle(duty);
-}
-
-void Test_pwm_gen_sweep(void){
-	INT16U period = PWM_TEST_PERIOD_START;
-	while(period <= PWM_TEST_PERIOD_END){
-		INT8U duty_cycle = PWM_TEST_DUTY_START;
-		while(duty_cycle <= PWM_TEST_DUTY_END){
-			Test_pwm_gen(period, duty_cycle);
-			usleep(PWM_TEST_SLEEP_DURATION_US);
-			duty_cycle += PWM_TEST_DUTY_INCREMENT;
-		}
-		period += PWM_TEST_PERIOD_INCREMENT;
-	}
+	pwm_gen_module* ptr = get_new_pwm_module(PWM_GENERATOR_0_AVALON_SLAVE_PERIOD_BASE, PWM_GENERATOR_0_AVALON_SLAVE_DUTY_BASE, PWM_GENERATOR_0_AVALON_SLAVE_CONTROL_BASE, period, duty);
+	//enable_pwm_output(ptr);
+	free(ptr);
 }

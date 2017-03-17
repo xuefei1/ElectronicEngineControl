@@ -1,5 +1,6 @@
 obj/default/throttle_data.o: throttle_data.c throttle_data.h \
-  custom_types.h ../electronic_engine_control_bsp//HAL/inc/includes.h \
+  proj_config.h custom_types.h \
+  ../electronic_engine_control_bsp//HAL/inc/includes.h \
   ../electronic_engine_control_bsp//HAL/inc/os_cpu.h \
   ../electronic_engine_control_bsp//HAL/inc/sys/alt_irq.h \
   ../electronic_engine_control_bsp//HAL/inc/nios2.h \
@@ -18,7 +19,7 @@ obj/default/throttle_data.o: throttle_data.c throttle_data.h \
   ../electronic_engine_control_bsp/system.h \
   ../electronic_engine_control_bsp//UCOSII/inc/ucos_ii.h \
   ../electronic_engine_control_bsp//UCOSII/inc/os_cfg.h \
-  ../electronic_engine_control_bsp//HAL/inc/os_cpu.h proj_config.h \
+  ../electronic_engine_control_bsp//HAL/inc/os_cpu.h \
   ../electronic_engine_control_bsp/system.h \
   ../electronic_engine_control_bsp//drivers/inc/altera_up_avalon_de0_nano_adc.h \
   ../electronic_engine_control_bsp//HAL/inc/sys/alt_dev.h \
@@ -36,6 +37,8 @@ obj/default/throttle_data.o: throttle_data.c throttle_data.h \
   tests/CuTest.h
 
 throttle_data.h:
+
+proj_config.h:
 
 custom_types.h:
 
@@ -78,8 +81,6 @@ custom_types.h:
 ../electronic_engine_control_bsp//UCOSII/inc/os_cfg.h:
 
 ../electronic_engine_control_bsp//HAL/inc/os_cpu.h:
-
-proj_config.h:
 
 ../electronic_engine_control_bsp/system.h:
 

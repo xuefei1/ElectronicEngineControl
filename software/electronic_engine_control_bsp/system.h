@@ -4,7 +4,7 @@
  * Machine generated for CPU 'nios2_0' in SOPC Builder design 'niosII_system'
  * SOPC Builder design path: ../../niosII_system.sopcinfo
  *
- * Generated: Mon Mar 13 15:00:53 MDT 2017
+ * Generated: Fri Mar 17 16:17:38 MDT 2017
  */
 
 /*
@@ -312,6 +312,20 @@
 
 
 /*
+ * pwm_generator_0_avalon_slave_control configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_pwm_generator_0_avalon_slave_control pwm_generator
+#define PWM_GENERATOR_0_AVALON_SLAVE_CONTROL_BASE 0x40090e0
+#define PWM_GENERATOR_0_AVALON_SLAVE_CONTROL_IRQ -1
+#define PWM_GENERATOR_0_AVALON_SLAVE_CONTROL_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define PWM_GENERATOR_0_AVALON_SLAVE_CONTROL_NAME "/dev/pwm_generator_0_avalon_slave_control"
+#define PWM_GENERATOR_0_AVALON_SLAVE_CONTROL_SPAN 1
+#define PWM_GENERATOR_0_AVALON_SLAVE_CONTROL_TYPE "pwm_generator"
+
+
+/*
  * pwm_generator_0_avalon_slave_duty configuration
  *
  */
@@ -484,7 +498,7 @@
 #define SYSID_QSYS_0_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define SYSID_QSYS_0_NAME "/dev/sysid_qsys_0"
 #define SYSID_QSYS_0_SPAN 8
-#define SYSID_QSYS_0_TIMESTAMP 1489438226
+#define SYSID_QSYS_0_TIMESTAMP 1489788878
 #define SYSID_QSYS_0_TYPE "altera_avalon_sysid_qsys"
 
 

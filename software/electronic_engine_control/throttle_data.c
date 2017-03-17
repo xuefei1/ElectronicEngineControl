@@ -20,8 +20,8 @@ void throttle_data_init(){
 	INT16U apps_val_inc_by_1_deg = (APPS_VALID_VALUE_MAX - APPS_VALID_VALUE_MIN) / MAX_THROTTLE_DEG; 
 	INT16U tps_val_inc_by_1_deg = (TPS_VALID_VALUE_MAX - TPS_VALID_VALUE_MIN) / MAX_THROTTLE_DEG; 
 	INT8U i;
-	apps_val_inc_by_1_deg[0] = APPS_VALID_VALUE_MIN;
-	tps_val_inc_by_1_deg[0] = TPS_VALID_VALUE_MIN;
+	throttle_deg_apps_val_map[0] = APPS_VALID_VALUE_MIN;
+	throttle_deg_tps_val_map[0] = TPS_VALID_VALUE_MIN;
 	for(i=1; i<MAX_THROTTLE_DEG; i++){
 		throttle_deg_apps_val_map[i] = throttle_deg_apps_val_map[i - 1] + apps_val_inc_by_1_deg;
 		throttle_deg_tps_val_map[i] = throttle_deg_tps_val_map[i - 1] + tps_val_inc_by_1_deg;
