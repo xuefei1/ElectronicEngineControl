@@ -17,6 +17,8 @@
 #include "proj_config.h"
 #include "solenoid_task.h"
 #include "util.h"
+#include "motor_control_task.h"
+#include "throttle_data.h"
 
 #define APPS_MOTOR_TASK_PRIORITY      		2
 

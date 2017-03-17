@@ -156,8 +156,7 @@ void apps_motor_task(void* pdata) {
 		if(ptr != NULL && shift_matching_mode == FALSE){
 			shift_matching_mode = TRUE;
 			INT16U new_gear = *(INT16U*) ptr;
-			INT16U new_throttle_pos = get_throttle_pos_for_RPM_gear(new_gear, alt_up_de0_nano_adc_read(adc, RPM_ADC_CHANNEL) / RPM_SCALE_FACTOR);
-			set_new_motor_position_by_tps(&new_throttle_pos);
+			//get_new_rpm_needed(alt_up_de0_nano_adc_read(adc, RPM_ADC_CHANNEL), INT8U curr_gear, INT8U new_gear);
 			continue;
 		}
 
