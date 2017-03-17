@@ -9,50 +9,25 @@
 
 #include "pwm_gen.h"
 
-static INT16U update_stored_period(INT8U flag, INT16U p){
-	static INT16U period = 0;
-
-	if(PWM_PARAM_SET == flag){
-		period = p;
-	}
-
-	return period;
+void enable_pwm_output(pwm_gen_module* module){
+	*(INT8U*)module->control_base = PWM_CONTROL_ENABLE_OUTPUT;
 }
 
-static INT32U update_stored_duty_cycle(INT8U flag, INT32U percent){
-	static INT32U duty_cycle = 0;
-
-	if(PWM_PARAM_SET == flag){
-		duty_cycle = percent;
-	}
-
-	return duty_cycle;
+void set_period(pwm_gen_module* module, INT32U p){
+	module->period = p;
+	*(INT32U*)module->period_base = module->period;
 }
 
-static void update_pwm_period(){
-	INT16U period = get_period();
-	*(INT32U*)PWM_GENERATOR_0_AVALON_SLAVE_PERIOD_BASE = period;
+void set_duty_cycle(pwm_gen_module* module, INT8U percent){
+	module->duty = (INT32U) ((INT64U)module->period * percent / DUTY_SCALE_FACTOR);
+	*(INT32U*)module->duty_base = module->duty;
 }
 
-static void update_pwm_duty(){
-	INT32U duty = get_period() * get_duty_cycle() / DUTY_SCALE_FACTOR;
-	*(INT32U*)PWM_GENERATOR_0_AVALON_SLAVE_DUTY_BASE = duty;
-}
-
-void set_period(INT16U period){
-	update_stored_period(PWM_PARAM_SET, period);
-	//update_pwm_period();
-}
-
-void set_duty_cycle(INT32U percent){
-	update_stored_duty_cycle(PWM_PARAM_SET, percent);
-	update_pwm_duty();
-}
-
-INT16U get_period(){
-	return update_stored_period(PWM_PARAM_GET, 0);
-}
-
-INT8U get_duty_cycle(){
-	return update_stored_duty_cycle(PWM_PARAM_GET, 0);
+void get_new_pwm_module(pwm_gen_module* ptr, INT32U p_base, INT32U d_base, INT8U c_base, INT32U p, INT8U d_cycle){
+	ptr = malloc(sizeof(pwm_gen_module));
+	ptr->period_base = p_base;
+	ptr->duty_base = d_base;
+	ptr->control_base = c_base;
+	set_period(ptr, p);
+	set_duty_cycle(ptr, d_cycle);
 }
