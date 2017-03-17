@@ -8,53 +8,48 @@
  */
 
 #include "throttle_data.h"
-
-INT8U throttle_angle_to_duty_cycle[MAX_THROTTLE_DEG + 1];
-
-INT16U RPM_gear_to_throttle_pos[MAX_SCALED_RPM + 1][NUM_GEARS + 1];
-
-#define GET_GEAR_RATIO(GEAR)				get_gear_ratio(GEAR)
+//index 0 to 90, representing 0 to 90 degree of throttle plate travel
+//the value at index i and value at index i+1 indicates if APPS value is within this range
+//then the throttle plate will be at i+1 degrees
+//if apps reading value == value at index i, then throttle plate is at i degrees
+INT16U throttle_deg_apps_val_map[MAX_THROTTLE_DEG + 1];
+//same idea as above
+INT16U throttle_deg_tps_val_map[MAX_THROTTLE_DEG + 1];
 
 void throttle_data_init(){
+	INT16U apps_val_inc_by_1_deg = (APPS_VALID_VALUE_MAX - APPS_VALID_VALUE_MIN) / MAX_THROTTLE_DEG; 
+	INT16U tps_val_inc_by_1_deg = (TPS_VALID_VALUE_MAX - TPS_VALID_VALUE_MIN) / MAX_THROTTLE_DEG; 
 	INT8U i;
-	INT8U j;
-	throttle_angle_to_duty_cycle[0] = 0;
-	for(i = 1; i < MAX_THROTTLE_DEG + 1; i++){
-		throttle_angle_to_duty_cycle[i] = throttle_angle_to_duty_cycle[i - 1] + PULSE_WIDTH_TO_DEG_INCREMENT;
+	apps_val_inc_by_1_deg[0] = APPS_VALID_VALUE_MIN;
+	tps_val_inc_by_1_deg[0] = TPS_VALID_VALUE_MIN;
+	for(i=1; i<MAX_THROTTLE_DEG; i++){
+		throttle_deg_apps_val_map[i] = throttle_deg_apps_val_map[i - 1] + apps_val_inc_by_1_deg;
+		throttle_deg_tps_val_map[i] = throttle_deg_tps_val_map[i - 1] + tps_val_inc_by_1_deg;
 	}
-	RPM_gear_to_throttle_pos[0][0] = 0;
-	RPM_gear_to_throttle_pos[0][1] = 0;
-	RPM_gear_to_throttle_pos[0][2] = 0;
-	RPM_gear_to_throttle_pos[0][3] = 0;
-	RPM_gear_to_throttle_pos[0][4] = 0;
-	for(i = 1; i < MAX_SCALED_RPM + 1; i++){
-		for(j = 1; j < NUM_GEARS + 1; j++){
-			RPM_gear_to_throttle_pos[i][j] = RPM_gear_to_throttle_pos[i - 1][j - 1] + THROTTLE_INC_BY_100_RPM * get_gear_ratio(j) / 10;
+	throttle_deg_apps_val_map[MAX_THROTTLE_DEG] = APPS_VALID_VALUE_MAX;
+	throttle_deg_tps_val_map[MAX_THROTTLE_DEG] = TPS_VALID_VALUE_MAX;
+}
+
+INT16U get_tps_from_apps(INT16U apps_reading){
+	if(apps_reading >= APPS_VALID_VALUE_MAX){
+		return (throttle_deg_tps_val_map[MAX_THROTTLE_DEG] + throttle_deg_tps_val_map[MAX_THROTTLE_DEG - 1]) / 2;
+	}
+	if(apps_reading <= APPS_VALID_VALUE_MIN){
+		return throttle_deg_tps_val_map[0];
+	}
+	INT8U upper;
+	for(upper = 1; upper < MAX_THROTTLE_DEG; upper++){
+		if(apps_reading <= throttle_deg_apps_val_map[upper] && apps_reading > throttle_deg_apps_val_map[upper - 1]){
+			return throttle_deg_tps_val_map[upper];
 		}
 	}
-}
-
-INT8U get_duty_cycle_for_angle(INT8U angle){
-	if(angle > MAX_THROTTLE_DEG){
-		angle = MAX_THROTTLE_DEG;
-	}
-	return throttle_angle_to_duty_cycle[angle];
-}
-
-INT16U get_throttle_pos_for_RPM_gear(INT8U gear, INT8U RPM_scaled){
-	if(RPM_scaled > MAX_SCALED_RPM){
-		RPM_scaled = MAX_SCALED_RPM;
-	}
-	if(gear > NUM_GEARS){
-		gear = DEFAULT_GEAR;
-	}
-	return RPM_gear_to_throttle_pos[RPM_scaled][gear];
+	return (throttle_deg_tps_val_map[MAX_THROTTLE_DEG] + throttle_deg_tps_val_map[MAX_THROTTLE_DEG - 1]) / 2;
 }
 
 INT16U get_new_RPM_needed(INT16U curr_RPM, INT8U curr_gear, INT8U new_gear){
 	INT8U curr_gear_ratio = get_gear_ratio(curr_gear);
 	INT8U new_gear_ratio = get_gear_ratio(new_gear);
-	return ((INT16U)curr_RPM * new_gear_ratio / curr_gear_ratio)/10;
+	return ((INT16U)curr_RPM * new_gear_ratio / curr_gear_ratio)/FLOAT_SCALE_FACTOR_10;
 }
 
 

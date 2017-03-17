@@ -21,9 +21,7 @@
 
 void throttle_data_init();
 
-INT8U get_duty_cycle_for_angle(INT8U angle);
-
-INT16U get_throttle_pos_for_RPM_gear(INT8U gear, INT8U RPM_scaled);
+INT16U get_tps_from_apps(INT16U apps_reading);
 
 INT16U get_new_RPM_needed(INT16U curr_RPM, INT8U curr_gear, INT8U new_gear);
 

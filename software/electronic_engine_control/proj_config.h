@@ -29,6 +29,14 @@
 /* Definition of Task Stacks */
 #define TASK_STACKSIZE       				2048
 
+/* APPS valid value range based on pedal travel, note this is the average of two sensors */
+#define APPS_VALID_VALUE_MIN				450
+#define APPS_VALID_VALUE_MAX				2400
+
+/* TPS valid value range based on throttle plate travel, note this is the average of two sensors */
+#define TPS_VALID_VALUE_MIN				450
+#define TPS_VALID_VALUE_MAX				2400
+
 /* When APPS reading differ from last value by at least this much, we consider it as a new value */
 #define APPS_VALUE_CHANGE_THRESHOLD			100
 
@@ -100,6 +108,8 @@
 
 /* Time conversions */
 #define TIME_1_MS_IN_US						1000
+
+#define FLOAT_SCALE_FACTOR_10				10
 
 alt_up_de0_nano_adc_dev* get_adc();
 
