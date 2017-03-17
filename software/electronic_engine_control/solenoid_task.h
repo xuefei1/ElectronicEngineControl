@@ -1,15 +1,15 @@
 /*
- * solenoid_proc.h
+ * solenoid_task.h
  *
  * Status: C
  *
  */
 
-#ifndef SOLENOID_PROC_H_
-#define SOLENOID_PROC_H_
+#ifndef SOLENOID_TASK_H_
+#define SOLENOID_TASK_H_
 
 #include "proj_config.h"
-#include "apps_motor_proc.h"
+#include "apps_motor_task.h"
 #include "altera_avalon_pio_regs.h"
 
 #define SOLENOID_TASK_PRIORITY      		4
@@ -38,4 +38,4 @@ OS_EVENT* get_solenoid_task_external_failure_flag();
 
 OS_EVENT* get_solenoid_task_failure_resolved_flag();
 
-#endif /* SOLENOID_PROC_H_ */
+#endif /* SOLENOID_TASK_H_ */

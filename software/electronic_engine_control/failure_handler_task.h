@@ -1,5 +1,5 @@
 /*
- * failure_handler_proc.h
+ * failure_handler_task.h
  *
  * Status: C
  *
@@ -11,13 +11,13 @@
  *      *See proj_config.h for acronym translations
  */
 
-#ifndef FAILURE_HANDLER_PROC_H_
-#define FAILURE_HANDLER_PROC_H_
+#ifndef FAILURE_HANDLER_TASK_H_
+#define FAILURE_HANDLER_TASK_H_
 
 #include "proj_config.h"
-#include "apps_motor_proc.h"
-#include "solenoid_proc.h"
-#include "tps_proc.h"
+#include "apps_motor_task.h"
+#include "solenoid_task.h"
+#include "tps_task.h"
 
 #define FAILURE_HANDLER_TASK_PRIORITY      				1
 
@@ -29,4 +29,4 @@
 
 void failure_handler_task(void* pdata);
 
-#endif /* FAILURE_HANDLER_PROC_H_ */
+#endif /* FAILURE_HANDLER_TASK_H_ */

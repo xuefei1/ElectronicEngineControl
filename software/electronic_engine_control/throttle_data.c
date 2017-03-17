@@ -46,10 +46,10 @@ INT16U get_tps_from_apps(INT16U apps_reading){
 	return (throttle_deg_tps_val_map[MAX_THROTTLE_DEG] + throttle_deg_tps_val_map[MAX_THROTTLE_DEG - 1]) / 2;
 }
 
-INT16U get_new_RPM_needed(INT16U curr_RPM, INT8U curr_gear, INT8U new_gear){
+INT16U get_new_rpm_needed(INT16U curr_rpm, INT8U curr_gear, INT8U new_gear){
 	INT8U curr_gear_ratio = get_gear_ratio(curr_gear);
 	INT8U new_gear_ratio = get_gear_ratio(new_gear);
-	return ((INT16U)curr_RPM * new_gear_ratio / curr_gear_ratio)/FLOAT_SCALE_FACTOR_10;
+	return ((INT16U)curr_rpm * new_gear_ratio / curr_gear_ratio)/FLOAT_SCALE_FACTOR_10;
 }
 
 

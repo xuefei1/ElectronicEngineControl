@@ -1,5 +1,5 @@
 /*
- * apps_motor_proc.c
+ * apps_motor_task.c
  *
  * Status: E
  *
@@ -11,7 +11,7 @@
  *
  *		*See proj_config.h for acronym translations
  */
-#include "apps_motor_proc.h"
+#include "apps_motor_task.h"
 #include "altera_avalon_timer.h"
 
 /* Used to store new expected throttle position */

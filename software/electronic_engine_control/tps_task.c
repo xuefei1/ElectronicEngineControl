@@ -1,5 +1,5 @@
 /*
- * tps_proc.c
+ * tps_task.c
  *
  * Status: E
  *
@@ -11,8 +11,8 @@
  *      *See proj_config.h for acronym translations
  */
 
-#include "tps_proc.h"
-#include "apps_motor_proc.h"
+#include "tps_task.h"
+#include "apps_motor_task.h"
 
 /* Flag indicating possible APPS failure */
 OS_EVENT *tps_failure_flag;

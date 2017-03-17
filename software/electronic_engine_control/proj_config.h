@@ -29,13 +29,19 @@
 /* Definition of Task Stacks */
 #define TASK_STACKSIZE       				2048
 
+/* 16kHz under a 50Mhz clock, yields 3125 clk ticks per period */
+#define MOTOR_PWM_PERIOD_TICKS				3125
+#define MOTOR_PWM_DUTY_CYCLE_IDLE			50
+#define MOTOR_PWM_DUTY_CYCLE_CW				100
+#define MOTOR_PWM_DUTY_CYCLE_CCW			0
+
 /* APPS valid value range based on pedal travel, note this is the average of two sensors */
 #define APPS_VALID_VALUE_MIN				450
 #define APPS_VALID_VALUE_MAX				2400
 
 /* TPS valid value range based on throttle plate travel, note this is the average of two sensors */
-#define TPS_VALID_VALUE_MIN				450
-#define TPS_VALID_VALUE_MAX				2400
+#define TPS_VALID_VALUE_MIN					450
+#define TPS_VALID_VALUE_MAX					2400
 
 /* When APPS reading differ from last value by at least this much, we consider it as a new value */
 #define APPS_VALUE_CHANGE_THRESHOLD			100
@@ -49,8 +55,11 @@
 /* When two TPS reading differ by this much percent, we have a failure */
 #define TPS_VALUE_DIFFERENCE_PERCENT		10
 
-/* Actual TPS reading can be different from expect position by at most this much */
-#define TPS_VALUE_TOLERANCE					50
+/* Actual TPS reading can be different from expected by at most this much */
+#define TPS_VALUE_TOLERANCE					150
+
+/* Actual RPM reading can be different from expected by at most this much */
+#define RPM_VALUE_TOLERANCE					150
 
 /* Detects slip if difference is beyond this percent */
 #define WSS_VALUE_DIFFERENCE_PERCENT		30
@@ -69,6 +78,9 @@
 
 /* Time constraint for throttle plate to reach desired position: 1 second */
 #define MOTOR_DRIVE_DELAY_TICKS				1000
+
+/* Time constraint for throttle plate to desired RPM: 2 second */
+#define MOTOR_RPM_DRIVE_DELAY_TICKS			2000
 
 #define SEM_TIMEOUT_WAIT_FOREVER			0
 

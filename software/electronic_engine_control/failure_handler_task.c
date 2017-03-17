@@ -1,5 +1,5 @@
 /*
- * failure_handler_proc.c
+ * failure_handler_task.c
  *
  * Status: T
  *
@@ -11,7 +11,7 @@
  *      *See proj_config.h for acronym translations
  */
 
-#include "failure_handler_proc.h"
+#include "failure_handler_task.h"
 
 OS_EVENT *failure_resolved_flag;
 

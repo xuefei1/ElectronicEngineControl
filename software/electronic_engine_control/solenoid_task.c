@@ -1,15 +1,15 @@
 /*
- * solenoid_proc.c
+ * solenoid_task.c
  *
  * Status: C
  *
  *  Created on: Feb 16, 2017
  */
 
-#include "solenoid_proc.h"
+#include "solenoid_task.h"
 
 #include "pwm_gen.h"
-#include "apps_motor_proc.h"
+#include "apps_motor_task.h"
 
 /* Used to store shift commands */
 OS_EVENT 	*btn_input_q;

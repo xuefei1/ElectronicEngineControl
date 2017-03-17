@@ -1,5 +1,5 @@
 /*
- * apps_motor_proc.h
+ * apps_motor_task.h
  *
  * Status: C
  *
@@ -11,11 +11,11 @@
  *      *See proj_config.h for acronym translations
  */
 
-#ifndef APPS_MOTOR_PROC_H_
-#define APPS_MOTOR_PROC_H_
+#ifndef APPS_MOTOR_TASK_H_
+#define APPS_MOTOR_TASK_H_
 
 #include "proj_config.h"
-#include "solenoid_proc.h"
+#include "solenoid_task.h"
 #include "util.h"
 
 #define APPS_MOTOR_TASK_PRIORITY      		2
@@ -82,4 +82,4 @@ alt_u32 motor_pos_check_callback(void* context);
 
 void signal_exit_shift_matching();
 
-#endif /* APPS_MOTOR_PROC_H_ */
+#endif /* APPS_MOTOR_TASK_H_ */

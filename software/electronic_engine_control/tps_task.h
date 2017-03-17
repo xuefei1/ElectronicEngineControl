@@ -1,5 +1,5 @@
 /*
- * tps_proc.h
+ * tps_task.h
  *
  * Status: C
  *
@@ -9,12 +9,12 @@
  *      Header for Throttle Position Sensor process
  */
 
-#ifndef TPS_PROC_H_
-#define TPS_PROC_H_
+#ifndef TPS_TASK_H_
+#define TPS_TASK_H_
 
 #include "proj_config.h"
 #include "util.h"
-#include "apps_motor_proc.h"
+#include "apps_motor_task.h"
 
 #define TPS_TASK_PRIORITY      				3
 
@@ -41,4 +41,4 @@ OS_EVENT* get_tps_task_external_failure_flag();
 
 OS_EVENT* get_tps_task_failure_resolved_flag();
 
-#endif /* TPS_PROC_H_ */
+#endif /* TPS_TASK_H_ */

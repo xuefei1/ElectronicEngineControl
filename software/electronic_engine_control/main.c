@@ -13,16 +13,18 @@
 
 #include "proj_config.h"
 #include "test_config.h"
-#include "apps_motor_proc.h"
-#include "tps_proc.h"
-#include "solenoid_proc.h"
-#include "failure_handler_proc.h"
+#include "apps_motor_task.h"
+#include "tps_task.h"
+#include "solenoid_task.h"
+#include "failure_handler_task.h"
+#include "motor_control_task.h"
 
 /* Definition of Task Stacks */
 OS_STK apps_motor_task_stk[TASK_STACKSIZE];
 OS_STK tps_task_stk[TASK_STACKSIZE];
 OS_STK failure_handler_task_stk[TASK_STACKSIZE];
 OS_STK solenoid_task_stk[TASK_STACKSIZE];
+OS_STK motor_control_task_stk[TASK_STACKSIZE];
 
 alt_up_de0_nano_adc_dev* adc;
 
@@ -59,6 +61,10 @@ int main(void) {
 //			apps_motor_task_stk, TASK_STACKSIZE, NULL, 0);
 //
 //	OSTaskCreateExt(tps_task, NULL, (void *) &tps_task_stk[TASK_STACKSIZE - 1],
+//			TPS_TASK_PRIORITY, TPS_TASK_PRIORITY, tps_task_stk, TASK_STACKSIZE,
+//			NULL, 0);
+
+//	OSTaskCreateExt(motor_control_task, NULL, (void *) &motor_control_task_stk[TASK_STACKSIZE - 1],
 //			TPS_TASK_PRIORITY, TPS_TASK_PRIORITY, tps_task_stk, TASK_STACKSIZE,
 //			NULL, 0);
 //

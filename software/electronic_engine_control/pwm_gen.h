@@ -33,4 +33,6 @@ void set_duty_cycle(pwm_gen_module* module, INT8U percent);
 
 void enable_pwm_output(pwm_gen_module* module);
 
+void get_new_pwm_module(pwm_gen_module* ptr, INT32U p_base, INT32U d_base, INT8U c_base, INT32U p, INT8U d_cycle);
+
 #endif /* PWM_GEN_H_ */
