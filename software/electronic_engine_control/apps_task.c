@@ -156,10 +156,10 @@ void apps_task(void* pdata) {
 		//APPS checking
 		alt_up_de0_nano_adc_update(adc);
 		INT16U apps_1_reading = alt_up_de0_nano_adc_read(adc,
-				APPS_1_ADC_CHANNEL);
+				APPS_1_ADC_CHANNEL) * APPS_2_TO_1_SENSOR_RATIO;
 		//Must accommodate the natural difference in readings
 		INT16U apps_2_reading = alt_up_de0_nano_adc_read(adc,
-				APPS_2_ADC_CHANNEL) + APPS_SENSOR_OFFSET;
+				APPS_2_ADC_CHANNEL);
 
 		if (APPS_VALUE_CHANGED(apps_1_reading,
 				last_apps_1_reading)

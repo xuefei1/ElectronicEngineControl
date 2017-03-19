@@ -49,8 +49,8 @@
 /* When APPS reading differ from last value by at least this much, we consider it as a new value */
 #define APPS_VALUE_CHANGE_THRESHOLD			100
 
-/* Natural difference in two APPS sensors */
-#define APPS_SENSOR_OFFSET					900
+/* Natural difference in two APPS sensors in APPS 2 vs APPS 1, meaning APPS value = this value * APPS 1 reading */
+#define APPS_2_TO_1_SENSOR_RATIO			2
 
 /* When two APPS reading differ by this much percent, we have a failure */
 #define APPS_VALUE_DIFFERENCE_PERCENT		10
