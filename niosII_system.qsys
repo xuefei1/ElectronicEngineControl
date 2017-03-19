@@ -44,7 +44,23 @@
          type = "String";
       }
    }
-   element pwm_generator_0.avalon_slave_control
+   element pwm_generator_tps_out.avalon_slave_control
+   {
+      datum baseAddress
+      {
+         value = "67145960";
+         type = "String";
+      }
+   }
+   element pwm_generator_motor.avalon_slave_control
+   {
+      datum baseAddress
+      {
+         value = "67145961";
+         type = "String";
+      }
+   }
+   element pwm_generator_motor.avalon_slave_duty
    {
       datum baseAddress
       {
@@ -52,7 +68,7 @@
          type = "String";
       }
    }
-   element pwm_generator_0.avalon_slave_duty
+   element pwm_generator_tps_out.avalon_slave_duty
    {
       datum baseAddress
       {
@@ -60,7 +76,15 @@
          type = "String";
       }
    }
-   element pwm_generator_0.avalon_slave_period
+   element pwm_generator_motor.avalon_slave_period
+   {
+      datum baseAddress
+      {
+         value = "67145956";
+         type = "String";
+      }
+   }
+   element pwm_generator_tps_out.avalon_slave_period
    {
       datum baseAddress
       {
@@ -156,11 +180,19 @@
          type = "String";
       }
    }
-   element pwm_generator_0
+   element pwm_generator_motor
    {
       datum _sortIndex
       {
          value = "13";
+         type = "int";
+      }
+   }
+   element pwm_generator_tps_out
+   {
+      datum _sortIndex
+      {
+         value = "16";
          type = "int";
       }
    }
@@ -170,14 +202,6 @@
       {
          value = "11";
          type = "int";
-      }
-   }
-   element sdram_0.s1
-   {
-      datum baseAddress
-      {
-         value = "33554432";
-         type = "String";
       }
    }
    element sys_clk_timer.s1
@@ -193,11 +217,11 @@
          type = "String";
       }
    }
-   element solenoid_out.s1
+   element green_leds.s1
    {
       datum baseAddress
       {
-         value = "67145728";
+         value = "67145888";
          type = "String";
       }
    }
@@ -206,6 +230,14 @@
       datum baseAddress
       {
          value = "67125248";
+         type = "String";
+      }
+   }
+   element timestamp_timer.s1
+   {
+      datum baseAddress
+      {
+         value = "67145760";
          type = "String";
       }
    }
@@ -225,19 +257,19 @@
          type = "String";
       }
    }
-   element green_leds.s1
+   element solenoid_out.s1
    {
       datum baseAddress
       {
-         value = "67145888";
+         value = "67145728";
          type = "String";
       }
    }
-   element timestamp_timer.s1
+   element sdram_0.s1
    {
       datum baseAddress
       {
-         value = "67145760";
+         value = "33554432";
          type = "String";
       }
    }
@@ -309,7 +341,7 @@
  <parameter name="projectName">electronic_engine_control.qpf</parameter>
  <parameter name="sopcBorderPoints" value="false" />
  <parameter name="systemHash" value="1" />
- <parameter name="timeStamp" value="1489946258032" />
+ <parameter name="timeStamp" value="1489951777254" />
  <parameter name="useTestBenchNamingPattern" value="false" />
  <instanceScript></instanceScript>
  <interface name="altpll_0_c0" internal="altpll_0.c0" type="clock" dir="start">
@@ -377,8 +409,8 @@
    type="conduit"
    dir="end" />
  <interface
-   name="pwm_generator_0_pwm_out"
-   internal="pwm_generator_0.pwm_out"
+   name="pwm_generator_motor_pwm_out"
+   internal="pwm_generator_motor.pwm_out"
    type="conduit"
    dir="end" />
  <interface
@@ -389,6 +421,11 @@
  <interface
    name="solenoid_out_external_connection"
    internal="solenoid_out.external_connection"
+   type="conduit"
+   dir="end" />
+ <interface
+   name="pwm_generator_tps_out_pwm_out"
+   internal="pwm_generator_tps_out.pwm_out"
    type="conduit"
    dir="end" />
  <module kind="clock_source" version="12.1" enabled="1" name="clk_0">
@@ -493,7 +530,7 @@
   <parameter name="tightlyCoupledInstructionMaster2AddrWidth" value="1" />
   <parameter name="tightlyCoupledInstructionMaster3AddrWidth" value="1" />
   <parameter name="instSlaveMapParam"><![CDATA[<address-map><slave name='sdram_0.s1' start='0x2000000' end='0x4000000' /><slave name='onchip_memory2_0.s1' start='0x4004000' end='0x4008000' /><slave name='nios2_0.jtag_debug_module' start='0x4008800' end='0x4009000' /></address-map>]]></parameter>
-  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='sdram_0.s1' start='0x2000000' end='0x4000000' /><slave name='onchip_memory2_0.s1' start='0x4004000' end='0x4008000' /><slave name='nios2_0.jtag_debug_module' start='0x4008800' end='0x4009000' /><slave name='solenoid_out.s1' start='0x4009000' end='0x4009020' /><slave name='timestamp_timer.s1' start='0x4009020' end='0x4009040' /><slave name='de0_nano_adc_0.adc_slave' start='0x4009040' end='0x4009060' /><slave name='sys_clk_timer.s1' start='0x4009060' end='0x4009080' /><slave name='buttons.s1' start='0x4009080' end='0x4009090' /><slave name='switch.s1' start='0x4009090' end='0x40090A0' /><slave name='green_leds.s1' start='0x40090A0' end='0x40090B0' /><slave name='altpll_0.pll_slave' start='0x40090B0' end='0x40090C0' /><slave name='rs232_0.avalon_rs232_slave' start='0x40090C0' end='0x40090C8' /><slave name='jtag_uart_0.avalon_jtag_slave' start='0x40090C8' end='0x40090D0' /><slave name='sysid_qsys_0.control_slave' start='0x40090D0' end='0x40090D8' /><slave name='pwm_generator_0.avalon_slave_duty' start='0x40090D8' end='0x40090DC' /><slave name='pwm_generator_0.avalon_slave_period' start='0x40090DC' end='0x40090E0' /><slave name='pwm_generator_0.avalon_slave_control' start='0x40090E0' end='0x40090E1' /></address-map>]]></parameter>
+  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='sdram_0.s1' start='0x2000000' end='0x4000000' /><slave name='onchip_memory2_0.s1' start='0x4004000' end='0x4008000' /><slave name='nios2_0.jtag_debug_module' start='0x4008800' end='0x4009000' /><slave name='solenoid_out.s1' start='0x4009000' end='0x4009020' /><slave name='timestamp_timer.s1' start='0x4009020' end='0x4009040' /><slave name='de0_nano_adc_0.adc_slave' start='0x4009040' end='0x4009060' /><slave name='sys_clk_timer.s1' start='0x4009060' end='0x4009080' /><slave name='buttons.s1' start='0x4009080' end='0x4009090' /><slave name='switch.s1' start='0x4009090' end='0x40090A0' /><slave name='green_leds.s1' start='0x40090A0' end='0x40090B0' /><slave name='altpll_0.pll_slave' start='0x40090B0' end='0x40090C0' /><slave name='rs232_0.avalon_rs232_slave' start='0x40090C0' end='0x40090C8' /><slave name='jtag_uart_0.avalon_jtag_slave' start='0x40090C8' end='0x40090D0' /><slave name='sysid_qsys_0.control_slave' start='0x40090D0' end='0x40090D8' /><slave name='pwm_generator_tps_out.avalon_slave_duty' start='0x40090D8' end='0x40090DC' /><slave name='pwm_generator_tps_out.avalon_slave_period' start='0x40090DC' end='0x40090E0' /><slave name='pwm_generator_motor.avalon_slave_duty' start='0x40090E0' end='0x40090E4' /><slave name='pwm_generator_motor.avalon_slave_period' start='0x40090E4' end='0x40090E8' /><slave name='pwm_generator_tps_out.avalon_slave_control' start='0x40090E8' end='0x40090E9' /><slave name='pwm_generator_motor.avalon_slave_control' start='0x40090E9' end='0x40090EA' /></address-map>]]></parameter>
   <parameter name="clockFrequency" value="50000000" />
   <parameter name="deviceFamilyName" value="Cyclone IV E" />
   <parameter name="internalIrqMaskSystemInfo" value="47" />
@@ -840,7 +877,11 @@
   <parameter name="timeoutPulseOutput" value="false" />
   <parameter name="timerPreset" value="CUSTOM" />
  </module>
- <module kind="pwm_generator" version="1.0" enabled="1" name="pwm_generator_0">
+ <module
+   kind="pwm_generator"
+   version="1.0"
+   enabled="1"
+   name="pwm_generator_motor">
   <parameter name="AUTO_CLOCK_SINK_CLOCK_RATE" value="50000000" />
  </module>
  <module kind="altera_avalon_pio" version="12.1" enabled="1" name="buttons">
@@ -874,6 +915,13 @@
   <parameter name="simDoTestBenchWiring" value="false" />
   <parameter name="simDrivenValue" value="0" />
   <parameter name="width" value="8" />
+ </module>
+ <module
+   kind="pwm_generator"
+   version="1.0"
+   enabled="1"
+   name="pwm_generator_tps_out">
+  <parameter name="AUTO_CLOCK_SINK_CLOCK_RATE" value="50000000" />
  </module>
  <connection
    kind="avalon"
@@ -1172,27 +1220,27 @@
    kind="clock"
    version="12.1"
    start="altpll_0.c1"
-   end="pwm_generator_0.clock_sink" />
+   end="pwm_generator_motor.clock_sink" />
  <connection
    kind="reset"
    version="12.1"
    start="nios2_0.jtag_debug_module_reset"
-   end="pwm_generator_0.reset" />
+   end="pwm_generator_motor.reset" />
  <connection
    kind="avalon"
    version="12.1"
    start="nios2_0.data_master"
-   end="pwm_generator_0.avalon_slave_period">
+   end="pwm_generator_motor.avalon_slave_period">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x040090dc" />
+  <parameter name="baseAddress" value="0x040090e4" />
  </connection>
  <connection
    kind="avalon"
    version="12.1"
    start="nios2_0.data_master"
-   end="pwm_generator_0.avalon_slave_duty">
+   end="pwm_generator_motor.avalon_slave_duty">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x040090d8" />
+  <parameter name="baseAddress" value="0x040090e0" />
  </connection>
  <connection kind="clock" version="12.1" start="altpll_0.c1" end="buttons.clk" />
  <connection
@@ -1237,8 +1285,42 @@
    kind="avalon"
    version="12.1"
    start="nios2_0.data_master"
-   end="pwm_generator_0.avalon_slave_control">
+   end="pwm_generator_motor.avalon_slave_control">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x040090e0" />
+  <parameter name="baseAddress" value="0x040090e9" />
+ </connection>
+ <connection
+   kind="reset"
+   version="12.1"
+   start="nios2_0.jtag_debug_module_reset"
+   end="pwm_generator_tps_out.reset" />
+ <connection
+   kind="clock"
+   version="12.1"
+   start="altpll_0.c1"
+   end="pwm_generator_tps_out.clock_sink" />
+ <connection
+   kind="avalon"
+   version="12.1"
+   start="nios2_0.data_master"
+   end="pwm_generator_tps_out.avalon_slave_period">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x040090dc" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="12.1"
+   start="nios2_0.data_master"
+   end="pwm_generator_tps_out.avalon_slave_duty">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x040090d8" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="12.1"
+   start="nios2_0.data_master"
+   end="pwm_generator_tps_out.avalon_slave_control">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x040090e8" />
  </connection>
 </system>

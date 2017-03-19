@@ -2,8 +2,8 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>ucosii</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>Mar 19, 2017 1:00:49 PM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1489950049157</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>Mar 19, 2017 1:50:09 PM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1489953009447</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>/afs/ualberta.ca/home/x/u/xuefei1/Desktop/eec_git/ElectronicEngineControl/software/electronic_engine_control_bsp</BspGeneratedLocation>
         <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>../../niosII_system.sopcinfo</SopcDesignFile>
@@ -1769,20 +1769,38 @@
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>pwm_generator_0_avalon_slave_duty</slaveDescriptor>
+                <slaveDescriptor>pwm_generator_tps_out_avalon_slave_duty</slaveDescriptor>
                 <addressRange>0x040090D8 - 0x040090DB</addressRange>
                 <addressSpan>4</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>pwm_generator_0_avalon_slave_period</slaveDescriptor>
+                <slaveDescriptor>pwm_generator_tps_out_avalon_slave_period</slaveDescriptor>
                 <addressRange>0x040090DC - 0x040090DF</addressRange>
                 <addressSpan>4</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>pwm_generator_0_avalon_slave_control</slaveDescriptor>
-                <addressRange>0x040090E0 - 0x040090E0</addressRange>
+                <slaveDescriptor>pwm_generator_motor_avalon_slave_duty</slaveDescriptor>
+                <addressRange>0x040090E0 - 0x040090E3</addressRange>
+                <addressSpan>4</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>pwm_generator_motor_avalon_slave_period</slaveDescriptor>
+                <addressRange>0x040090E4 - 0x040090E7</addressRange>
+                <addressSpan>4</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>pwm_generator_tps_out_avalon_slave_control</slaveDescriptor>
+                <addressRange>0x040090E8 - 0x040090E8</addressRange>
+                <addressSpan>1</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>pwm_generator_motor_avalon_slave_control</slaveDescriptor>
+                <addressRange>0x040090E9 - 0x040090E9</addressRange>
                 <addressSpan>1</addressSpan>
                 <attributes/>
         </MemoryMap>

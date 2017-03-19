@@ -120,7 +120,7 @@ int run_all_unit_tests(void){
 }
 
 void Test_pwm_gen(INT16U period, INT16U duty){
-	pwm_gen_module* ptr = get_new_pwm_module(PWM_GENERATOR_0_AVALON_SLAVE_PERIOD_BASE, PWM_GENERATOR_0_AVALON_SLAVE_DUTY_BASE, PWM_GENERATOR_0_AVALON_SLAVE_CONTROL_BASE, period, duty);
+	pwm_gen_module* ptr = get_new_pwm_module(PWM_GENERATOR_MOTOR_AVALON_SLAVE_PERIOD_BASE, PWM_GENERATOR_MOTOR_AVALON_SLAVE_DUTY_BASE, PWM_GENERATOR_MOTOR_AVALON_SLAVE_CONTROL_BASE, period, duty);
 	enable_pwm_output(ptr);
 	free(ptr);
 }

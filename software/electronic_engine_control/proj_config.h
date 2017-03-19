@@ -35,6 +35,9 @@
 #define MOTOR_PWM_DUTY_CYCLE_CW				100
 #define MOTOR_PWM_DUTY_CYCLE_CCW			0
 
+/* 16kHz under a 50Mhz clock, yields 3125 clk ticks per period */
+#define TPS_OUT_PWM_PERIOD_TICKS			3125
+
 /* APPS valid value range based on pedal travel, note this is the average of two sensors */
 #define APPS_VALID_VALUE_MIN				450
 #define APPS_VALID_VALUE_MAX				2400
@@ -122,6 +125,8 @@
 #define TIME_1_MS_IN_US						1000
 
 #define FLOAT_SCALE_FACTOR_10				10
+
+#define FLOAT_SCALE_FACTOR_100				100
 
 alt_up_de0_nano_adc_dev* get_adc();
 

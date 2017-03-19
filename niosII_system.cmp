@@ -23,9 +23,10 @@
 			sdram_0_wire_we_n                       : out   std_logic;                                        -- we_n
 			rs232_0_external_interface_RXD          : in    std_logic                     := 'X';             -- RXD
 			rs232_0_external_interface_TXD          : out   std_logic;                                        -- TXD
-			pwm_generator_0_pwm_out_export          : out   std_logic;                                        -- export
+			pwm_generator_motor_pwm_out_export      : out   std_logic;                                        -- export
 			buttons_external_connection_export      : in    std_logic_vector(7 downto 0)  := (others => 'X'); -- export
-			solenoid_out_external_connection_export : out   std_logic_vector(7 downto 0)                      -- export
+			solenoid_out_external_connection_export : out   std_logic_vector(7 downto 0);                     -- export
+			pwm_generator_tps_out_pwm_out_export    : out   std_logic                                         -- export
 		);
 	end component niosII_system;
 

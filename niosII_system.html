@@ -67,7 +67,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
   </table>
   <table class="blueBar">
    <tr>
-    <td class="l">2017.03.19.12:07:26</td>
+    <td class="l">2017.03.19.13:32:52</td>
     <td class="r">Datasheet</td>
    </tr>
   </table>
@@ -153,14 +153,17 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
      <a href="#module_timestamp_timer"><b>timestamp_timer</b>
      </a> altera_avalon_timer 12.1
      <br/>&#160;&#160;
-     <a href="#module_pwm_generator_0"><b>pwm_generator_0</b>
+     <a href="#module_pwm_generator_motor"><b>pwm_generator_motor</b>
      </a> pwm_generator 1.0
      <br/>&#160;&#160;
      <a href="#module_buttons"><b>buttons</b>
      </a> altera_avalon_pio 12.1
      <br/>&#160;&#160;
      <a href="#module_solenoid_out"><b>solenoid_out</b>
-     </a> altera_avalon_pio 12.1</span>
+     </a> altera_avalon_pio 12.1
+     <br/>&#160;&#160;
+     <a href="#module_pwm_generator_tps_out"><b>pwm_generator_tps_out</b>
+     </a> pwm_generator 1.0</span>
    </div>
   </div>
   <div style="width:100% ;  height:10px"> </div>
@@ -335,7 +338,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
    </tr>
    <tr>
     <td class="slavemodule">&#160;
-     <a href="#module_pwm_generator_0"><b>pwm_generator_0</b>
+     <a href="#module_pwm_generator_motor"><b>pwm_generator_motor</b>
      </a>
     </td>
     <td class="empty"></td>
@@ -343,17 +346,17 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
    </tr>
    <tr>
     <td class="slavem">avalon_slave_period&#160;</td>
-    <td class="addr"><span style="color:#989898">0x</span>040090dc</td>
+    <td class="addr"><span style="color:#989898">0x</span>040090e4</td>
     <td class="empty"></td>
    </tr>
    <tr>
     <td class="slavem">avalon_slave_duty&#160;</td>
-    <td class="addr"><span style="color:#989898">0x</span>040090d8</td>
+    <td class="addr"><span style="color:#989898">0x</span>040090e0</td>
     <td class="empty"></td>
    </tr>
    <tr>
     <td class="slavem">avalon_slave_control&#160;</td>
-    <td class="addr"><span style="color:#989898">0x</span>040090e0</td>
+    <td class="addr"><span style="color:#989898">0x</span>040090e9</td>
     <td class="empty"></td>
    </tr>
    <tr>
@@ -380,6 +383,29 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
    <tr>
     <td class="slaveb">s1&#160;</td>
     <td class="addr"><span style="color:#989898">0x</span>04009000</td>
+    <td class="empty"></td>
+   </tr>
+   <tr>
+    <td class="slavemodule">&#160;
+     <a href="#module_pwm_generator_tps_out"><b>pwm_generator_tps_out</b>
+     </a>
+    </td>
+    <td class="empty"></td>
+    <td class="empty"></td>
+   </tr>
+   <tr>
+    <td class="slavem">avalon_slave_period&#160;</td>
+    <td class="addr"><span style="color:#989898">0x</span>040090dc</td>
+    <td class="empty"></td>
+   </tr>
+   <tr>
+    <td class="slavem">avalon_slave_duty&#160;</td>
+    <td class="addr"><span style="color:#989898">0x</span>040090d8</td>
+    <td class="empty"></td>
+   </tr>
+   <tr>
+    <td class="slavem">avalon_slave_control&#160;</td>
+    <td class="addr"><span style="color:#989898">0x</span>040090e8</td>
     <td class="empty"></td>
    </tr>
   </table>
@@ -442,7 +468,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
        <a href="#module_clk_0">clk_0</a>
       </td>
       <td class="from">clk_reset&#160;&#160;</td>
-      <td class="main" rowspan="92">nios2_0</td>
+      <td class="main" rowspan="101">nios2_0</td>
      </tr>
      <tr>
       <td class="to">&#160;&#160;reset_n</td>
@@ -810,7 +836,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
       <td></td>
       <td class="from">jtag_debug_module_reset&#160;&#160;</td>
       <td class="neighbor" rowspan="8">
-       <a href="#module_pwm_generator_0">pwm_generator_0</a>
+       <a href="#module_pwm_generator_motor">pwm_generator_motor</a>
       </td>
      </tr>
      <tr>
@@ -909,6 +935,52 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
       <td></td>
       <td></td>
       <td class="to">&#160;&#160;s1</td>
+     </tr>
+     <tr style="height:6px">
+      <td></td>
+     </tr>
+     <tr>
+      <td></td>
+      <td></td>
+      <td class="from">jtag_debug_module_reset&#160;&#160;</td>
+      <td class="neighbor" rowspan="8">
+       <a href="#module_pwm_generator_tps_out">pwm_generator_tps_out</a>
+      </td>
+     </tr>
+     <tr>
+      <td></td>
+      <td></td>
+      <td class="to">&#160;&#160;reset</td>
+     </tr>
+     <tr>
+      <td></td>
+      <td></td>
+      <td class="from">data_master&#160;&#160;</td>
+     </tr>
+     <tr>
+      <td></td>
+      <td></td>
+      <td class="to">&#160;&#160;avalon_slave_period</td>
+     </tr>
+     <tr>
+      <td></td>
+      <td></td>
+      <td class="from">data_master&#160;&#160;</td>
+     </tr>
+     <tr>
+      <td></td>
+      <td></td>
+      <td class="to">&#160;&#160;avalon_slave_duty</td>
+     </tr>
+     <tr>
+      <td></td>
+      <td></td>
+      <td class="from">data_master&#160;&#160;</td>
+     </tr>
+     <tr>
+      <td></td>
+      <td></td>
+      <td class="to">&#160;&#160;avalon_slave_control</td>
      </tr>
     </table>
    </div>
@@ -1325,7 +1397,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
        </tr>
        <tr>
         <td class="parametername">dataSlaveMapParam</td>
-        <td class="parametervalue">&lt;address-map&gt;&lt;slave name='sdram_0.s1' start='0x2000000' end='0x4000000' /&gt;&lt;slave name='onchip_memory2_0.s1' start='0x4004000' end='0x4008000' /&gt;&lt;slave name='nios2_0.jtag_debug_module' start='0x4008800' end='0x4009000' /&gt;&lt;slave name='solenoid_out.s1' start='0x4009000' end='0x4009020' /&gt;&lt;slave name='timestamp_timer.s1' start='0x4009020' end='0x4009040' /&gt;&lt;slave name='de0_nano_adc_0.adc_slave' start='0x4009040' end='0x4009060' /&gt;&lt;slave name='sys_clk_timer.s1' start='0x4009060' end='0x4009080' /&gt;&lt;slave name='buttons.s1' start='0x4009080' end='0x4009090' /&gt;&lt;slave name='switch.s1' start='0x4009090' end='0x40090A0' /&gt;&lt;slave name='green_leds.s1' start='0x40090A0' end='0x40090B0' /&gt;&lt;slave name='altpll_0.pll_slave' start='0x40090B0' end='0x40090C0' /&gt;&lt;slave name='rs232_0.avalon_rs232_slave' start='0x40090C0' end='0x40090C8' /&gt;&lt;slave name='jtag_uart_0.avalon_jtag_slave' start='0x40090C8' end='0x40090D0' /&gt;&lt;slave name='sysid_qsys_0.control_slave' start='0x40090D0' end='0x40090D8' /&gt;&lt;slave name='pwm_generator_0.avalon_slave_duty' start='0x40090D8' end='0x40090DC' /&gt;&lt;slave name='pwm_generator_0.avalon_slave_period' start='0x40090DC' end='0x40090E0' /&gt;&lt;slave name='pwm_generator_0.avalon_slave_control' start='0x40090E0' end='0x40090E1' /&gt;&lt;/address-map&gt;</td>
+        <td class="parametervalue">&lt;address-map&gt;&lt;slave name='sdram_0.s1' start='0x2000000' end='0x4000000' /&gt;&lt;slave name='onchip_memory2_0.s1' start='0x4004000' end='0x4008000' /&gt;&lt;slave name='nios2_0.jtag_debug_module' start='0x4008800' end='0x4009000' /&gt;&lt;slave name='solenoid_out.s1' start='0x4009000' end='0x4009020' /&gt;&lt;slave name='timestamp_timer.s1' start='0x4009020' end='0x4009040' /&gt;&lt;slave name='de0_nano_adc_0.adc_slave' start='0x4009040' end='0x4009060' /&gt;&lt;slave name='sys_clk_timer.s1' start='0x4009060' end='0x4009080' /&gt;&lt;slave name='buttons.s1' start='0x4009080' end='0x4009090' /&gt;&lt;slave name='switch.s1' start='0x4009090' end='0x40090A0' /&gt;&lt;slave name='green_leds.s1' start='0x40090A0' end='0x40090B0' /&gt;&lt;slave name='altpll_0.pll_slave' start='0x40090B0' end='0x40090C0' /&gt;&lt;slave name='rs232_0.avalon_rs232_slave' start='0x40090C0' end='0x40090C8' /&gt;&lt;slave name='jtag_uart_0.avalon_jtag_slave' start='0x40090C8' end='0x40090D0' /&gt;&lt;slave name='sysid_qsys_0.control_slave' start='0x40090D0' end='0x40090D8' /&gt;&lt;slave name='pwm_generator_tps_out.avalon_slave_duty' start='0x40090D8' end='0x40090DC' /&gt;&lt;slave name='pwm_generator_tps_out.avalon_slave_period' start='0x40090DC' end='0x40090E0' /&gt;&lt;slave name='pwm_generator_motor.avalon_slave_duty' start='0x40090E0' end='0x40090E4' /&gt;&lt;slave name='pwm_generator_motor.avalon_slave_period' start='0x40090E4' end='0x40090E8' /&gt;&lt;slave name='pwm_generator_tps_out.avalon_slave_control' start='0x40090E8' end='0x40090E9' /&gt;&lt;slave name='pwm_generator_motor.avalon_slave_control' start='0x40090E9' end='0x40090EA' /&gt;&lt;/address-map&gt;</td>
        </tr>
        <tr>
         <td class="parametername">clockFrequency</td>
@@ -1771,7 +1843,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
        </tr>
        <tr>
         <td class="parametername">timestamp</td>
-        <td class="parametervalue">1489946846</td>
+        <td class="parametervalue">1489951972</td>
        </tr>
        <tr>
         <td class="parametername">AUTO_CLK_CLOCK_RATE</td>
@@ -1804,7 +1876,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
        </tr>
        <tr>
         <td class="parametername">TIMESTAMP</td>
-        <td class="parametervalue">1489946846</td>
+        <td class="parametervalue">1489951972</td>
        </tr>
       </table>
      </td>
@@ -2503,7 +2575,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
        <a href="#module_clk_0">clk_0</a>
       </td>
       <td class="from">clk_reset&#160;&#160;</td>
-      <td class="main" rowspan="50">altpll_0</td>
+      <td class="main" rowspan="53">altpll_0</td>
      </tr>
      <tr>
       <td class="to">&#160;&#160;inclk_interface_reset</td>
@@ -2713,7 +2785,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
       <td></td>
       <td class="from">c1&#160;&#160;</td>
       <td class="neighbor" rowspan="2">
-       <a href="#module_pwm_generator_0">pwm_generator_0</a>
+       <a href="#module_pwm_generator_motor">pwm_generator_motor</a>
       </td>
      </tr>
      <tr>
@@ -2752,6 +2824,22 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
       <td></td>
       <td></td>
       <td class="to">&#160;&#160;clk</td>
+     </tr>
+     <tr style="height:6px">
+      <td></td>
+     </tr>
+     <tr>
+      <td></td>
+      <td></td>
+      <td class="from">c1&#160;&#160;</td>
+      <td class="neighbor" rowspan="2">
+       <a href="#module_pwm_generator_tps_out">pwm_generator_tps_out</a>
+      </td>
+     </tr>
+     <tr>
+      <td></td>
+      <td></td>
+      <td class="to">&#160;&#160;clock_sink</td>
      </tr>
     </table>
    </div>
@@ -4061,10 +4149,10 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
     </tr>
    </table>
   </div>
-  <a name="module_pwm_generator_0"> </a>
+  <a name="module_pwm_generator_motor"> </a>
   <div>
    <hr/>
-   <h2>pwm_generator_0</h2>pwm_generator v1.0
+   <h2>pwm_generator_motor</h2>pwm_generator v1.0
    <br/>
    <div class="greydiv">
     <table class="connectionboxes">
@@ -4073,7 +4161,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
        <a href="#module_altpll_0">altpll_0</a>
       </td>
       <td class="from">c1&#160;&#160;</td>
-      <td class="main" rowspan="11">pwm_generator_0</td>
+      <td class="main" rowspan="11">pwm_generator_motor</td>
      </tr>
      <tr>
       <td class="to">&#160;&#160;clock_sink</td>
@@ -4117,6 +4205,10 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
      <td class="parametersbox">
       <h2>Parameters</h2>
       <table>
+       <tr>
+        <td class="parametername">AUTO_CLOCK_SINK_CLOCK_RATE</td>
+        <td class="parametervalue">50000000</td>
+       </tr>
        <tr>
         <td class="parametername">deviceFamily</td>
         <td class="parametervalue">UNKNOWN</td>
@@ -4474,10 +4566,89 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
     </tr>
    </table>
   </div>
+  <a name="module_pwm_generator_tps_out"> </a>
+  <div>
+   <hr/>
+   <h2>pwm_generator_tps_out</h2>pwm_generator v1.0
+   <br/>
+   <div class="greydiv">
+    <table class="connectionboxes">
+     <tr>
+      <td class="neighbor" rowspan="8">
+       <a href="#module_nios2_0">nios2_0</a>
+      </td>
+      <td class="from">jtag_debug_module_reset&#160;&#160;</td>
+      <td class="main" rowspan="11">pwm_generator_tps_out</td>
+     </tr>
+     <tr>
+      <td class="to">&#160;&#160;reset</td>
+     </tr>
+     <tr>
+      <td class="from">data_master&#160;&#160;</td>
+     </tr>
+     <tr>
+      <td class="to">&#160;&#160;avalon_slave_period</td>
+     </tr>
+     <tr>
+      <td class="from">data_master&#160;&#160;</td>
+     </tr>
+     <tr>
+      <td class="to">&#160;&#160;avalon_slave_duty</td>
+     </tr>
+     <tr>
+      <td class="from">data_master&#160;&#160;</td>
+     </tr>
+     <tr>
+      <td class="to">&#160;&#160;avalon_slave_control</td>
+     </tr>
+     <tr style="height:6px">
+      <td></td>
+     </tr>
+     <tr>
+      <td class="neighbor" rowspan="2">
+       <a href="#module_altpll_0">altpll_0</a>
+      </td>
+      <td class="from">c1&#160;&#160;</td>
+     </tr>
+     <tr>
+      <td class="to">&#160;&#160;clock_sink</td>
+     </tr>
+    </table>
+   </div>
+   <br/>
+   <br/>
+   <table class="flowbox">
+    <tr>
+     <td class="parametersbox">
+      <h2>Parameters</h2>
+      <table>
+       <tr>
+        <td class="parametername">AUTO_CLOCK_SINK_CLOCK_RATE</td>
+        <td class="parametervalue">50000000</td>
+       </tr>
+       <tr>
+        <td class="parametername">deviceFamily</td>
+        <td class="parametervalue">UNKNOWN</td>
+       </tr>
+       <tr>
+        <td class="parametername">generateLegacySim</td>
+        <td class="parametervalue">false</td>
+       </tr>
+      </table>
+     </td>
+    </tr>
+   </table>&#160;&#160;
+   <table class="flowbox">
+    <tr>
+     <td class="parametersbox">
+      <h2>Software Assignments</h2>(none)</td>
+    </tr>
+   </table>
+  </div>
   <table class="blueBar">
    <tr>
     <td class="l">generation took 0.00 seconds</td>
-    <td class="r">rendering took 0.05 seconds</td>
+    <td class="r">rendering took 0.07 seconds</td>
    </tr>
   </table>
  </body>

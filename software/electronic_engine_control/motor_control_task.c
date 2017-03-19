@@ -71,9 +71,11 @@ void motor_control_task(void* pdata) {
 	INT16U expected_pos = 0;
 	INT16U expected_rpm = 0;
 	motor_control_request* req;
-	pwm_gen_module* pwm = get_new_pwm_module(PWM_GENERATOR_0_AVALON_SLAVE_PERIOD_BASE, PWM_GENERATOR_0_AVALON_SLAVE_DUTY_BASE, PWM_GENERATOR_0_AVALON_SLAVE_CONTROL_BASE, MOTOR_PWM_PERIOD_TICKS, MOTOR_PWM_DUTY_CYCLE_IDLE);
+	pwm_gen_module* pwm = get_new_pwm_module(PWM_GENERATOR_MOTOR_AVALON_SLAVE_PERIOD_BASE, PWM_GENERATOR_MOTOR_AVALON_SLAVE_DUTY_BASE, PWM_GENERATOR_MOTOR_AVALON_SLAVE_CONTROL_BASE, MOTOR_PWM_PERIOD_TICKS, MOTOR_PWM_DUTY_CYCLE_IDLE);
 	BOOL tps_check_timer_activated = FALSE;
 	enable_pwm_output(pwm);
+	pwm_gen_module* pwm_tps_out = get_tps_sensor_output_pwm();
+	enable_pwm_output(pwm_tps_out);
 	INT16U* result_code = 0;
 	while(1){
 		if(serving_request == FALSE){
@@ -111,6 +113,7 @@ void motor_control_task(void* pdata) {
 				}
 			}
 			INT32U avg_tps_reading = (tps_1_reading + tps_2_reading)/2;
+			set_tps_sensor_output(pwm_tps_out, avg_tps_reading);
 			if(FALSE == TPS_VALUE_DIFFER_FROM_EXPECTED(avg_tps_reading, expected_pos)){
 				hold_throttle(pwm);
 				serving_request = FALSE;

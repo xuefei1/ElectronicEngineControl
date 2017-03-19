@@ -1,5 +1,5 @@
 Assembler report for electronic_engine_control
-Sun Mar 19 12:10:37 2017
+Sun Mar 19 13:36:58 2017
 Quartus II 32-bit Version 12.1 Build 243 01/31/2013 Service Pack 1 SJ Full Version
 
 
@@ -38,7 +38,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Sun Mar 19 12:10:37 2017 ;
+; Assembler Status      ; Successful - Sun Mar 19 13:36:58 2017 ;
 ; Revision Name         ; electronic_engine_control             ;
 ; Top-level Entity Name ; electronic_engine_control             ;
 ; Family                ; Cyclone IV E                          ;
@@ -104,7 +104,7 @@ applicable agreement for further details.
 +----------------+----------------------------------------+
 ; Device         ; EP4CE22F17C7                           ;
 ; JTAG usercode  ; 0xFFFFFFFF                             ;
-; Checksum       ; 0x0037FAE5                             ;
+; Checksum       ; 0x00388417                             ;
 +----------------+----------------------------------------+
 
 
@@ -114,14 +114,14 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II 32-bit Assembler
     Info: Version 12.1 Build 243 01/31/2013 Service Pack 1 SJ Full Version
-    Info: Processing started: Sun Mar 19 12:10:33 2017
+    Info: Processing started: Sun Mar 19 13:36:56 2017
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off electronic_engine_control -c electronic_engine_control
 Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
 Info: Quartus II 32-bit Assembler was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 336 megabytes
-    Info: Processing ended: Sun Mar 19 12:10:38 2017
-    Info: Elapsed time: 00:00:05
+    Info: Peak virtual memory: 341 megabytes
+    Info: Processing ended: Sun Mar 19 13:36:59 2017
+    Info: Elapsed time: 00:00:03
     Info: Total CPU time (on all processors): 00:00:02
 
 

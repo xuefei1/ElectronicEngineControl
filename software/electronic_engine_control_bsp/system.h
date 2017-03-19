@@ -4,7 +4,7 @@
  * Machine generated for CPU 'nios2_0' in SOPC Builder design 'niosII_system'
  * SOPC Builder design path: ../../niosII_system.sopcinfo
  *
- * Generated: Sun Mar 19 12:11:59 MDT 2017
+ * Generated: Sun Mar 19 13:37:44 MDT 2017
  */
 
 /*
@@ -312,45 +312,87 @@
 
 
 /*
- * pwm_generator_0_avalon_slave_control configuration
+ * pwm_generator_motor_avalon_slave_control configuration
  *
  */
 
-#define ALT_MODULE_CLASS_pwm_generator_0_avalon_slave_control pwm_generator
-#define PWM_GENERATOR_0_AVALON_SLAVE_CONTROL_BASE 0x40090e0
-#define PWM_GENERATOR_0_AVALON_SLAVE_CONTROL_IRQ -1
-#define PWM_GENERATOR_0_AVALON_SLAVE_CONTROL_IRQ_INTERRUPT_CONTROLLER_ID -1
-#define PWM_GENERATOR_0_AVALON_SLAVE_CONTROL_NAME "/dev/pwm_generator_0_avalon_slave_control"
-#define PWM_GENERATOR_0_AVALON_SLAVE_CONTROL_SPAN 1
-#define PWM_GENERATOR_0_AVALON_SLAVE_CONTROL_TYPE "pwm_generator"
+#define ALT_MODULE_CLASS_pwm_generator_motor_avalon_slave_control pwm_generator
+#define PWM_GENERATOR_MOTOR_AVALON_SLAVE_CONTROL_BASE 0x40090e9
+#define PWM_GENERATOR_MOTOR_AVALON_SLAVE_CONTROL_IRQ -1
+#define PWM_GENERATOR_MOTOR_AVALON_SLAVE_CONTROL_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define PWM_GENERATOR_MOTOR_AVALON_SLAVE_CONTROL_NAME "/dev/pwm_generator_motor_avalon_slave_control"
+#define PWM_GENERATOR_MOTOR_AVALON_SLAVE_CONTROL_SPAN 1
+#define PWM_GENERATOR_MOTOR_AVALON_SLAVE_CONTROL_TYPE "pwm_generator"
 
 
 /*
- * pwm_generator_0_avalon_slave_duty configuration
+ * pwm_generator_motor_avalon_slave_duty configuration
  *
  */
 
-#define ALT_MODULE_CLASS_pwm_generator_0_avalon_slave_duty pwm_generator
-#define PWM_GENERATOR_0_AVALON_SLAVE_DUTY_BASE 0x40090d8
-#define PWM_GENERATOR_0_AVALON_SLAVE_DUTY_IRQ -1
-#define PWM_GENERATOR_0_AVALON_SLAVE_DUTY_IRQ_INTERRUPT_CONTROLLER_ID -1
-#define PWM_GENERATOR_0_AVALON_SLAVE_DUTY_NAME "/dev/pwm_generator_0_avalon_slave_duty"
-#define PWM_GENERATOR_0_AVALON_SLAVE_DUTY_SPAN 4
-#define PWM_GENERATOR_0_AVALON_SLAVE_DUTY_TYPE "pwm_generator"
+#define ALT_MODULE_CLASS_pwm_generator_motor_avalon_slave_duty pwm_generator
+#define PWM_GENERATOR_MOTOR_AVALON_SLAVE_DUTY_BASE 0x40090e0
+#define PWM_GENERATOR_MOTOR_AVALON_SLAVE_DUTY_IRQ -1
+#define PWM_GENERATOR_MOTOR_AVALON_SLAVE_DUTY_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define PWM_GENERATOR_MOTOR_AVALON_SLAVE_DUTY_NAME "/dev/pwm_generator_motor_avalon_slave_duty"
+#define PWM_GENERATOR_MOTOR_AVALON_SLAVE_DUTY_SPAN 4
+#define PWM_GENERATOR_MOTOR_AVALON_SLAVE_DUTY_TYPE "pwm_generator"
 
 
 /*
- * pwm_generator_0_avalon_slave_period configuration
+ * pwm_generator_motor_avalon_slave_period configuration
  *
  */
 
-#define ALT_MODULE_CLASS_pwm_generator_0_avalon_slave_period pwm_generator
-#define PWM_GENERATOR_0_AVALON_SLAVE_PERIOD_BASE 0x40090dc
-#define PWM_GENERATOR_0_AVALON_SLAVE_PERIOD_IRQ -1
-#define PWM_GENERATOR_0_AVALON_SLAVE_PERIOD_IRQ_INTERRUPT_CONTROLLER_ID -1
-#define PWM_GENERATOR_0_AVALON_SLAVE_PERIOD_NAME "/dev/pwm_generator_0_avalon_slave_period"
-#define PWM_GENERATOR_0_AVALON_SLAVE_PERIOD_SPAN 4
-#define PWM_GENERATOR_0_AVALON_SLAVE_PERIOD_TYPE "pwm_generator"
+#define ALT_MODULE_CLASS_pwm_generator_motor_avalon_slave_period pwm_generator
+#define PWM_GENERATOR_MOTOR_AVALON_SLAVE_PERIOD_BASE 0x40090e4
+#define PWM_GENERATOR_MOTOR_AVALON_SLAVE_PERIOD_IRQ -1
+#define PWM_GENERATOR_MOTOR_AVALON_SLAVE_PERIOD_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define PWM_GENERATOR_MOTOR_AVALON_SLAVE_PERIOD_NAME "/dev/pwm_generator_motor_avalon_slave_period"
+#define PWM_GENERATOR_MOTOR_AVALON_SLAVE_PERIOD_SPAN 4
+#define PWM_GENERATOR_MOTOR_AVALON_SLAVE_PERIOD_TYPE "pwm_generator"
+
+
+/*
+ * pwm_generator_tps_out_avalon_slave_control configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_pwm_generator_tps_out_avalon_slave_control pwm_generator
+#define PWM_GENERATOR_TPS_OUT_AVALON_SLAVE_CONTROL_BASE 0x40090e8
+#define PWM_GENERATOR_TPS_OUT_AVALON_SLAVE_CONTROL_IRQ -1
+#define PWM_GENERATOR_TPS_OUT_AVALON_SLAVE_CONTROL_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define PWM_GENERATOR_TPS_OUT_AVALON_SLAVE_CONTROL_NAME "/dev/pwm_generator_tps_out_avalon_slave_control"
+#define PWM_GENERATOR_TPS_OUT_AVALON_SLAVE_CONTROL_SPAN 1
+#define PWM_GENERATOR_TPS_OUT_AVALON_SLAVE_CONTROL_TYPE "pwm_generator"
+
+
+/*
+ * pwm_generator_tps_out_avalon_slave_duty configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_pwm_generator_tps_out_avalon_slave_duty pwm_generator
+#define PWM_GENERATOR_TPS_OUT_AVALON_SLAVE_DUTY_BASE 0x40090d8
+#define PWM_GENERATOR_TPS_OUT_AVALON_SLAVE_DUTY_IRQ -1
+#define PWM_GENERATOR_TPS_OUT_AVALON_SLAVE_DUTY_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define PWM_GENERATOR_TPS_OUT_AVALON_SLAVE_DUTY_NAME "/dev/pwm_generator_tps_out_avalon_slave_duty"
+#define PWM_GENERATOR_TPS_OUT_AVALON_SLAVE_DUTY_SPAN 4
+#define PWM_GENERATOR_TPS_OUT_AVALON_SLAVE_DUTY_TYPE "pwm_generator"
+
+
+/*
+ * pwm_generator_tps_out_avalon_slave_period configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_pwm_generator_tps_out_avalon_slave_period pwm_generator
+#define PWM_GENERATOR_TPS_OUT_AVALON_SLAVE_PERIOD_BASE 0x40090dc
+#define PWM_GENERATOR_TPS_OUT_AVALON_SLAVE_PERIOD_IRQ -1
+#define PWM_GENERATOR_TPS_OUT_AVALON_SLAVE_PERIOD_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define PWM_GENERATOR_TPS_OUT_AVALON_SLAVE_PERIOD_NAME "/dev/pwm_generator_tps_out_avalon_slave_period"
+#define PWM_GENERATOR_TPS_OUT_AVALON_SLAVE_PERIOD_SPAN 4
+#define PWM_GENERATOR_TPS_OUT_AVALON_SLAVE_PERIOD_TYPE "pwm_generator"
 
 
 /*
@@ -498,7 +540,7 @@
 #define SYSID_QSYS_0_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define SYSID_QSYS_0_NAME "/dev/sysid_qsys_0"
 #define SYSID_QSYS_0_SPAN 8
-#define SYSID_QSYS_0_TIMESTAMP 1489946913
+#define SYSID_QSYS_0_TIMESTAMP 1489952092
 #define SYSID_QSYS_0_TYPE "altera_avalon_sysid_qsys"
 
 
