@@ -33,14 +33,12 @@
 #define RPM_ADC_CHANNEL			  			6
 
 /* detect if TPS expected and actual value differ*/
-#define TPS_VALUE_DIFFER_FROM_EXPECTED(input, exp)	int16U_changed_by_threshold(input, exp, TPS_VALUE_TOLERANCE)
+#define TPS_VALUE_DIFFER_FROM_EXPECTED(input, exp)	int32U_changed_by_threshold(input, exp, TPS_VALUE_TOLERANCE)
 
-#define RPM_VALUE_DIFFER_FROM_EXPECTED(input, exp)	int16U_changed_by_threshold(input, exp, RPM_VALUE_TOLERANCE)
+#define RPM_VALUE_DIFFER_FROM_EXPECTED(input, exp)	int32U_changed_by_threshold(input, exp, RPM_VALUE_TOLERANCE)
 
 /* detect if TPS readings differ by a percentage */
-#define TPS_VALUE_MISMATCH(input1, input2)			int16U_differ_by_percent(input1, input2, TPS_VALUE_DIFFERENCE_PERCENT, PERCENT_DIFF_ACCURACY)
-
-
+#define TPS_VALUE_MISMATCH(input1, input2)			int32U_differ_by_percent(input1, input2, TPS_VALUE_DIFFERENCE_PERCENT, PERCENT_DIFF_ACCURACY)
 
 typedef struct  {
    INT32U value;

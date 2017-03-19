@@ -71,20 +71,20 @@
 // * util Test
 // *-------------------------------------------------------------------------*/
 void Test_int16U_changed_by_threshold(CuTest* tc){
-	BOOL larger = int16U_changed_by_threshold(CHANGED_BY_THRESHOLD_INPUT_2,CHANGED_BY_THRESHOLD_INPUT_1,APPS_VALUE_CHANGE_THRESHOLD);
+	BOOL larger = int32U_changed_by_threshold(CHANGED_BY_THRESHOLD_INPUT_2,CHANGED_BY_THRESHOLD_INPUT_1,APPS_VALUE_CHANGE_THRESHOLD);
 	CuAssert(tc,"changed", larger == TRUE);
-	BOOL smaller = int16U_changed_by_threshold(CHANGED_BY_THRESHOLD_INPUT_1,CHANGED_BY_THRESHOLD_INPUT_2,APPS_VALUE_CHANGE_THRESHOLD);
+	BOOL smaller = int32U_changed_by_threshold(CHANGED_BY_THRESHOLD_INPUT_1,CHANGED_BY_THRESHOLD_INPUT_2,APPS_VALUE_CHANGE_THRESHOLD);
 	CuAssert(tc,"changed", smaller == TRUE);
-	BOOL same = int16U_changed_by_threshold(CHANGED_BY_THRESHOLD_INPUT_3,CHANGED_BY_THRESHOLD_INPUT_1,APPS_VALUE_CHANGE_THRESHOLD);
+	BOOL same = int32U_changed_by_threshold(CHANGED_BY_THRESHOLD_INPUT_3,CHANGED_BY_THRESHOLD_INPUT_1,APPS_VALUE_CHANGE_THRESHOLD);
 	CuAssert(tc,"not changed", same == FALSE);
 }
 
 void Test_int16U_differ_by_percent(CuTest* tc){
-	BOOL bothZero = int16U_differ_by_percent(DIFFER_BY_PERCENT_INPUT_1,DIFFER_BY_PERCENT_INPUT_1,TPS_VALUE_DIFFERENCE_PERCENT,PERCENT_DIFF_ACCURACY);
+	BOOL bothZero = int32U_differ_by_percent(DIFFER_BY_PERCENT_INPUT_1,DIFFER_BY_PERCENT_INPUT_1,TPS_VALUE_DIFFERENCE_PERCENT,PERCENT_DIFF_ACCURACY);
 	CuAssert(tc,"agree", bothZero == FALSE);
-	BOOL smallerZero = int16U_differ_by_percent(DIFFER_BY_PERCENT_INPUT_1,DIFFER_BY_PERCENT_INPUT_4,TPS_VALUE_DIFFERENCE_PERCENT,PERCENT_DIFF_ACCURACY);
+	BOOL smallerZero = int32U_differ_by_percent(DIFFER_BY_PERCENT_INPUT_1,DIFFER_BY_PERCENT_INPUT_4,TPS_VALUE_DIFFERENCE_PERCENT,PERCENT_DIFF_ACCURACY);
 	CuAssert(tc,"agree", smallerZero == TRUE);
-	BOOL twiceLarger = int16U_differ_by_percent(DIFFER_BY_PERCENT_INPUT_3,DIFFER_BY_PERCENT_INPUT_4,TPS_VALUE_DIFFERENCE_PERCENT,PERCENT_DIFF_ACCURACY);
+	BOOL twiceLarger = int32U_differ_by_percent(DIFFER_BY_PERCENT_INPUT_3,DIFFER_BY_PERCENT_INPUT_4,TPS_VALUE_DIFFERENCE_PERCENT,PERCENT_DIFF_ACCURACY);
 	CuAssert(tc,"not agree", twiceLarger == TRUE);
 }
 
@@ -121,6 +121,6 @@ int run_all_unit_tests(void){
 
 void Test_pwm_gen(INT16U period, INT16U duty){
 	pwm_gen_module* ptr = get_new_pwm_module(PWM_GENERATOR_0_AVALON_SLAVE_PERIOD_BASE, PWM_GENERATOR_0_AVALON_SLAVE_DUTY_BASE, PWM_GENERATOR_0_AVALON_SLAVE_CONTROL_BASE, period, duty);
-	//enable_pwm_output(ptr);
+	enable_pwm_output(ptr);
 	free(ptr);
 }

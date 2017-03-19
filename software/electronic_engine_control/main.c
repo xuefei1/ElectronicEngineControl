@@ -13,8 +13,7 @@
 
 #include "proj_config.h"
 #include "test_config.h"
-#include "apps_motor_task.h"
-#include "tps_task.h"
+#include "apps_task.h"
 #include "solenoid_task.h"
 #include "failure_handler_task.h"
 #include "motor_control_task.h"
@@ -47,7 +46,7 @@ int main(void) {
 
 	//throttle_data_init();
 
-	TEST_PWM(3125, 80);
+	TEST_PWM(3125, 100);
 
 //	OSTaskCreateExt(failure_handler_task, NULL,
 //			(void *) &failure_handler_task_stk[TASK_STACKSIZE - 1],

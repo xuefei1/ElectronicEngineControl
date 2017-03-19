@@ -9,7 +9,7 @@
 #define SOLENOID_TASK_H_
 
 #include "proj_config.h"
-#include "apps_motor_task.h"
+#include "apps_task.h"
 #include "altera_avalon_pio_regs.h"
 
 #define SOLENOID_TASK_PRIORITY      		4
@@ -33,6 +33,11 @@
 void solenoid_task(void* pdata);
 
 void signal_shift_start();
+
+typedef struct{
+	INT8U curr_gear;
+	INT8U new_gear;
+} shift_req;
 
 OS_EVENT* get_solenoid_task_external_failure_flag();
 

@@ -57,7 +57,6 @@ void Test_int16U_differ_by_percent(CuTest* tc);
 void Test_int16U_changed_by_threshold(CuTest* tc);
 void Test_get_lcd_msg_q(CuTest* tc);
 void Test_get_failure_msg_q(CuTest* tc);
-void Test_get_expected_motor_pos_q(CuTest* tc);
 void Test_get_new_tps_reading_sem(CuTest* tc);
 void Test_get_motor_cmd_q(CuTest* tc);
 void Test_get_expected_tps_reading(CuTest* tc);

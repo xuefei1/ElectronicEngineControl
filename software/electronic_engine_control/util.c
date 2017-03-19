@@ -12,8 +12,8 @@
 #include "util.h"
 
 /* Simple function to check if input is changed from last_value by at least threshold amount*/
-BOOL int16U_changed_by_threshold(INT16U input, INT16U last_value,
-		INT16U threshold) {
+BOOL int32U_changed_by_threshold(INT32U input, INT32U last_value,
+		INT32U threshold) {
 
 	if (input > last_value && input - last_value > threshold)
 		return TRUE;
@@ -29,11 +29,11 @@ BOOL int16U_changed_by_threshold(INT16U input, INT16U last_value,
  * for example, to check 10 percent, input number 10
  * the actual accuracy is defined by PERCENT_DIFF_ACCURACY
  */
-BOOL int16U_differ_by_percent(INT16U src1, INT16U src2, INT16U percent,
-		INT16U accuracy) {
+BOOL int32U_differ_by_percent(INT32U src1, INT32U src2, INT32U percent,
+		INT32U accuracy) {
 
-	INT16U larger;
-	INT16U smaller;
+	INT32U larger;
+	INT32U smaller;
 
 	if (src1 > src2) {
 		larger = src1;

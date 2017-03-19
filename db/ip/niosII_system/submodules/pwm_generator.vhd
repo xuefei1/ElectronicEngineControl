@@ -30,12 +30,12 @@ begin
 	variable period 		: std_logic_vector(31 downto 0) := "00000000000000000000000000000000";
 	variable duty_count 	: std_logic_vector(31 downto 0) := "00000000000000000000000000000000";
 	variable count 			: std_logic_vector(31 downto 0) := "00000000000000000000000000000000";
-	variable output_enable	: std_logic := '0';
+	variable control	: std_logic_vector(7 downto 0) := "00000000";
 	begin
 		if(reset = '1') then
 			period := "00000000000000000000000000000000"; 
 			duty_count := "00000000000000000000000000000000";
-			output_enable := '0';
+			control := "00000000";
 		elsif(rising_edge(clock)) then
 
 			if(write_en_period = '1') then
@@ -50,7 +50,7 @@ begin
 			end if;
 			
 			if(write_en_control = '1') then
-				output_enable := control_in(0); 
+				control := control_in; 
 			end if;
 			
 			if(unsigned(count) = unsigned(period) - 1) then
@@ -59,7 +59,7 @@ begin
 				count := std_logic_vector(unsigned(count) + 1);
 			end if;
 			
-			if(output_enable = '1') then
+			if(unsigned(control) = 1) then
 				if(unsigned(count) < unsigned(duty_count)) then
 					pwm_out <= '1';
 				else

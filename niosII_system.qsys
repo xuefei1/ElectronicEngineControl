@@ -172,11 +172,11 @@
          type = "int";
       }
    }
-   element solenoid_out.s1
+   element sdram_0.s1
    {
       datum baseAddress
       {
-         value = "67145728";
+         value = "33554432";
          type = "String";
       }
    }
@@ -193,35 +193,11 @@
          type = "String";
       }
    }
-   element buttons.s1
+   element solenoid_out.s1
    {
       datum baseAddress
       {
-         value = "67145856";
-         type = "String";
-      }
-   }
-   element sdram_0.s1
-   {
-      datum baseAddress
-      {
-         value = "33554432";
-         type = "String";
-      }
-   }
-   element timestamp_timer.s1
-   {
-      datum baseAddress
-      {
-         value = "67145760";
-         type = "String";
-      }
-   }
-   element switch.s1
-   {
-      datum baseAddress
-      {
-         value = "67145872";
+         value = "67145728";
          type = "String";
       }
    }
@@ -233,11 +209,35 @@
          type = "String";
       }
    }
+   element buttons.s1
+   {
+      datum baseAddress
+      {
+         value = "67145856";
+         type = "String";
+      }
+   }
+   element switch.s1
+   {
+      datum baseAddress
+      {
+         value = "67145872";
+         type = "String";
+      }
+   }
    element green_leds.s1
    {
       datum baseAddress
       {
          value = "67145888";
+         type = "String";
+      }
+   }
+   element timestamp_timer.s1
+   {
+      datum baseAddress
+      {
+         value = "67145760";
          type = "String";
       }
    }
@@ -309,7 +309,7 @@
  <parameter name="projectName">electronic_engine_control.qpf</parameter>
  <parameter name="sopcBorderPoints" value="false" />
  <parameter name="systemHash" value="1" />
- <parameter name="timeStamp" value="1489790477843" />
+ <parameter name="timeStamp" value="1489946258032" />
  <parameter name="useTestBenchNamingPattern" value="false" />
  <instanceScript></instanceScript>
  <interface name="altpll_0_c0" internal="altpll_0.c0" type="clock" dir="start">

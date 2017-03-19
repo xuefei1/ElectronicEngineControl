@@ -13,6 +13,10 @@ void enable_pwm_output(pwm_gen_module* module){
 	*(INT8U*)module->control_base = PWM_CONTROL_ENABLE_OUTPUT;
 }
 
+void disable_pwm_output(pwm_gen_module* module){
+	*(INT8U*)module->control_base = 0;
+}
+
 void set_period(pwm_gen_module* module, INT32U p){
 	module->period = p;
 	*(INT32U*)module->period_base = module->period;
@@ -28,7 +32,7 @@ pwm_gen_module* get_new_pwm_module(INT32U p_base, INT32U d_base, INT32U c_base, 
 	ptr->period_base = p_base;
 	ptr->duty_base = d_base;
 	ptr->control_base = c_base;
-	*(INT8U*) ptr->control_base = 0;
+	disable_pwm_output(ptr);
 	set_period(ptr, p);
 	set_duty_cycle(ptr, d_cycle);
 	return ptr;

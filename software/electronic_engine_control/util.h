@@ -14,8 +14,8 @@
 
 #include "proj_config.h"
 
-BOOL int16U_changed_by_threshold(INT16U input, INT16U last_value, INT16U threshold);
+BOOL int32U_changed_by_threshold(INT32U input, INT32U last_value, INT32U threshold);
 
-BOOL int16U_differ_by_percent(INT16U src1, INT16U src2, INT16U percent, INT16U accuracy);
+BOOL int32U_differ_by_percent(INT32U src1, INT32U src2, INT32U percent, INT32U accuracy);
 
 #endif /* UTIL_H_ */

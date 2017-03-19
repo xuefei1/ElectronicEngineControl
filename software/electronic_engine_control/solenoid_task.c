@@ -9,7 +9,7 @@
 #include "solenoid_task.h"
 
 #include "pwm_gen.h"
-#include "apps_motor_task.h"
+#include "apps_task.h"
 
 /* Used to store shift commands */
 OS_EVENT 	*btn_input_q;
@@ -58,24 +58,6 @@ void shift_down();
 
 /*  Task routine for solenoid */
 void solenoid_task(void* pdata) {
-
-//	INT16U pos = 0;
-//
-//		while(1) {
-//			//Hitec HS-635HB Servo Test
-//			//Runs a sweep from 0 to 90 degrees then back again.
-//			for(pos = 0; pos <= 1000; pos += 10) {
-//				INT32U duty_cycle = hitec_servo_demo(pos);
-//				set_duty_cycle(duty_cycle);
-//				OSTimeDly(1000);
-//			}
-//
-//			for(pos = 1000; pos > 50; pos -= 10) {
-//				INT32U duty_cycle = hitec_servo_demo(pos);
-//				set_duty_cycle(duty_cycle);
-//				OSTimeDly(1000);
-//			}
-//		}
 
 	INT8U err;
 
@@ -134,10 +116,14 @@ void solenoid_task(void* pdata) {
 				continue;
 			new_gear--;
 		}
+		shift_req* req = (shift_req*) malloc(sizeof(shift_req));
+		req->curr_gear = curr_gear;
+		req->new_gear = new_gear;
 		printf("putting new gear %d into matching q\n", new_gear);
-		OSQPost(shift_matching_q, (void*)&new_gear);
+		OSQPost(shift_matching_q, (void*)req);
 		curr_gear = new_gear;
-		//OSSemPend(rpm_reached_flag, Q_TIMEOUT_WAIT_FOREVER, &err);
+		OSSemPend(rpm_reached_flag, Q_TIMEOUT_WAIT_FOREVER, &err);
+		free(req);
 #endif
 		if (shift_command == BUTTON_INPUT_SHIFT_UP){
 			shift_up();

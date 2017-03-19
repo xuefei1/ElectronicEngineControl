@@ -15,9 +15,8 @@
 #define FAILURE_HANDLER_TASK_H_
 
 #include "proj_config.h"
-#include "apps_motor_task.h"
+#include "apps_task.h"
 #include "solenoid_task.h"
-#include "tps_task.h"
 
 #define FAILURE_HANDLER_TASK_PRIORITY      				1
 

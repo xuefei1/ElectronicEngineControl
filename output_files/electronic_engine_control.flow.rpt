@@ -1,5 +1,5 @@
 Flow report for electronic_engine_control
-Fri Mar 17 16:51:24 2017
+Sun Mar 19 12:11:07 2017
 Quartus II 32-bit Version 12.1 Build 243 01/31/2013 Service Pack 1 SJ Full Version
 
 
@@ -38,17 +38,17 @@ applicable agreement for further details.
 +-------------------------------------------------------------------------------------+
 ; Flow Summary                                                                        ;
 +------------------------------------+------------------------------------------------+
-; Flow Status                        ; Successful - Fri Mar 17 16:51:24 2017          ;
+; Flow Status                        ; Successful - Sun Mar 19 12:11:07 2017          ;
 ; Quartus II 32-bit Version          ; 12.1 Build 243 01/31/2013 SP 1 SJ Full Version ;
 ; Revision Name                      ; electronic_engine_control                      ;
 ; Top-level Entity Name              ; electronic_engine_control                      ;
 ; Family                             ; Cyclone IV E                                   ;
 ; Device                             ; EP4CE22F17C7                                   ;
 ; Timing Models                      ; Final                                          ;
-; Total logic elements               ; 3,560 / 22,320 ( 16 % )                        ;
-;     Total combinational functions  ; 3,197 / 22,320 ( 14 % )                        ;
-;     Dedicated logic registers      ; 2,100 / 22,320 ( 9 % )                         ;
-; Total registers                    ; 2184                                           ;
+; Total logic elements               ; 3,601 / 22,320 ( 16 % )                        ;
+;     Total combinational functions  ; 3,228 / 22,320 ( 14 % )                        ;
+;     Dedicated logic registers      ; 2,128 / 22,320 ( 10 % )                        ;
+; Total registers                    ; 2212                                           ;
 ; Total pins                         ; 97 / 154 ( 63 % )                              ;
 ; Total virtual pins                 ; 0                                              ;
 ; Total memory bits                  ; 144,384 / 608,256 ( 24 % )                     ;
@@ -62,7 +62,7 @@ applicable agreement for further details.
 +-------------------+---------------------------+
 ; Option            ; Setting                   ;
 +-------------------+---------------------------+
-; Start date & time ; 03/17/2017 16:48:30       ;
+; Start date & time ; 03/19/2017 12:08:27       ;
 ; Main task         ; Compilation               ;
 ; Revision Name     ; electronic_engine_control ;
 +-------------------+---------------------------+
@@ -73,7 +73,7 @@ applicable agreement for further details.
 +-------------------------------------+---------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                     ; Value                                 ; Default Value ; Entity Name ; Section Id     ;
 +-------------------------------------+---------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 0.148979091002755                     ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID               ; 0.148994690702238                     ; --            ; --          ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Vhdl                                  ; --            ; --          ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (VHDL)                ; <None>        ; --          ; --             ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                    ; --            ; --          ; --             ;
@@ -96,12 +96,12 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:01:20     ; 1.0                     ; 461 MB              ; 00:01:40                           ;
-; Fitter                    ; 00:00:34     ; 1.3                     ; 552 MB              ; 00:00:31                           ;
-; Assembler                 ; 00:00:02     ; 1.0                     ; 336 MB              ; 00:00:02                           ;
-; TimeQuest Timing Analyzer ; 00:00:16     ; 1.0                     ; 413 MB              ; 00:00:06                           ;
-; EDA Netlist Writer        ; 00:00:11     ; 1.0                     ; 336 MB              ; 00:00:07                           ;
-; Total                     ; 00:02:23     ; --                      ; --                  ; 00:02:26                           ;
+; Analysis & Synthesis      ; 00:01:22     ; 1.0                     ; 464 MB              ; 00:01:44                           ;
+; Fitter                    ; 00:00:32     ; 1.9                     ; 556 MB              ; 00:00:33                           ;
+; Assembler                 ; 00:00:04     ; 1.0                     ; 336 MB              ; 00:00:02                           ;
+; TimeQuest Timing Analyzer ; 00:00:13     ; 1.8                     ; 415 MB              ; 00:00:06                           ;
+; EDA Netlist Writer        ; 00:00:11     ; 1.0                     ; 331 MB              ; 00:00:06                           ;
+; Total                     ; 00:02:22     ; --                      ; --                  ; 00:02:31                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

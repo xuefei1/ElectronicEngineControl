@@ -142,7 +142,6 @@ ACDS_VERSION := 12.1sp1
 ELF := electronic_engine_control.elf
 
 # Paths to C, C++, and assembly source files.
-C_SRCS += apps_motor_task.c
 C_SRCS += failure_handler_task.c
 C_SRCS += main.c
 C_SRCS += motor_control_task.c
@@ -151,8 +150,8 @@ C_SRCS += solenoid_task.c
 C_SRCS += tests/CuTest.c
 C_SRCS += tests/testbench.c
 C_SRCS += throttle_data.c
-C_SRCS += tps_task.c
 C_SRCS += util.c
+C_SRCS += apps_task.c
 CXX_SRCS :=
 ASM_SRCS :=
 
