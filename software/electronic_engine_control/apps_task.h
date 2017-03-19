@@ -21,7 +21,7 @@
 #include "throttle_data.h"
 #include "altera_avalon_timer.h"
 
-#define APPS_MOTOR_TASK_PRIORITY      		2
+#define APPS_TASK_PRIORITY      		2
 
 /* ADC channel assignments */
 #define APPS_1_ADC_CHANNEL			  		0
@@ -60,7 +60,7 @@
 #define THROTTLE_POSITION_MIN						0
 #define ILLEGAL_THROTTLE_POSITION					0xFFFF
 
-void apps_motor_task(void* pdata);
+void apps_task(void* pdata);
 
 OS_EVENT* get_motor_cmd_q();
 

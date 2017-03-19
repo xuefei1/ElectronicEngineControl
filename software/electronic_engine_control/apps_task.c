@@ -20,7 +20,7 @@ OS_EVENT *motor_cmd_q;
 OS_EVENT *apps_failure_flag;
 
 /* Flag indicating possible motor failure */
-OS_EVENT *motor_failure_flag;
+OS_EVENT *motor_tps_failure_flag;
 
 /* Flag indicating failures detected in other tasks */
 OS_EVENT *external_failure_flag;
@@ -55,7 +55,7 @@ alt_u32 apps_value_comp_callback(void* context){
 }
 
 /*  Task routine for pedal position sensor and motor */
-void apps_motor_task(void* pdata) {
+void apps_task(void* pdata) {
 
 	adc = get_adc();
 	INT8U err;
@@ -64,7 +64,7 @@ void apps_motor_task(void* pdata) {
 	failure_msg_q = get_failure_msg_q();
 
 	apps_failure_flag = OSSemCreate(SEM_FLAG_NO_ERROR);
-	motor_failure_flag = OSSemCreate(SEM_FLAG_NO_ERROR);
+	motor_tps_failure_flag = OSSemCreate(SEM_FLAG_NO_ERROR);
 	external_failure_flag = OSSemCreate(SEM_FLAG_NO_ERROR);
 	failure_resolved_flag = OSSemCreate(SEM_FLAG_ERROR_UNRESOLVED);
 	exit_shift_matching_flag = OSSemCreate(SHIFT_MATCHING_IN_PROGRESS);
@@ -104,7 +104,7 @@ void apps_motor_task(void* pdata) {
 	while (1) {
 		//failure checking
 #if !defined(RUN_AVG_TASK_TIME_TEST)
-		if(OSSemAccept(motor_failure_flag) != SEM_FLAG_NO_ERROR){
+		if(OSSemAccept(motor_tps_failure_flag) != SEM_FLAG_NO_ERROR){
 			printf("possible motor failure, block apps_task\n");
 			OSSemPend(failure_resolved_flag, Q_TIMEOUT_WAIT_FOREVER, &err);
 		}else if(OSSemAccept(apps_failure_flag) != SEM_FLAG_NO_ERROR){
@@ -217,10 +217,13 @@ BOOL set_new_motor_position(INT16U apps_reading) {
 	req->request_type = MOTOR_CONTROL_REQ_TPS_POS;
 	req->value = get_tps_from_apps(apps_reading);
 	OS_EVENT* result_q = post_new_request(req);
-	INT16U result_code = (INT16U)OSQPend(result_q, Q_TIMEOUT_WAIT_FOREVER, &err);
-	if(result_code == REQUEST_RESULT_FAIL){
-		OSSemPost(motor_failure_flag);
+	INT16U result_code = *(INT16U*) OSQPend(result_q, Q_TIMEOUT_WAIT_FOREVER, &err);
+	if(result_code == REQUEST_RESULT_FAIL_TIMEOUT){
+		OSSemPost(motor_tps_failure_flag);
 		OSQPost(failure_msg_q, (void*) ERR_EXPECTED_THROTTLE_POS_MISMATCH);
+	}else if(result_code == REQUEST_RESULT_FAIL_TPS){
+		OSSemPost(motor_tps_failure_flag);
+		OSQPost(failure_msg_q, (void*) ERR_TPS_READING_MISMATCH);
 	}
 	free(req);
 	return TRUE;
@@ -232,10 +235,13 @@ BOOL set_new_motor_position_by_tps(INT16U tps_reading) {
 	req->request_type = MOTOR_CONTROL_REQ_TPS_POS;
 	req->value = tps_reading;
 	OS_EVENT* result_q = post_new_request(req);
-	INT16U result_code = (INT16U)OSQPend(result_q, Q_TIMEOUT_WAIT_FOREVER, &err);
-	if(result_code == REQUEST_RESULT_FAIL){
-		OSSemPost(motor_failure_flag);
+	INT16U result_code = *(INT16U*) OSQPend(result_q, Q_TIMEOUT_WAIT_FOREVER, &err);
+	if(result_code == REQUEST_RESULT_FAIL_TIMEOUT){
+		OSSemPost(motor_tps_failure_flag);
 		OSQPost(failure_msg_q, (void*) ERR_EXPECTED_THROTTLE_POS_MISMATCH);
+	}else if(result_code == REQUEST_RESULT_FAIL_TPS){
+		OSSemPost(motor_tps_failure_flag);
+		OSQPost(failure_msg_q, (void*) ERR_TPS_READING_MISMATCH);
 	}
 	free(req);
 	return TRUE;
@@ -297,7 +303,7 @@ INT32U hitec_servo_demo(INT16U commanded_position) {
 }
 
 OS_EVENT* get_motor_failure_flag(){
-	return motor_failure_flag;
+	return motor_tps_failure_flag;
 }
 
 OS_EVENT* get_apps_motor_task_external_failure_flag(){

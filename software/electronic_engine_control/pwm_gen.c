@@ -10,11 +10,13 @@
 #include "pwm_gen.h"
 
 void enable_pwm_output(pwm_gen_module* module){
-	*(INT8U*)module->control_base = PWM_CONTROL_ENABLE_OUTPUT;
+	module->control = PWM_CONTROL_ENABLE_OUTPUT;
+	*(INT8U*)module->control_base = module->control;
 }
 
 void disable_pwm_output(pwm_gen_module* module){
-	*(INT8U*)module->control_base = 0;
+	module->control = 0;
+	*(INT8U*)module->control_base = module->control;
 }
 
 void set_period(pwm_gen_module* module, INT32U p){

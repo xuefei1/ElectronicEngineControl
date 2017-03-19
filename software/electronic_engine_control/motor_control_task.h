@@ -9,6 +9,7 @@
 #define MOTOR_CONTROL_TASK_H_
 
 #include "proj_config.h"
+#include "util.h"
 #include "pwm_gen.h"
 
 #define MOTOR_CONTROL_TASK_PRIORITY			1
@@ -17,7 +18,8 @@
 #define MOTOR_CONTROL_REQ_RPM				1
 
 #define REQUEST_RESULT_OK					0
-#define REQUEST_RESULT_FAIL					1
+#define REQUEST_RESULT_FAIL_TIMEOUT			1
+#define REQUEST_RESULT_FAIL_TPS				2
 
 #define REQUEST_Q_SIZE_ELEMENTS				256
 #define RESULT_Q_SIZE_ELEMENTS				256
@@ -32,11 +34,10 @@
 #define TPS_2_ADC_CHANNEL			  		3
 #define RPM_ADC_CHANNEL			  			6
 
-/* detect if TPS expected and actual value differ*/
+/* detect if TPS expected and actual value differ */
 #define TPS_VALUE_DIFFER_FROM_EXPECTED(input, exp)	int32U_changed_by_threshold(input, exp, TPS_VALUE_TOLERANCE)
-
+/* detect if RPM expected and actual value differ */
 #define RPM_VALUE_DIFFER_FROM_EXPECTED(input, exp)	int32U_changed_by_threshold(input, exp, RPM_VALUE_TOLERANCE)
-
 /* detect if TPS readings differ by a percentage */
 #define TPS_VALUE_MISMATCH(input1, input2)			int32U_differ_by_percent(input1, input2, TPS_VALUE_DIFFERENCE_PERCENT, PERCENT_DIFF_ACCURACY)
 

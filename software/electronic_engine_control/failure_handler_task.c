@@ -65,7 +65,6 @@ void failure_handler_task(void* pdata) {
 		*(INT8U*)GREEN_LEDS_BASE = 0;
 		OSSemPost(get_apps_motor_task_failure_resolved_flag());
 		OSSemPost(get_solenoid_task_failure_resolved_flag());
-
 		OSTimeDlyHMSM(FAILURE_HANDLER_TASK_DELAY_HOURS,
 				FAILURE_HANDLER_TASK_DELAY_MINUTES,
 				FAILURE_HANDLER_TASK_DELAY_SECONDS,
