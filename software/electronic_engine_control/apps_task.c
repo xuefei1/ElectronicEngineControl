@@ -43,7 +43,7 @@ INT16U *expected_tps_value;
 alt_u32 apps_value_comp_callback(void* context){
 	alt_up_de0_nano_adc_update(adc);
 	INT16U apps_1_reading = alt_up_de0_nano_adc_read(adc,
-			APPS_1_ADC_CHANNEL);
+			APPS_1_ADC_CHANNEL) * APPS_2_TO_1_SENSOR_RATIO;
 	INT16U apps_2_reading = alt_up_de0_nano_adc_read(adc,
 			APPS_2_ADC_CHANNEL);
 
@@ -105,10 +105,10 @@ void apps_task(void* pdata) {
 		//failure checking
 #if !defined(RUN_AVG_TASK_TIME_TEST)
 		if(OSSemAccept(motor_tps_failure_flag) != SEM_FLAG_NO_ERROR){
-			printf("possible motor failure, block apps_task\n");
+			printf("Possible motor failure, block apps_task\n");
 			OSSemPend(failure_resolved_flag, Q_TIMEOUT_WAIT_FOREVER, &err);
 		}else if(OSSemAccept(apps_failure_flag) != SEM_FLAG_NO_ERROR){
-			printf("possible APPS failure, block apps_task\n");
+			printf("Possible APPS failure, block apps_task\n");
 			apps_check_timer_activated = FALSE;
 			free(alarm);
 			OSSemPend(failure_resolved_flag, Q_TIMEOUT_WAIT_FOREVER, &err);

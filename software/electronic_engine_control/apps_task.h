@@ -21,7 +21,7 @@
 #include "throttle_data.h"
 #include "altera_avalon_timer.h"
 
-#define APPS_TASK_PRIORITY      		2
+#define APPS_TASK_PRIORITY      			3
 
 /* ADC channel assignments */
 #define APPS_1_ADC_CHANNEL			  		0
@@ -34,7 +34,7 @@
 #define APPS_MOTOR_TASK_DELAY_HOURS	  		0
 #define APPS_MOTOR_TASK_DELAY_MINUTES	  	0
 #define APPS_MOTOR_TASK_DELAY_SECONDS	  	0
-#define APPS_MOTOR_TASK_DELAY_MILLISEC	  	10
+#define APPS_MOTOR_TASK_DELAY_MILLISEC	  	50
 
 /* detect if there is a new APPS value*/
 #define APPS_VALUE_CHANGED(input, last_value)	int32U_changed_by_threshold(input, last_value, APPS_VALUE_CHANGE_THRESHOLD)

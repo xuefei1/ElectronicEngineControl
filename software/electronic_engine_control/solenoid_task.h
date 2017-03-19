@@ -12,13 +12,13 @@
 #include "apps_task.h"
 #include "altera_avalon_pio_regs.h"
 
-#define SOLENOID_TASK_PRIORITY      		4
+#define SOLENOID_TASK_PRIORITY      		2
 
 /* Task Delays*/
 #define SOLENOID_TASK_DELAY_HOURS	  		0
 #define SOLENOID_TASK_DELAY_MINUTES	  		0
 #define SOLENOID_TASK_DELAY_SECONDS	  		0
-#define SOLENOID_TASK_DELAY_MILLISEC	 	10
+#define SOLENOID_TASK_DELAY_MILLISEC	 	50
 
 #define SOLENOID_Q_SIZE_ELEMENTS			256
 

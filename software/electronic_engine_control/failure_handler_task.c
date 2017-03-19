@@ -21,10 +21,9 @@ void failure_handler_task(void* pdata) {
 	INT8U err;
 	OS_EVENT *failure_code_q = get_failure_msg_q();
 	failure_resolved_flag = OSSemCreate(SEM_FLAG_ERROR_UNRESOLVED);
-
+	*(INT8U*)GREEN_LEDS_BASE = 0;
 	while (1) {
-		INT8U msg = (INT8U) OSQPend(failure_code_q, Q_TIMEOUT_WAIT_FOREVER,
-				&err);
+		INT8U msg = (INT8U) OSQPend(failure_code_q, Q_TIMEOUT_WAIT_FOREVER, &err);
 		if (err)
 			disp_err(err, "Error pending on q");
 

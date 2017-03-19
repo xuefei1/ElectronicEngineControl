@@ -75,11 +75,10 @@ void solenoid_task(void* pdata) {
 
 	INT8U curr_gear = 1;
 
-	printf("clamp a\n");
 	IOWR_ALTERA_AVALON_PIO_IRQ_MASK(BUTTONS_BASE, BUTTON_INPUT_SHIFT_UP | BUTTON_INPUT_SHIFT_DOWN);
 	IOWR_ALTERA_AVALON_PIO_EDGE_CAP(BUTTONS_BASE, 0);
-	INT8U rc = alt_irq_register(BUTTONS_IRQ, NULL,  &isr_btn);
-	printf("clamp b, rc:%d\n", rc);
+	alt_irq_register(BUTTONS_IRQ, NULL,  &isr_btn);
+
 #if defined(RUN_AVG_TASK_TIME_TEST)
 	if(alt_timestamp_start()<0)
 	{
@@ -99,7 +98,7 @@ void solenoid_task(void* pdata) {
 #else
 		INT32U shift_command = *(INT32U *) OSQPend(btn_input_q, Q_TIMEOUT_WAIT_FOREVER, &err);
 		if(OSSemAccept(external_failure_flag) != SEM_FLAG_NO_ERROR){
-			printf("External failure, block apps_motor_task\n");
+			printf("External failure, block solenoid task\n");
 			OSSemPend(failure_resolved_flag, Q_TIMEOUT_WAIT_FOREVER, &err);
 		}
 		printf("cmd:%d\n", shift_command);
