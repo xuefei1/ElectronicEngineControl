@@ -35,7 +35,7 @@ obj/default/apps_task.o: apps_task.c apps_task.h proj_config.h \
   ../electronic_engine_control_bsp//HAL/inc/alt_types.h test_config.h \
   tests/CuTest.h throttle_data.h solenoid_task.h \
   ../electronic_engine_control_bsp//drivers/inc/altera_avalon_pio_regs.h \
-  util.h pwm_gen.h motor_control_task.h \
+  pwm_gen.h util.h motor_control_task.h \
   ../electronic_engine_control_bsp//drivers/inc/altera_avalon_timer.h
 
 apps_task.h:
@@ -122,9 +122,9 @@ solenoid_task.h:
 
 ../electronic_engine_control_bsp//drivers/inc/altera_avalon_pio_regs.h:
 
-util.h:
-
 pwm_gen.h:
+
+util.h:
 
 motor_control_task.h:
 

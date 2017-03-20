@@ -60,19 +60,19 @@
          type = "String";
       }
    }
-   element pwm_generator_motor.avalon_slave_duty
-   {
-      datum baseAddress
-      {
-         value = "67145952";
-         type = "String";
-      }
-   }
    element pwm_generator_tps_out.avalon_slave_duty
    {
       datum baseAddress
       {
          value = "67145944";
+         type = "String";
+      }
+   }
+   element pwm_generator_motor.avalon_slave_duty
+   {
+      datum baseAddress
+      {
+         value = "67145952";
          type = "String";
       }
    }
@@ -204,27 +204,6 @@
          type = "int";
       }
    }
-   element green_leds.s1
-   {
-      datum baseAddress
-      {
-         value = "67145888";
-         type = "String";
-      }
-   }
-   element sys_clk_timer.s1
-   {
-      datum _tags
-      {
-         value = "";
-         type = "String";
-      }
-      datum baseAddress
-      {
-         value = "67145824";
-         type = "String";
-      }
-   }
    element onchip_memory2_0.s1
    {
       datum baseAddress
@@ -241,22 +220,6 @@
          type = "String";
       }
    }
-   element solenoid_out.s1
-   {
-      datum baseAddress
-      {
-         value = "67145728";
-         type = "String";
-      }
-   }
-   element switch.s1
-   {
-      datum baseAddress
-      {
-         value = "67145872";
-         type = "String";
-      }
-   }
    element timestamp_timer.s1
    {
       datum baseAddress
@@ -265,11 +228,48 @@
          type = "String";
       }
    }
+   element green_leds.s1
+   {
+      datum baseAddress
+      {
+         value = "67145888";
+         type = "String";
+      }
+   }
+   element solenoid_out.s1
+   {
+      datum baseAddress
+      {
+         value = "67145728";
+         type = "String";
+      }
+   }
    element buttons.s1
    {
       datum baseAddress
       {
          value = "67145856";
+         type = "String";
+      }
+   }
+   element sys_clk_timer.s1
+   {
+      datum _tags
+      {
+         value = "";
+         type = "String";
+      }
+      datum baseAddress
+      {
+         value = "67145824";
+         type = "String";
+      }
+   }
+   element switch.s1
+   {
+      datum baseAddress
+      {
+         value = "67145872";
          type = "String";
       }
    }
@@ -341,7 +341,7 @@
  <parameter name="projectName">electronic_engine_control.qpf</parameter>
  <parameter name="sopcBorderPoints" value="false" />
  <parameter name="systemHash" value="1" />
- <parameter name="timeStamp" value="1489964937807" />
+ <parameter name="timeStamp" value="1490040260710" />
  <parameter name="useTestBenchNamingPattern" value="false" />
  <instanceScript></instanceScript>
  <interface name="altpll_0_c0" internal="altpll_0.c0" type="clock" dir="start">
@@ -885,12 +885,12 @@
   <parameter name="AUTO_CLOCK_SINK_CLOCK_RATE" value="50000000" />
  </module>
  <module kind="altera_avalon_pio" version="12.1" enabled="1" name="buttons">
-  <parameter name="bitClearingEdgeCapReg" value="false" />
+  <parameter name="bitClearingEdgeCapReg" value="true" />
   <parameter name="bitModifyingOutReg" value="false" />
   <parameter name="captureEdge" value="true" />
   <parameter name="clockRate" value="50000000" />
   <parameter name="direction" value="Input" />
-  <parameter name="edgeType" value="RISING" />
+  <parameter name="edgeType" value="FALLING" />
   <parameter name="generateIRQ" value="true" />
   <parameter name="irqType" value="EDGE" />
   <parameter name="resetValue" value="0" />

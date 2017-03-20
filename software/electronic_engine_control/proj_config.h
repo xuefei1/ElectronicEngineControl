@@ -40,20 +40,17 @@
 
 /* APPS valid value range based on pedal travel, note this is the average of two sensors */
 #define APPS_VALID_VALUE_MIN				450
-#define APPS_VALID_VALUE_MAX				2400
+#define APPS_VALID_VALUE_MAX				1750
 
 /* TPS valid value range based on throttle plate travel, note this is the average of two sensors */
 #define TPS_VALID_VALUE_MIN					450
 #define TPS_VALID_VALUE_MAX					2400
 
 /* When APPS reading differ from last value by at least this much, we consider it as a new value */
-#define APPS_VALUE_CHANGE_THRESHOLD			100
-
-/* Natural difference in two APPS sensors in APPS 2 vs APPS 1, meaning APPS value = this value * APPS 1 reading */
-#define APPS_2_TO_1_SENSOR_RATIO			2
+#define APPS_VALUE_CHANGE_THRESHOLD			30
 
 /* When two APPS reading differ by this much percent, we have a failure */
-#define APPS_VALUE_DIFFERENCE_PERCENT		10
+#define APPS_VALUE_DIFFERENCE_PERCENT		180
 
 /* When two TPS reading differ by this much percent, we have a failure */
 #define TPS_VALUE_DIFFERENCE_PERCENT		10

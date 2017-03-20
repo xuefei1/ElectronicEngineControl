@@ -43,7 +43,7 @@ INT16U *expected_tps_value;
 alt_u32 apps_value_comp_callback(void* context){
 	alt_up_de0_nano_adc_update(adc);
 	INT16U apps_1_reading = alt_up_de0_nano_adc_read(adc,
-			APPS_1_ADC_CHANNEL) * APPS_2_TO_1_SENSOR_RATIO;
+			APPS_1_ADC_CHANNEL);
 	INT16U apps_2_reading = alt_up_de0_nano_adc_read(adc,
 			APPS_2_ADC_CHANNEL);
 
@@ -156,10 +156,9 @@ void apps_task(void* pdata) {
 		//APPS checking
 		alt_up_de0_nano_adc_update(adc);
 		INT16U apps_1_reading = alt_up_de0_nano_adc_read(adc,
-				APPS_1_ADC_CHANNEL) * APPS_2_TO_1_SENSOR_RATIO;
+				APPS_1_ADC_CHANNEL);
 		INT16U apps_2_reading = alt_up_de0_nano_adc_read(adc,
 				APPS_2_ADC_CHANNEL);
-
 		if (APPS_VALUE_CHANGED(apps_1_reading,
 				last_apps_1_reading)
 				|| APPS_VALUE_CHANGED(apps_2_reading, last_apps_2_reading)) {
@@ -167,19 +166,18 @@ void apps_task(void* pdata) {
 			printf("apps1 read value:%d\n", apps_1_reading);
 			printf("apps2 read value:%d\n", apps_2_reading);
 #endif
-
 			if (APPS_VALUE_MISMATCH(apps_1_reading, apps_2_reading)) {
 				//we have a mismatch, check again after 100 ms
 				if(apps_check_timer_activated == FALSE){
 					apps_check_timer_activated = TRUE;
 					printf("set alarm\n");
 					alarm = (alt_alarm*)malloc(sizeof(alt_alarm));
-					alt_alarm_start(alarm, SENSOR_VAL_COMP_DELAY_TICKS, &apps_value_comp_callback, (void*)alarm);
+					//alt_alarm_start(alarm, SENSOR_VAL_COMP_DELAY_TICKS, &apps_value_comp_callback, (void*)alarm);
 				}
 			} else {
 				if(apps_check_timer_activated == TRUE){
 					printf("clear alarm\n");
-					alt_alarm_stop(alarm);
+					//alt_alarm_stop(alarm);
 					free(alarm);
 					apps_check_timer_activated = FALSE;
 				}
