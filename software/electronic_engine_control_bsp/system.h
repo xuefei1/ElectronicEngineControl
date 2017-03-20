@@ -4,7 +4,7 @@
  * Machine generated for CPU 'nios2_0' in SOPC Builder design 'niosII_system'
  * SOPC Builder design path: ../../niosII_system.sopcinfo
  *
- * Generated: Sun Mar 19 13:37:44 MDT 2017
+ * Generated: Sun Mar 19 17:13:31 MDT 2017
  */
 
 /*
@@ -482,20 +482,20 @@
 
 #define ALT_MODULE_CLASS_switch altera_avalon_pio
 #define SWITCH_BASE 0x4009090
-#define SWITCH_BIT_CLEARING_EDGE_REGISTER 0
+#define SWITCH_BIT_CLEARING_EDGE_REGISTER 1
 #define SWITCH_BIT_MODIFYING_OUTPUT_REGISTER 0
-#define SWITCH_CAPTURE 0
+#define SWITCH_CAPTURE 1
 #define SWITCH_DATA_WIDTH 1
 #define SWITCH_DO_TEST_BENCH_WIRING 0
 #define SWITCH_DRIVEN_SIM_VALUE 0x0
-#define SWITCH_EDGE_TYPE "NONE"
+#define SWITCH_EDGE_TYPE "RISING"
 #define SWITCH_FREQ 50000000u
 #define SWITCH_HAS_IN 1
 #define SWITCH_HAS_OUT 0
 #define SWITCH_HAS_TRI 0
-#define SWITCH_IRQ -1
-#define SWITCH_IRQ_INTERRUPT_CONTROLLER_ID -1
-#define SWITCH_IRQ_TYPE "NONE"
+#define SWITCH_IRQ 4
+#define SWITCH_IRQ_INTERRUPT_CONTROLLER_ID 0
+#define SWITCH_IRQ_TYPE "EDGE"
 #define SWITCH_NAME "/dev/switch"
 #define SWITCH_RESET_VALUE 0x0
 #define SWITCH_SPAN 16
@@ -540,7 +540,7 @@
 #define SYSID_QSYS_0_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define SYSID_QSYS_0_NAME "/dev/sysid_qsys_0"
 #define SYSID_QSYS_0_SPAN 8
-#define SYSID_QSYS_0_TIMESTAMP 1489952092
+#define SYSID_QSYS_0_TIMESTAMP 1489965010
 #define SYSID_QSYS_0_TYPE "altera_avalon_sysid_qsys"
 
 

@@ -24,34 +24,33 @@ library ieee;
 	port
 	(
 		-- Input ports and 50 MHz Clock
-		KEY			: in  	std_logic_vector (0 downto 0);
-		SW				: in  	std_logic_vector (0 downto 0);
-		CLOCK_50		: in  	std_logic;
+		KEY				: in std_logic_vector (0 downto 0);
+		SW				: in std_logic_vector (0 downto 0);
+		CLOCK_50		: in std_logic;
 		
 		-- Green leds on board
-		LED			: out 	DE0_LED_GREEN;
+		LED				: out 	DE0_LED_GREEN;
 		
 		-- SDRAM on board
-		DRAM_ADDR	:	out	DE0_SDRAM_ADDR_BUS;
-		DRAM_BA		:	out	DE0_DRAM_BA;
-		DRAM_CAS_N	:	out	std_logic;
+		DRAM_ADDR		:	out	DE0_SDRAM_ADDR_BUS;
+		DRAM_BA			:	out	DE0_DRAM_BA;
+		DRAM_CAS_N		:	out	std_logic;
 		DRAM_CKE		:	out	std_logic;
 		DRAM_CLK		:	out	std_logic;
-		DRAM_CS_N	:	out	std_logic;
-		DRAM_DQ		:	inout DE0_SDRAM_DATA_BUS;
-		DRAM_DQM		:	out 	DE0_SDRAM_DQM;
-		DRAM_RAS_N	: 	out	std_logic;
-		DRAM_WE_N	: 	out 	std_logic;
+		DRAM_CS_N		:	out	std_logic;
+		DRAM_DQ			:	inout DE0_SDRAM_DATA_BUS;
+		DRAM_DQM		:	out DE0_SDRAM_DQM;
+		DRAM_RAS_N		: 	out	std_logic;
+		DRAM_WE_N		: 	out std_logic;
 
-		GPIO_0		:	out	std_logic_vector (35 downto 0);
-
-		GPIO_2		:	in		std_logic_vector (7 downto 0);
+		GPIO_0			:	out	std_logic_vector (35 downto 0);
+		GPIO_2			:	in	std_logic_vector (7 downto 0);
 
 		-- ADC
-		ADC_CS_N		:	out 	std_logic;
-		ADC_SADDR		:	out 	std_logic;
+		ADC_CS_N		:	out std_logic;
+		ADC_SADDR		:	out std_logic;
 		ADC_SCLK		:	out	std_logic;
-		ADC_SDAT		:	in		std_logic
+		ADC_SDAT		:	in	std_logic
 		
 	);
 end electronic_engine_control;

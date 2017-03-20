@@ -8,9 +8,6 @@
 
 #include "solenoid_task.h"
 
-#include "pwm_gen.h"
-#include "apps_task.h"
-
 /* Used to store shift commands */
 OS_EVENT 	*btn_input_q;
 
@@ -20,10 +17,10 @@ INT8U		solenoid_buf[SOLENOID_Q_SIZE_ELEMENTS];
 OS_EVENT 	*free_alarm_flag;
 
 /* Flag indicating failures detected in other tasks */
-OS_EVENT 	*external_failure_flag;
+OS_EVENT 	*solenoid_external_failure_flag;
 
 /* Flag indicating failure resolved */
-OS_EVENT 	*failure_resolved_flag;
+OS_EVENT 	*solenoid_failure_resolved_flag;
 
 /* Flag indicating target RPM reached */
 OS_EVENT 	*rpm_reached_flag;
@@ -44,8 +41,7 @@ static void isr_btn (void* context, alt_u32 id)
 	}else if(data == BUTTON_INPUT_SHIFT_DOWN){
 		OSQPost(btn_input_q, (void*) ptr);
 	}
-	IOWR_ALTERA_AVALON_PIO_EDGE_CAP(BUTTONS_BASE, 0);
-
+	IOWR_ALTERA_AVALON_PIO_EDGE_CAP(BUTTONS_BASE, CLEAR_BUTTON_EDGE_REG);
 	IOWR_ALTERA_AVALON_PIO_IRQ_MASK(BUTTONS_BASE, BUTTON_INPUT_SHIFT_UP | BUTTON_INPUT_SHIFT_DOWN);
 
 }
@@ -63,9 +59,9 @@ void solenoid_task(void* pdata) {
 
 	btn_input_q = OSQCreate((void*)solenoid_buf, SOLENOID_Q_SIZE_ELEMENTS);
 
-	external_failure_flag = OSSemCreate(SEM_FLAG_NO_ERROR);
+	solenoid_external_failure_flag = OSSemCreate(SEM_FLAG_NO_ERROR);
 
-	failure_resolved_flag = OSSemCreate(SEM_FLAG_ERROR_UNRESOLVED);
+	solenoid_failure_resolved_flag = OSSemCreate(SEM_FLAG_ERROR_UNRESOLVED);
 
 	rpm_reached_flag = OSSemCreate(OS_SEM_RPM_NOT_REACHED);
 
@@ -76,7 +72,7 @@ void solenoid_task(void* pdata) {
 	INT8U curr_gear = 1;
 
 	IOWR_ALTERA_AVALON_PIO_IRQ_MASK(BUTTONS_BASE, BUTTON_INPUT_SHIFT_UP | BUTTON_INPUT_SHIFT_DOWN);
-	IOWR_ALTERA_AVALON_PIO_EDGE_CAP(BUTTONS_BASE, 0);
+	IOWR_ALTERA_AVALON_PIO_EDGE_CAP(BUTTONS_BASE, CLEAR_BUTTON_EDGE_REG);
 	alt_irq_register(BUTTONS_IRQ, NULL,  &isr_btn);
 
 #if defined(RUN_AVG_TASK_TIME_TEST)
@@ -97,9 +93,9 @@ void solenoid_task(void* pdata) {
 		INT8U shift_command = BUTTON_INPUT_SHIFT_UP;
 #else
 		INT32U shift_command = *(INT32U *) OSQPend(btn_input_q, Q_TIMEOUT_WAIT_FOREVER, &err);
-		if(OSSemAccept(external_failure_flag) != SEM_FLAG_NO_ERROR){
+		if(OSSemAccept(solenoid_external_failure_flag) != SEM_FLAG_NO_ERROR){
 			printf("External failure, block solenoid task\n");
-			OSSemPend(failure_resolved_flag, Q_TIMEOUT_WAIT_FOREVER, &err);
+			OSSemPend(solenoid_failure_resolved_flag, Q_TIMEOUT_WAIT_FOREVER, &err);
 		}
 		printf("cmd:%d\n", shift_command);
 		if (OSSemAccept(timer_active_flag) == OS_SEM_FLAG_SHIFTING){
@@ -166,19 +162,19 @@ void shift_down(){
 alt_u32 solenoid_callback(void* context){
 	//clear control
 	if(alarm != NULL) free(alarm);
-	printf("cancelling up alarm\n");
-	IOWR_ALTERA_AVALON_PIO_DATA(SOLENOID_OUT_BASE, 0);
+	printf("cancel up alarm\n");
+	IOWR_ALTERA_AVALON_PIO_DATA(SOLENOID_OUT_BASE, CLEAR_BUTTON_DATA);
 	signal_exit_shift_matching();
 	OSSemPost(timer_active_flag);
 	return 0;
 }
 
 OS_EVENT* get_solenoid_task_external_failure_flag(){
-	return external_failure_flag;
+	return solenoid_external_failure_flag;
 }
 
 OS_EVENT* get_solenoid_task_failure_resolved_flag(){
-	return failure_resolved_flag;
+	return solenoid_failure_resolved_flag;
 }
 
 void signal_shift_start(){

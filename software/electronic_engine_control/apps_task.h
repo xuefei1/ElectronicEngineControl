@@ -66,9 +66,9 @@ OS_EVENT* get_motor_cmd_q();
 
 OS_EVENT* get_motor_failure_flag();
 
-OS_EVENT* get_apps_motor_task_external_failure_flag();
+OS_EVENT* get_apps_task_external_failure_flag();
 
-OS_EVENT* get_apps_motor_task_failure_resolved_flag();
+OS_EVENT* get_apps_task_failure_resolved_flag();
 
 BOOL set_new_motor_position(INT16U apps_reading);
 

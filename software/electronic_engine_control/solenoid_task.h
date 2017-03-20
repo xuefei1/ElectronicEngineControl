@@ -11,6 +11,7 @@
 #include "proj_config.h"
 #include "apps_task.h"
 #include "altera_avalon_pio_regs.h"
+#include "pwm_gen.h"
 
 #define SOLENOID_TASK_PRIORITY      		2
 
@@ -26,6 +27,8 @@
 #define BUTTON_INPUT_SHIFT_UP				4
 #define BUTTON_INPUT_SHIFT_DOWN				8
 #define CLEAR_BUTTON_IRQ					128
+#define CLEAR_BUTTON_EDGE_REG				0
+#define CLEAR_BUTTON_DATA					0
 
 #define OS_SEM_FLAG_SHIFTING				0
 #define OS_SEM_FLAG_NOT_SHIFTING			1

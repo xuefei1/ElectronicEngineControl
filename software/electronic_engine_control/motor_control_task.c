@@ -3,6 +3,8 @@
  *
  *  Created on: Mar 16, 2017
  *      Author: Fred
+ *
+ *  Status: C
  */
 
 #include "motor_control_task.h"
@@ -47,6 +49,7 @@ void hold_throttle(pwm_gen_module* pwm){
 alt_u32 watchdog_callback(void* context){
 	free(watchdog);
 	timeout_failure_encountered = TRUE;
+	return 0;
 }
 
 /* Callback function to check TPS agreement position */
@@ -68,11 +71,11 @@ void motor_control_task(void* pdata) {
 	request_q = OSQCreate((void*) request_q_buf, REQUEST_Q_SIZE_ELEMENTS);
 	req_result_q = OSQCreate((void*) result_q_buf, RESULT_Q_SIZE_ELEMENTS);
 	BOOL serving_request = FALSE;
+	BOOL tps_check_timer_activated = FALSE;
 	INT16U expected_pos = 0;
 	INT16U expected_rpm = 0;
 	motor_control_request* req;
 	pwm_gen_module* pwm = get_new_pwm_module(PWM_GENERATOR_MOTOR_AVALON_SLAVE_PERIOD_BASE, PWM_GENERATOR_MOTOR_AVALON_SLAVE_DUTY_BASE, PWM_GENERATOR_MOTOR_AVALON_SLAVE_CONTROL_BASE, MOTOR_PWM_PERIOD_TICKS, MOTOR_PWM_DUTY_CYCLE_IDLE);
-	BOOL tps_check_timer_activated = FALSE;
 	enable_pwm_output(pwm);
 	pwm_gen_module* pwm_tps_out = get_tps_sensor_output_pwm();
 	enable_pwm_output(pwm_tps_out);

@@ -23,10 +23,10 @@ OS_EVENT *apps_failure_flag;
 OS_EVENT *motor_tps_failure_flag;
 
 /* Flag indicating failures detected in other tasks */
-OS_EVENT *external_failure_flag;
+OS_EVENT *apps_external_failure_flag;
 
 /* Flag indicating failure resolved */
-OS_EVENT *failure_resolved_flag;
+OS_EVENT *apps_failure_resolved_flag;
 
 OS_EVENT *failure_msg_q;
 
@@ -51,6 +51,7 @@ alt_u32 apps_value_comp_callback(void* context){
 		OSSemPost(apps_failure_flag);
 		OSQPost(failure_msg_q, (void*) ERR_APPS_READING_MISMATCH);
 	}
+	free((alt_alarm*) context);
 	return 0;
 }
 
@@ -65,13 +66,13 @@ void apps_task(void* pdata) {
 
 	apps_failure_flag = OSSemCreate(SEM_FLAG_NO_ERROR);
 	motor_tps_failure_flag = OSSemCreate(SEM_FLAG_NO_ERROR);
-	external_failure_flag = OSSemCreate(SEM_FLAG_NO_ERROR);
-	failure_resolved_flag = OSSemCreate(SEM_FLAG_ERROR_UNRESOLVED);
+	apps_external_failure_flag = OSSemCreate(SEM_FLAG_NO_ERROR);
+	apps_failure_resolved_flag = OSSemCreate(SEM_FLAG_ERROR_UNRESOLVED);
 	exit_shift_matching_flag = OSSemCreate(SHIFT_MATCHING_IN_PROGRESS);
 
-	BOOL shift_matching_mode = FALSE;
 	INT32U target_RPM = 0;
 	BOOL slip_control_mode = FALSE;
+	BOOL shift_matching_mode = FALSE;
 
 	static INT16U last_apps_1_reading = 0;
 	static INT16U last_apps_2_reading = 0;
@@ -85,7 +86,6 @@ void apps_task(void* pdata) {
 	}
 
 	alt_alarm* alarm;
-
 #if defined(RUN_AVG_TASK_TIME_TEST)
 	if(alt_timestamp_start()<0)
 	{
@@ -106,21 +106,20 @@ void apps_task(void* pdata) {
 #if !defined(RUN_AVG_TASK_TIME_TEST)
 		if(OSSemAccept(motor_tps_failure_flag) != SEM_FLAG_NO_ERROR){
 			printf("Possible motor failure, block apps_task\n");
-			OSSemPend(failure_resolved_flag, Q_TIMEOUT_WAIT_FOREVER, &err);
+			OSSemPend(apps_failure_resolved_flag, Q_TIMEOUT_WAIT_FOREVER, &err);
 		}else if(OSSemAccept(apps_failure_flag) != SEM_FLAG_NO_ERROR){
 			printf("Possible APPS failure, block apps_task\n");
 			apps_check_timer_activated = FALSE;
-			free(alarm);
-			OSSemPend(failure_resolved_flag, Q_TIMEOUT_WAIT_FOREVER, &err);
-		}else if(OSSemAccept(external_failure_flag) != SEM_FLAG_NO_ERROR){
+			OSSemPend(apps_failure_resolved_flag, Q_TIMEOUT_WAIT_FOREVER, &err);
+		}else if(OSSemAccept(apps_external_failure_flag) != SEM_FLAG_NO_ERROR){
 			printf("External failure, block apps_task\n");
-			OSSemPend(failure_resolved_flag, Q_TIMEOUT_WAIT_FOREVER, &err);
+			OSSemPend(apps_failure_resolved_flag, Q_TIMEOUT_WAIT_FOREVER, &err);
 		}
 #endif
-
 		//WSS checking
 		alt_up_de0_nano_adc_update(adc);
 		if(WSS_VALUE_MISMATCH(WSS_1_ADC_CHANNEL, WSS_2_ADC_CHANNEL)){
+			*(INT8U*)GREEN_LEDS_BASE = WSS_ACTIVE_LED;
 			if(slip_control_mode == TRUE){
 				continue;
 			}
@@ -129,6 +128,7 @@ void apps_task(void* pdata) {
 			continue;
 		}else{
 			slip_control_mode = FALSE;
+			*(INT8U*)GREEN_LEDS_BASE = NO_ERROR_INDICATION_LED;
 		}
 
 		//Shift matching
@@ -157,7 +157,6 @@ void apps_task(void* pdata) {
 		alt_up_de0_nano_adc_update(adc);
 		INT16U apps_1_reading = alt_up_de0_nano_adc_read(adc,
 				APPS_1_ADC_CHANNEL) * APPS_2_TO_1_SENSOR_RATIO;
-		//Must accommodate the natural difference in readings
 		INT16U apps_2_reading = alt_up_de0_nano_adc_read(adc,
 				APPS_2_ADC_CHANNEL);
 
@@ -175,7 +174,7 @@ void apps_task(void* pdata) {
 					apps_check_timer_activated = TRUE;
 					printf("set alarm\n");
 					alarm = (alt_alarm*)malloc(sizeof(alt_alarm));
-					alt_alarm_start(alarm, SENSOR_VAL_COMP_DELAY_TICKS, &apps_value_comp_callback, NULL);
+					alt_alarm_start(alarm, SENSOR_VAL_COMP_DELAY_TICKS, &apps_value_comp_callback, (void*)alarm);
 				}
 			} else {
 				if(apps_check_timer_activated == TRUE){
@@ -210,25 +209,6 @@ OS_EVENT* get_motor_cmd_q() {
 	return motor_cmd_q;
 }
 
-/* Set motor to reach a new position, return true if no error occurred */
-BOOL set_new_motor_position(INT16U apps_reading) {
-	INT8U err;
-	motor_control_request* req = (motor_control_request*) malloc(sizeof(motor_control_request));
-	req->request_type = MOTOR_CONTROL_REQ_TPS_POS;
-	req->value = get_tps_from_apps(apps_reading);
-	OS_EVENT* result_q = post_new_request(req);
-	INT16U result_code = *(INT16U*) OSQPend(result_q, Q_TIMEOUT_WAIT_FOREVER, &err);
-	if(result_code == REQUEST_RESULT_FAIL_TIMEOUT){
-		OSSemPost(motor_tps_failure_flag);
-		OSQPost(failure_msg_q, (void*) ERR_EXPECTED_THROTTLE_POS_MISMATCH);
-	}else if(result_code == REQUEST_RESULT_FAIL_TPS){
-		OSSemPost(motor_tps_failure_flag);
-		OSQPost(failure_msg_q, (void*) ERR_TPS_READING_MISMATCH);
-	}
-	free(req);
-	return TRUE;
-}
-
 BOOL set_new_motor_position_by_tps(INT16U tps_reading) {
 	INT8U err;
 	motor_control_request* req = (motor_control_request*) malloc(sizeof(motor_control_request));
@@ -245,6 +225,12 @@ BOOL set_new_motor_position_by_tps(INT16U tps_reading) {
 	}
 	free(req);
 	return TRUE;
+}
+
+/* Set motor to reach a new position, return true if no error occurred */
+BOOL set_new_motor_position(INT16U apps_reading) {
+	INT16U tps = get_tps_from_apps(apps_reading);
+	return set_new_motor_position_by_tps(tps);
 }
 
 /* The input to this function is a scaled integer from 0 to 1000 representing
@@ -306,12 +292,12 @@ OS_EVENT* get_motor_failure_flag(){
 	return motor_tps_failure_flag;
 }
 
-OS_EVENT* get_apps_motor_task_external_failure_flag(){
-	return external_failure_flag;
+OS_EVENT* get_apps_task_external_failure_flag(){
+	return apps_external_failure_flag;
 }
 
-OS_EVENT* get_apps_motor_task_failure_resolved_flag(){
-	return failure_resolved_flag;
+OS_EVENT* get_apps_task_failure_resolved_flag(){
+	return apps_failure_resolved_flag;
 }
 
 void signal_exit_shift_matching(){

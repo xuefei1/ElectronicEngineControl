@@ -111,7 +111,12 @@
 /* Since we use semaphores as flags, a return value of 0 from OSSemAccpet() indicating current error is unresolved*/
 #define SEM_FLAG_ERROR_UNRESOLVED			0
 
-#define FAILURE_INDICATION_LED				0xFF
+#define NO_ERROR_INDICATION_LED				0x0
+#define MOTOR_FAILURE_INDICATION_LED		0x1
+#define TPS_FAILURE_INDICATION_LED			0x2
+#define APPS_FAILURE_INDICATION_LED			0x4
+#define UNKNOWN_FAILURE_INDICATION_LED		0xF
+#define WSS_ACTIVE_LED						0x80
 
 /* Possible failure codes */
 #define ERR_UNKNOWN							0
@@ -127,6 +132,12 @@
 #define FLOAT_SCALE_FACTOR_10				10
 
 #define FLOAT_SCALE_FACTOR_100				100
+
+#define SWITCH_ON							1
+
+#define SWITCH_OFF							0
+
+#define LED_FLASH_PERIOD_MS					500
 
 alt_up_de0_nano_adc_dev* get_adc();
 
