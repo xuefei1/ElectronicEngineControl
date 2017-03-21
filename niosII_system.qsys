@@ -76,19 +76,19 @@
          type = "String";
       }
    }
-   element pwm_generator_motor.avalon_slave_period
-   {
-      datum baseAddress
-      {
-         value = "67145956";
-         type = "String";
-      }
-   }
    element pwm_generator_tps_out.avalon_slave_period
    {
       datum baseAddress
       {
          value = "67145948";
+         type = "String";
+      }
+   }
+   element pwm_generator_motor.avalon_slave_period
+   {
+      datum baseAddress
+      {
+         value = "67145956";
          type = "String";
       }
    }
@@ -212,6 +212,14 @@
          type = "String";
       }
    }
+   element buttons.s1
+   {
+      datum baseAddress
+      {
+         value = "67145856";
+         type = "String";
+      }
+   }
    element sdram_0.s1
    {
       datum baseAddress
@@ -228,11 +236,11 @@
          type = "String";
       }
    }
-   element green_leds.s1
+   element switch.s1
    {
       datum baseAddress
       {
-         value = "67145888";
+         value = "67145872";
          type = "String";
       }
    }
@@ -244,11 +252,11 @@
          type = "String";
       }
    }
-   element buttons.s1
+   element green_leds.s1
    {
       datum baseAddress
       {
-         value = "67145856";
+         value = "67145888";
          type = "String";
       }
    }
@@ -262,14 +270,6 @@
       datum baseAddress
       {
          value = "67145824";
-         type = "String";
-      }
-   }
-   element switch.s1
-   {
-      datum baseAddress
-      {
-         value = "67145872";
          type = "String";
       }
    }
@@ -341,7 +341,7 @@
  <parameter name="projectName">electronic_engine_control.qpf</parameter>
  <parameter name="sopcBorderPoints" value="false" />
  <parameter name="systemHash" value="1" />
- <parameter name="timeStamp" value="1490040260710" />
+ <parameter name="timeStamp" value="1490127382416" />
  <parameter name="useTestBenchNamingPattern" value="false" />
  <instanceScript></instanceScript>
  <interface name="altpll_0_c0" internal="altpll_0.c0" type="clock" dir="start">
@@ -885,7 +885,7 @@
   <parameter name="AUTO_CLOCK_SINK_CLOCK_RATE" value="50000000" />
  </module>
  <module kind="altera_avalon_pio" version="12.1" enabled="1" name="buttons">
-  <parameter name="bitClearingEdgeCapReg" value="true" />
+  <parameter name="bitClearingEdgeCapReg" value="false" />
   <parameter name="bitModifyingOutReg" value="false" />
   <parameter name="captureEdge" value="true" />
   <parameter name="clockRate" value="50000000" />
@@ -1261,7 +1261,7 @@
    version="12.1"
    start="nios2_0.d_irq"
    end="buttons.irq">
-  <parameter name="irqNumber" value="5" />
+  <parameter name="irqNumber" value="4" />
  </connection>
  <connection
    kind="clock"
@@ -1328,6 +1328,6 @@
    version="12.1"
    start="nios2_0.d_irq"
    end="switch.irq">
-  <parameter name="irqNumber" value="4" />
+  <parameter name="irqNumber" value="5" />
  </connection>
 </system>

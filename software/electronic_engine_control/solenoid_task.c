@@ -103,12 +103,20 @@ void solenoid_task(void* pdata) {
 		}
 		INT16U new_gear = curr_gear;
 		if(shift_command == BUTTON_INPUT_SHIFT_UP){
-			if(curr_gear == NUM_GEARS)
+			if(curr_gear == NUM_GEARS){
+				if (OSSemAccept(timer_active_flag) == OS_SEM_FLAG_SHIFTING){
+					OSSemPost(timer_active_flag);
+				}
 				continue;
+			}
 			new_gear++;
 		}else if (shift_command == BUTTON_INPUT_SHIFT_DOWN){
-			if(curr_gear == 1)
+			if(curr_gear == 1){
+				if (OSSemAccept(timer_active_flag) == OS_SEM_FLAG_SHIFTING){
+					OSSemPost(timer_active_flag);
+				}
 				continue;
+			}
 			new_gear--;
 		}
 		shift_req* req = (shift_req*) malloc(sizeof(shift_req));
@@ -117,18 +125,18 @@ void solenoid_task(void* pdata) {
 		printf("putting new gear %d into matching q\n", new_gear);
 		OSQPost(shift_matching_q, (void*)req);
 		curr_gear = new_gear;
-		OSSemPend(rpm_reached_flag, Q_TIMEOUT_WAIT_FOREVER, &err);
+		//OSSemPend(rpm_reached_flag, Q_TIMEOUT_WAIT_FOREVER, &err);
 		free(req);
 #endif
 		if (shift_command == BUTTON_INPUT_SHIFT_UP){
 			shift_up();
 			alarm = (alt_alarm*)malloc(sizeof(alt_alarm));
-			printf("setting up alarm\n");
+			printf("setting 200ms shift up alarm\n");
 			alt_alarm_start(alarm, SOLENOID_OPEN_DURATION_TICKS, &solenoid_callback, NULL);
 		}
 		else if (shift_command == BUTTON_INPUT_SHIFT_DOWN){
 			shift_down();
-			printf("setting down alarm\n");
+			printf("setting 200ms shift down alarm\n");
 			alarm = (alt_alarm*)malloc(sizeof(alt_alarm));
 			alt_alarm_start(alarm, SOLENOID_OPEN_DURATION_TICKS, &solenoid_callback, NULL);
 		}else {
@@ -162,10 +170,12 @@ void shift_down(){
 alt_u32 solenoid_callback(void* context){
 	//clear control
 	if(alarm != NULL) free(alarm);
-	printf("cancel up alarm\n");
+	printf("cancel 200ms shift alarm\n");
 	IOWR_ALTERA_AVALON_PIO_DATA(SOLENOID_OUT_BASE, CLEAR_BUTTON_DATA);
 	signal_exit_shift_matching();
-	OSSemPost(timer_active_flag);
+	if (OSSemAccept(timer_active_flag) == OS_SEM_FLAG_SHIFTING){
+		OSSemPost(timer_active_flag);
+	}
 	return 0;
 }
 
