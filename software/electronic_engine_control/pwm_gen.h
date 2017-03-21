@@ -12,16 +12,6 @@
 
 #include "proj_config.h"
 
-#define PWM_UPDATE_ALL						0
-
-#define PWM_UPDATE_PERIOD					1
-
-#define PWM_UPDATE_DUTY						2
-
-#define PWM_PARAM_GET						0
-
-#define PWM_PARAM_SET						1
-
 #define PWM_CONTROL_ENABLE_OUTPUT			1
 
 #define DUTY_SCALE_FACTOR					100
