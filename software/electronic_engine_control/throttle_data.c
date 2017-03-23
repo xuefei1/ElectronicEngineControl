@@ -17,24 +17,24 @@ INT16U throttle_deg_apps_val_map[MAX_THROTTLE_DEG + 1];
 INT16U throttle_deg_tps_val_map[MAX_THROTTLE_DEG + 1];
 
 void throttle_data_init(){
-	INT16U apps_val_inc_by_1_deg = (APPS_VALID_VALUE_MAX - APPS_VALID_VALUE_MIN) / MAX_THROTTLE_DEG; 
-	INT16U tps_val_inc_by_1_deg = (TPS_VALID_VALUE_MAX - TPS_VALID_VALUE_MIN) / MAX_THROTTLE_DEG; 
+	INT16U apps_val_inc_by_1_deg = (APPS_VALID_VALUE_FULLY_PRESSED - APPS_VALID_VALUE_FULLY_RELEASED) / MAX_THROTTLE_DEG;
+	INT16U tps_val_inc_by_1_deg = (TPS_VALID_VALUE_FULLY_OPENED - TPS_VALID_VALUE_FULLY_CLOSED) / MAX_THROTTLE_DEG;
 	INT8U i;
-	throttle_deg_apps_val_map[0] = APPS_VALID_VALUE_MIN;
-	throttle_deg_tps_val_map[0] = TPS_VALID_VALUE_MIN;
+	throttle_deg_apps_val_map[0] = APPS_VALID_VALUE_FULLY_RELEASED;
+	throttle_deg_tps_val_map[0] = TPS_VALID_VALUE_FULLY_CLOSED;
 	for(i=1; i<MAX_THROTTLE_DEG; i++){
 		throttle_deg_apps_val_map[i] = throttle_deg_apps_val_map[i - 1] + apps_val_inc_by_1_deg;
 		throttle_deg_tps_val_map[i] = throttle_deg_tps_val_map[i - 1] + tps_val_inc_by_1_deg;
 	}
-	throttle_deg_apps_val_map[MAX_THROTTLE_DEG] = APPS_VALID_VALUE_MAX;
-	throttle_deg_tps_val_map[MAX_THROTTLE_DEG] = TPS_VALID_VALUE_MAX;
+	throttle_deg_apps_val_map[MAX_THROTTLE_DEG] = APPS_VALID_VALUE_FULLY_PRESSED;
+	throttle_deg_tps_val_map[MAX_THROTTLE_DEG] = TPS_VALID_VALUE_FULLY_OPENED;
 }
 
 INT16U get_tps_from_apps(INT16U apps_reading){
-	if(apps_reading >= APPS_VALID_VALUE_MAX){
+	if(apps_reading >= APPS_VALID_VALUE_FULLY_PRESSED){
 		return (throttle_deg_tps_val_map[MAX_THROTTLE_DEG] + throttle_deg_tps_val_map[MAX_THROTTLE_DEG - 1]) / 2;
 	}
-	if(apps_reading <= APPS_VALID_VALUE_MIN){
+	if(apps_reading <= APPS_VALID_VALUE_FULLY_RELEASED){
 		return throttle_deg_tps_val_map[0];
 	}
 	INT8U upper;

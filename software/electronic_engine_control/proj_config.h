@@ -39,18 +39,19 @@
 #define TPS_OUT_PWM_PERIOD_TICKS			3125
 
 /* APPS valid value range based on pedal travel, note this is the average of two sensors */
-#define APPS_VALID_VALUE_MIN				600
-#define APPS_VALID_VALUE_MAX				1750
+#define APPS_VALID_VALUE_FULLY_RELEASED		600
+#define APPS_VALID_VALUE_FULLY_PRESSED		1750
 
 /* TPS valid value range based on throttle plate travel, note this is the average of two sensors */
-#define TPS_VALID_VALUE_MIN					450
-#define TPS_VALID_VALUE_MAX					2400
+#define TPS_VALID_VALUE_FULLY_OPENED		370
+
+#define TPS_VALID_VALUE_FULLY_CLOSED		3300
 
 /* When APPS reading differ from last value by at least this much, we consider it as a new value */
 #define APPS_VALUE_CHANGE_THRESHOLD			30
 
 /* When two APPS reading differ by this much percent, we have a failure */
-#define APPS_VALUE_DIFFERENCE_PERCENT		180
+#define APPS_VALUE_DIFFERENCE_PERCENT		200
 
 /* When two TPS reading differ by this much percent, we have a failure */
 #define TPS_VALUE_DIFFERENCE_PERCENT		10

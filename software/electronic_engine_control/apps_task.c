@@ -155,6 +155,8 @@ void apps_task(void* pdata) {
 
 		//APPS checking
 		alt_up_de0_nano_adc_update(adc);
+		printf("tps1 read value:%d\n", (INT16U)alt_up_de0_nano_adc_read(adc,TPS_1_ADC_CHANNEL));
+		printf("tps2 read value:%d\n", (INT16U)alt_up_de0_nano_adc_read(adc,TPS_2_ADC_CHANNEL));
 		INT16U apps_1_reading = alt_up_de0_nano_adc_read(adc,
 				APPS_1_ADC_CHANNEL);
 		INT16U apps_2_reading = alt_up_de0_nano_adc_read(adc,
@@ -183,7 +185,7 @@ void apps_task(void* pdata) {
 				}
 
 				INT16U final_apps_value = (apps_1_reading + apps_2_reading) / 2;
-				set_new_motor_position(final_apps_value);
+				//set_new_motor_position(final_apps_value);
 			}
 			last_apps_1_reading = apps_1_reading;
 			last_apps_2_reading = apps_2_reading;

@@ -53,9 +53,9 @@ int main(void) {
 			FAILURE_HANDLER_TASK_PRIORITY, FAILURE_HANDLER_TASK_PRIORITY,
 			failure_handler_task_stk, TASK_STACKSIZE, NULL, 0);
 
-	OSTaskCreateExt(motor_control_task, NULL, (void *) &motor_control_task_stk[TASK_STACKSIZE - 1],
-			MOTOR_CONTROL_TASK_PRIORITY, MOTOR_CONTROL_TASK_PRIORITY, motor_control_task_stk, TASK_STACKSIZE,
-			NULL, 0);
+//	OSTaskCreateExt(motor_control_task, NULL, (void *) &motor_control_task_stk[TASK_STACKSIZE - 1],
+//			MOTOR_CONTROL_TASK_PRIORITY, MOTOR_CONTROL_TASK_PRIORITY, motor_control_task_stk, TASK_STACKSIZE,
+//			NULL, 0);
 
 	OSTaskCreateExt(apps_task, NULL,
 			(void *) &apps_task_stk[TASK_STACKSIZE - 1],
