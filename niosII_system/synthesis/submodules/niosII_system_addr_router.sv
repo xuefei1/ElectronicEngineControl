@@ -35,7 +35,7 @@ module niosII_system_addr_router_default_decode
                DEFAULT_DESTID = 2 
    )
   (output [93 - 89 : 0] default_destination_id,
-   output [20-1 : 0] default_src_channel
+   output [21-1 : 0] default_src_channel
   );
 
   assign default_destination_id = 
@@ -44,7 +44,7 @@ module niosII_system_addr_router_default_decode
     if (DEFAULT_CHANNEL == -1)
       assign default_src_channel = '0;
     else
-      assign default_src_channel = 20'b1 << DEFAULT_CHANNEL;
+      assign default_src_channel = 21'b1 << DEFAULT_CHANNEL;
   end
   endgenerate
 
@@ -73,7 +73,7 @@ module niosII_system_addr_router
     // -------------------
     output                          src_valid,
     output reg [104-1    : 0] src_data,
-    output reg [20-1 : 0] src_channel,
+    output reg [21-1 : 0] src_channel,
     output                          src_startofpacket,
     output                          src_endofpacket,
     input                           src_ready
@@ -87,7 +87,7 @@ module niosII_system_addr_router
     localparam PKT_DEST_ID_H = 93;
     localparam PKT_DEST_ID_L = 89;
     localparam ST_DATA_W = 104;
-    localparam ST_CHANNEL_W = 20;
+    localparam ST_CHANNEL_W = 21;
     localparam DECODER_TYPE = 0;
 
     localparam PKT_TRANS_WRITE = 65;
@@ -130,7 +130,7 @@ module niosII_system_addr_router
     assign src_endofpacket   = sink_endofpacket;
 
     wire [PKT_DEST_ID_W-1:0] default_destid;
-    wire [20-1 : 0] default_src_channel;
+    wire [21-1 : 0] default_src_channel;
 
 
 
@@ -152,19 +152,19 @@ module niosII_system_addr_router
 
         // ( 0x2000000 .. 0x4000000 )
         if ( {address[RG:PAD0],{PAD0{1'b0}}} == 27'h2000000 ) begin
-            src_channel = 20'b100;
+            src_channel = 21'b100;
             src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 2;
         end
 
         // ( 0x4004000 .. 0x4008000 )
         if ( {address[RG:PAD1],{PAD1{1'b0}}} == 27'h4004000 ) begin
-            src_channel = 20'b010;
+            src_channel = 21'b010;
             src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 1;
         end
 
         // ( 0x4008800 .. 0x4009000 )
         if ( {address[RG:PAD2],{PAD2{1'b0}}} == 27'h4008800 ) begin
-            src_channel = 20'b001;
+            src_channel = 21'b001;
             src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 0;
         end
 

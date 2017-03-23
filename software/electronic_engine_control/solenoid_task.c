@@ -123,10 +123,12 @@ void solenoid_task(void* pdata) {
 		req->curr_gear = curr_gear;
 		req->new_gear = new_gear;
 		printf("putting new gear %d into matching q\n", new_gear);
+		IOWR_ALTERA_AVALON_PIO_IRQ_MASK(BUTTONS_BASE, 0);
 		OSQPost(shift_matching_q, (void*)req);
 		curr_gear = new_gear;
-		//OSSemPend(rpm_reached_flag, Q_TIMEOUT_WAIT_FOREVER, &err);
+		OSSemPend(rpm_reached_flag, Q_TIMEOUT_WAIT_FOREVER, &err);
 		free(req);
+		IOWR_ALTERA_AVALON_PIO_IRQ_MASK(BUTTONS_BASE, BUTTON_INPUT_SHIFT_UP | BUTTON_INPUT_SHIFT_DOWN);
 #endif
 		if (shift_command == BUTTON_INPUT_SHIFT_UP){
 			shift_up();

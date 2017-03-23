@@ -13,7 +13,7 @@
 #include "altera_avalon_pio_regs.h"
 #include "pwm_gen.h"
 
-#define SOLENOID_TASK_PRIORITY      		2
+#define SOLENOID_TASK_PRIORITY      		3
 
 /* Task Delays*/
 #define SOLENOID_TASK_DELAY_HOURS	  		0

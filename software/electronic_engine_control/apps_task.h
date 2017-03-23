@@ -21,7 +21,7 @@
 #include "throttle_data.h"
 #include "altera_avalon_timer.h"
 
-#define APPS_TASK_PRIORITY      			3
+#define APPS_TASK_PRIORITY      			4
 
 /* ADC channel assignments */
 #define APPS_1_ADC_CHANNEL			  		0

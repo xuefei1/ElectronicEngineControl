@@ -11,11 +11,17 @@
 #include "proj_config.h"
 #include "util.h"
 #include "pwm_gen.h"
+#include "altera_avalon_pio_regs.h"
 
-#define MOTOR_CONTROL_TASK_PRIORITY			1
+#define MOTOR_CONTROL_TASK_PRIORITY			2
 
 #define MOTOR_CONTROL_REQ_TPS_POS			0
 #define MOTOR_CONTROL_REQ_RPM				1
+
+#define H_BRIDGE_IN1_HIGH					1
+#define H_BRIDGE_IN2_HIGH					2
+#define H_BRIDGE_ALL_LOW					0
+#define H_BRIDGE_ALL_HIGH					3
 
 #define REQUEST_RESULT_OK					0
 #define REQUEST_RESULT_FAIL_TIMEOUT			1
@@ -39,7 +45,7 @@
 /* detect if RPM expected and actual value differ */
 #define RPM_VALUE_DIFFER_FROM_EXPECTED(input, exp)	int32U_changed_by_threshold(input, exp, RPM_VALUE_TOLERANCE)
 /* detect if TPS readings differ by a percentage */
-#define TPS_VALUE_MISMATCH(input1, input2)			int32U_differ_by_percent(input1, input2, TPS_VALUE_DIFFERENCE_PERCENT, PERCENT_DIFF_ACCURACY)
+#define TPS_VALUE_MISMATCH(input1, input2)			int32U_changed_by_threshold(input1, input2, TPS_VALUE_TOLERANCE)
 
 typedef struct  {
    INT32U value;

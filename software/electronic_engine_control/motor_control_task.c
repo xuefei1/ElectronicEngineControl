@@ -19,9 +19,9 @@ INT8U request_q_buf[REQUEST_Q_SIZE_ELEMENTS];
 
 INT8U result_q_buf[RESULT_Q_SIZE_ELEMENTS];
 
-BOOL timeout_failure_encountered = TRUE;
+BOOL timeout_failure_encountered = FALSE;
 
-BOOL tps_failure_encountered = TRUE;
+BOOL tps_failure_encountered = FALSE;
 
 alt_up_de0_nano_adc_dev* adc;
 
@@ -31,19 +31,26 @@ alt_alarm* tps_check_alarm;
 
 OS_EVENT* post_new_request(motor_control_request* req){
 	OSQPost(request_q, req);
-	return request_q;
+	return req_result_q;
 }
 
 void increase_throttle(pwm_gen_module* pwm){
-	set_duty_cycle(pwm, MOTOR_PWM_DUTY_CYCLE_CCW);
+	//set_duty_cycle(pwm, MOTOR_PWM_DUTY_CYCLE_CCW);
+	IOWR_ALTERA_AVALON_PIO_DATA(H_BRIDGE_OUT_BASE, H_BRIDGE_IN2_HIGH);
 }
 
 void decrease_throttle(pwm_gen_module* pwm){
-	set_duty_cycle(pwm, MOTOR_PWM_DUTY_CYCLE_CW);
+	//set_duty_cycle(pwm, MOTOR_PWM_DUTY_CYCLE_CW);
+	IOWR_ALTERA_AVALON_PIO_DATA(H_BRIDGE_OUT_BASE, H_BRIDGE_IN1_HIGH);
 }
 
 void hold_throttle(pwm_gen_module* pwm){
-	set_duty_cycle(pwm, MOTOR_PWM_DUTY_CYCLE_IDLE);
+	//set_duty_cycle(pwm, MOTOR_PWM_DUTY_CYCLE_IDLE);
+	if(H_BRIDGE_IN2_HIGH == *(INT8U*)H_BRIDGE_OUT_BASE){
+		IOWR_ALTERA_AVALON_PIO_DATA(H_BRIDGE_OUT_BASE, H_BRIDGE_ALL_HIGH);
+	}else{
+		IOWR_ALTERA_AVALON_PIO_DATA(H_BRIDGE_OUT_BASE, H_BRIDGE_ALL_LOW);
+	}
 }
 
 alt_u32 watchdog_callback(void* context){
@@ -119,6 +126,7 @@ void motor_control_task(void* pdata) {
 			set_tps_sensor_output(pwm_tps_out, avg_tps_reading);
 			if(FALSE == TPS_VALUE_DIFFER_FROM_EXPECTED(avg_tps_reading, expected_pos)){
 				hold_throttle(pwm);
+				alt_alarm_stop(watchdog);
 				serving_request = FALSE;
 				*result_code = REQUEST_RESULT_OK;
 				OSQPost(req_result_q, (void*)result_code);
@@ -131,6 +139,7 @@ void motor_control_task(void* pdata) {
 			INT16U rpm_reading = alt_up_de0_nano_adc_read(adc, RPM_ADC_CHANNEL);
 			if(FALSE == RPM_VALUE_DIFFER_FROM_EXPECTED(rpm_reading, expected_rpm)){
 				hold_throttle(pwm);
+				alt_alarm_stop(watchdog);
 				serving_request = FALSE;
 				*result_code = REQUEST_RESULT_OK;
 				OSQPost(req_result_q, (void*)result_code);

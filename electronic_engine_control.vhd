@@ -85,6 +85,7 @@ architecture structure of electronic_engine_control is
             rs232_0_external_interface_RXD              : in    std_logic                     := 'X';             -- RXD
             rs232_0_external_interface_TXD              : out   std_logic;                                        -- TXD
 			solenoid_out_external_connection_export     : out   std_logic_vector(7 downto 0)  := "00000000";      -- export solenid drivin pins
+			h_bridge_out_external_connection_export 	: out   std_logic_vector(7 downto 0)  := "00000000";      -- export h bridge drive
             buttons_external_connection_export          : in    std_logic_vector(7 downto 0)  := "00000000"       -- export buttons
         );
     end component niosII_system;
@@ -132,6 +133,8 @@ begin
 			buttons_external_connection_export(2)  			=> GPIO_2(2),
 			buttons_external_connection_export(3)  			=> GPIO_2(3),
 			rs232_0_external_interface_TXD					=> GPIO_0(7),
+			h_bridge_out_external_connection_export(0)		=> GPIO_0(8),
+			h_bridge_out_external_connection_export(1)		=> GPIO_0(9),
 			rs232_0_external_interface_RXD					=> GPIO_2(7)
         );
 

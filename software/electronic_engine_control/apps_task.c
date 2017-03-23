@@ -172,12 +172,12 @@ void apps_task(void* pdata) {
 					apps_check_timer_activated = TRUE;
 					printf("set alarm\n");
 					alarm = (alt_alarm*)malloc(sizeof(alt_alarm));
-					//alt_alarm_start(alarm, SENSOR_VAL_COMP_DELAY_TICKS, &apps_value_comp_callback, (void*)alarm);
+					alt_alarm_start(alarm, SENSOR_VAL_COMP_DELAY_TICKS, &apps_value_comp_callback, (void*)alarm);
 				}
 			} else {
 				if(apps_check_timer_activated == TRUE){
 					printf("clear alarm\n");
-					//alt_alarm_stop(alarm);
+					alt_alarm_stop(alarm);
 					free(alarm);
 					apps_check_timer_activated = FALSE;
 				}

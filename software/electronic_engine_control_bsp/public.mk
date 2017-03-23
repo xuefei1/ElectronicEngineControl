@@ -151,14 +151,14 @@ SOPC_SYSID_FLAG += --id=0
 ELF_PATCH_FLAG  += --id 0
 
 # The SOPC System ID Base Address 
-# setting SOPC_SYSID_BASE_ADDRESS is 0x40090d0
-SOPC_SYSID_FLAG += --sidp=0x40090d0
-ELF_PATCH_FLAG  += --sidp 0x40090d0
+# setting SOPC_SYSID_BASE_ADDRESS is 0x40090f0
+SOPC_SYSID_FLAG += --sidp=0x40090f0
+ELF_PATCH_FLAG  += --sidp 0x40090f0
 
 # The SOPC Timestamp 
-# setting SOPC_TIMESTAMP is 1490127796
-SOPC_SYSID_FLAG += --timestamp=1490127796
-ELF_PATCH_FLAG  += --timestamp 1490127796
+# setting SOPC_TIMESTAMP is 1490234796
+SOPC_SYSID_FLAG += --timestamp=1490234796
+ELF_PATCH_FLAG  += --timestamp 1490234796
 
 # Small-footprint (polled mode) driver none 
 # setting altera_avalon_jtag_uart_driver.enable_small_driver is false
