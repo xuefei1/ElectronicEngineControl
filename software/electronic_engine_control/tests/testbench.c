@@ -119,8 +119,8 @@ int run_all_unit_tests(void){
 	return suite->failCount;
 }
 
-void Test_pwm_gen(INT16U period, INT16U duty){
-	pwm_gen_module* ptr = get_new_pwm_module(PWM_GENERATOR_MOTOR_AVALON_SLAVE_PERIOD_BASE, PWM_GENERATOR_MOTOR_AVALON_SLAVE_DUTY_BASE, PWM_GENERATOR_MOTOR_AVALON_SLAVE_CONTROL_BASE, period, duty);
+void Test_pwm_gen(INT32U period, INT8U duty){
+	pwm_gen_module* ptr = get_new_pwm_module(PWM_GENERATOR_TEST_AVALON_SLAVE_PERIOD_BASE, PWM_GENERATOR_TEST_AVALON_SLAVE_DUTY_BASE, PWM_GENERATOR_TEST_AVALON_SLAVE_CONTROL_BASE, period, duty);
 	enable_pwm_output(ptr);
 	free(ptr);
 }

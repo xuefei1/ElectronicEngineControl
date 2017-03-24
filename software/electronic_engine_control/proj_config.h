@@ -30,7 +30,7 @@
 #define TASK_STACKSIZE       				2048
 
 /* 16kHz under a 50Mhz clock, yields 3125 clk ticks per period */
-#define MOTOR_PWM_PERIOD_TICKS				3125
+#define MOTOR_PWM_PERIOD_TICKS				2500
 #define MOTOR_PWM_DUTY_CYCLE_IDLE			50
 #define MOTOR_PWM_DUTY_CYCLE_CW				100
 #define MOTOR_PWM_DUTY_CYCLE_CCW			0
@@ -44,7 +44,6 @@
 
 /* TPS valid value range based on throttle plate travel, note this is the average of two sensors */
 #define TPS_VALID_VALUE_FULLY_OPENED		370
-
 #define TPS_VALID_VALUE_FULLY_CLOSED		3300
 
 /* When APPS reading differ from last value by at least this much, we consider it as a new value */
@@ -60,7 +59,7 @@
 #define TPS_VALUE_TOLERANCE					80
 
 /* Two TPS readings can be different by at most this much */
-#define TPS_VALUE_DIFFERENCE				2000
+#define TPS_VALUE_DIFFERENCE				3200
 
 /* Actual RPM reading can be different from expected by at most this much */
 #define RPM_VALUE_TOLERANCE					150

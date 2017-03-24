@@ -45,7 +45,7 @@
 /* detect if RPM expected and actual value differ */
 #define RPM_VALUE_DIFFER_FROM_EXPECTED(input, exp)	int32U_changed_by_threshold(input, exp, RPM_VALUE_TOLERANCE)
 /* detect if TPS readings differ by a percentage */
-#define TPS_VALUE_MISMATCH(input1, input2)			int32U_changed_by_threshold(input1, input2, TPS_VALUE_TOLERANCE)
+#define TPS_VALUE_MISMATCH(input1, input2)			int32U_changed_by_threshold(input1, input2, TPS_VALUE_DIFFERENCE)
 
 typedef struct  {
    INT32U value;

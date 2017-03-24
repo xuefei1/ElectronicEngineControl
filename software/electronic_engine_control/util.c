@@ -73,7 +73,7 @@ pwm_gen_module* get_tps_sensor_output_pwm(){
 }
 
 void set_tps_sensor_output(pwm_gen_module* pwm, INT32U tps_val){
-	INT8U duty_cycle = tps_val * FLOAT_SCALE_FACTOR_100 / TPS_VALID_VALUE_MAX;
+	INT8U duty_cycle = tps_val * FLOAT_SCALE_FACTOR_100 / TPS_VALID_VALUE_FULLY_CLOSED;
 	disable_pwm_output(pwm);
 	set_duty_cycle(pwm, duty_cycle);
 	enable_pwm_output(pwm);

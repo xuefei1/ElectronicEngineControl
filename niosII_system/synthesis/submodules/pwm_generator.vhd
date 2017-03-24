@@ -58,13 +58,9 @@ begin
 			else
 				count := std_logic_vector(unsigned(count) + 1);
 			end if;
-			
-			if(unsigned(control) = 1) then
-				if(unsigned(count) < unsigned(duty_count)) then
-					pwm_out <= '1';
-				else
-					pwm_out <= '0';
-				end if;
+
+			if(unsigned(count) < unsigned(duty_count)) then
+				pwm_out <= '1';
 			else
 				pwm_out <= '0';
 			end if;

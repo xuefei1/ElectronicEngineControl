@@ -185,7 +185,7 @@ void apps_task(void* pdata) {
 				}
 
 				INT16U final_apps_value = (apps_1_reading + apps_2_reading) / 2;
-				//set_new_motor_position(final_apps_value);
+				set_new_motor_position(final_apps_value);
 			}
 			last_apps_1_reading = apps_1_reading;
 			last_apps_2_reading = apps_2_reading;

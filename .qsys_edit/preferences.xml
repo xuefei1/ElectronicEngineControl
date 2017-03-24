@@ -5,6 +5,7 @@
   <columns>
    <connections preferredWidth="159" />
    <irq preferredWidth="34" />
+   <name preferredWidth="260" />
   </columns>
  </systemtable>
  <clocktable>
@@ -14,8 +15,7 @@
    <frequency preferredWidth="365" />
   </columns>
  </clocktable>
- <library
-   expandedCategories="Library/Peripherals/Microcontroller Peripherals,Library,Library/Peripherals,Project" />
+ <library expandedCategories="Library,Project" />
  <window width="1440" height="855" x="-9" y="20" />
  <hdlexample language="VHDL" />
 </preferences>

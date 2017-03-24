@@ -45,6 +45,8 @@
 #define PWM_TEST_DUTY_INCREMENT				10
 #define PWM_TEST_SLEEP_DURATION_US			5000000
 
+#define TEST_TASK_PRIO						1
+
 #if defined(RUN_PWM_GEN_SINGLE_TEST)
 	#define TEST_PWM(period, duty)	Test_pwm_gen(period, duty)
 #else
@@ -65,5 +67,5 @@ static void X_CompareAsserts(CuTest* tc, const char *file, int line, const char*
 
 void Test_pwm_gen_sweep();
 
-void Test_pwm_gen(INT16U period, INT16U duty);
+void Test_pwm_gen(INT32U period, INT8U duty);
 #endif /* TEST_CONFIG_H_ */

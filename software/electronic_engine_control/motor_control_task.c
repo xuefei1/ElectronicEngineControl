@@ -34,23 +34,16 @@ OS_EVENT* post_new_request(motor_control_request* req){
 	return req_result_q;
 }
 
-void increase_throttle(pwm_gen_module* pwm){
+void increase_throttle(pwm_gen_module* pwm_throttle_open, pwm_gen_module* pwm_throttle_close){
 	//set_duty_cycle(pwm, MOTOR_PWM_DUTY_CYCLE_CCW);
-	IOWR_ALTERA_AVALON_PIO_DATA(H_BRIDGE_OUT_BASE, H_BRIDGE_IN2_HIGH);
 }
 
-void decrease_throttle(pwm_gen_module* pwm){
+void decrease_throttle(pwm_gen_module* pwm_throttle_open, pwm_gen_module* pwm_throttle_close){
 	//set_duty_cycle(pwm, MOTOR_PWM_DUTY_CYCLE_CW);
-	IOWR_ALTERA_AVALON_PIO_DATA(H_BRIDGE_OUT_BASE, H_BRIDGE_IN1_HIGH);
 }
 
-void hold_throttle(pwm_gen_module* pwm){
+void hold_throttle(pwm_gen_module* pwm_throttle_open, pwm_gen_module* pwm_throttle_close){
 	//set_duty_cycle(pwm, MOTOR_PWM_DUTY_CYCLE_IDLE);
-	if(H_BRIDGE_IN2_HIGH == *(INT8U*)H_BRIDGE_OUT_BASE){
-		IOWR_ALTERA_AVALON_PIO_DATA(H_BRIDGE_OUT_BASE, H_BRIDGE_ALL_HIGH);
-	}else{
-		IOWR_ALTERA_AVALON_PIO_DATA(H_BRIDGE_OUT_BASE, H_BRIDGE_ALL_LOW);
-	}
 }
 
 alt_u32 watchdog_callback(void* context){
@@ -82,8 +75,18 @@ void motor_control_task(void* pdata) {
 	INT16U expected_pos = 0;
 	INT16U expected_rpm = 0;
 	motor_control_request* req;
-	pwm_gen_module* pwm = get_new_pwm_module(PWM_GENERATOR_MOTOR_AVALON_SLAVE_PERIOD_BASE, PWM_GENERATOR_MOTOR_AVALON_SLAVE_DUTY_BASE, PWM_GENERATOR_MOTOR_AVALON_SLAVE_CONTROL_BASE, MOTOR_PWM_PERIOD_TICKS, MOTOR_PWM_DUTY_CYCLE_IDLE);
-	enable_pwm_output(pwm);
+	pwm_gen_module* pwm_throttle_open = get_new_pwm_module(PWM_GENERATOR_THROTTLE_OPEN_AVALON_SLAVE_PERIOD_BASE,
+			PWM_GENERATOR_THROTTLE_OPEN_AVALON_SLAVE_DUTY_BASE,
+			PWM_GENERATOR_THROTTLE_OPEN_AVALON_SLAVE_CONTROL_BASE,
+			MOTOR_PWM_PERIOD_TICKS,
+			MOTOR_PWM_DUTY_CYCLE_IDLE);
+	pwm_gen_module* pwm_throttle_close = get_new_pwm_module(PWM_GENERATOR_THROTTLE_CLOSE_AVALON_SLAVE_PERIOD_BASE,
+			PWM_GENERATOR_THROTTLE_CLOSE_AVALON_SLAVE_DUTY_BASE,
+			PWM_GENERATOR_THROTTLE_CLOSE_AVALON_SLAVE_CONTROL_BASE,
+			MOTOR_PWM_PERIOD_TICKS,
+			MOTOR_PWM_DUTY_CYCLE_IDLE);
+	enable_pwm_output(pwm_throttle_open);
+	enable_pwm_output(pwm_throttle_close);
 	pwm_gen_module* pwm_tps_out = get_tps_sensor_output_pwm();
 	enable_pwm_output(pwm_tps_out);
 	INT16U* result_code = 0;
@@ -94,11 +97,11 @@ void motor_control_task(void* pdata) {
 			if(req != NULL && req->request_type == MOTOR_CONTROL_REQ_TPS_POS){
 				serving_request = TRUE;
 				expected_pos = req->value;
-				alt_alarm_start(watchdog, MOTOR_DRIVE_DELAY_TICKS, &watchdog_callback, NULL);
+				//alt_alarm_start(watchdog, MOTOR_DRIVE_DELAY_TICKS, &watchdog_callback, NULL);
 			}else if(req != NULL && req->request_type == MOTOR_CONTROL_REQ_RPM){
 				serving_request = TRUE;
 				expected_rpm = req->value;
-				alt_alarm_start(watchdog, MOTOR_RPM_DRIVE_DELAY_TICKS, &watchdog_callback, NULL);
+				//alt_alarm_start(watchdog, MOTOR_RPM_DRIVE_DELAY_TICKS, &watchdog_callback, NULL);
 			}
 		}
 		if(timeout_failure_encountered == TRUE){
@@ -125,28 +128,28 @@ void motor_control_task(void* pdata) {
 			INT32U avg_tps_reading = (tps_1_reading + tps_2_reading)/2;
 			set_tps_sensor_output(pwm_tps_out, avg_tps_reading);
 			if(FALSE == TPS_VALUE_DIFFER_FROM_EXPECTED(avg_tps_reading, expected_pos)){
-				hold_throttle(pwm);
+				hold_throttle(pwm_throttle_open, pwm_throttle_close);
 				alt_alarm_stop(watchdog);
 				serving_request = FALSE;
 				*result_code = REQUEST_RESULT_OK;
 				OSQPost(req_result_q, (void*)result_code);
 			}else if(avg_tps_reading > expected_pos){
-				decrease_throttle(pwm);
+				decrease_throttle(pwm_throttle_open, pwm_throttle_close);
 			}else{
-				increase_throttle(pwm);
+				increase_throttle(pwm_throttle_open, pwm_throttle_close);
 			}
 		}else if(req != NULL && req->request_type == MOTOR_CONTROL_REQ_RPM){
 			INT16U rpm_reading = alt_up_de0_nano_adc_read(adc, RPM_ADC_CHANNEL);
 			if(FALSE == RPM_VALUE_DIFFER_FROM_EXPECTED(rpm_reading, expected_rpm)){
-				hold_throttle(pwm);
+				hold_throttle(pwm_throttle_open, pwm_throttle_close);
 				alt_alarm_stop(watchdog);
 				serving_request = FALSE;
 				*result_code = REQUEST_RESULT_OK;
 				OSQPost(req_result_q, (void*)result_code);
 			}else if(rpm_reading > expected_rpm){
-				decrease_throttle(pwm);
+				decrease_throttle(pwm_throttle_open, pwm_throttle_close);
 			}else{
-				increase_throttle(pwm);
+				increase_throttle(pwm_throttle_open, pwm_throttle_close);
 			}
 		}
 

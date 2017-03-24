@@ -80,13 +80,14 @@ architecture structure of electronic_engine_control is
             adc_cs_n_from_the_de0_nano_adc_0      		: out   std_logic;                                        -- adc_cs_n
             adc_dout_to_the_de0_nano_adc_0        		: in    std_logic                     := 'X';             -- adc_dout
             adc_din_from_the_de0_nano_adc_0       		: out   std_logic;      						           -- adc_din
-			pwm_generator_motor_pwm_out_export        	: out   std_logic                     := '0';             -- pwm_out_motor
 			pwm_generator_tps_out_pwm_out_export        : out   std_logic                     := '0';             -- pwm_out_tps_val
             rs232_0_external_interface_RXD              : in    std_logic                     := 'X';             -- RXD
             rs232_0_external_interface_TXD              : out   std_logic;                                        -- TXD
 			solenoid_out_external_connection_export     : out   std_logic_vector(7 downto 0)  := "00000000";      -- export solenid drivin pins
-			h_bridge_out_external_connection_export 	: out   std_logic_vector(7 downto 0)  := "00000000";      -- export h bridge drive
-            buttons_external_connection_export          : in    std_logic_vector(7 downto 0)  := "00000000"       -- export buttons
+            pwm_generator_throttle_close_pwm_out_export : out   std_logic;                                        -- export pwm throttle close
+            pwm_generator_throttle_open_pwm_out_export  : out   std_logic;                                        -- export pwm throttle open
+            buttons_external_connection_export          : in    std_logic_vector(7 downto 0)  := "00000000";      -- export buttons
+            pwm_generator_test_pwm_out_export           : out   std_logic                                         -- export pwm test
         );
     end component niosII_system;
 
@@ -126,15 +127,15 @@ begin
 			adc_cs_n_from_the_de0_nano_adc_0     			=> ADC_CS_N,
 			adc_dout_to_the_de0_nano_adc_0       			=> ADC_SDAT,
 			adc_din_from_the_de0_nano_adc_0      			=> ADC_SADDR,
-			pwm_generator_motor_pwm_out_export		 		=> GPIO_0(0),
+			pwm_generator_test_pwm_out_export				=> GPIO_0(0),
+			pwm_generator_throttle_open_pwm_out_export		=> GPIO_0(8),
+			pwm_generator_throttle_close_pwm_out_export		=> GPIO_0(9),
 			pwm_generator_tps_out_pwm_out_export		 	=> GPIO_0(1),
 			solenoid_out_external_connection_export(2)		=> GPIO_0(2),
 			solenoid_out_external_connection_export(3)		=> GPIO_0(3),
 			buttons_external_connection_export(2)  			=> GPIO_2(2),
 			buttons_external_connection_export(3)  			=> GPIO_2(3),
 			rs232_0_external_interface_TXD					=> GPIO_0(7),
-			h_bridge_out_external_connection_export(0)		=> GPIO_0(8),
-			h_bridge_out_external_connection_export(1)		=> GPIO_0(9),
 			rs232_0_external_interface_RXD					=> GPIO_2(7)
         );
 
