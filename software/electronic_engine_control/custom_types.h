@@ -14,13 +14,4 @@ typedef INT8U BOOL;
 #define TRUE  0xFF
 #define FALSE 0x00
 
-typedef struct  {
-   INT32U period_base;
-   INT32U duty_base;
-   INT32U control_base;
-   INT32U period;
-   INT32U duty;
-   INT8U  control;
-} pwm_gen_module;
-
 #endif /* CUSTOM_TYPES_H_ */

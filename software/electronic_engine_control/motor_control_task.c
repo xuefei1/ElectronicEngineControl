@@ -34,16 +34,21 @@ OS_EVENT* post_new_request(motor_control_request* req){
 	return req_result_q;
 }
 
-void increase_throttle(pwm_gen_module* pwm_throttle_open, pwm_gen_module* pwm_throttle_close){
-	//set_duty_cycle(pwm, MOTOR_PWM_DUTY_CYCLE_CCW);
+void increase_throttle(pwm_gen_module* pwm_throttle_open, pwm_gen_module* pwm_throttle_close, INT8U* curr_duty_cycle){
+	INT8U new_duty_cycle = *curr_duty_cycle - 1;
+	if(new_duty_cycle < MOTOR_PWM_DUTY_CYCLE_FULLY_OPEN){
+		new_duty_cycle = MOTOR_PWM_DUTY_CYCLE_FULLY_OPEN;
+	}else if(new_duty_cycle > MOTOR_PWM_DUTY_CYCLE_FULLY_CLOSE){
+		new_duty_cycle = MOTOR_PWM_DUTY_CYCLE_FULLY_CLOSE;
+	}
+	set_duty_cycle(pwm_throttle_open, new_duty_cycle);
+	set_duty_cycle(pwm_throttle_close, PWM_DUTY_CYCLE_HIGH);
+	*curr_duty_cycle = new_duty_cycle;
 }
 
-void decrease_throttle(pwm_gen_module* pwm_throttle_open, pwm_gen_module* pwm_throttle_close){
-	//set_duty_cycle(pwm, MOTOR_PWM_DUTY_CYCLE_CW);
-}
-
-void hold_throttle(pwm_gen_module* pwm_throttle_open, pwm_gen_module* pwm_throttle_close){
-	//set_duty_cycle(pwm, MOTOR_PWM_DUTY_CYCLE_IDLE);
+void decrease_throttle(pwm_gen_module* pwm_throttle_open, pwm_gen_module* pwm_throttle_close, INT8U* curr_duty_cycle){
+	set_duty_cycle(pwm_throttle_close, PWM_DUTY_CYCLE_HIGH);
+	set_duty_cycle(pwm_throttle_open, PWM_DUTY_CYCLE_HIGH);
 }
 
 alt_u32 watchdog_callback(void* context){
@@ -72,19 +77,24 @@ void motor_control_task(void* pdata) {
 	req_result_q = OSQCreate((void*) result_q_buf, RESULT_Q_SIZE_ELEMENTS);
 	BOOL serving_request = FALSE;
 	BOOL tps_check_timer_activated = FALSE;
-	INT16U expected_pos = 0;
+	INT16U expected_throttle_open_deg = 0;
 	INT16U expected_rpm = 0;
+	INT32U expected_tps_reading = 0;
+	INT32U curr_tps_reading = 0;
+	INT32U throttle_move_delay_counter = THROTTLE_POS_CHECK_DELAY_COUNT;
+	INT8U curr_duty_cycle = MOTOR_PWM_DUTY_CYCLE_FULLY_CLOSE;
+	INT8U* curr_duty_cycle_ptr = &curr_duty_cycle;
 	motor_control_request* req;
 	pwm_gen_module* pwm_throttle_open = get_new_pwm_module(PWM_GENERATOR_THROTTLE_OPEN_AVALON_SLAVE_PERIOD_BASE,
 			PWM_GENERATOR_THROTTLE_OPEN_AVALON_SLAVE_DUTY_BASE,
 			PWM_GENERATOR_THROTTLE_OPEN_AVALON_SLAVE_CONTROL_BASE,
 			MOTOR_PWM_PERIOD_TICKS,
-			MOTOR_PWM_DUTY_CYCLE_IDLE);
+			MOTOR_PWM_DUTY_CYCLE_FULLY_CLOSE);
 	pwm_gen_module* pwm_throttle_close = get_new_pwm_module(PWM_GENERATOR_THROTTLE_CLOSE_AVALON_SLAVE_PERIOD_BASE,
 			PWM_GENERATOR_THROTTLE_CLOSE_AVALON_SLAVE_DUTY_BASE,
 			PWM_GENERATOR_THROTTLE_CLOSE_AVALON_SLAVE_CONTROL_BASE,
 			MOTOR_PWM_PERIOD_TICKS,
-			MOTOR_PWM_DUTY_CYCLE_IDLE);
+			PWM_DUTY_CYCLE_HIGH);
 	enable_pwm_output(pwm_throttle_open);
 	enable_pwm_output(pwm_throttle_close);
 	pwm_gen_module* pwm_tps_out = get_tps_sensor_output_pwm();
@@ -94,14 +104,15 @@ void motor_control_task(void* pdata) {
 		if(serving_request == FALSE){
 			req = OSQPend(request_q, Q_TIMEOUT_WAIT_FOREVER, &err);
 			watchdog = malloc(sizeof(alt_alarm));
-			if(req != NULL && req->request_type == MOTOR_CONTROL_REQ_TPS_POS){
+			if(req != NULL && req->request_type == MOTOR_CONTROL_REQ_DEG){
 				serving_request = TRUE;
-				expected_pos = req->value;
+				expected_throttle_open_deg = req->value;
+				expected_tps_reading = get_tps_from_throttle_open_deg(expected_throttle_open_deg);
 				//alt_alarm_start(watchdog, MOTOR_DRIVE_DELAY_TICKS, &watchdog_callback, NULL);
 			}else if(req != NULL && req->request_type == MOTOR_CONTROL_REQ_RPM){
 				serving_request = TRUE;
 				expected_rpm = req->value;
-				//alt_alarm_start(watchdog, MOTOR_RPM_DRIVE_DELAY_TICKS, &watchdog_callback, NULL);
+				alt_alarm_start(watchdog, MOTOR_RPM_DRIVE_DELAY_TICKS, &watchdog_callback, NULL);
 			}
 		}
 		if(timeout_failure_encountered == TRUE){
@@ -116,7 +127,7 @@ void motor_control_task(void* pdata) {
 			continue;
 		}
 		alt_up_de0_nano_adc_update(adc);
-		if(req != NULL && req->request_type == MOTOR_CONTROL_REQ_TPS_POS){
+		if(req != NULL && req->request_type == MOTOR_CONTROL_REQ_DEG){
 			INT16U tps_1_reading = alt_up_de0_nano_adc_read(adc, TPS_1_ADC_CHANNEL);
 			INT16U tps_2_reading = alt_up_de0_nano_adc_read(adc, TPS_2_ADC_CHANNEL);
 			if (TPS_VALUE_MISMATCH(tps_1_reading, tps_2_reading)) {
@@ -125,31 +136,51 @@ void motor_control_task(void* pdata) {
 					alt_alarm_start(tps_check_alarm, SENSOR_VAL_COMP_DELAY_TICKS, &tps_value_comp_callback, &tps_check_timer_activated);
 				}
 			}
-			INT32U avg_tps_reading = (tps_1_reading + tps_2_reading)/2;
-			set_tps_sensor_output(pwm_tps_out, avg_tps_reading);
-			if(FALSE == TPS_VALUE_DIFFER_FROM_EXPECTED(avg_tps_reading, expected_pos)){
-				hold_throttle(pwm_throttle_open, pwm_throttle_close);
+			curr_tps_reading = tps_1_reading;
+			set_tps_sensor_output(pwm_tps_out, curr_tps_reading);
+			if(FALSE == TPS_VALUE_DIFFER_FROM_EXPECTED(curr_tps_reading, expected_tps_reading)){
 				alt_alarm_stop(watchdog);
 				serving_request = FALSE;
 				*result_code = REQUEST_RESULT_OK;
+				*curr_duty_cycle_ptr = MOTOR_PWM_DUTY_CYCLE_FULLY_CLOSE;
 				OSQPost(req_result_q, (void*)result_code);
-			}else if(avg_tps_reading > expected_pos){
-				decrease_throttle(pwm_throttle_open, pwm_throttle_close);
+			}else if(curr_tps_reading > expected_tps_reading){
+				if(throttle_move_delay_counter == THROTTLE_POS_CHECK_DELAY_COUNT){
+					decrease_throttle(pwm_throttle_open, pwm_throttle_close, curr_duty_cycle_ptr);;
+					throttle_move_delay_counter = 0;
+				}else{
+					throttle_move_delay_counter++;
+				}
 			}else{
-				increase_throttle(pwm_throttle_open, pwm_throttle_close);
+				if(throttle_move_delay_counter == THROTTLE_POS_CHECK_DELAY_COUNT){
+					increase_throttle(pwm_throttle_open, pwm_throttle_close, curr_duty_cycle_ptr);
+					throttle_move_delay_counter = 0;
+				}else{
+					throttle_move_delay_counter++;
+				}
 			}
 		}else if(req != NULL && req->request_type == MOTOR_CONTROL_REQ_RPM){
 			INT16U rpm_reading = alt_up_de0_nano_adc_read(adc, RPM_ADC_CHANNEL);
 			if(FALSE == RPM_VALUE_DIFFER_FROM_EXPECTED(rpm_reading, expected_rpm)){
-				hold_throttle(pwm_throttle_open, pwm_throttle_close);
 				alt_alarm_stop(watchdog);
 				serving_request = FALSE;
 				*result_code = REQUEST_RESULT_OK;
+				*curr_duty_cycle_ptr = MOTOR_PWM_DUTY_CYCLE_FULLY_CLOSE;
 				OSQPost(req_result_q, (void*)result_code);
 			}else if(rpm_reading > expected_rpm){
-				decrease_throttle(pwm_throttle_open, pwm_throttle_close);
+				if(throttle_move_delay_counter == THROTTLE_POS_CHECK_DELAY_COUNT){
+					decrease_throttle(pwm_throttle_open, pwm_throttle_close, curr_duty_cycle_ptr);;
+					throttle_move_delay_counter = 0;
+				}else{
+					throttle_move_delay_counter++;
+				}
 			}else{
-				increase_throttle(pwm_throttle_open, pwm_throttle_close);
+				if(throttle_move_delay_counter == THROTTLE_POS_CHECK_DELAY_COUNT){
+					increase_throttle(pwm_throttle_open, pwm_throttle_close, curr_duty_cycle_ptr);
+					throttle_move_delay_counter = 0;
+				}else{
+					throttle_move_delay_counter++;
+				}
 			}
 		}
 

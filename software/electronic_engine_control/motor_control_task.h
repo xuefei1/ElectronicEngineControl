@@ -11,11 +11,18 @@
 #include "proj_config.h"
 #include "util.h"
 #include "pwm_gen.h"
+#include "throttle_data.h"
 #include "altera_avalon_pio_regs.h"
 
 #define MOTOR_CONTROL_TASK_PRIORITY			2
 
-#define MOTOR_CONTROL_REQ_TPS_POS			0
+/*
+* Duty cycle will increase/decrease by 1 every time this value is
+* reached in the task, to give throttle plate time to react to the new duty cycle
+*/
+#define THROTTLE_POS_CHECK_DELAY_COUNT		50
+
+#define MOTOR_CONTROL_REQ_DEG				0
 #define MOTOR_CONTROL_REQ_RPM				1
 
 #define H_BRIDGE_IN1_HIGH					1

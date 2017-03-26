@@ -155,8 +155,6 @@ void apps_task(void* pdata) {
 
 		//APPS checking
 		alt_up_de0_nano_adc_update(adc);
-		printf("tps1 read value:%d\n", (INT16U)alt_up_de0_nano_adc_read(adc,TPS_1_ADC_CHANNEL));
-		printf("tps2 read value:%d\n", (INT16U)alt_up_de0_nano_adc_read(adc,TPS_2_ADC_CHANNEL));
 		INT16U apps_1_reading = alt_up_de0_nano_adc_read(adc,
 				APPS_1_ADC_CHANNEL);
 		INT16U apps_2_reading = alt_up_de0_nano_adc_read(adc,
@@ -184,7 +182,7 @@ void apps_task(void* pdata) {
 					apps_check_timer_activated = FALSE;
 				}
 
-				INT16U final_apps_value = (apps_1_reading + apps_2_reading) / 2;
+				INT16U final_apps_value = apps_1_reading;
 				set_new_motor_position(final_apps_value);
 			}
 			last_apps_1_reading = apps_1_reading;
@@ -209,11 +207,11 @@ OS_EVENT* get_motor_cmd_q() {
 	return motor_cmd_q;
 }
 
-BOOL set_new_motor_position_by_tps(INT16U tps_reading) {
-	INT8U err;
+BOOL set_new_motor_position_by_tps(INT16U deg) {
+	INT8U err = 0;
 	motor_control_request* req = (motor_control_request*) malloc(sizeof(motor_control_request));
-	req->request_type = MOTOR_CONTROL_REQ_TPS_POS;
-	req->value = tps_reading;
+	req->request_type = MOTOR_CONTROL_REQ_DEG;
+	req->value = deg;
 	OS_EVENT* result_q = post_new_request(req);
 	INT16U result_code = *(INT16U*) OSQPend(result_q, Q_TIMEOUT_WAIT_FOREVER, &err);
 	if(result_code == REQUEST_RESULT_FAIL_TIMEOUT){
@@ -229,7 +227,7 @@ BOOL set_new_motor_position_by_tps(INT16U tps_reading) {
 
 /* Set motor to reach a new position, return true if no error occurred */
 BOOL set_new_motor_position(INT16U apps_reading) {
-	INT16U tps = get_tps_from_apps(apps_reading);
+	INT16U tps = get_throttle_open_deg_from_apps(apps_reading);
 	return set_new_motor_position_by_tps(tps);
 }
 

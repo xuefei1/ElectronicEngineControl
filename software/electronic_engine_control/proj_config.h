@@ -19,6 +19,7 @@
 #define PROJ_CONFIG_H_
 #include <stdlib.h>
 #include <stdio.h>
+#include <math.h>
 #include "custom_types.h"
 #include "system.h"
 #include "altera_up_avalon_de0_nano_adc.h"
@@ -31,23 +32,23 @@
 
 /* 16kHz under a 50Mhz clock, yields 3125 clk ticks per period */
 #define MOTOR_PWM_PERIOD_TICKS				2500
-#define MOTOR_PWM_DUTY_CYCLE_IDLE			50
-#define MOTOR_PWM_DUTY_CYCLE_CW				100
-#define MOTOR_PWM_DUTY_CYCLE_CCW			0
+#define MOTOR_PWM_DUTY_CYCLE_FULLY_OPEN		29
+#define MOTOR_PWM_DUTY_CYCLE_FULLY_CLOSE	54
+#define MOTOR_PWM_DUTY_CYCLE_CLOSING		99
 
 /* 16kHz under a 50Mhz clock, yields 3125 clk ticks per period */
 #define TPS_OUT_PWM_PERIOD_TICKS			3125
 
 /* APPS valid value range based on pedal travel, note this is the average of two sensors */
-#define APPS_VALID_VALUE_FULLY_RELEASED		600
-#define APPS_VALID_VALUE_FULLY_PRESSED		1750
+#define APPS_VALID_VALUE_FULLY_RELEASED		660
+#define APPS_VALID_VALUE_FULLY_PRESSED		3400
 
 /* TPS valid value range based on throttle plate travel, note this is the average of two sensors */
-#define TPS_VALID_VALUE_FULLY_OPENED		370
-#define TPS_VALID_VALUE_FULLY_CLOSED		3300
+#define TPS_VALID_VALUE_FULLY_OPENED		3500
+#define TPS_VALID_VALUE_FULLY_CLOSED		810
 
 /* When APPS reading differ from last value by at least this much, we consider it as a new value */
-#define APPS_VALUE_CHANGE_THRESHOLD			30
+#define APPS_VALUE_CHANGE_THRESHOLD			100
 
 /* When two APPS reading differ by this much percent, we have a failure */
 #define APPS_VALUE_DIFFERENCE_PERCENT		200
@@ -56,7 +57,7 @@
 #define TPS_VALUE_DIFFERENCE_PERCENT		10
 
 /* Actual TPS reading can be different from expected by at most this much */
-#define TPS_VALUE_TOLERANCE					80
+#define TPS_VALUE_TOLERANCE					150
 
 /* Two TPS readings can be different by at most this much */
 #define TPS_VALUE_DIFFERENCE				3200
@@ -80,7 +81,7 @@
 #define SOLENOID_OPEN_DURATION_TICKS		200
 
 /* Time constraint for throttle plate to reach desired position: 1 second */
-#define MOTOR_DRIVE_DELAY_TICKS				1000
+#define MOTOR_DRIVE_DELAY_TICKS				2000
 
 /* Time constraint for throttle plate to desired RPM: 2 second */
 #define MOTOR_RPM_DRIVE_DELAY_TICKS			2000
@@ -88,6 +89,8 @@
 #define SEM_TIMEOUT_WAIT_FOREVER			0
 
 #define Q_TIMEOUT_WAIT_FOREVER				0
+
+#define MIN_THROTTLE_DEG					0
 
 #define MAX_THROTTLE_DEG					90
 

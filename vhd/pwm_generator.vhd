@@ -30,7 +30,7 @@ begin
 	variable period 		: std_logic_vector(31 downto 0) := "00000000000000000000000000000000";
 	variable duty_count 	: std_logic_vector(31 downto 0) := "00000000000000000000000000000000";
 	variable count 			: std_logic_vector(31 downto 0) := "00000000000000000000000000000000";
-	variable control	: std_logic_vector(7 downto 0) := "00000000";
+	variable control		: std_logic_vector(7 downto 0)  := "00000000";
 	begin
 		if(reset = '1') then
 			period := "00000000000000000000000000000000"; 

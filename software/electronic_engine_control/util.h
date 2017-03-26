@@ -15,6 +15,14 @@
 #include "proj_config.h"
 #include "pwm_gen.h"
 
+#define max(a,b)   ({ __typeof__ (a) _a = (a);  __typeof__ (b) _b = (b); \
+ _a > _b ? _a : _b; })
+
+#define min(a,b)   ({ __typeof__ (a) _a = (a);  __typeof__ (b) _b = (b); \
+ _a > _b ? _b : _a; })
+
+#define avg(a,b) (a+b)/2
+
 BOOL int32U_changed_by_threshold(INT32U input, INT32U last_value, INT32U threshold);
 
 BOOL int32U_differ_by_percent(INT32U src1, INT32U src2, INT32U percent, INT32U accuracy);

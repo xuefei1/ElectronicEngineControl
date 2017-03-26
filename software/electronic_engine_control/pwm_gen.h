@@ -16,6 +16,19 @@
 
 #define DUTY_SCALE_FACTOR					100
 
+#define PWM_DUTY_CYCLE_LOW					0
+#define PWM_DUTY_CYCLE_HIGH					100
+
+typedef struct  {
+   INT32U period_base;
+   INT32U duty_base;
+   INT32U control_base;
+   INT32U period;
+   INT32U duty_count;
+   INT8U  duty_cycle;
+   INT8U  control;
+} pwm_gen_module;
+
 void set_period(pwm_gen_module* module, INT32U period);
 
 void set_duty_cycle(pwm_gen_module* module, INT8U percent);

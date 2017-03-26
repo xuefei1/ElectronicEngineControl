@@ -24,8 +24,7 @@
 #define AVG_ITERATION 						1000
 
 /* Set this flag to run pwm gen test, this test must be run from within a task*/
-//#define RUN_PWM_GEN_SWEEP_TEST
-#define RUN_PWM_GEN_SINGLE_TEST
+#define RUN_PWM_TEST_TASK
 
 #define CHANGED_BY_THRESHOLD_INPUT_1		100
 #define CHANGED_BY_THRESHOLD_INPUT_2		500
@@ -47,11 +46,11 @@
 
 #define TEST_TASK_PRIO						1
 
-#if defined(RUN_PWM_GEN_SINGLE_TEST)
-	#define TEST_PWM(period, duty)	Test_pwm_gen(period, duty)
-#else
-	#define TEST_PWM(period, duty)
-#endif
+#define TEST_PWM(period, duty)	Test_pwm_gen(period, duty)
+
+#define TEST_THROTTLE_OPEN(percent)	Test_throttle_open(percent)
+
+#define TEST_THROTTLE_CLOSE(percent)	Test_throttle_close(percent)
 
 int run_all_unit_tests();
 CuSuite* CuGetSuite();
@@ -68,4 +67,9 @@ static void X_CompareAsserts(CuTest* tc, const char *file, int line, const char*
 void Test_pwm_gen_sweep();
 
 void Test_pwm_gen(INT32U period, INT8U duty);
+
+void Test_throttle_open(INT8U percent);
+
+void Test_throttle_close(INT8U percent);
+
 #endif /* TEST_CONFIG_H_ */

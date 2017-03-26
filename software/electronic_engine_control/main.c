@@ -34,10 +34,15 @@ INT8U failure_code_buf[FAILURE_HANDLER_Q_SIZE_ELEMENTS];
 
 void test_task(void* pdata) {
 	while(1){
-		TEST_PWM(2500, 34);
-		OSTimeDlyHMSM(0,0,2,0);
-		TEST_PWM(2500, 57);
-		OSTimeDlyHMSM(0,0,10,0);
+		printf("throttle open 34\n");
+		TEST_THROTTLE_OPEN(34);
+		OSTimeDlyHMSM(0,0,5,0);
+		printf("throttle close\n");
+		TEST_THROTTLE_CLOSE(100);
+		OSTimeDlyHMSM(0,0,0,300);
+		printf("throttle open 50\n");
+		TEST_THROTTLE_OPEN(45);
+		OSTimeDlyHMSM(0,0,5,0);
 	}
 }
 
@@ -56,28 +61,28 @@ int main(void) {
 
 	throttle_data_init();
 
-	OSTaskCreateExt(test_task, NULL, (void *) &test_task_stk[TASK_STACKSIZE - 1],
-			TEST_TASK_PRIO, TEST_TASK_PRIO, test_task_stk, TASK_STACKSIZE,
+//	OSTaskCreateExt(test_task, NULL, (void *) &test_task_stk[TASK_STACKSIZE - 1],
+//			TEST_TASK_PRIO, TEST_TASK_PRIO, test_task_stk, TASK_STACKSIZE,
+//			NULL, 0);
+
+	OSTaskCreateExt(failure_handler_task, NULL,
+			(void *) &failure_handler_task_stk[TASK_STACKSIZE - 1],
+			FAILURE_HANDLER_TASK_PRIORITY, FAILURE_HANDLER_TASK_PRIORITY,
+			failure_handler_task_stk, TASK_STACKSIZE, NULL, 0);
+
+	OSTaskCreateExt(motor_control_task, NULL, (void *) &motor_control_task_stk[TASK_STACKSIZE - 1],
+			MOTOR_CONTROL_TASK_PRIORITY, MOTOR_CONTROL_TASK_PRIORITY, motor_control_task_stk, TASK_STACKSIZE,
 			NULL, 0);
 
-//	OSTaskCreateExt(failure_handler_task, NULL,
-//			(void *) &failure_handler_task_stk[TASK_STACKSIZE - 1],
-//			FAILURE_HANDLER_TASK_PRIORITY, FAILURE_HANDLER_TASK_PRIORITY,
-//			failure_handler_task_stk, TASK_STACKSIZE, NULL, 0);
-//
-//	OSTaskCreateExt(motor_control_task, NULL, (void *) &motor_control_task_stk[TASK_STACKSIZE - 1],
-//			MOTOR_CONTROL_TASK_PRIORITY, MOTOR_CONTROL_TASK_PRIORITY, motor_control_task_stk, TASK_STACKSIZE,
-//			NULL, 0);
-//
-//	OSTaskCreateExt(apps_task, NULL,
-//			(void *) &apps_task_stk[TASK_STACKSIZE - 1],
-//			APPS_TASK_PRIORITY, APPS_TASK_PRIORITY,
-//			apps_task_stk, TASK_STACKSIZE, NULL, 0);
-//
-//	OSTaskCreateExt(solenoid_task, NULL, (void *) &solenoid_task_stk[TASK_STACKSIZE - 1],
-//			SOLENOID_TASK_PRIORITY, SOLENOID_TASK_PRIORITY, solenoid_task_stk, TASK_STACKSIZE,
-//			NULL, 0);
-//
+	OSTaskCreateExt(apps_task, NULL,
+			(void *) &apps_task_stk[TASK_STACKSIZE - 1],
+			APPS_TASK_PRIORITY, APPS_TASK_PRIORITY,
+			apps_task_stk, TASK_STACKSIZE, NULL, 0);
+
+	OSTaskCreateExt(solenoid_task, NULL, (void *) &solenoid_task_stk[TASK_STACKSIZE - 1],
+			SOLENOID_TASK_PRIORITY, SOLENOID_TASK_PRIORITY, solenoid_task_stk, TASK_STACKSIZE,
+			NULL, 0);
+
 	OSStart();
 
 	return 0;

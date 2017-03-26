@@ -6,6 +6,7 @@
    <connections preferredWidth="159" />
    <irq preferredWidth="34" />
    <name preferredWidth="260" />
+   <export preferredWidth="313" />
   </columns>
  </systemtable>
  <clocktable>

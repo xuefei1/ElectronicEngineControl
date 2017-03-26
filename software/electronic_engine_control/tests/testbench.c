@@ -124,3 +124,37 @@ void Test_pwm_gen(INT32U period, INT8U duty){
 	enable_pwm_output(ptr);
 	free(ptr);
 }
+
+void Test_throttle_open(INT8U percent){
+	pwm_gen_module* pwm_throttle_close = get_new_pwm_module(PWM_GENERATOR_THROTTLE_CLOSE_AVALON_SLAVE_PERIOD_BASE,
+			PWM_GENERATOR_THROTTLE_CLOSE_AVALON_SLAVE_DUTY_BASE,
+			PWM_GENERATOR_THROTTLE_CLOSE_AVALON_SLAVE_CONTROL_BASE,
+			MOTOR_PWM_PERIOD_TICKS,
+			PWM_DUTY_CYCLE_HIGH);
+	pwm_gen_module* pwm_throttle_open = get_new_pwm_module(PWM_GENERATOR_THROTTLE_OPEN_AVALON_SLAVE_PERIOD_BASE,
+			PWM_GENERATOR_THROTTLE_OPEN_AVALON_SLAVE_DUTY_BASE,
+			PWM_GENERATOR_THROTTLE_OPEN_AVALON_SLAVE_CONTROL_BASE,
+			MOTOR_PWM_PERIOD_TICKS,
+			percent);
+	enable_pwm_output(pwm_throttle_open);
+	enable_pwm_output(pwm_throttle_close);
+	free(pwm_throttle_close);
+	free(pwm_throttle_open);
+}
+
+void Test_throttle_close(INT8U percent){
+	pwm_gen_module* pwm_throttle_close = get_new_pwm_module(PWM_GENERATOR_THROTTLE_CLOSE_AVALON_SLAVE_PERIOD_BASE,
+			PWM_GENERATOR_THROTTLE_CLOSE_AVALON_SLAVE_DUTY_BASE,
+			PWM_GENERATOR_THROTTLE_CLOSE_AVALON_SLAVE_CONTROL_BASE,
+			MOTOR_PWM_PERIOD_TICKS,
+			percent);
+	pwm_gen_module* pwm_throttle_open = get_new_pwm_module(PWM_GENERATOR_THROTTLE_OPEN_AVALON_SLAVE_PERIOD_BASE,
+			PWM_GENERATOR_THROTTLE_OPEN_AVALON_SLAVE_DUTY_BASE,
+			PWM_GENERATOR_THROTTLE_OPEN_AVALON_SLAVE_CONTROL_BASE,
+			MOTOR_PWM_PERIOD_TICKS,
+			PWM_DUTY_CYCLE_HIGH);
+	enable_pwm_output(pwm_throttle_open);
+	enable_pwm_output(pwm_throttle_close);
+	free(pwm_throttle_close);
+	free(pwm_throttle_open);
+}
