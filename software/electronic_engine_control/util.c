@@ -56,18 +56,6 @@ BOOL int32U_differ_by_percent(INT32U src1, INT32U src2, INT32U percent,
 		return TRUE;
 }
 
-INT8U get_gear_ratio(INT8U gear){
-	if(gear == 1){
-		return GEAR_RATIO_1ST;
-	}else if(gear == 2){
-		return GEAR_RATIO_2ND;
-	}else if(gear == 4){
-		return GEAR_RATIO_4TH;
-	}else{
-		return GEAR_RATIO_3RD;
-	}
-}
-
 pwm_gen_module* get_tps_sensor_output_pwm(){
 	return get_new_pwm_module(PWM_GENERATOR_TPS_OUT_AVALON_SLAVE_PERIOD_BASE, PWM_GENERATOR_TPS_OUT_AVALON_SLAVE_DUTY_BASE, PWM_GENERATOR_TPS_OUT_AVALON_SLAVE_CONTROL_BASE, TPS_OUT_PWM_PERIOD_TICKS, 0);
 }

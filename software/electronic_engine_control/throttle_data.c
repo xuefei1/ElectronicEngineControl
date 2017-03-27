@@ -26,7 +26,7 @@ void throttle_data_init(){
 	INT16U apps_val_inc_by_1_deg = (APPS_VALID_VALUE_FULLY_PRESSED - APPS_VALID_VALUE_FULLY_RELEASED) / MAX_THROTTLE_DEG;
 	INT16U tps_val_inc_by_1_deg = (TPS_VALID_VALUE_FULLY_OPENED - TPS_VALID_VALUE_FULLY_CLOSED) / MAX_THROTTLE_DEG;
 	INT16U deg_inc_by_1_percent_duty = MAX_THROTTLE_DEG / (MOTOR_PWM_DUTY_CYCLE_FULLY_CLOSE - MOTOR_PWM_DUTY_CYCLE_FULLY_OPEN) + 1;
-	INT8U i;
+	INT16U i;
 	throttle_deg_apps_val_map[0] = APPS_VALID_VALUE_FULLY_RELEASED;
 	throttle_deg_tps_val_map[0] = TPS_VALID_VALUE_FULLY_CLOSED;
 	throttle_deg_open_pwm_duty_cycle[0] = MOTOR_PWM_DUTY_CYCLE_FULLY_CLOSE;
@@ -47,17 +47,33 @@ void throttle_data_init(){
 INT16U get_throttle_open_deg_from_apps(INT16U apps_reading){
 	if(apps_reading >= APPS_VALID_VALUE_FULLY_PRESSED){
 			return MAX_THROTTLE_DEG;
+	}
+	if(apps_reading <= APPS_VALID_VALUE_FULLY_RELEASED){
+		return MIN_THROTTLE_DEG;
+	}
+	INT8U upper;
+	for(upper = 1; upper < MAX_THROTTLE_DEG; upper++){
+		if(apps_reading <= throttle_deg_apps_val_map[upper] && apps_reading > throttle_deg_apps_val_map[upper - 1]){
+			return upper;
 		}
-		if(apps_reading <= APPS_VALID_VALUE_FULLY_RELEASED){
-			return MIN_THROTTLE_DEG;
+	}
+	return MAX_THROTTLE_DEG;
+}
+
+INT16U get_throttle_open_deg_from_tps(INT16U tps_reading){
+	if(tps_reading >= TPS_VALID_VALUE_FULLY_OPENED){
+			return MAX_THROTTLE_DEG;
+	}
+	if(tps_reading <= TPS_VALID_VALUE_FULLY_CLOSED){
+		return MIN_THROTTLE_DEG;
+	}
+	INT8U upper;
+	for(upper = 1; upper < MAX_THROTTLE_DEG; upper++){
+		if(tps_reading <= throttle_deg_tps_val_map[upper] && tps_reading > throttle_deg_tps_val_map[upper - 1]){
+			return upper;
 		}
-		INT8U upper;
-		for(upper = 1; upper < MAX_THROTTLE_DEG; upper++){
-			if(apps_reading <= throttle_deg_apps_val_map[upper] && apps_reading > throttle_deg_apps_val_map[upper - 1]){
-				return upper;
-			}
-		}
-		return MAX_THROTTLE_DEG;
+	}
+	return MAX_THROTTLE_DEG;
 }
 
 INT16U get_new_rpm_needed(INT16U curr_rpm, INT8U curr_gear, INT8U new_gear){

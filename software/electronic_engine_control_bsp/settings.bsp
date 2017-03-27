@@ -2,8 +2,8 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>ucosii</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>Mar 25, 2017 6:07:40 PM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1490486860907</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>Mar 26, 2017 2:17:57 PM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1490559477726</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>/afs/ualberta.ca/home/x/u/xuefei1/Desktop/eec_git/ElectronicEngineControl/software/electronic_engine_control_bsp</BspGeneratedLocation>
         <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>../../niosII_system.sopcinfo</SopcDesignFile>

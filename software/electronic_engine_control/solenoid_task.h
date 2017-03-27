@@ -11,6 +11,7 @@
 #include "proj_config.h"
 #include "apps_task.h"
 #include "altera_avalon_pio_regs.h"
+#include "eng_trans_data.h"
 #include "pwm_gen.h"
 
 #define SOLENOID_TASK_PRIORITY      		3

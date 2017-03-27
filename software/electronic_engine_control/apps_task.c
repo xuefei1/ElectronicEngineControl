@@ -134,7 +134,7 @@ void apps_task(void* pdata) {
 		//Shift matching
 		alt_up_de0_nano_adc_update(adc);
 		if(shift_matching_mode == TRUE){
-			if(RPM_VALUE_NOT_REACHED(alt_up_de0_nano_adc_read(adc, RPM_ADC_CHANNEL), target_RPM)){
+			if(RPM_VALUE_NOT_REACHED(get_RPM(), target_RPM)){
 				continue;
 			}else{
 				signal_shift_start();
@@ -166,6 +166,8 @@ void apps_task(void* pdata) {
 			printf("apps1 read value:%d\n", apps_1_reading);
 			printf("apps2 read value:%d\n", apps_2_reading);
 #endif
+			last_apps_1_reading = apps_1_reading;
+			last_apps_2_reading = apps_2_reading;
 			if (APPS_VALUE_MISMATCH(apps_1_reading, apps_2_reading)) {
 				//we have a mismatch, check again after 100 ms
 				if(apps_check_timer_activated == FALSE){
@@ -181,12 +183,9 @@ void apps_task(void* pdata) {
 					free(alarm);
 					apps_check_timer_activated = FALSE;
 				}
-
 				INT16U final_apps_value = apps_1_reading;
 				set_new_motor_position(final_apps_value);
 			}
-			last_apps_1_reading = apps_1_reading;
-			last_apps_2_reading = apps_2_reading;
 		}
 
 #if defined(RUN_AVG_TASK_TIME_TEST)
@@ -215,8 +214,9 @@ BOOL set_new_motor_position_by_tps(INT16U deg) {
 	OS_EVENT* result_q = post_new_request(req);
 	INT16U result_code = *(INT16U*) OSQPend(result_q, Q_TIMEOUT_WAIT_FOREVER, &err);
 	if(result_code == REQUEST_RESULT_FAIL_TIMEOUT){
-		OSSemPost(motor_tps_failure_flag);
-		OSQPost(failure_msg_q, (void*) ERR_EXPECTED_THROTTLE_POS_MISMATCH);
+		printf("motor control task timeout\n");
+		//OSSemPost(motor_tps_failure_flag);
+		//OSQPost(failure_msg_q, (void*) ERR_EXPECTED_THROTTLE_POS_MISMATCH);
 	}else if(result_code == REQUEST_RESULT_FAIL_TPS){
 		OSSemPost(motor_tps_failure_flag);
 		OSQPost(failure_msg_q, (void*) ERR_TPS_READING_MISMATCH);

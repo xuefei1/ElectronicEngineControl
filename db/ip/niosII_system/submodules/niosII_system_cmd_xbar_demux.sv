@@ -29,7 +29,7 @@
 // Generation parameters:
 //   output_name:         niosII_system_cmd_xbar_demux
 //   ST_DATA_W:           104
-//   ST_CHANNEL_W:        26
+//   ST_CHANNEL_W:        27
 //   NUM_OUTPUTS:         3
 //   VALID_WIDTH:         1
 // ------------------------------------------
@@ -47,7 +47,7 @@ module niosII_system_cmd_xbar_demux
     // -------------------
     input  [1-1      : 0]   sink_valid,
     input  [104-1    : 0]   sink_data, // ST_DATA_W=104
-    input  [26-1 : 0]   sink_channel, // ST_CHANNEL_W=26
+    input  [27-1 : 0]   sink_channel, // ST_CHANNEL_W=27
     input                         sink_startofpacket,
     input                         sink_endofpacket,
     output                        sink_ready,
@@ -57,21 +57,21 @@ module niosII_system_cmd_xbar_demux
     // -------------------
     output reg                      src0_valid,
     output reg [104-1    : 0] src0_data, // ST_DATA_W=104
-    output reg [26-1 : 0] src0_channel, // ST_CHANNEL_W=26
+    output reg [27-1 : 0] src0_channel, // ST_CHANNEL_W=27
     output reg                      src0_startofpacket,
     output reg                      src0_endofpacket,
     input                           src0_ready,
 
     output reg                      src1_valid,
     output reg [104-1    : 0] src1_data, // ST_DATA_W=104
-    output reg [26-1 : 0] src1_channel, // ST_CHANNEL_W=26
+    output reg [27-1 : 0] src1_channel, // ST_CHANNEL_W=27
     output reg                      src1_startofpacket,
     output reg                      src1_endofpacket,
     input                           src1_ready,
 
     output reg                      src2_valid,
     output reg [104-1    : 0] src2_data, // ST_DATA_W=104
-    output reg [26-1 : 0] src2_channel, // ST_CHANNEL_W=26
+    output reg [27-1 : 0] src2_channel, // ST_CHANNEL_W=27
     output reg                      src2_startofpacket,
     output reg                      src2_endofpacket,
     input                           src2_ready,
@@ -124,7 +124,7 @@ module niosII_system_cmd_xbar_demux
     assign ready_vector[1] = src1_ready;
     assign ready_vector[2] = src2_ready;
 
-    assign sink_ready = |(sink_channel & {{23{1'b0}},{ready_vector[NUM_OUTPUTS - 1 : 0]}});
+    assign sink_ready = |(sink_channel & {{24{1'b0}},{ready_vector[NUM_OUTPUTS - 1 : 0]}});
 
 endmodule
 

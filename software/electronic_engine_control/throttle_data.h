@@ -24,6 +24,8 @@ INT16U get_tps_from_throttle_open_deg(INT16U deg);
 
 INT16U get_throttle_open_deg_from_apps(INT16U apps_reading);
 
+INT16U get_throttle_open_deg_from_tps(INT16U tps_reading);
+
 INT16U get_new_rpm_needed(INT16U curr_rpm, INT8U curr_gear, INT8U new_gear);
 
 INT16U get_duty_cycle_from_throttle_open_deg(INT16U deg);

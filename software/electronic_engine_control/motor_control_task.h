@@ -13,6 +13,7 @@
 #include "pwm_gen.h"
 #include "throttle_data.h"
 #include "altera_avalon_pio_regs.h"
+#include "eng_trans_data.h"
 
 #define MOTOR_CONTROL_TASK_PRIORITY			2
 
@@ -20,7 +21,7 @@
 * Duty cycle will increase/decrease by 1 every time this value is
 * reached in the task, to give throttle plate time to react to the new duty cycle
 */
-#define THROTTLE_POS_CHECK_DELAY_COUNT		50
+#define THROTTLE_POS_CHECK_DELAY_COUNT		0
 
 #define MOTOR_CONTROL_REQ_DEG				0
 #define MOTOR_CONTROL_REQ_RPM				1
@@ -45,7 +46,6 @@
 /* ADC channel assignments */
 #define TPS_1_ADC_CHANNEL			  		2
 #define TPS_2_ADC_CHANNEL			  		3
-#define RPM_ADC_CHANNEL			  			6
 
 /* detect if TPS expected and actual value differ */
 #define TPS_VALUE_DIFFER_FROM_EXPECTED(input, exp)	int32U_changed_by_threshold(input, exp, TPS_VALUE_TOLERANCE)
@@ -53,6 +53,8 @@
 #define RPM_VALUE_DIFFER_FROM_EXPECTED(input, exp)	int32U_changed_by_threshold(input, exp, RPM_VALUE_TOLERANCE)
 /* detect if TPS readings differ by a percentage */
 #define TPS_VALUE_MISMATCH(input1, input2)			int32U_changed_by_threshold(input1, input2, TPS_VALUE_DIFFERENCE)
+/* detect if throttle angle degree expected and actual value differ */
+#define THROTTLE_DEG_DIFFER_FROM_EXPECTED(input, exp)	int32U_changed_by_threshold(input, exp, THROTTLE_DEG_TOLERANCE)
 
 typedef struct  {
    INT32U value;

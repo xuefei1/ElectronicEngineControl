@@ -152,6 +152,8 @@ C_SRCS += tests/testbench.c
 C_SRCS += throttle_data.c
 C_SRCS += util.c
 C_SRCS += apps_task.c
+C_SRCS += eng_trans_data.c
+C_SRCS += mem_manager.c
 CXX_SRCS :=
 ASM_SRCS :=
 

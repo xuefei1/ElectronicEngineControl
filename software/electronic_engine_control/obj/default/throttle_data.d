@@ -34,7 +34,7 @@ obj/default/throttle_data.o: throttle_data.c throttle_data.h \
   ../electronic_engine_control_bsp//HAL/inc/sys/alt_timestamp.h \
   ../electronic_engine_control_bsp//drivers/inc/altera_avalon_timer.h \
   ../electronic_engine_control_bsp//HAL/inc/alt_types.h test_config.h \
-  tests/CuTest.h
+  tests/CuTest.h mem_manager.h
 
 throttle_data.h:
 
@@ -113,3 +113,5 @@ custom_types.h:
 test_config.h:
 
 tests/CuTest.h:
+
+mem_manager.h:

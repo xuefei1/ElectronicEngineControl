@@ -20,21 +20,22 @@
 #include "motor_control_task.h"
 #include "throttle_data.h"
 #include "altera_avalon_timer.h"
+#include "eng_trans_data.h"
 
-#define APPS_TASK_PRIORITY      			4
+#define APPS_TASK_PRIORITY      					4
 
 /* ADC channel assignments */
-#define APPS_1_ADC_CHANNEL			  		0
-#define APPS_2_ADC_CHANNEL			  		1
+#define APPS_1_ADC_CHANNEL			  				0
+#define APPS_2_ADC_CHANNEL			  				1
 
-#define WSS_1_ADC_CHANNEL			  		4
-#define WSS_2_ADC_CHANNEL			  		5
+#define WSS_1_ADC_CHANNEL			  				4
+#define WSS_2_ADC_CHANNEL			  				5
 
 /* Task Delays*/
-#define APPS_MOTOR_TASK_DELAY_HOURS	  		0
-#define APPS_MOTOR_TASK_DELAY_MINUTES	  	0
-#define APPS_MOTOR_TASK_DELAY_SECONDS	  	0
-#define APPS_MOTOR_TASK_DELAY_MILLISEC	  	300
+#define APPS_MOTOR_TASK_DELAY_HOURS	  				0
+#define APPS_MOTOR_TASK_DELAY_MINUTES	  			0
+#define APPS_MOTOR_TASK_DELAY_SECONDS	  			0
+#define APPS_MOTOR_TASK_DELAY_MILLISEC	  			100
 
 /* detect if there is a new APPS value*/
 #define APPS_VALUE_CHANGED(input, last_value)	int32U_changed_by_threshold(input, last_value, APPS_VALUE_CHANGE_THRESHOLD)

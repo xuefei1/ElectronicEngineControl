@@ -109,9 +109,23 @@ void solenoid_task(void* pdata) {
 				}
 				continue;
 			}
+			if(get_RPM() < SHIFT_UP_LOWER_BOUND_RPM){
+				printf("Cannot up-shift because RPM is too low\n");
+				if (OSSemAccept(timer_active_flag) == OS_SEM_FLAG_SHIFTING){
+					OSSemPost(timer_active_flag);
+				}
+				continue;
+			}
 			new_gear++;
 		}else if (shift_command == BUTTON_INPUT_SHIFT_DOWN){
 			if(curr_gear == 1){
+				if (OSSemAccept(timer_active_flag) == OS_SEM_FLAG_SHIFTING){
+					OSSemPost(timer_active_flag);
+				}
+				continue;
+			}
+			if(get_RPM() > SHIFT_DOWN_UPPER_BOUND_RPM){
+				printf("Cannot down-shift because RPM is too high\n");
 				if (OSSemAccept(timer_active_flag) == OS_SEM_FLAG_SHIFTING){
 					OSSemPost(timer_active_flag);
 				}

@@ -87,7 +87,8 @@ architecture structure of electronic_engine_control is
             pwm_generator_throttle_close_pwm_out_export : out   std_logic;                                        -- export pwm throttle close
             pwm_generator_throttle_open_pwm_out_export  : out   std_logic;                                        -- export pwm throttle open
             buttons_external_connection_export          : in    std_logic_vector(7 downto 0)  := "00000000";      -- export buttons
-            pwm_generator_test_pwm_out_export           : out   std_logic                                         -- export pwm test
+            pwm_generator_test_pwm_out_export           : out   std_logic;                                        -- export pwm test
+			curr_gear_out_external_connection_export    : out   std_logic_vector(1 downto 0)                      -- export current gear info
         );
     end component niosII_system;
 
@@ -136,6 +137,8 @@ begin
 			buttons_external_connection_export(2)  			=> GPIO_2(2),
 			buttons_external_connection_export(3)  			=> GPIO_2(3),
 			rs232_0_external_interface_TXD					=> GPIO_0(7),
+			curr_gear_out_external_connection_export(0)		=> GPIO_0(10),
+			curr_gear_out_external_connection_export(1)		=> GPIO_0(11),
 			rs232_0_external_interface_RXD					=> GPIO_2(7)
         );
 
