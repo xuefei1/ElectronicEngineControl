@@ -70,6 +70,7 @@ void solenoid_task(void* pdata) {
 	OS_EVENT *shift_matching_q = get_motor_cmd_q();
 
 	INT8U curr_gear = 1;
+	output_curr_gear(curr_gear);
 
 	IOWR_ALTERA_AVALON_PIO_IRQ_MASK(BUTTONS_BASE, BUTTON_INPUT_SHIFT_UP | BUTTON_INPUT_SHIFT_DOWN);
 	IOWR_ALTERA_AVALON_PIO_EDGE_CAP(BUTTONS_BASE, CLEAR_BUTTON_EDGE_REG);
@@ -140,6 +141,7 @@ void solenoid_task(void* pdata) {
 		IOWR_ALTERA_AVALON_PIO_IRQ_MASK(BUTTONS_BASE, 0);
 		OSQPost(shift_matching_q, (void*)req);
 		curr_gear = new_gear;
+		output_curr_gear(curr_gear);
 		OSSemPend(rpm_reached_flag, Q_TIMEOUT_WAIT_FOREVER, &err);
 		free(req);
 		IOWR_ALTERA_AVALON_PIO_IRQ_MASK(BUTTONS_BASE, BUTTON_INPUT_SHIFT_UP | BUTTON_INPUT_SHIFT_DOWN);

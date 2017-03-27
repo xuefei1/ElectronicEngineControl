@@ -17,7 +17,7 @@
   </columns>
  </clocktable>
  <library
-   expandedCategories="Library/Peripherals,Library/Peripherals/Microcontroller Peripherals,Project,Library" />
+   expandedCategories="Project,Library,Library/Peripherals/Microcontroller Peripherals,Library/Peripherals" />
  <window width="1460" height="856" x="-9" y="20" />
  <hdlexample language="VHDL" />
 </preferences>

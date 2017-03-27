@@ -34,5 +34,13 @@ INT16U get_RPM(){
 }
 
 void output_curr_gear(INT8U gear){
-
+	if(gear == 1){
+		*(INT8U*)CURR_GEAR_OUT_BASE = 0;
+	}else if(gear == 2){
+		*(INT8U*)CURR_GEAR_OUT_BASE = 1;
+	}else if(gear == 4){
+		*(INT8U*)CURR_GEAR_OUT_BASE = 3;
+	}else{
+		*(INT8U*)CURR_GEAR_OUT_BASE = 2;
+	}
 }

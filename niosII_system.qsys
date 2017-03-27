@@ -44,22 +44,6 @@
          type = "String";
       }
    }
-   element pwm_generator_throttle_open.avalon_slave_control
-   {
-      datum baseAddress
-      {
-         value = "67145995";
-         type = "String";
-      }
-   }
-   element pwm_generator_test.avalon_slave_control
-   {
-      datum baseAddress
-      {
-         value = "67145992";
-         type = "String";
-      }
-   }
    element pwm_generator_throttle_close.avalon_slave_control
    {
       datum baseAddress
@@ -76,19 +60,19 @@
          type = "String";
       }
    }
-   element pwm_generator_test.avalon_slave_duty
+   element pwm_generator_throttle_open.avalon_slave_control
    {
       datum baseAddress
       {
-         value = "67145960";
+         value = "67145995";
          type = "String";
       }
    }
-   element pwm_generator_throttle_close.avalon_slave_duty
+   element pwm_generator_test.avalon_slave_control
    {
       datum baseAddress
       {
-         value = "67145968";
+         value = "67145992";
          type = "String";
       }
    }
@@ -100,6 +84,14 @@
          type = "String";
       }
    }
+   element pwm_generator_throttle_close.avalon_slave_duty
+   {
+      datum baseAddress
+      {
+         value = "67145968";
+         type = "String";
+      }
+   }
    element pwm_generator_throttle_open.avalon_slave_duty
    {
       datum baseAddress
@@ -108,11 +100,11 @@
          type = "String";
       }
    }
-   element pwm_generator_test.avalon_slave_period
+   element pwm_generator_test.avalon_slave_duty
    {
       datum baseAddress
       {
-         value = "67145964";
+         value = "67145960";
          type = "String";
       }
    }
@@ -124,6 +116,14 @@
          type = "String";
       }
    }
+   element pwm_generator_throttle_close.avalon_slave_period
+   {
+      datum baseAddress
+      {
+         value = "67145972";
+         type = "String";
+      }
+   }
    element pwm_generator_throttle_open.avalon_slave_period
    {
       datum baseAddress
@@ -132,11 +132,11 @@
          type = "String";
       }
    }
-   element pwm_generator_throttle_close.avalon_slave_period
+   element pwm_generator_test.avalon_slave_period
    {
       datum baseAddress
       {
-         value = "67145972";
+         value = "67145964";
          type = "String";
       }
    }
@@ -276,6 +276,38 @@
          type = "int";
       }
    }
+   element buttons.s1
+   {
+      datum baseAddress
+      {
+         value = "67145872";
+         type = "String";
+      }
+   }
+   element solenoid_out.s1
+   {
+      datum baseAddress
+      {
+         value = "67145728";
+         type = "String";
+      }
+   }
+   element timestamp_timer.s1
+   {
+      datum baseAddress
+      {
+         value = "67145760";
+         type = "String";
+      }
+   }
+   element sdram_0.s1
+   {
+      datum baseAddress
+      {
+         value = "33554432";
+         type = "String";
+      }
+   }
    element sys_clk_timer.s1
    {
       datum _tags
@@ -289,11 +321,11 @@
          type = "String";
       }
    }
-   element solenoid_out.s1
+   element onchip_memory2_0.s1
    {
       datum baseAddress
       {
-         value = "67145728";
+         value = "67125248";
          type = "String";
       }
    }
@@ -305,14 +337,6 @@
          type = "String";
       }
    }
-   element onchip_memory2_0.s1
-   {
-      datum baseAddress
-      {
-         value = "67125248";
-         type = "String";
-      }
-   }
    element switch.s1
    {
       datum baseAddress
@@ -321,35 +345,11 @@
          type = "String";
       }
    }
-   element timestamp_timer.s1
-   {
-      datum baseAddress
-      {
-         value = "67145760";
-         type = "String";
-      }
-   }
    element green_leds.s1
    {
       datum baseAddress
       {
          value = "67145904";
-         type = "String";
-      }
-   }
-   element buttons.s1
-   {
-      datum baseAddress
-      {
-         value = "67145872";
-         type = "String";
-      }
-   }
-   element sdram_0.s1
-   {
-      datum baseAddress
-      {
-         value = "33554432";
          type = "String";
       }
    }
@@ -421,7 +421,7 @@
  <parameter name="projectName">electronic_engine_control.qpf</parameter>
  <parameter name="sopcBorderPoints" value="false" />
  <parameter name="systemHash" value="1" />
- <parameter name="timeStamp" value="1490559271428" />
+ <parameter name="timeStamp" value="1490577826179" />
  <parameter name="useTestBenchNamingPattern" value="false" />
  <instanceScript></instanceScript>
  <interface name="altpll_0_c0" internal="altpll_0.c0" type="clock" dir="start">
@@ -1048,7 +1048,7 @@
   <parameter name="resetValue" value="0" />
   <parameter name="simDoTestBenchWiring" value="false" />
   <parameter name="simDrivenValue" value="0" />
-  <parameter name="width" value="2" />
+  <parameter name="width" value="8" />
  </module>
  <connection
    kind="avalon"

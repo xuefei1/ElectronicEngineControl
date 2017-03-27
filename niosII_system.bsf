@@ -222,8 +222,8 @@ applicable agreement for further details.
 	(port
 		(pt 0 904)
 		(output)
-		(text "curr_gear_out_external_connection_export[1..0]" (rect 0 0 191 12)(font "Arial" (font_size 8)))
-		(text "curr_gear_out_external_connection_export[1..0]" (rect 4 893 280 904)(font "Arial" (font_size 8)))
+		(text "curr_gear_out_external_connection_export[7..0]" (rect 0 0 192 12)(font "Arial" (font_size 8)))
+		(text "curr_gear_out_external_connection_export[7..0]" (rect 4 893 280 904)(font "Arial" (font_size 8)))
 		(line (pt 0 904)(pt 256 904)(line_width 3))
 	)
 	(port
