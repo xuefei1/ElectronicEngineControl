@@ -19,7 +19,7 @@
 #define INVALID_MEM_ADDR			NULL
 
 /*
- * Supports upto 32 different malloc calls
+ * Supports upto MAX_ALLOCATION_COUNT different malloc calls
  * If the same malloc call is used in a loop, make sure they have the same allocator id
  */
 #define MAX_ALLOCATION_COUNT		32

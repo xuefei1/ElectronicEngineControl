@@ -98,7 +98,7 @@ void solenoid_task(void* pdata) {
 			printf("External failure, block solenoid task\n");
 			OSSemPend(solenoid_failure_resolved_flag, Q_TIMEOUT_WAIT_FOREVER, &err);
 		}
-		printf("cmd:%d\n", shift_command);
+		printf("cmd:%lu\n", shift_command);
 		if (OSSemAccept(timer_active_flag) == OS_SEM_FLAG_SHIFTING){
 			continue;
 		}
@@ -158,7 +158,7 @@ void solenoid_task(void* pdata) {
 			alarm = (alt_alarm*)malloc(sizeof(alt_alarm));
 			alt_alarm_start(alarm, SOLENOID_OPEN_DURATION_TICKS, &solenoid_callback, NULL);
 		}else {
-			printf("Unknown shift command received: %d\n", shift_command);
+			printf("Unknown shift command received: %lu\n", shift_command);
 		}
 #if defined(RUN_AVG_TASK_TIME_TEST)
 		iteration_count++;
