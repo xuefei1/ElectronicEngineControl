@@ -62,6 +62,10 @@ void release_lock(){
 	OSSemPost(lock);
 }
 
+INT32U get_num_active_allocations(){
+	return num_active_allocations;
+}
+
 /*
  * Call this function for every unique request_malloc() you have in your code
  *

@@ -34,6 +34,8 @@ void init();
 
 INT32U get_new_allocation_id();
 
+INT32U get_num_active_allocations();
+
 void* request_malloc(INT32U allocation_id, INT32U size_bytes, char* tag);
 
 void free_existing_malloc(INT32U allocation_id);
