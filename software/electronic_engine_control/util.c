@@ -60,10 +60,10 @@ pwm_gen_module* get_tps_sensor_output_pwm(){
 	return get_new_pwm_module(PWM_GENERATOR_TPS_OUT_AVALON_SLAVE_PERIOD_BASE, PWM_GENERATOR_TPS_OUT_AVALON_SLAVE_DUTY_BASE, PWM_GENERATOR_TPS_OUT_AVALON_SLAVE_CONTROL_BASE, TPS_OUT_PWM_PERIOD_TICKS, 0);
 }
 
-void set_tps_sensor_output(pwm_gen_module* pwm, INT32U tps_val){
-	INT8U duty_cycle = tps_val * FLOAT_SCALE_FACTOR_100 / TPS_VALID_VALUE_FULLY_CLOSED;
-	disable_pwm_output(pwm);
-	set_duty_cycle(pwm, duty_cycle);
-	enable_pwm_output(pwm);
+void clean_alarm(alt_alarm* alarm){
+	if(alarm == NULL)
+		return;
+	alt_stop_alarm(alarm);
+	free(alarm);
+	alarm = NULL;
 }
-

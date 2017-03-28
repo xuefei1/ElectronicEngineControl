@@ -60,6 +60,22 @@ INT16U get_throttle_open_deg_from_apps(INT16U apps_reading){
 	return MAX_THROTTLE_DEG;
 }
 
+INT16U get_tps_from_apps(INT16U apps_reading){
+	if(apps_reading >= APPS_VALID_VALUE_FULLY_PRESSED){
+			return throttle_deg_tps_val_map[MAX_THROTTLE_DEG];
+	}
+	if(apps_reading <= APPS_VALID_VALUE_FULLY_RELEASED){
+		return throttle_deg_tps_val_map[MIN_THROTTLE_DEG];
+	}
+	INT8U upper;
+	for(upper = 1; upper < MAX_THROTTLE_DEG; upper++){
+		if(apps_reading <= throttle_deg_apps_val_map[upper] && apps_reading > throttle_deg_apps_val_map[upper - 1]){
+			return throttle_deg_tps_val_map[upper];
+		}
+	}
+	return throttle_deg_tps_val_map[MAX_THROTTLE_DEG];
+}
+
 INT16U get_throttle_open_deg_from_tps(INT16U tps_reading){
 	if(tps_reading >= TPS_VALID_VALUE_FULLY_OPENED){
 			return MAX_THROTTLE_DEG;

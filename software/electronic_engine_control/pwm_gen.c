@@ -37,6 +37,17 @@ void set_duty_cycle(pwm_gen_module* module, INT8U percent){
 	}
 }
 
+void set_duty_cycle_1_sig_fig(pwm_gen_module* module, INT16U percent){
+	if(percent / DUTY_SCALE_FACTOR > PWM_DUTY_CYCLE_HIGH)
+		percent = PWM_DUTY_CYCLE_HIGH;
+	if(percent != module->duty_cycle){
+		INT32U new_duty = (INT32U) (module->period * percent / DUTY_SCALE_FACTOR_1_SIG_FIG);
+		module->duty_count = new_duty;
+		module->duty_cycle = percent;
+		*(INT32U*)module->duty_base = module->duty_count;
+	}
+}
+
 pwm_gen_module* get_new_pwm_module(INT32U p_base, INT32U d_base, INT32U c_base, INT32U p, INT8U d_cycle){
 	pwm_gen_module* ptr = (pwm_gen_module*) malloc(sizeof(pwm_gen_module));
 	ptr->period_base = p_base;

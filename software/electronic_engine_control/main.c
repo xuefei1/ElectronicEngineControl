@@ -44,7 +44,7 @@ void test_task(void* pdata) {
 //		TEST_THROTTLE_OPEN(45);
 //		OSTimeDlyHMSM(0,0,5,0);
 
-		//Test_pwm_gen(150000, 75);
+		Test_pwm_gen(150000, 75);
 		OSTimeDlyHMSM(0,0,5,0);
 		Test_pwm_gen(150000, 50);
 		OSTimeDlyHMSM(0,0,5,0);

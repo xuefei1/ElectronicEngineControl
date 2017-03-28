@@ -12,6 +12,8 @@
 
 #include "proj_config.h"
 
+#define ENGINE_SOUND_PERIOD_TICKS			150000
+
 #define MAX_RPM								8000
 
 #define MIN_RPM								500
@@ -39,5 +41,7 @@ INT8U get_gear_ratio(INT8U gear);
 void output_curr_gear(INT8U gear);
 
 INT16U get_RPM();
+
+void generate_engine_sound(INT16U apps_val);
 
 #endif /* ENG_TRANS_DATA_H_ */

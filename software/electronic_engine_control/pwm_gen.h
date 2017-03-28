@@ -15,8 +15,10 @@
 #define PWM_CONTROL_ENABLE_OUTPUT			1
 
 #define DUTY_SCALE_FACTOR					100
+#define DUTY_SCALE_FACTOR_1_SIG_FIG			1000
 
 #define PWM_DUTY_CYCLE_LOW					0
+#define PWM_DUTY_CYCLE_HALF					50
 #define PWM_DUTY_CYCLE_HIGH					100
 
 typedef struct  {

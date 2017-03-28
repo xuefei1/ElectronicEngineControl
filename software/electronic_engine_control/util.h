@@ -31,4 +31,6 @@ pwm_gen_module* get_tps_sensor_output_pwm();
 
 void set_tps_sensor_output(pwm_gen_module* pwm, INT32U tps_val);
 
+void clean_alarm(alt_alarm* alarm);
+
 #endif /* UTIL_H_ */

@@ -23,10 +23,10 @@ OS_EVENT *apps_failure_flag;
 OS_EVENT *motor_tps_failure_flag;
 
 /* Flag indicating failures detected in other tasks */
-OS_EVENT *apps_external_failure_flag;
+OS_EVENT *throttle_task_external_failure_flag;
 
 /* Flag indicating failure resolved */
-OS_EVENT *apps_failure_resolved_flag;
+OS_EVENT *apps_task_failure_resolved_flag;
 
 OS_EVENT *failure_msg_q;
 
@@ -66,8 +66,8 @@ void apps_task(void* pdata) {
 
 	apps_failure_flag = OSSemCreate(SEM_FLAG_NO_ERROR);
 	motor_tps_failure_flag = OSSemCreate(SEM_FLAG_NO_ERROR);
-	apps_external_failure_flag = OSSemCreate(SEM_FLAG_NO_ERROR);
-	apps_failure_resolved_flag = OSSemCreate(SEM_FLAG_ERROR_UNRESOLVED);
+	throttle_task_external_failure_flag = OSSemCreate(SEM_FLAG_NO_ERROR);
+	apps_task_failure_resolved_flag = OSSemCreate(SEM_FLAG_ERROR_UNRESOLVED);
 	exit_shift_matching_flag = OSSemCreate(SHIFT_MATCHING_IN_PROGRESS);
 
 	INT32U target_RPM = 0;
@@ -106,14 +106,14 @@ void apps_task(void* pdata) {
 #if !defined(RUN_AVG_TASK_TIME_TEST)
 		if(OSSemAccept(motor_tps_failure_flag) != SEM_FLAG_NO_ERROR){
 			printf("Possible motor failure, block apps_task\n");
-			OSSemPend(apps_failure_resolved_flag, Q_TIMEOUT_WAIT_FOREVER, &err);
+			OSSemPend(apps_task_failure_resolved_flag, Q_TIMEOUT_WAIT_FOREVER, &err);
 		}else if(OSSemAccept(apps_failure_flag) != SEM_FLAG_NO_ERROR){
 			printf("Possible APPS failure, block apps_task\n");
 			apps_check_timer_activated = FALSE;
-			OSSemPend(apps_failure_resolved_flag, Q_TIMEOUT_WAIT_FOREVER, &err);
-		}else if(OSSemAccept(apps_external_failure_flag) != SEM_FLAG_NO_ERROR){
+			OSSemPend(apps_task_failure_resolved_flag, Q_TIMEOUT_WAIT_FOREVER, &err);
+		}else if(OSSemAccept(throttle_task_external_failure_flag) != SEM_FLAG_NO_ERROR){
 			printf("External failure, block apps_task\n");
-			OSSemPend(apps_failure_resolved_flag, Q_TIMEOUT_WAIT_FOREVER, &err);
+			OSSemPend(apps_task_failure_resolved_flag, Q_TIMEOUT_WAIT_FOREVER, &err);
 		}
 #endif
 		//WSS checking
@@ -292,11 +292,11 @@ OS_EVENT* get_motor_failure_flag(){
 }
 
 OS_EVENT* get_apps_task_external_failure_flag(){
-	return apps_external_failure_flag;
+	return throttle_task_external_failure_flag;
 }
 
 OS_EVENT* get_apps_task_failure_resolved_flag(){
-	return apps_failure_resolved_flag;
+	return apps_task_failure_resolved_flag;
 }
 
 void signal_exit_shift_matching(){
