@@ -1,5 +1,5 @@
-obj/default/eng_trans_data.o: eng_trans_data.c eng_trans_data.h \
-  proj_config.h custom_types.h \
+obj/default/throttle_control_task.o: throttle_control_task.c \
+  throttle_control_task.h proj_config.h custom_types.h \
   ../electronic_engine_control_bsp//HAL/inc/includes.h \
   ../electronic_engine_control_bsp//HAL/inc/os_cpu.h \
   ../electronic_engine_control_bsp//HAL/inc/sys/alt_irq.h \
@@ -34,9 +34,12 @@ obj/default/eng_trans_data.o: eng_trans_data.c eng_trans_data.h \
   ../electronic_engine_control_bsp//HAL/inc/sys/alt_timestamp.h \
   ../electronic_engine_control_bsp//drivers/inc/altera_avalon_timer.h \
   ../electronic_engine_control_bsp//HAL/inc/alt_types.h test_config.h \
-  tests/CuTest.h mem_manager.h pwm_gen.h
+  tests/CuTest.h mem_manager.h solenoid_task.h \
+  ../electronic_engine_control_bsp//drivers/inc/altera_avalon_pio_regs.h \
+  eng_trans_data.h pwm_gen.h util.h throttle_data.h \
+  ../electronic_engine_control_bsp//drivers/inc/altera_avalon_timer.h
 
-eng_trans_data.h:
+throttle_control_task.h:
 
 proj_config.h:
 
@@ -116,4 +119,16 @@ tests/CuTest.h:
 
 mem_manager.h:
 
+solenoid_task.h:
+
+../electronic_engine_control_bsp//drivers/inc/altera_avalon_pio_regs.h:
+
+eng_trans_data.h:
+
 pwm_gen.h:
+
+util.h:
+
+throttle_data.h:
+
+../electronic_engine_control_bsp//drivers/inc/altera_avalon_timer.h:

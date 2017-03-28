@@ -30,24 +30,25 @@
 /* Definition of Task Stacks */
 #define TASK_STACKSIZE       				2048
 
-/* 16kHz under a 50Mhz clock, yields 3125 clk ticks per period */
+/* 20kHz under a 50Mhz clock, yields 3125 clk ticks per period */
 #define MOTOR_PWM_PERIOD_TICKS				2500
-#define MOTOR_PWM_DUTY_CYCLE_FULLY_OPEN		32
-#define MOTOR_PWM_DUTY_CYCLE_FULLY_CLOSE	60
+#define MOTOR_PWM_DUTY_CYCLE_FULLY_OPEN		340
+#define MOTOR_PWM_DUTY_CYCLE_FULLY_CLOSE	600
+#define MOTOR_PWM_DUTY_CYCLE_RESOLUTION		5
 
 /* 16kHz under a 50Mhz clock, yields 3125 clk ticks per period */
 #define TPS_OUT_PWM_PERIOD_TICKS			3125
 
 /* APPS valid value range based on pedal travel, note this is the average of two sensors */
 #define APPS_VALID_VALUE_FULLY_RELEASED		660
-#define APPS_VALID_VALUE_FULLY_PRESSED		3400
+#define APPS_VALID_VALUE_FULLY_PRESSED		3200
 
 /* TPS valid value range based on throttle plate travel, note this is the average of two sensors */
-#define TPS_VALID_VALUE_FULLY_OPENED		3500
+#define TPS_VALID_VALUE_FULLY_OPENED		3600
 #define TPS_VALID_VALUE_FULLY_CLOSED		810
 
 /* When APPS reading differ from last value by at least this much, we consider it as a new value */
-#define APPS_VALUE_CHANGE_THRESHOLD			100
+#define APPS_VALUE_CHANGE_THRESHOLD			20
 
 /* When two APPS reading differ by this much percent, we have a failure */
 #define APPS_VALUE_DIFFERENCE_PERCENT		200
@@ -56,10 +57,10 @@
 #define TPS_VALUE_DIFFERENCE_PERCENT		10
 
 /* Actual TPS reading can be different from expected by at most this much */
-#define TPS_VALUE_TOLERANCE					100
+#define TPS_VALUE_TOLERANCE					50
 
 /* Two TPS readings can be different by at most this much */
-#define TPS_VALUE_DIFFERENCE				3200
+#define TPS_VALUE_DIFFERENCE				3000
 
 /* Actual RPM reading can be different from expected by at most this much */
 #define RPM_VALUE_TOLERANCE					150
@@ -79,10 +80,10 @@
 /* Solenoids will open for 200 ms */
 #define SOLENOID_OPEN_DURATION_TICKS		200
 
-/* Time constraint for throttle plate to reach desired position: 1 second */
-#define MOTOR_DRIVE_DELAY_TICKS				3000
+/* Time constraint for throttle plate to reach desired position */
+#define MOTOR_DRIVE_DELAY_TICKS				1000
 
-/* Time constraint for throttle plate to desired RPM: 2 second */
+/* Time constraint for throttle plate to desired RPM */
 #define MOTOR_RPM_DRIVE_DELAY_TICKS			2000
 
 #define SEM_TIMEOUT_WAIT_FOREVER			0
@@ -128,8 +129,6 @@
 #define LED_FLASH_PERIOD_MS					500
 
 alt_up_de0_nano_adc_dev* get_adc();
-
-void disp_err(INT8U err, char *msg);
 
 /* Tasks use this Q to post failure codes to the failure handler */
 OS_EVENT* get_failure_msg_q();

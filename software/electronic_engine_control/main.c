@@ -13,17 +13,15 @@
 
 #include "proj_config.h"
 #include "test_config.h"
-#include "apps_task.h"
 #include "solenoid_task.h"
 #include "failure_handler_task.h"
-#include "motor_control_task.h"
+#include "throttle_control_task.h"
 
 /* Definition of Task Stacks */
-OS_STK apps_task_stk[TASK_STACKSIZE];
 OS_STK failure_handler_task_stk[TASK_STACKSIZE];
 OS_STK solenoid_task_stk[TASK_STACKSIZE];
 OS_STK test_task_stk[TASK_STACKSIZE];
-OS_STK motor_control_task_stk[TASK_STACKSIZE];
+OS_STK throttle_control_task_stk[TASK_STACKSIZE];
 
 alt_up_de0_nano_adc_dev* adc;
 
@@ -68,8 +66,6 @@ int main(void) {
 
 	throttle_data_init();
 
-	//Test_pwm_gen(150000, 50);
-
 //	OSTaskCreateExt(test_task, NULL, (void *) &test_task_stk[TASK_STACKSIZE - 1],
 //			TEST_TASK_PRIO, TEST_TASK_PRIO, test_task_stk, TASK_STACKSIZE,
 //			NULL, 0);
@@ -79,14 +75,9 @@ int main(void) {
 			FAILURE_HANDLER_TASK_PRIORITY, FAILURE_HANDLER_TASK_PRIORITY,
 			failure_handler_task_stk, TASK_STACKSIZE, NULL, 0);
 
-	OSTaskCreateExt(motor_control_task, NULL, (void *) &motor_control_task_stk[TASK_STACKSIZE - 1],
-			MOTOR_CONTROL_TASK_PRIORITY, MOTOR_CONTROL_TASK_PRIORITY, motor_control_task_stk, TASK_STACKSIZE,
+	OSTaskCreateExt(throttle_control_task, NULL, (void *) &throttle_control_task_stk[TASK_STACKSIZE - 1],
+			THROTTLE_CONTROL_TASK_PRIORITY, THROTTLE_CONTROL_TASK_PRIORITY, throttle_control_task_stk, TASK_STACKSIZE,
 			NULL, 0);
-
-	OSTaskCreateExt(apps_task, NULL,
-			(void *) &apps_task_stk[TASK_STACKSIZE - 1],
-			APPS_TASK_PRIORITY, APPS_TASK_PRIORITY,
-			apps_task_stk, TASK_STACKSIZE, NULL, 0);
 
 	OSTaskCreateExt(solenoid_task, NULL, (void *) &solenoid_task_stk[TASK_STACKSIZE - 1],
 			SOLENOID_TASK_PRIORITY, SOLENOID_TASK_PRIORITY, solenoid_task_stk, TASK_STACKSIZE,
@@ -100,11 +91,6 @@ int main(void) {
 /* Get ADC controller instance */
 alt_up_de0_nano_adc_dev* get_adc() {
 	return adc;
-}
-
-/* Display error message */
-void disp_err(INT8U err, char *msg) {
-	printf("%d:%s\n", err, msg);
 }
 
 /* Getter for failure_message Q for every other task to use */

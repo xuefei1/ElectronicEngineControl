@@ -9,7 +9,7 @@
  */
 #include "throttle_control_task.h"
 /* Used to accept possible commands from other modules */
-OS_EVENT *motor_cmd_q;
+OS_EVENT *shift_matching_q;
 /* Flag indicating possible APPS failure */
 OS_EVENT *apps_failure_flag;
 /* Flag indicating possible TPS failure */
@@ -22,16 +22,16 @@ OS_EVENT *throttle_task_external_failure_flag;
 OS_EVENT *throttle_task_failure_resolved_flag;
 OS_EVENT *failure_msg_q;
 OS_EVENT *exit_shift_matching_flag;
+INT16U shift_cmd_q_buf[MOTOR_CMD_Q_SIZE_ELEMENTS];
 alt_up_de0_nano_adc_dev* adc;
-INT16U motor_cmd_q_buf[MOTOR_CMD_Q_SIZE_ELEMENTS];
 
-void set_throttle_by_duty_cycle(pwm_gen_module* pwm_throttle_open, pwm_gen_module* pwm_throttle_close, INT8U duty_cycle){
+void set_throttle_by_duty_cycle(pwm_gen_module* pwm_throttle_open, pwm_gen_module* pwm_throttle_close, INT16U duty_cycle){
 	set_duty_cycle(pwm_throttle_open, duty_cycle);
 	set_duty_cycle(pwm_throttle_close, PWM_DUTY_CYCLE_HIGH);
 }
 
-void increase_throttle_by_feedback(pwm_gen_module* pwm_throttle_open, pwm_gen_module* pwm_throttle_close, INT8U* curr_duty_cycle){
-	INT8U new_duty_cycle = *curr_duty_cycle - 1;
+void increase_throttle_by_feedback(pwm_gen_module* pwm_throttle_open, pwm_gen_module* pwm_throttle_close, INT16U* curr_duty_cycle){
+	INT16U new_duty_cycle = *curr_duty_cycle - MOTOR_PWM_DUTY_CYCLE_RESOLUTION;
 	if(new_duty_cycle > MOTOR_PWM_DUTY_CYCLE_FULLY_CLOSE)
 		new_duty_cycle = MOTOR_PWM_DUTY_CYCLE_FULLY_CLOSE;
 	if(new_duty_cycle < MOTOR_PWM_DUTY_CYCLE_FULLY_OPEN)
@@ -46,13 +46,15 @@ void decrease_throttle(pwm_gen_module* pwm_throttle_open, pwm_gen_module* pwm_th
 }
 
 alt_u32 watchdog_throttle_position_callback(void* context){
-	clean_alarm((alt_alarm*)context);
+	alt_alarm* alarm  = (alt_alarm*)context;
+	clean_alarm(&alarm);
 	printf("watchdog throttle position timeout");
 	return 0;
 }
 
 alt_u32 watchdog_rpm_matching_callback(void* context){
-	clean_alarm((alt_alarm*)context);
+	alt_alarm* alarm  = (alt_alarm*)context;
+	clean_alarm(&alarm);
 	printf("watchdog rpm matching timeout");
 	return 0;
 }
@@ -65,11 +67,11 @@ alt_u32 apps_value_comp_callback(void* context){
 	INT16U apps_2_reading = alt_up_de0_nano_adc_read(adc,
 			APPS_2_ADC_CHANNEL);
 	if (APPS_VALUE_MISMATCH(apps_1_reading, apps_2_reading)) {
-		OSSemPost(apps_failure_flag);
+		if(OSSemAccept(apps_failure_flag) == SEM_FLAG_NO_ERROR)	OSSemPost(apps_failure_flag);
 		OSQPost(failure_msg_q, (void*) ERR_APPS_READING_MISMATCH);
 	}
 	free((alt_alarm*) context);
-	((alt_alarm*) context) = NULL;
+	context = NULL;
 	return 0;
 }
 
@@ -79,11 +81,11 @@ alt_u32 tps_value_comp_callback(void* context){
 	INT32U tps_1_reading = alt_up_de0_nano_adc_read(adc, TPS_1_ADC_CHANNEL);
 	INT32U tps_2_reading = alt_up_de0_nano_adc_read(adc, TPS_2_ADC_CHANNEL);
 	if (TPS_VALUE_MISMATCH(tps_1_reading, tps_2_reading)) {
-		OSSemPost(tps_failure_flag);
+		if(OSSemAccept(tps_failure_flag) == SEM_FLAG_NO_ERROR)	OSSemPost(tps_failure_flag);
 		OSQPost(failure_msg_q, (void*) ERR_TPS_READING_MISMATCH);
 	}
 	free((alt_alarm*) context);
-	((alt_alarm*) context) = NULL;
+	context = NULL;
 	return 0;
 }
 
@@ -95,19 +97,19 @@ void check_tps_values(INT16U tps_1_reading, INT16U tps_2_reading){
 			alt_alarm_start(tps_check_alarm, SENSOR_VAL_COMP_DELAY_TICKS, &tps_value_comp_callback, tps_check_alarm);
 		}
 	}else{
-		clean_alarm(tps_check_alarm);
+		clean_alarm(&tps_check_alarm);
 	}
 }
 
 void check_apps_values(INT16U apps_1_reading, INT16U apps_2_reading){
 	static alt_alarm* apps_check_alarm = NULL;
-	if (TPS_VALUE_MISMATCH(apps_1_reading, apps_2_reading)) {
+	if (APPS_VALUE_MISMATCH(apps_1_reading, apps_2_reading)) {
 		if(apps_check_alarm == NULL){
 			apps_check_alarm = (alt_alarm*) malloc(sizeof(alt_alarm));
 			alt_alarm_start(apps_check_alarm, SENSOR_VAL_COMP_DELAY_TICKS, &apps_value_comp_callback, apps_check_alarm);
 		}
 	}else{
-		clean_alarm(apps_check_alarm);
+		clean_alarm(&apps_check_alarm);
 	}
 }
 
@@ -144,7 +146,6 @@ void throttle_control_task(void* pdata) {
 
 	adc = get_adc();
 	INT8U err;
-
 	failure_msg_q = get_failure_msg_q();
 	apps_failure_flag = OSSemCreate(SEM_FLAG_NO_ERROR);
 	tps_failure_flag = OSSemCreate(SEM_FLAG_NO_ERROR);
@@ -160,8 +161,8 @@ void throttle_control_task(void* pdata) {
 	BOOL slip_control_mode = FALSE;
 	BOOL shift_matching_mode = FALSE;
 	INT16U last_apps_1_reading = 0;
-	motor_cmd_q = OSQCreate((void*) motor_cmd_q_buf, MOTOR_CMD_Q_SIZE_ELEMENTS);
-	if (motor_cmd_q == NULL) {
+	shift_matching_q = OSQCreate((void*) shift_cmd_q_buf, MOTOR_CMD_Q_SIZE_ELEMENTS);
+	if (shift_matching_q == NULL) {
 		printf("failed to init q\n");
 		return;
 	}
@@ -192,14 +193,21 @@ void throttle_control_task(void* pdata) {
 
 	while (1) {
 #if !defined(RUN_AVG_TASK_TIME_TEST)
-		if(OSSemAccept(motor_tps_failure_flag) != SEM_FLAG_NO_ERROR){
+		if(OSSemAccept(motor_failure_flag) != SEM_FLAG_NO_ERROR){
 			printf("Possible motor failure, block apps_task\n");
+			decrease_throttle(pwm_throttle_open, pwm_throttle_close);
 			OSSemPend(throttle_task_failure_resolved_flag, Q_TIMEOUT_WAIT_FOREVER, &err);
 		}else if(OSSemAccept(apps_failure_flag) != SEM_FLAG_NO_ERROR){
 			printf("Possible APPS failure, block apps_task\n");
+			decrease_throttle(pwm_throttle_open, pwm_throttle_close);
+			OSSemPend(throttle_task_failure_resolved_flag, Q_TIMEOUT_WAIT_FOREVER, &err);
+		}else if(OSSemAccept(tps_failure_flag) != SEM_FLAG_NO_ERROR){
+			printf("Possible TPS failure, block apps_task\n");
+			decrease_throttle(pwm_throttle_open, pwm_throttle_close);
 			OSSemPend(throttle_task_failure_resolved_flag, Q_TIMEOUT_WAIT_FOREVER, &err);
 		}else if(OSSemAccept(throttle_task_external_failure_flag) != SEM_FLAG_NO_ERROR){
 			printf("External failure, block apps_task\n");
+			decrease_throttle(pwm_throttle_open, pwm_throttle_close);
 			OSSemPend(throttle_task_failure_resolved_flag, Q_TIMEOUT_WAIT_FOREVER, &err);
 		}
 #endif
@@ -209,8 +217,9 @@ void throttle_control_task(void* pdata) {
 		INT16U tps_2_reading = alt_up_de0_nano_adc_read(adc, TPS_2_ADC_CHANNEL);
 		check_tps_values(tps_1_reading, tps_2_reading);
 		if(WSS_VALUE_MISMATCH(WSS_1_ADC_CHANNEL, WSS_2_ADC_CHANNEL)){
-			*(INT8U*)GREEN_LEDS_BASE = WSS_ACTIVE_LED;
+			printf("wss active\n");
 			if(slip_control_mode == TRUE) continue;
+			*(INT8U*)GREEN_LEDS_BASE = WSS_ACTIVE_LED;
 			slip_control_mode = TRUE;
 			set_new_throttle_position_by_tps(pwm_throttle_open, pwm_throttle_close,
 					&curr_duty_cycle, SLIP_CONTROL_THROTTLE_POS, tps_1_reading);
@@ -223,11 +232,12 @@ void throttle_control_task(void* pdata) {
 		//Shift matching
 		alt_up_de0_nano_adc_update(adc);
 		if(shift_matching_mode == TRUE){
+			printf("shift matching mode active\n");
 			if(FALSE == set_new_throttle_position_by_rpm(pwm_throttle_open, pwm_throttle_close,
 					&curr_duty_cycle, expected_rpm, get_RPM())){
 				continue;
 			}else{
-				clean_alarm(watchdog_rpm_matching);
+				clean_alarm(&watchdog_rpm_matching);
 				signal_shift_start();
 				OSSemPend(exit_shift_matching_flag, Q_TIMEOUT_WAIT_FOREVER, &err);
 				shift_matching_mode = FALSE;
@@ -236,11 +246,12 @@ void throttle_control_task(void* pdata) {
 
 		shift_req* ptr = NULL;
 		if(shift_matching_mode == FALSE){
-			ptr = (shift_req*) OSQAccept(motor_cmd_q, &err);
+			ptr = (shift_req*) OSQAccept(shift_matching_q, &err);
 			if(ptr != NULL){
+				printf("start shift matching\n");
 				shift_matching_mode = TRUE;
 				expected_rpm = get_new_rpm_needed(alt_up_de0_nano_adc_read(adc, RPM_ADC_CHANNEL), ptr->curr_gear, ptr->new_gear);
-				clean_alarm(watchdog_rpm_matching);
+				clean_alarm(&watchdog_rpm_matching);
 				watchdog_rpm_matching = (alt_alarm*) malloc(sizeof(alt_alarm));
 				alt_alarm_start(watchdog_rpm_matching, MOTOR_RPM_DRIVE_DELAY_TICKS, &watchdog_rpm_matching_callback, (void*) watchdog_rpm_matching);
 				continue;
@@ -255,22 +266,22 @@ void throttle_control_task(void* pdata) {
 				APPS_2_ADC_CHANNEL);
 		if (APPS_VALUE_CHANGED(apps_1_reading, last_apps_1_reading)) {
 			last_apps_1_reading = apps_1_reading;
-			clean_alarm(watchdog_throttle_position);
+			clean_alarm(&watchdog_throttle_position);
 			generate_engine_sound(get_throttle_open_deg_from_apps(apps_1_reading));
 			check_apps_values(apps_1_reading, apps_2_reading);
 			expected_tps_reading = get_tps_from_apps(apps_1_reading);
 			watchdog_throttle_position = (alt_alarm*) malloc(sizeof(alt_alarm));
-			printf("apps1 read value:%d\n", apps_1_reading);
-			printf("apps2 read value:%d\n", apps_2_reading);
+//			printf("apps1 read value:%d\n", apps_1_reading);
+//			printf("apps2 read value:%d\n", apps_2_reading);
 			alt_alarm_start(watchdog_throttle_position, MOTOR_DRIVE_DELAY_TICKS, &watchdog_throttle_position_callback, (void*) watchdog_throttle_position);
 		}
-		INT16U tps_1_reading = alt_up_de0_nano_adc_read(adc, TPS_1_ADC_CHANNEL);
-		INT16U tps_2_reading = alt_up_de0_nano_adc_read(adc, TPS_2_ADC_CHANNEL);
+		tps_1_reading = alt_up_de0_nano_adc_read(adc, TPS_1_ADC_CHANNEL);
+		tps_2_reading = alt_up_de0_nano_adc_read(adc, TPS_2_ADC_CHANNEL);
 		check_tps_values(tps_1_reading, tps_2_reading);
 		INT16U curr_tps_reading = tps_1_reading;
 		if(TRUE == set_new_throttle_position_by_tps(pwm_throttle_open, pwm_throttle_close, &curr_duty_cycle,
 				expected_tps_reading, curr_tps_reading)){
-			clean_alarm(watchdog_throttle_position);
+			clean_alarm(&watchdog_throttle_position);
 		}
 
 #if defined(RUN_AVG_TASK_TIME_TEST)
@@ -288,19 +299,15 @@ void throttle_control_task(void* pdata) {
 }
 
 /* Getter for motor command Q for other modules to use */
-OS_EVENT* get_motor_cmd_q() {
-	return motor_cmd_q;
+OS_EVENT* get_shift_matching_q() {
+	return shift_matching_q;
 }
 
-OS_EVENT* get_motor_failure_flag(){
-	return motor_tps_failure_flag;
-}
-
-OS_EVENT* get_apps_task_external_failure_flag(){
+OS_EVENT* get_throttle_control_task_external_failure_flag(){
 	return throttle_task_external_failure_flag;
 }
 
-OS_EVENT* get_apps_task_failure_resolved_flag(){
+OS_EVENT* get_throttle_control_task_failure_resolved_flag(){
 	return throttle_task_failure_resolved_flag;
 }
 

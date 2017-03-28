@@ -11,6 +11,7 @@
 #define ENG_TRANS_DATA_H_
 
 #include "proj_config.h"
+#include "pwm_gen.h"
 
 #define ENGINE_SOUND_PERIOD_TICKS			150000
 
@@ -21,6 +22,8 @@
 #define SHIFT_UP_LOWER_BOUND_RPM			1000
 
 #define SHIFT_DOWN_UPPER_BOUND_RPM			6000
+
+#define OS_SEM_RPM_NOT_REACHED				0
 
 #define RPM_SCALE_FACTOR					3
 

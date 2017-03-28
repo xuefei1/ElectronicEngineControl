@@ -66,7 +66,7 @@ void solenoid_task(void* pdata) {
 
 	timer_active_flag = OSSemCreate(OS_SEM_FLAG_NOT_SHIFTING);
 
-	OS_EVENT *shift_matching_q = get_motor_cmd_q();
+	OS_EVENT *shift_matching_q = get_shift_matching_q();
 
 	INT8U curr_gear = 1;
 	output_curr_gear(curr_gear);
