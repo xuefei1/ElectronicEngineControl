@@ -11,6 +11,7 @@
 #define THROTTLE_DATA_H_
 
 #include "proj_config.h"
+#include "eng_trans_data.h"
 
 #define DEFAULT_GEAR 						2
 

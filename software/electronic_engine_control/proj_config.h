@@ -33,8 +33,8 @@
 /* 20kHz under a 50Mhz clock, yields 3125 clk ticks per period */
 #define MOTOR_PWM_PERIOD_TICKS				2500
 #define MOTOR_PWM_DUTY_CYCLE_FULLY_OPEN		340
-#define MOTOR_PWM_DUTY_CYCLE_FULLY_CLOSE	600
-#define MOTOR_PWM_DUTY_CYCLE_RESOLUTION		5
+#define MOTOR_PWM_DUTY_CYCLE_FULLY_CLOSE	570
+#define MOTOR_PWM_DUTY_CYCLE_RESOLUTION		7
 
 /* 16kHz under a 50Mhz clock, yields 3125 clk ticks per period */
 #define TPS_OUT_PWM_PERIOD_TICKS			3125

@@ -48,14 +48,18 @@ void decrease_throttle(pwm_gen_module* pwm_throttle_open, pwm_gen_module* pwm_th
 alt_u32 watchdog_throttle_position_callback(void* context){
 	alt_alarm* alarm  = (alt_alarm*)context;
 	clean_alarm(&alarm);
-	printf("watchdog throttle position timeout");
+	if(OSSemAccept(motor_failure_flag) == SEM_FLAG_NO_ERROR) OSSemPost(motor_failure_flag);
+	OSQPost(failure_msg_q, (void*) ERR_EXPECTED_THROTTLE_POS_MISMATCH);
+	printf("watchdog throttle position timeout\n");
 	return 0;
 }
 
 alt_u32 watchdog_rpm_matching_callback(void* context){
 	alt_alarm* alarm  = (alt_alarm*)context;
 	clean_alarm(&alarm);
-	printf("watchdog rpm matching timeout");
+	if(OSSemAccept(motor_failure_flag) == SEM_FLAG_NO_ERROR) OSSemPost(motor_failure_flag);
+	OSQPost(failure_msg_q, (void*) ERR_EXPECTED_THROTTLE_POS_MISMATCH);
+	printf("watchdog rpm matching timeout\n");
 	return 0;
 }
 
@@ -66,12 +70,12 @@ alt_u32 apps_value_comp_callback(void* context){
 			APPS_1_ADC_CHANNEL);
 	INT16U apps_2_reading = alt_up_de0_nano_adc_read(adc,
 			APPS_2_ADC_CHANNEL);
+	alt_alarm* alarm  = (alt_alarm*)context;
+	clean_alarm(&alarm);
 	if (APPS_VALUE_MISMATCH(apps_1_reading, apps_2_reading)) {
 		if(OSSemAccept(apps_failure_flag) == SEM_FLAG_NO_ERROR)	OSSemPost(apps_failure_flag);
 		OSQPost(failure_msg_q, (void*) ERR_APPS_READING_MISMATCH);
 	}
-	free((alt_alarm*) context);
-	context = NULL;
 	return 0;
 }
 
@@ -80,12 +84,12 @@ alt_u32 tps_value_comp_callback(void* context){
 	alt_up_de0_nano_adc_update(adc);
 	INT32U tps_1_reading = alt_up_de0_nano_adc_read(adc, TPS_1_ADC_CHANNEL);
 	INT32U tps_2_reading = alt_up_de0_nano_adc_read(adc, TPS_2_ADC_CHANNEL);
+	alt_alarm* alarm  = (alt_alarm*)context;
+	clean_alarm(&alarm);
 	if (TPS_VALUE_MISMATCH(tps_1_reading, tps_2_reading)) {
 		if(OSSemAccept(tps_failure_flag) == SEM_FLAG_NO_ERROR)	OSSemPost(tps_failure_flag);
 		OSQPost(failure_msg_q, (void*) ERR_TPS_READING_MISMATCH);
 	}
-	free((alt_alarm*) context);
-	context = NULL;
 	return 0;
 }
 
@@ -141,6 +145,13 @@ BOOL set_new_throttle_position_by_rpm(pwm_gen_module* pwm_throttle_open, pwm_gen
 	return FALSE;
 }
 
+void reset_failure_flags(){
+	while(OSSemAccept(tps_failure_flag) != SEM_FLAG_NO_ERROR);
+	while(OSSemAccept(apps_failure_flag) != SEM_FLAG_NO_ERROR);
+	while(OSSemAccept(motor_failure_flag) != SEM_FLAG_NO_ERROR);
+	while(OSSemAccept(throttle_task_external_failure_flag) != SEM_FLAG_NO_ERROR);
+}
+
 /*  Task routine for pedal position sensor and motor */
 void throttle_control_task(void* pdata) {
 
@@ -155,7 +166,6 @@ void throttle_control_task(void* pdata) {
 	exit_shift_matching_flag = OSSemCreate(SHIFT_MATCHING_IN_PROGRESS);
 	alt_alarm* watchdog_throttle_position = NULL;
 	alt_alarm* watchdog_rpm_matching = NULL;
-
 	INT32U expected_rpm = 0;
 	INT16U expected_tps_reading = 0;
 	BOOL slip_control_mode = FALSE;
@@ -166,7 +176,6 @@ void throttle_control_task(void* pdata) {
 		printf("failed to init q\n");
 		return;
 	}
-
 	pwm_gen_module* pwm_throttle_open = get_new_pwm_module(PWM_GENERATOR_THROTTLE_OPEN_AVALON_SLAVE_PERIOD_BASE,
 		PWM_GENERATOR_THROTTLE_OPEN_AVALON_SLAVE_DUTY_BASE,
 		PWM_GENERATOR_THROTTLE_OPEN_AVALON_SLAVE_CONTROL_BASE,
@@ -194,21 +203,25 @@ void throttle_control_task(void* pdata) {
 	while (1) {
 #if !defined(RUN_AVG_TASK_TIME_TEST)
 		if(OSSemAccept(motor_failure_flag) != SEM_FLAG_NO_ERROR){
-			printf("Possible motor failure, block apps_task\n");
+			printf("Possible motor failure, block throttle_control_task\n");
 			decrease_throttle(pwm_throttle_open, pwm_throttle_close);
 			OSSemPend(throttle_task_failure_resolved_flag, Q_TIMEOUT_WAIT_FOREVER, &err);
+			reset_failure_flags();
 		}else if(OSSemAccept(apps_failure_flag) != SEM_FLAG_NO_ERROR){
-			printf("Possible APPS failure, block apps_task\n");
+			printf("Possible APPS failure, block throttle_control_task\n");
 			decrease_throttle(pwm_throttle_open, pwm_throttle_close);
 			OSSemPend(throttle_task_failure_resolved_flag, Q_TIMEOUT_WAIT_FOREVER, &err);
+			reset_failure_flags();
 		}else if(OSSemAccept(tps_failure_flag) != SEM_FLAG_NO_ERROR){
-			printf("Possible TPS failure, block apps_task\n");
+			printf("Possible TPS failure, block throttle_control_task\n");
 			decrease_throttle(pwm_throttle_open, pwm_throttle_close);
 			OSSemPend(throttle_task_failure_resolved_flag, Q_TIMEOUT_WAIT_FOREVER, &err);
+			reset_failure_flags();
 		}else if(OSSemAccept(throttle_task_external_failure_flag) != SEM_FLAG_NO_ERROR){
-			printf("External failure, block apps_task\n");
+			printf("External failure, block throttle_control_task\n");
 			decrease_throttle(pwm_throttle_open, pwm_throttle_close);
 			OSSemPend(throttle_task_failure_resolved_flag, Q_TIMEOUT_WAIT_FOREVER, &err);
+			reset_failure_flags();
 		}
 #endif
 		//WSS checking
