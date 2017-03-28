@@ -47,7 +47,7 @@
 #define TPS_VALID_VALUE_FULLY_CLOSED		810
 
 /* When APPS reading differ from last value by at least this much, we consider it as a new value */
-#define APPS_VALUE_CHANGE_THRESHOLD			200
+#define APPS_VALUE_CHANGE_THRESHOLD			100
 
 /* When two APPS reading differ by this much percent, we have a failure */
 #define APPS_VALUE_DIFFERENCE_PERCENT		200
@@ -56,7 +56,7 @@
 #define TPS_VALUE_DIFFERENCE_PERCENT		10
 
 /* Actual TPS reading can be different from expected by at most this much */
-#define TPS_VALUE_TOLERANCE					150
+#define TPS_VALUE_TOLERANCE					100
 
 /* Two TPS readings can be different by at most this much */
 #define TPS_VALUE_DIFFERENCE				3200
@@ -80,7 +80,7 @@
 #define SOLENOID_OPEN_DURATION_TICKS		200
 
 /* Time constraint for throttle plate to reach desired position: 1 second */
-#define MOTOR_DRIVE_DELAY_TICKS				2000
+#define MOTOR_DRIVE_DELAY_TICKS				3000
 
 /* Time constraint for throttle plate to desired RPM: 2 second */
 #define MOTOR_RPM_DRIVE_DELAY_TICKS			2000

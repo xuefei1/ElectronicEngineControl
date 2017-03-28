@@ -2,7 +2,7 @@ set_global_assignment -entity "niosII_system" -library "niosII_system" -name IP_
 set_global_assignment -entity "niosII_system" -library "niosII_system" -name IP_TOOL_VERSION "12.1sp1"
 set_global_assignment -entity "niosII_system" -library "niosII_system" -name IP_TOOL_ENV "qsys"
 set_global_assignment -library "niosII_system" -name SOPCINFO_FILE [file join $::quartus(qip_path) "../../niosII_system.sopcinfo"]
-set_instance_assignment -entity "niosII_system" -library "niosII_system" -name SLD_INFO "QSYS_NAME niosII_system HAS_SOPCINFO 1 GENERATION_ID 1490577834"
+set_instance_assignment -entity "niosII_system" -library "niosII_system" -name SLD_INFO "QSYS_NAME niosII_system HAS_SOPCINFO 1 GENERATION_ID 1490653420"
 set_global_assignment -library "niosII_system" -name MISC_FILE [file join $::quartus(qip_path) "../../niosII_system.cmp"]
 set_global_assignment -name SYNTHESIS_ONLY_QIP ON
 set_global_assignment -library "niosII_system" -name MISC_FILE [file join $::quartus(qip_path) "../../niosII_system.qsys"]
@@ -38,6 +38,7 @@ set_global_assignment -library "niosII_system" -name SYSTEMVERILOG_FILE [file jo
 set_global_assignment -library "niosII_system" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/altera_merlin_master_agent.sv"]
 set_global_assignment -library "niosII_system" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/altera_merlin_slave_translator.sv"]
 set_global_assignment -library "niosII_system" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/altera_merlin_master_translator.sv"]
+set_global_assignment -library "niosII_system" -name VHDL_FILE [file join $::quartus(qip_path) "submodules/frequency_counter.vhd"]
 set_global_assignment -library "niosII_system" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/niosII_system_solenoid_out.v"]
 set_global_assignment -library "niosII_system" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/niosII_system_buttons.v"]
 set_global_assignment -library "niosII_system" -name VHDL_FILE [file join $::quartus(qip_path) "submodules/pwm_generator.vhd"]

@@ -25,7 +25,7 @@ library ieee;
 	(
 		-- Input ports and 50 MHz Clock
 		KEY				: in std_logic_vector (0 downto 0);
-		SW				: in std_logic_vector (0 downto 0);
+		SW				: in std_logic_vector (3 downto 0);
 		CLOCK_50		: in std_logic;
 		
 		-- Green leds on board
@@ -88,7 +88,10 @@ architecture structure of electronic_engine_control is
             pwm_generator_throttle_open_pwm_out_export  : out   std_logic;                                        -- export pwm throttle open
             buttons_external_connection_export          : in    std_logic_vector(7 downto 0)  := "00000000";      -- export buttons
             pwm_generator_test_pwm_out_export           : out   std_logic;                                        -- export pwm test
-			curr_gear_out_external_connection_export    : out   std_logic_vector(1 downto 0)                      -- export current gear info
+			curr_gear_out_external_connection_export    : out   std_logic_vector(1 downto 0);                     -- export current gear info
+            rpm_pulse_in_conduit_end_export             : in    std_logic                     := '0';             -- export rpm input
+            wheel_speed_left_in_conduit_end_export      : in    std_logic                     := '0';             -- export left wheel speed input
+            wheel_speed_right_in_conduit_end_export     : in    std_logic                     := '0'              -- export right wheel speed input
         );
     end component niosII_system;
 
@@ -139,7 +142,10 @@ begin
 			rs232_0_external_interface_TXD					=> GPIO_0(7),
 			curr_gear_out_external_connection_export(0)		=> GPIO_0(10),
 			curr_gear_out_external_connection_export(1)		=> GPIO_0(11),
-			rs232_0_external_interface_RXD					=> GPIO_2(7)
+			rs232_0_external_interface_RXD					=> GPIO_2(4),
+			rpm_pulse_in_conduit_end_export       			=> GPIO_2(5),	-- RPM pulse input
+			wheel_speed_left_in_conduit_end_export       	=> GPIO_2(6),	-- Wheel speed left pulse input
+			wheel_speed_right_in_conduit_end_export       	=> GPIO_2(7)	-- Wheel speed right pulse input
         );
 
 end structure;

@@ -4,7 +4,7 @@
  * Machine generated for CPU 'nios2_0' in SOPC Builder design 'niosII_system'
  * SOPC Builder design path: ../../niosII_system.sopcinfo
  *
- * Generated: Sun Mar 26 19:30:06 MDT 2017
+ * Generated: Mon Mar 27 16:47:11 MDT 2017
  */
 
 /*
@@ -133,6 +133,7 @@
 #define __ALTERA_UP_AVALON_DE0_NANO_ADC
 #define __ALTERA_UP_AVALON_RS232
 #define __ALTPLL
+#define __FREQ_COUNTER
 #define __PWM_GENERATOR
 
 
@@ -344,7 +345,7 @@
  */
 
 #define ALT_MODULE_CLASS_pwm_generator_test_avalon_slave_control pwm_generator
-#define PWM_GENERATOR_TEST_AVALON_SLAVE_CONTROL_BASE 0x4009108
+#define PWM_GENERATOR_TEST_AVALON_SLAVE_CONTROL_BASE 0x4009114
 #define PWM_GENERATOR_TEST_AVALON_SLAVE_CONTROL_IRQ -1
 #define PWM_GENERATOR_TEST_AVALON_SLAVE_CONTROL_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define PWM_GENERATOR_TEST_AVALON_SLAVE_CONTROL_NAME "/dev/pwm_generator_test_avalon_slave_control"
@@ -358,7 +359,7 @@
  */
 
 #define ALT_MODULE_CLASS_pwm_generator_test_avalon_slave_duty pwm_generator
-#define PWM_GENERATOR_TEST_AVALON_SLAVE_DUTY_BASE 0x40090e8
+#define PWM_GENERATOR_TEST_AVALON_SLAVE_DUTY_BASE 0x40090f4
 #define PWM_GENERATOR_TEST_AVALON_SLAVE_DUTY_IRQ -1
 #define PWM_GENERATOR_TEST_AVALON_SLAVE_DUTY_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define PWM_GENERATOR_TEST_AVALON_SLAVE_DUTY_NAME "/dev/pwm_generator_test_avalon_slave_duty"
@@ -372,7 +373,7 @@
  */
 
 #define ALT_MODULE_CLASS_pwm_generator_test_avalon_slave_period pwm_generator
-#define PWM_GENERATOR_TEST_AVALON_SLAVE_PERIOD_BASE 0x40090ec
+#define PWM_GENERATOR_TEST_AVALON_SLAVE_PERIOD_BASE 0x40090f8
 #define PWM_GENERATOR_TEST_AVALON_SLAVE_PERIOD_IRQ -1
 #define PWM_GENERATOR_TEST_AVALON_SLAVE_PERIOD_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define PWM_GENERATOR_TEST_AVALON_SLAVE_PERIOD_NAME "/dev/pwm_generator_test_avalon_slave_period"
@@ -386,7 +387,7 @@
  */
 
 #define ALT_MODULE_CLASS_pwm_generator_throttle_close_avalon_slave_control pwm_generator
-#define PWM_GENERATOR_THROTTLE_CLOSE_AVALON_SLAVE_CONTROL_BASE 0x4009109
+#define PWM_GENERATOR_THROTTLE_CLOSE_AVALON_SLAVE_CONTROL_BASE 0x4009115
 #define PWM_GENERATOR_THROTTLE_CLOSE_AVALON_SLAVE_CONTROL_IRQ -1
 #define PWM_GENERATOR_THROTTLE_CLOSE_AVALON_SLAVE_CONTROL_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define PWM_GENERATOR_THROTTLE_CLOSE_AVALON_SLAVE_CONTROL_NAME "/dev/pwm_generator_throttle_close_avalon_slave_control"
@@ -400,7 +401,7 @@
  */
 
 #define ALT_MODULE_CLASS_pwm_generator_throttle_close_avalon_slave_duty pwm_generator
-#define PWM_GENERATOR_THROTTLE_CLOSE_AVALON_SLAVE_DUTY_BASE 0x40090f0
+#define PWM_GENERATOR_THROTTLE_CLOSE_AVALON_SLAVE_DUTY_BASE 0x40090fc
 #define PWM_GENERATOR_THROTTLE_CLOSE_AVALON_SLAVE_DUTY_IRQ -1
 #define PWM_GENERATOR_THROTTLE_CLOSE_AVALON_SLAVE_DUTY_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define PWM_GENERATOR_THROTTLE_CLOSE_AVALON_SLAVE_DUTY_NAME "/dev/pwm_generator_throttle_close_avalon_slave_duty"
@@ -414,7 +415,7 @@
  */
 
 #define ALT_MODULE_CLASS_pwm_generator_throttle_close_avalon_slave_period pwm_generator
-#define PWM_GENERATOR_THROTTLE_CLOSE_AVALON_SLAVE_PERIOD_BASE 0x40090f4
+#define PWM_GENERATOR_THROTTLE_CLOSE_AVALON_SLAVE_PERIOD_BASE 0x4009100
 #define PWM_GENERATOR_THROTTLE_CLOSE_AVALON_SLAVE_PERIOD_IRQ -1
 #define PWM_GENERATOR_THROTTLE_CLOSE_AVALON_SLAVE_PERIOD_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define PWM_GENERATOR_THROTTLE_CLOSE_AVALON_SLAVE_PERIOD_NAME "/dev/pwm_generator_throttle_close_avalon_slave_period"
@@ -428,7 +429,7 @@
  */
 
 #define ALT_MODULE_CLASS_pwm_generator_throttle_open_avalon_slave_control pwm_generator
-#define PWM_GENERATOR_THROTTLE_OPEN_AVALON_SLAVE_CONTROL_BASE 0x400910b
+#define PWM_GENERATOR_THROTTLE_OPEN_AVALON_SLAVE_CONTROL_BASE 0x4009117
 #define PWM_GENERATOR_THROTTLE_OPEN_AVALON_SLAVE_CONTROL_IRQ -1
 #define PWM_GENERATOR_THROTTLE_OPEN_AVALON_SLAVE_CONTROL_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define PWM_GENERATOR_THROTTLE_OPEN_AVALON_SLAVE_CONTROL_NAME "/dev/pwm_generator_throttle_open_avalon_slave_control"
@@ -442,7 +443,7 @@
  */
 
 #define ALT_MODULE_CLASS_pwm_generator_throttle_open_avalon_slave_duty pwm_generator
-#define PWM_GENERATOR_THROTTLE_OPEN_AVALON_SLAVE_DUTY_BASE 0x4009100
+#define PWM_GENERATOR_THROTTLE_OPEN_AVALON_SLAVE_DUTY_BASE 0x400910c
 #define PWM_GENERATOR_THROTTLE_OPEN_AVALON_SLAVE_DUTY_IRQ -1
 #define PWM_GENERATOR_THROTTLE_OPEN_AVALON_SLAVE_DUTY_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define PWM_GENERATOR_THROTTLE_OPEN_AVALON_SLAVE_DUTY_NAME "/dev/pwm_generator_throttle_open_avalon_slave_duty"
@@ -456,7 +457,7 @@
  */
 
 #define ALT_MODULE_CLASS_pwm_generator_throttle_open_avalon_slave_period pwm_generator
-#define PWM_GENERATOR_THROTTLE_OPEN_AVALON_SLAVE_PERIOD_BASE 0x4009104
+#define PWM_GENERATOR_THROTTLE_OPEN_AVALON_SLAVE_PERIOD_BASE 0x4009110
 #define PWM_GENERATOR_THROTTLE_OPEN_AVALON_SLAVE_PERIOD_IRQ -1
 #define PWM_GENERATOR_THROTTLE_OPEN_AVALON_SLAVE_PERIOD_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define PWM_GENERATOR_THROTTLE_OPEN_AVALON_SLAVE_PERIOD_NAME "/dev/pwm_generator_throttle_open_avalon_slave_period"
@@ -470,7 +471,7 @@
  */
 
 #define ALT_MODULE_CLASS_pwm_generator_tps_out_avalon_slave_control pwm_generator
-#define PWM_GENERATOR_TPS_OUT_AVALON_SLAVE_CONTROL_BASE 0x400910a
+#define PWM_GENERATOR_TPS_OUT_AVALON_SLAVE_CONTROL_BASE 0x4009116
 #define PWM_GENERATOR_TPS_OUT_AVALON_SLAVE_CONTROL_IRQ -1
 #define PWM_GENERATOR_TPS_OUT_AVALON_SLAVE_CONTROL_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define PWM_GENERATOR_TPS_OUT_AVALON_SLAVE_CONTROL_NAME "/dev/pwm_generator_tps_out_avalon_slave_control"
@@ -484,7 +485,7 @@
  */
 
 #define ALT_MODULE_CLASS_pwm_generator_tps_out_avalon_slave_duty pwm_generator
-#define PWM_GENERATOR_TPS_OUT_AVALON_SLAVE_DUTY_BASE 0x40090f8
+#define PWM_GENERATOR_TPS_OUT_AVALON_SLAVE_DUTY_BASE 0x4009104
 #define PWM_GENERATOR_TPS_OUT_AVALON_SLAVE_DUTY_IRQ -1
 #define PWM_GENERATOR_TPS_OUT_AVALON_SLAVE_DUTY_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define PWM_GENERATOR_TPS_OUT_AVALON_SLAVE_DUTY_NAME "/dev/pwm_generator_tps_out_avalon_slave_duty"
@@ -498,12 +499,26 @@
  */
 
 #define ALT_MODULE_CLASS_pwm_generator_tps_out_avalon_slave_period pwm_generator
-#define PWM_GENERATOR_TPS_OUT_AVALON_SLAVE_PERIOD_BASE 0x40090fc
+#define PWM_GENERATOR_TPS_OUT_AVALON_SLAVE_PERIOD_BASE 0x4009108
 #define PWM_GENERATOR_TPS_OUT_AVALON_SLAVE_PERIOD_IRQ -1
 #define PWM_GENERATOR_TPS_OUT_AVALON_SLAVE_PERIOD_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define PWM_GENERATOR_TPS_OUT_AVALON_SLAVE_PERIOD_NAME "/dev/pwm_generator_tps_out_avalon_slave_period"
 #define PWM_GENERATOR_TPS_OUT_AVALON_SLAVE_PERIOD_SPAN 4
 #define PWM_GENERATOR_TPS_OUT_AVALON_SLAVE_PERIOD_TYPE "pwm_generator"
+
+
+/*
+ * rpm_pulse_in configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_rpm_pulse_in freq_counter
+#define RPM_PULSE_IN_BASE 0x40090f0
+#define RPM_PULSE_IN_IRQ -1
+#define RPM_PULSE_IN_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define RPM_PULSE_IN_NAME "/dev/rpm_pulse_in"
+#define RPM_PULSE_IN_SPAN 4
+#define RPM_PULSE_IN_TYPE "freq_counter"
 
 
 /*
@@ -651,7 +666,7 @@
 #define SYSID_QSYS_0_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define SYSID_QSYS_0_NAME "/dev/sysid_qsys_0"
 #define SYSID_QSYS_0_SPAN 8
-#define SYSID_QSYS_0_TIMESTAMP 1490578022
+#define SYSID_QSYS_0_TIMESTAMP 1490654242
 #define SYSID_QSYS_0_TYPE "altera_avalon_sysid_qsys"
 
 
@@ -757,5 +772,33 @@
 #define OS_TMR_CFG_TICKS_PER_SEC 10
 #define OS_TMR_CFG_WHEEL_SIZE 2
 #define OS_TMR_EN 0
+
+
+/*
+ * wheel_speed_left_in configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_wheel_speed_left_in freq_counter
+#define WHEEL_SPEED_LEFT_IN_BASE 0x40090ec
+#define WHEEL_SPEED_LEFT_IN_IRQ -1
+#define WHEEL_SPEED_LEFT_IN_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define WHEEL_SPEED_LEFT_IN_NAME "/dev/wheel_speed_left_in"
+#define WHEEL_SPEED_LEFT_IN_SPAN 4
+#define WHEEL_SPEED_LEFT_IN_TYPE "freq_counter"
+
+
+/*
+ * wheel_speed_right_in configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_wheel_speed_right_in freq_counter
+#define WHEEL_SPEED_RIGHT_IN_BASE 0x40090e8
+#define WHEEL_SPEED_RIGHT_IN_IRQ -1
+#define WHEEL_SPEED_RIGHT_IN_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define WHEEL_SPEED_RIGHT_IN_NAME "/dev/wheel_speed_right_in"
+#define WHEEL_SPEED_RIGHT_IN_SPAN 4
+#define WHEEL_SPEED_RIGHT_IN_TYPE "freq_counter"
 
 #endif /* __SYSTEM_H_ */

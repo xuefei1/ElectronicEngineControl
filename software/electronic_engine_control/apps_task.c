@@ -160,8 +160,7 @@ void apps_task(void* pdata) {
 		INT16U apps_2_reading = alt_up_de0_nano_adc_read(adc,
 				APPS_2_ADC_CHANNEL);
 		if (APPS_VALUE_CHANGED(apps_1_reading,
-				last_apps_1_reading)
-				|| APPS_VALUE_CHANGED(apps_2_reading, last_apps_2_reading)) {
+				last_apps_1_reading)) {
 #if !defined(RUN_AVG_TASK_TIME_TEST)
 			printf("apps1 read value:%d\n", apps_1_reading);
 			printf("apps2 read value:%d\n", apps_2_reading);
@@ -215,8 +214,8 @@ BOOL set_new_motor_position_by_tps(INT16U deg) {
 	INT16U result_code = *(INT16U*) OSQPend(result_q, Q_TIMEOUT_WAIT_FOREVER, &err);
 	if(result_code == REQUEST_RESULT_FAIL_TIMEOUT){
 		printf("motor control task timeout\n");
-		//OSSemPost(motor_tps_failure_flag);
-		//OSQPost(failure_msg_q, (void*) ERR_EXPECTED_THROTTLE_POS_MISMATCH);
+		OSSemPost(motor_tps_failure_flag);
+		OSQPost(failure_msg_q, (void*) ERR_EXPECTED_THROTTLE_POS_MISMATCH);
 	}else if(result_code == REQUEST_RESULT_FAIL_TPS){
 		OSSemPost(motor_tps_failure_flag);
 		OSQPost(failure_msg_q, (void*) ERR_TPS_READING_MISMATCH);
@@ -227,8 +226,10 @@ BOOL set_new_motor_position_by_tps(INT16U deg) {
 
 /* Set motor to reach a new position, return true if no error occurred */
 BOOL set_new_motor_position(INT16U apps_reading) {
-	INT16U tps = get_throttle_open_deg_from_apps(apps_reading);
-	return set_new_motor_position_by_tps(tps);
+	INT16U deg = get_throttle_open_deg_from_apps(apps_reading);
+	INT8U duty = deg + 50 > 100 ? 100 : deg + 50;
+	Test_pwm_gen(150000, duty);
+	return set_new_motor_position_by_tps(deg);
 }
 
 /* The input to this function is a scaled integer from 0 to 1000 representing

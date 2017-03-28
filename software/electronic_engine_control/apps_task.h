@@ -35,7 +35,7 @@
 #define APPS_MOTOR_TASK_DELAY_HOURS	  				0
 #define APPS_MOTOR_TASK_DELAY_MINUTES	  			0
 #define APPS_MOTOR_TASK_DELAY_SECONDS	  			0
-#define APPS_MOTOR_TASK_DELAY_MILLISEC	  			100
+#define APPS_MOTOR_TASK_DELAY_MILLISEC	  			10
 
 /* detect if there is a new APPS value*/
 #define APPS_VALUE_CHANGED(input, last_value)	int32U_changed_by_threshold(input, last_value, APPS_VALUE_CHANGE_THRESHOLD)

@@ -44,47 +44,7 @@
          type = "String";
       }
    }
-   element pwm_generator_throttle_close.avalon_slave_control
-   {
-      datum baseAddress
-      {
-         value = "67145993";
-         type = "String";
-      }
-   }
-   element pwm_generator_tps_out.avalon_slave_control
-   {
-      datum baseAddress
-      {
-         value = "67145994";
-         type = "String";
-      }
-   }
-   element pwm_generator_throttle_open.avalon_slave_control
-   {
-      datum baseAddress
-      {
-         value = "67145995";
-         type = "String";
-      }
-   }
-   element pwm_generator_test.avalon_slave_control
-   {
-      datum baseAddress
-      {
-         value = "67145992";
-         type = "String";
-      }
-   }
-   element pwm_generator_tps_out.avalon_slave_duty
-   {
-      datum baseAddress
-      {
-         value = "67145976";
-         type = "String";
-      }
-   }
-   element pwm_generator_throttle_close.avalon_slave_duty
+   element rpm_pulse_in.avalon_slave_0
    {
       datum baseAddress
       {
@@ -92,15 +52,7 @@
          type = "String";
       }
    }
-   element pwm_generator_throttle_open.avalon_slave_duty
-   {
-      datum baseAddress
-      {
-         value = "67145984";
-         type = "String";
-      }
-   }
-   element pwm_generator_test.avalon_slave_duty
+   element wheel_speed_right_in.avalon_slave_0
    {
       datum baseAddress
       {
@@ -108,7 +60,47 @@
          type = "String";
       }
    }
-   element pwm_generator_tps_out.avalon_slave_period
+   element wheel_speed_left_in.avalon_slave_0
+   {
+      datum baseAddress
+      {
+         value = "67145964";
+         type = "String";
+      }
+   }
+   element pwm_generator_throttle_close.avalon_slave_control
+   {
+      datum baseAddress
+      {
+         value = "67146005";
+         type = "String";
+      }
+   }
+   element pwm_generator_throttle_open.avalon_slave_control
+   {
+      datum baseAddress
+      {
+         value = "67146007";
+         type = "String";
+      }
+   }
+   element pwm_generator_tps_out.avalon_slave_control
+   {
+      datum baseAddress
+      {
+         value = "67146006";
+         type = "String";
+      }
+   }
+   element pwm_generator_test.avalon_slave_control
+   {
+      datum baseAddress
+      {
+         value = "67146004";
+         type = "String";
+      }
+   }
+   element pwm_generator_throttle_close.avalon_slave_duty
    {
       datum baseAddress
       {
@@ -116,7 +108,23 @@
          type = "String";
       }
    }
-   element pwm_generator_throttle_close.avalon_slave_period
+   element pwm_generator_tps_out.avalon_slave_duty
+   {
+      datum baseAddress
+      {
+         value = "67145988";
+         type = "String";
+      }
+   }
+   element pwm_generator_throttle_open.avalon_slave_duty
+   {
+      datum baseAddress
+      {
+         value = "67145996";
+         type = "String";
+      }
+   }
+   element pwm_generator_test.avalon_slave_duty
    {
       datum baseAddress
       {
@@ -128,7 +136,7 @@
    {
       datum baseAddress
       {
-         value = "67145988";
+         value = "67146000";
          type = "String";
       }
    }
@@ -136,7 +144,23 @@
    {
       datum baseAddress
       {
-         value = "67145964";
+         value = "67145976";
+         type = "String";
+      }
+   }
+   element pwm_generator_tps_out.avalon_slave_period
+   {
+      datum baseAddress
+      {
+         value = "67145992";
+         type = "String";
+      }
+   }
+   element pwm_generator_throttle_close.avalon_slave_period
+   {
+      datum baseAddress
+      {
+         value = "67145984";
          type = "String";
       }
    }
@@ -268,6 +292,14 @@
          type = "int";
       }
    }
+   element rpm_pulse_in
+   {
+      datum _sortIndex
+      {
+         value = "20";
+         type = "int";
+      }
+   }
    element rs232_0
    {
       datum _sortIndex
@@ -276,11 +308,27 @@
          type = "int";
       }
    }
-   element buttons.s1
+   element timestamp_timer.s1
    {
       datum baseAddress
       {
-         value = "67145872";
+         value = "67145760";
+         type = "String";
+      }
+   }
+   element switch.s1
+   {
+      datum baseAddress
+      {
+         value = "67145888";
+         type = "String";
+      }
+   }
+   element onchip_memory2_0.s1
+   {
+      datum baseAddress
+      {
+         value = "67125248";
          type = "String";
       }
    }
@@ -292,19 +340,19 @@
          type = "String";
       }
    }
-   element timestamp_timer.s1
+   element green_leds.s1
    {
       datum baseAddress
       {
-         value = "67145760";
+         value = "67145904";
          type = "String";
       }
    }
-   element sdram_0.s1
+   element curr_gear_out.s1
    {
       datum baseAddress
       {
-         value = "33554432";
+         value = "67145856";
          type = "String";
       }
    }
@@ -321,35 +369,19 @@
          type = "String";
       }
    }
-   element onchip_memory2_0.s1
+   element sdram_0.s1
    {
       datum baseAddress
       {
-         value = "67125248";
+         value = "33554432";
          type = "String";
       }
    }
-   element curr_gear_out.s1
+   element buttons.s1
    {
       datum baseAddress
       {
-         value = "67145856";
-         type = "String";
-      }
-   }
-   element switch.s1
-   {
-      datum baseAddress
-      {
-         value = "67145888";
-         type = "String";
-      }
-   }
-   element green_leds.s1
-   {
-      datum baseAddress
-      {
-         value = "67145904";
+         value = "67145872";
          type = "String";
       }
    }
@@ -406,6 +438,22 @@
          type = "int";
       }
    }
+   element wheel_speed_left_in
+   {
+      datum _sortIndex
+      {
+         value = "21";
+         type = "int";
+      }
+   }
+   element wheel_speed_right_in
+   {
+      datum _sortIndex
+      {
+         value = "22";
+         type = "int";
+      }
+   }
 }
 ]]></parameter>
  <parameter name="clockCrossingAdapter" value="HANDSHAKE" />
@@ -421,7 +469,7 @@
  <parameter name="projectName">electronic_engine_control.qpf</parameter>
  <parameter name="sopcBorderPoints" value="false" />
  <parameter name="systemHash" value="1" />
- <parameter name="timeStamp" value="1490577826179" />
+ <parameter name="timeStamp" value="1490653412448" />
  <parameter name="useTestBenchNamingPattern" value="false" />
  <instanceScript></instanceScript>
  <interface name="altpll_0_c0" internal="altpll_0.c0" type="clock" dir="start">
@@ -521,6 +569,21 @@
  <interface
    name="curr_gear_out_external_connection"
    internal="curr_gear_out.external_connection"
+   type="conduit"
+   dir="end" />
+ <interface
+   name="rpm_pulse_in_conduit_end"
+   internal="rpm_pulse_in.conduit_end"
+   type="conduit"
+   dir="end" />
+ <interface
+   name="wheel_speed_left_in_conduit_end"
+   internal="wheel_speed_left_in.conduit_end"
+   type="conduit"
+   dir="end" />
+ <interface
+   name="wheel_speed_right_in_conduit_end"
+   internal="wheel_speed_right_in.conduit_end"
    type="conduit"
    dir="end" />
  <module kind="clock_source" version="12.1" enabled="1" name="clk_0">
@@ -625,7 +688,7 @@
   <parameter name="tightlyCoupledInstructionMaster2AddrWidth" value="1" />
   <parameter name="tightlyCoupledInstructionMaster3AddrWidth" value="1" />
   <parameter name="instSlaveMapParam"><![CDATA[<address-map><slave name='sdram_0.s1' start='0x2000000' end='0x4000000' /><slave name='onchip_memory2_0.s1' start='0x4004000' end='0x4008000' /><slave name='nios2_0.jtag_debug_module' start='0x4008800' end='0x4009000' /></address-map>]]></parameter>
-  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='sdram_0.s1' start='0x2000000' end='0x4000000' /><slave name='onchip_memory2_0.s1' start='0x4004000' end='0x4008000' /><slave name='nios2_0.jtag_debug_module' start='0x4008800' end='0x4009000' /><slave name='solenoid_out.s1' start='0x4009000' end='0x4009020' /><slave name='timestamp_timer.s1' start='0x4009020' end='0x4009040' /><slave name='de0_nano_adc_0.adc_slave' start='0x4009040' end='0x4009060' /><slave name='sys_clk_timer.s1' start='0x4009060' end='0x4009080' /><slave name='curr_gear_out.s1' start='0x4009080' end='0x4009090' /><slave name='buttons.s1' start='0x4009090' end='0x40090A0' /><slave name='switch.s1' start='0x40090A0' end='0x40090B0' /><slave name='green_leds.s1' start='0x40090B0' end='0x40090C0' /><slave name='altpll_0.pll_slave' start='0x40090C0' end='0x40090D0' /><slave name='rs232_0.avalon_rs232_slave' start='0x40090D0' end='0x40090D8' /><slave name='jtag_uart_0.avalon_jtag_slave' start='0x40090D8' end='0x40090E0' /><slave name='sysid_qsys_0.control_slave' start='0x40090E0' end='0x40090E8' /><slave name='pwm_generator_test.avalon_slave_duty' start='0x40090E8' end='0x40090EC' /><slave name='pwm_generator_test.avalon_slave_period' start='0x40090EC' end='0x40090F0' /><slave name='pwm_generator_throttle_close.avalon_slave_duty' start='0x40090F0' end='0x40090F4' /><slave name='pwm_generator_throttle_close.avalon_slave_period' start='0x40090F4' end='0x40090F8' /><slave name='pwm_generator_tps_out.avalon_slave_duty' start='0x40090F8' end='0x40090FC' /><slave name='pwm_generator_tps_out.avalon_slave_period' start='0x40090FC' end='0x4009100' /><slave name='pwm_generator_throttle_open.avalon_slave_duty' start='0x4009100' end='0x4009104' /><slave name='pwm_generator_throttle_open.avalon_slave_period' start='0x4009104' end='0x4009108' /><slave name='pwm_generator_test.avalon_slave_control' start='0x4009108' end='0x4009109' /><slave name='pwm_generator_throttle_close.avalon_slave_control' start='0x4009109' end='0x400910A' /><slave name='pwm_generator_tps_out.avalon_slave_control' start='0x400910A' end='0x400910B' /><slave name='pwm_generator_throttle_open.avalon_slave_control' start='0x400910B' end='0x400910C' /></address-map>]]></parameter>
+  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='sdram_0.s1' start='0x2000000' end='0x4000000' /><slave name='onchip_memory2_0.s1' start='0x4004000' end='0x4008000' /><slave name='nios2_0.jtag_debug_module' start='0x4008800' end='0x4009000' /><slave name='solenoid_out.s1' start='0x4009000' end='0x4009020' /><slave name='timestamp_timer.s1' start='0x4009020' end='0x4009040' /><slave name='de0_nano_adc_0.adc_slave' start='0x4009040' end='0x4009060' /><slave name='sys_clk_timer.s1' start='0x4009060' end='0x4009080' /><slave name='curr_gear_out.s1' start='0x4009080' end='0x4009090' /><slave name='buttons.s1' start='0x4009090' end='0x40090A0' /><slave name='switch.s1' start='0x40090A0' end='0x40090B0' /><slave name='green_leds.s1' start='0x40090B0' end='0x40090C0' /><slave name='altpll_0.pll_slave' start='0x40090C0' end='0x40090D0' /><slave name='rs232_0.avalon_rs232_slave' start='0x40090D0' end='0x40090D8' /><slave name='jtag_uart_0.avalon_jtag_slave' start='0x40090D8' end='0x40090E0' /><slave name='sysid_qsys_0.control_slave' start='0x40090E0' end='0x40090E8' /><slave name='wheel_speed_right_in.avalon_slave_0' start='0x40090E8' end='0x40090EC' /><slave name='wheel_speed_left_in.avalon_slave_0' start='0x40090EC' end='0x40090F0' /><slave name='rpm_pulse_in.avalon_slave_0' start='0x40090F0' end='0x40090F4' /><slave name='pwm_generator_test.avalon_slave_duty' start='0x40090F4' end='0x40090F8' /><slave name='pwm_generator_test.avalon_slave_period' start='0x40090F8' end='0x40090FC' /><slave name='pwm_generator_throttle_close.avalon_slave_duty' start='0x40090FC' end='0x4009100' /><slave name='pwm_generator_throttle_close.avalon_slave_period' start='0x4009100' end='0x4009104' /><slave name='pwm_generator_tps_out.avalon_slave_duty' start='0x4009104' end='0x4009108' /><slave name='pwm_generator_tps_out.avalon_slave_period' start='0x4009108' end='0x400910C' /><slave name='pwm_generator_throttle_open.avalon_slave_duty' start='0x400910C' end='0x4009110' /><slave name='pwm_generator_throttle_open.avalon_slave_period' start='0x4009110' end='0x4009114' /><slave name='pwm_generator_test.avalon_slave_control' start='0x4009114' end='0x4009115' /><slave name='pwm_generator_throttle_close.avalon_slave_control' start='0x4009115' end='0x4009116' /><slave name='pwm_generator_tps_out.avalon_slave_control' start='0x4009116' end='0x4009117' /><slave name='pwm_generator_throttle_open.avalon_slave_control' start='0x4009117' end='0x4009118' /></address-map>]]></parameter>
   <parameter name="clockFrequency" value="50000000" />
   <parameter name="deviceFamilyName" value="Cyclone IV E" />
   <parameter name="internalIrqMaskSystemInfo" value="63" />
@@ -1050,6 +1113,26 @@
   <parameter name="simDrivenValue" value="0" />
   <parameter name="width" value="8" />
  </module>
+ <module kind="freq_counter" version="1.0" enabled="1" name="rpm_pulse_in">
+  <parameter name="AUTO_CLOCK_CLOCK_RATE" value="-1" />
+  <parameter name="AUTO_CLOCK_SINK_CLOCK_RATE" value="50000000" />
+ </module>
+ <module
+   kind="freq_counter"
+   version="1.0"
+   enabled="1"
+   name="wheel_speed_left_in">
+  <parameter name="AUTO_CLOCK_CLOCK_RATE" value="-1" />
+  <parameter name="AUTO_CLOCK_SINK_CLOCK_RATE" value="50000000" />
+ </module>
+ <module
+   kind="freq_counter"
+   version="1.0"
+   enabled="1"
+   name="wheel_speed_right_in">
+  <parameter name="AUTO_CLOCK_CLOCK_RATE" value="-1" />
+  <parameter name="AUTO_CLOCK_SINK_CLOCK_RATE" value="50000000" />
+ </module>
  <connection
    kind="avalon"
    version="12.1"
@@ -1359,7 +1442,7 @@
    start="nios2_0.data_master"
    end="pwm_generator_throttle_open.avalon_slave_period">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x04009104" />
+  <parameter name="baseAddress" value="0x04009110" />
  </connection>
  <connection
    kind="avalon"
@@ -1367,7 +1450,7 @@
    start="nios2_0.data_master"
    end="pwm_generator_throttle_open.avalon_slave_duty">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x04009100" />
+  <parameter name="baseAddress" value="0x0400910c" />
  </connection>
  <connection kind="clock" version="12.1" start="altpll_0.c1" end="buttons.clk" />
  <connection
@@ -1414,7 +1497,7 @@
    start="nios2_0.data_master"
    end="pwm_generator_throttle_open.avalon_slave_control">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x0400910b" />
+  <parameter name="baseAddress" value="0x04009117" />
  </connection>
  <connection
    kind="reset"
@@ -1432,7 +1515,7 @@
    start="nios2_0.data_master"
    end="pwm_generator_tps_out.avalon_slave_period">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x040090fc" />
+  <parameter name="baseAddress" value="0x04009108" />
  </connection>
  <connection
    kind="avalon"
@@ -1440,7 +1523,7 @@
    start="nios2_0.data_master"
    end="pwm_generator_tps_out.avalon_slave_duty">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x040090f8" />
+  <parameter name="baseAddress" value="0x04009104" />
  </connection>
  <connection
    kind="avalon"
@@ -1448,7 +1531,7 @@
    start="nios2_0.data_master"
    end="pwm_generator_tps_out.avalon_slave_control">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x0400910a" />
+  <parameter name="baseAddress" value="0x04009116" />
  </connection>
  <connection
    kind="interrupt"
@@ -1473,7 +1556,7 @@
    start="nios2_0.data_master"
    end="pwm_generator_throttle_close.avalon_slave_period">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x040090f4" />
+  <parameter name="baseAddress" value="0x04009100" />
  </connection>
  <connection
    kind="avalon"
@@ -1481,7 +1564,7 @@
    start="nios2_0.data_master"
    end="pwm_generator_throttle_close.avalon_slave_duty">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x040090f0" />
+  <parameter name="baseAddress" value="0x040090fc" />
  </connection>
  <connection
    kind="avalon"
@@ -1489,7 +1572,7 @@
    start="nios2_0.data_master"
    end="pwm_generator_throttle_close.avalon_slave_control">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x04009109" />
+  <parameter name="baseAddress" value="0x04009115" />
  </connection>
  <connection
    kind="clock"
@@ -1507,7 +1590,7 @@
    start="nios2_0.data_master"
    end="pwm_generator_test.avalon_slave_period">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x040090ec" />
+  <parameter name="baseAddress" value="0x040090f8" />
  </connection>
  <connection
    kind="avalon"
@@ -1515,7 +1598,7 @@
    start="nios2_0.data_master"
    end="pwm_generator_test.avalon_slave_duty">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x040090e8" />
+  <parameter name="baseAddress" value="0x040090f4" />
  </connection>
  <connection
    kind="avalon"
@@ -1523,7 +1606,7 @@
    start="nios2_0.data_master"
    end="pwm_generator_test.avalon_slave_control">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x04009108" />
+  <parameter name="baseAddress" value="0x04009114" />
  </connection>
  <connection
    kind="clock"
@@ -1543,4 +1626,58 @@
   <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="0x04009080" />
  </connection>
+ <connection
+   kind="avalon"
+   version="12.1"
+   start="nios2_0.data_master"
+   end="rpm_pulse_in.avalon_slave_0">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x040090f0" />
+ </connection>
+ <connection
+   kind="clock"
+   version="12.1"
+   start="altpll_0.c1"
+   end="rpm_pulse_in.clock_sink" />
+ <connection
+   kind="reset"
+   version="12.1"
+   start="nios2_0.jtag_debug_module_reset"
+   end="rpm_pulse_in.reset" />
+ <connection
+   kind="avalon"
+   version="12.1"
+   start="nios2_0.data_master"
+   end="wheel_speed_left_in.avalon_slave_0">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x040090ec" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="12.1"
+   start="nios2_0.data_master"
+   end="wheel_speed_right_in.avalon_slave_0">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x040090e8" />
+ </connection>
+ <connection
+   kind="reset"
+   version="12.1"
+   start="nios2_0.jtag_debug_module_reset"
+   end="wheel_speed_left_in.reset" />
+ <connection
+   kind="reset"
+   version="12.1"
+   start="nios2_0.jtag_debug_module_reset"
+   end="wheel_speed_right_in.reset" />
+ <connection
+   kind="clock"
+   version="12.1"
+   start="altpll_0.c1"
+   end="wheel_speed_left_in.clock_sink" />
+ <connection
+   kind="clock"
+   version="12.1"
+   start="altpll_0.c1"
+   end="wheel_speed_right_in.clock_sink" />
 </system>

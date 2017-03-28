@@ -34,7 +34,6 @@ static void isr_btn (void* context, alt_u32 id)
 {
 	static INT32U data = 0;
 	data = IORD_ALTERA_AVALON_PIO_EDGE_CAP(BUTTONS_BASE);
-	//data = IORD_ALTERA_AVALON_PIO_DATA(BUTTONS_BASE);
 	INT32U *ptr = &data;
 	if(data == BUTTON_INPUT_SHIFT_UP){
 		OSQPost(btn_input_q, (void*) ptr);
@@ -110,13 +109,13 @@ void solenoid_task(void* pdata) {
 				}
 				continue;
 			}
-			if(get_RPM() < SHIFT_UP_LOWER_BOUND_RPM){
-				printf("Cannot up-shift because RPM is too low\n");
-				if (OSSemAccept(timer_active_flag) == OS_SEM_FLAG_SHIFTING){
-					OSSemPost(timer_active_flag);
-				}
-				continue;
-			}
+//			if(get_RPM() < SHIFT_UP_LOWER_BOUND_RPM){
+//				printf("Cannot up-shift because RPM is too low\n");
+//				if (OSSemAccept(timer_active_flag) == OS_SEM_FLAG_SHIFTING){
+//					OSSemPost(timer_active_flag);
+//				}
+//				continue;
+//			}
 			new_gear++;
 		}else if (shift_command == BUTTON_INPUT_SHIFT_DOWN){
 			if(curr_gear == 1){
@@ -125,13 +124,13 @@ void solenoid_task(void* pdata) {
 				}
 				continue;
 			}
-			if(get_RPM() > SHIFT_DOWN_UPPER_BOUND_RPM){
-				printf("Cannot down-shift because RPM is too high\n");
-				if (OSSemAccept(timer_active_flag) == OS_SEM_FLAG_SHIFTING){
-					OSSemPost(timer_active_flag);
-				}
-				continue;
-			}
+//			if(get_RPM() > SHIFT_DOWN_UPPER_BOUND_RPM){
+//				printf("Cannot down-shift because RPM is too high\n");
+//				if (OSSemAccept(timer_active_flag) == OS_SEM_FLAG_SHIFTING){
+//					OSSemPost(timer_active_flag);
+//				}
+//				continue;
+//			}
 			new_gear--;
 		}
 		shift_req* req = (shift_req*) malloc(sizeof(shift_req));
@@ -139,10 +138,10 @@ void solenoid_task(void* pdata) {
 		req->new_gear = new_gear;
 		printf("putting new gear %d into matching q\n", new_gear);
 		IOWR_ALTERA_AVALON_PIO_IRQ_MASK(BUTTONS_BASE, 0);
-		OSQPost(shift_matching_q, (void*)req);
+		//OSQPost(shift_matching_q, (void*)req);
 		curr_gear = new_gear;
 		output_curr_gear(curr_gear);
-		OSSemPend(rpm_reached_flag, Q_TIMEOUT_WAIT_FOREVER, &err);
+		//OSSemPend(rpm_reached_flag, Q_TIMEOUT_WAIT_FOREVER, &err);
 		free(req);
 		IOWR_ALTERA_AVALON_PIO_IRQ_MASK(BUTTONS_BASE, BUTTON_INPUT_SHIFT_UP | BUTTON_INPUT_SHIFT_DOWN);
 #endif
