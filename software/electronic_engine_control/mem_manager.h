@@ -30,7 +30,7 @@
 
 #define LOCK_TIMEOUT				0
 
-void init();
+void mem_manager_init();
 
 INT32U get_new_allocation_id();
 

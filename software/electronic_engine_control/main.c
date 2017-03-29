@@ -16,6 +16,7 @@
 #include "solenoid_task.h"
 #include "failure_handler_task.h"
 #include "throttle_control_task.h"
+#include "mem_manager.h"
 
 /* Definition of Task Stacks */
 OS_STK failure_handler_task_stk[TASK_STACKSIZE];
@@ -65,6 +66,7 @@ int main(void) {
 #endif
 
 	throttle_data_init();
+	mem_manager_init();
 
 //	OSTaskCreateExt(test_task, NULL, (void *) &test_task_stk[TASK_STACKSIZE - 1],
 //			TEST_TASK_PRIO, TEST_TASK_PRIO, test_task_stk, TASK_STACKSIZE,
@@ -82,7 +84,7 @@ int main(void) {
 	OSTaskCreateExt(solenoid_task, NULL, (void *) &solenoid_task_stk[TASK_STACKSIZE - 1],
 			SOLENOID_TASK_PRIORITY, SOLENOID_TASK_PRIORITY, solenoid_task_stk, TASK_STACKSIZE,
 			NULL, 0);
-
+//
 	OSStart();
 
 	return 0;

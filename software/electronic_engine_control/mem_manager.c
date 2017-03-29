@@ -37,7 +37,7 @@ OS_EVENT* lock;
 /*
  * Call init() only once
  */
-void init(){
+void mem_manager_init(){
 	INT8U i;
 	lock = OSSemCreate(MAX_CONCURRENT_ACCESS);
 	for(i = 0; i < MAX_ALLOCATION_COUNT; i++){
@@ -111,10 +111,10 @@ void free_existing_malloc(INT32U allocation_id){
 	if(allocation_id == 0 || allocation_id > MAX_ALLOCATION_COUNT){
 		return;
 	}
-	if(allocation_addr[allocation_id] == NULL){
+	INT32U id = allocation_id - 1;
+	if(allocation_addr[id] == NULL){
 		return;
 	}
-	INT32U id = allocation_id - 1;
 	num_active_allocations--;
 	total_size -= allocation_size[id];
 	allocation_size[id] = 0;
