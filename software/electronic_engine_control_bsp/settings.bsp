@@ -2,8 +2,8 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>ucosii</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>Mar 28, 2017 7:22:35 PM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1490750555530</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>Mar 28, 2017 8:39:04 PM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1490755144340</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>/afs/ualberta.ca/home/x/u/xuefei1/Desktop/eec_git/ElectronicEngineControl/software/electronic_engine_control_bsp</BspGeneratedLocation>
         <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>../../niosII_system.sopcinfo</SopcDesignFile>
@@ -1775,92 +1775,110 @@
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>wheel_speed_right_in</slaveDescriptor>
+                <slaveDescriptor>pwm_generator_engine_sound_out_avalon_slave_duty</slaveDescriptor>
                 <addressRange>0x040090E8 - 0x040090EB</addressRange>
                 <addressSpan>4</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>wheel_speed_left_in</slaveDescriptor>
+                <slaveDescriptor>pwm_generator_engine_sound_out_avalon_slave_period</slaveDescriptor>
                 <addressRange>0x040090EC - 0x040090EF</addressRange>
                 <addressSpan>4</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>rpm_pulse_in</slaveDescriptor>
+                <slaveDescriptor>wheel_speed_right_in</slaveDescriptor>
                 <addressRange>0x040090F0 - 0x040090F3</addressRange>
                 <addressSpan>4</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>pwm_generator_test_avalon_slave_duty</slaveDescriptor>
+                <slaveDescriptor>wheel_speed_left_in</slaveDescriptor>
                 <addressRange>0x040090F4 - 0x040090F7</addressRange>
                 <addressSpan>4</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>pwm_generator_test_avalon_slave_period</slaveDescriptor>
+                <slaveDescriptor>rpm_pulse_in</slaveDescriptor>
                 <addressRange>0x040090F8 - 0x040090FB</addressRange>
                 <addressSpan>4</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>pwm_generator_throttle_close_avalon_slave_duty</slaveDescriptor>
+                <slaveDescriptor>pwm_generator_test_avalon_slave_duty</slaveDescriptor>
                 <addressRange>0x040090FC - 0x040090FF</addressRange>
                 <addressSpan>4</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>pwm_generator_throttle_close_avalon_slave_period</slaveDescriptor>
+                <slaveDescriptor>pwm_generator_test_avalon_slave_period</slaveDescriptor>
                 <addressRange>0x04009100 - 0x04009103</addressRange>
                 <addressSpan>4</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>pwm_generator_tps_out_avalon_slave_duty</slaveDescriptor>
+                <slaveDescriptor>pwm_generator_throttle_close_avalon_slave_duty</slaveDescriptor>
                 <addressRange>0x04009104 - 0x04009107</addressRange>
                 <addressSpan>4</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>pwm_generator_tps_out_avalon_slave_period</slaveDescriptor>
+                <slaveDescriptor>pwm_generator_throttle_close_avalon_slave_period</slaveDescriptor>
                 <addressRange>0x04009108 - 0x0400910B</addressRange>
                 <addressSpan>4</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>pwm_generator_throttle_open_avalon_slave_duty</slaveDescriptor>
+                <slaveDescriptor>pwm_generator_tps_out_avalon_slave_duty</slaveDescriptor>
                 <addressRange>0x0400910C - 0x0400910F</addressRange>
                 <addressSpan>4</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>pwm_generator_throttle_open_avalon_slave_period</slaveDescriptor>
+                <slaveDescriptor>pwm_generator_tps_out_avalon_slave_period</slaveDescriptor>
                 <addressRange>0x04009110 - 0x04009113</addressRange>
                 <addressSpan>4</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
+                <slaveDescriptor>pwm_generator_throttle_open_avalon_slave_duty</slaveDescriptor>
+                <addressRange>0x04009114 - 0x04009117</addressRange>
+                <addressSpan>4</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>pwm_generator_throttle_open_avalon_slave_period</slaveDescriptor>
+                <addressRange>0x04009118 - 0x0400911B</addressRange>
+                <addressSpan>4</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>pwm_generator_engine_sound_out_avalon_slave_control</slaveDescriptor>
+                <addressRange>0x0400911C - 0x0400911C</addressRange>
+                <addressSpan>1</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
                 <slaveDescriptor>pwm_generator_test_avalon_slave_control</slaveDescriptor>
-                <addressRange>0x04009114 - 0x04009114</addressRange>
+                <addressRange>0x0400911D - 0x0400911D</addressRange>
                 <addressSpan>1</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>pwm_generator_throttle_close_avalon_slave_control</slaveDescriptor>
-                <addressRange>0x04009115 - 0x04009115</addressRange>
+                <addressRange>0x0400911E - 0x0400911E</addressRange>
                 <addressSpan>1</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>pwm_generator_tps_out_avalon_slave_control</slaveDescriptor>
-                <addressRange>0x04009116 - 0x04009116</addressRange>
+                <addressRange>0x0400911F - 0x0400911F</addressRange>
                 <addressSpan>1</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>pwm_generator_throttle_open_avalon_slave_control</slaveDescriptor>
-                <addressRange>0x04009117 - 0x04009117</addressRange>
+                <addressRange>0x04009120 - 0x04009120</addressRange>
                 <addressSpan>1</addressSpan>
                 <attributes/>
         </MemoryMap>

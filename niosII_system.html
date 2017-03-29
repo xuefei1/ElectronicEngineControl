@@ -67,7 +67,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
   </table>
   <table class="blueBar">
    <tr>
-    <td class="l">2017.03.27.16:23:41</td>
+    <td class="l">2017.03.28.20:12:07</td>
     <td class="r">Datasheet</td>
    </tr>
   </table>
@@ -185,7 +185,10 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
      </a> freq_counter 1.0
      <br/>&#160;&#160;
      <a href="#module_wheel_speed_right_in"><b>wheel_speed_right_in</b>
-     </a> freq_counter 1.0</span>
+     </a> freq_counter 1.0
+     <br/>&#160;&#160;
+     <a href="#module_pwm_generator_engine_sound_out"><b>pwm_generator_engine_sound_out</b>
+     </a> pwm_generator 1.0</span>
    </div>
   </div>
   <div style="width:100% ;  height:10px"> </div>
@@ -368,17 +371,17 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
    </tr>
    <tr>
     <td class="slavem">avalon_slave_period&#160;</td>
-    <td class="addr"><span style="color:#989898">0x</span>04009110</td>
+    <td class="addr"><span style="color:#989898">0x</span>04009118</td>
     <td class="empty"></td>
    </tr>
    <tr>
     <td class="slavem">avalon_slave_duty&#160;</td>
-    <td class="addr"><span style="color:#989898">0x</span>0400910c</td>
+    <td class="addr"><span style="color:#989898">0x</span>04009114</td>
     <td class="empty"></td>
    </tr>
    <tr>
     <td class="slavem">avalon_slave_control&#160;</td>
-    <td class="addr"><span style="color:#989898">0x</span>04009117</td>
+    <td class="addr"><span style="color:#989898">0x</span>04009120</td>
     <td class="empty"></td>
    </tr>
    <tr>
@@ -417,6 +420,29 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
    </tr>
    <tr>
     <td class="slavem">avalon_slave_period&#160;</td>
+    <td class="addr"><span style="color:#989898">0x</span>04009110</td>
+    <td class="empty"></td>
+   </tr>
+   <tr>
+    <td class="slavem">avalon_slave_duty&#160;</td>
+    <td class="addr"><span style="color:#989898">0x</span>0400910c</td>
+    <td class="empty"></td>
+   </tr>
+   <tr>
+    <td class="slavem">avalon_slave_control&#160;</td>
+    <td class="addr"><span style="color:#989898">0x</span>0400911f</td>
+    <td class="empty"></td>
+   </tr>
+   <tr>
+    <td class="slavemodule">&#160;
+     <a href="#module_pwm_generator_throttle_close"><b>pwm_generator_throttle_close</b>
+     </a>
+    </td>
+    <td class="empty"></td>
+    <td class="empty"></td>
+   </tr>
+   <tr>
+    <td class="slavem">avalon_slave_period&#160;</td>
     <td class="addr"><span style="color:#989898">0x</span>04009108</td>
     <td class="empty"></td>
    </tr>
@@ -427,12 +453,12 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
    </tr>
    <tr>
     <td class="slavem">avalon_slave_control&#160;</td>
-    <td class="addr"><span style="color:#989898">0x</span>04009116</td>
+    <td class="addr"><span style="color:#989898">0x</span>0400911e</td>
     <td class="empty"></td>
    </tr>
    <tr>
     <td class="slavemodule">&#160;
-     <a href="#module_pwm_generator_throttle_close"><b>pwm_generator_throttle_close</b>
+     <a href="#module_pwm_generator_test"><b>pwm_generator_test</b>
      </a>
     </td>
     <td class="empty"></td>
@@ -450,30 +476,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
    </tr>
    <tr>
     <td class="slavem">avalon_slave_control&#160;</td>
-    <td class="addr"><span style="color:#989898">0x</span>04009115</td>
-    <td class="empty"></td>
-   </tr>
-   <tr>
-    <td class="slavemodule">&#160;
-     <a href="#module_pwm_generator_test"><b>pwm_generator_test</b>
-     </a>
-    </td>
-    <td class="empty"></td>
-    <td class="empty"></td>
-   </tr>
-   <tr>
-    <td class="slavem">avalon_slave_period&#160;</td>
-    <td class="addr"><span style="color:#989898">0x</span>040090f8</td>
-    <td class="empty"></td>
-   </tr>
-   <tr>
-    <td class="slavem">avalon_slave_duty&#160;</td>
-    <td class="addr"><span style="color:#989898">0x</span>040090f4</td>
-    <td class="empty"></td>
-   </tr>
-   <tr>
-    <td class="slavem">avalon_slave_control&#160;</td>
-    <td class="addr"><span style="color:#989898">0x</span>04009114</td>
+    <td class="addr"><span style="color:#989898">0x</span>0400911d</td>
     <td class="empty"></td>
    </tr>
    <tr>
@@ -499,7 +502,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
    </tr>
    <tr>
     <td class="slaveb">avalon_slave_0&#160;</td>
-    <td class="addr"><span style="color:#989898">0x</span>040090f0</td>
+    <td class="addr"><span style="color:#989898">0x</span>040090f8</td>
     <td class="empty"></td>
    </tr>
    <tr>
@@ -512,7 +515,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
    </tr>
    <tr>
     <td class="slaveb">avalon_slave_0&#160;</td>
-    <td class="addr"><span style="color:#989898">0x</span>040090ec</td>
+    <td class="addr"><span style="color:#989898">0x</span>040090f4</td>
     <td class="empty"></td>
    </tr>
    <tr>
@@ -525,7 +528,30 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
    </tr>
    <tr>
     <td class="slaveb">avalon_slave_0&#160;</td>
+    <td class="addr"><span style="color:#989898">0x</span>040090f0</td>
+    <td class="empty"></td>
+   </tr>
+   <tr>
+    <td class="slavemodule">&#160;
+     <a href="#module_pwm_generator_engine_sound_out"><b>pwm_generator_engine_sound_out</b>
+     </a>
+    </td>
+    <td class="empty"></td>
+    <td class="empty"></td>
+   </tr>
+   <tr>
+    <td class="slavem">avalon_slave_period&#160;</td>
+    <td class="addr"><span style="color:#989898">0x</span>040090ec</td>
+    <td class="empty"></td>
+   </tr>
+   <tr>
+    <td class="slavem">avalon_slave_duty&#160;</td>
     <td class="addr"><span style="color:#989898">0x</span>040090e8</td>
+    <td class="empty"></td>
+   </tr>
+   <tr>
+    <td class="slavem">avalon_slave_control&#160;</td>
+    <td class="addr"><span style="color:#989898">0x</span>0400911c</td>
     <td class="empty"></td>
    </tr>
   </table>
@@ -588,7 +614,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
        <a href="#module_clk_0">clk_0</a>
       </td>
       <td class="from">clk_reset&#160;&#160;</td>
-      <td class="main" rowspan="141">nios2_0</td>
+      <td class="main" rowspan="150">nios2_0</td>
      </tr>
      <tr>
       <td class="to">&#160;&#160;reset_n</td>
@@ -1308,6 +1334,52 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
       <td></td>
       <td class="to">&#160;&#160;reset</td>
      </tr>
+     <tr style="height:6px">
+      <td></td>
+     </tr>
+     <tr>
+      <td></td>
+      <td></td>
+      <td class="from">jtag_debug_module_reset&#160;&#160;</td>
+      <td class="neighbor" rowspan="8">
+       <a href="#module_pwm_generator_engine_sound_out">pwm_generator_engine_sound_out</a>
+      </td>
+     </tr>
+     <tr>
+      <td></td>
+      <td></td>
+      <td class="to">&#160;&#160;reset</td>
+     </tr>
+     <tr>
+      <td></td>
+      <td></td>
+      <td class="from">data_master&#160;&#160;</td>
+     </tr>
+     <tr>
+      <td></td>
+      <td></td>
+      <td class="to">&#160;&#160;avalon_slave_period</td>
+     </tr>
+     <tr>
+      <td></td>
+      <td></td>
+      <td class="from">data_master&#160;&#160;</td>
+     </tr>
+     <tr>
+      <td></td>
+      <td></td>
+      <td class="to">&#160;&#160;avalon_slave_duty</td>
+     </tr>
+     <tr>
+      <td></td>
+      <td></td>
+      <td class="from">data_master&#160;&#160;</td>
+     </tr>
+     <tr>
+      <td></td>
+      <td></td>
+      <td class="to">&#160;&#160;avalon_slave_control</td>
+     </tr>
     </table>
    </div>
    <br/>
@@ -1723,7 +1795,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
        </tr>
        <tr>
         <td class="parametername">dataSlaveMapParam</td>
-        <td class="parametervalue">&lt;address-map&gt;&lt;slave name='sdram_0.s1' start='0x2000000' end='0x4000000' /&gt;&lt;slave name='onchip_memory2_0.s1' start='0x4004000' end='0x4008000' /&gt;&lt;slave name='nios2_0.jtag_debug_module' start='0x4008800' end='0x4009000' /&gt;&lt;slave name='solenoid_out.s1' start='0x4009000' end='0x4009020' /&gt;&lt;slave name='timestamp_timer.s1' start='0x4009020' end='0x4009040' /&gt;&lt;slave name='de0_nano_adc_0.adc_slave' start='0x4009040' end='0x4009060' /&gt;&lt;slave name='sys_clk_timer.s1' start='0x4009060' end='0x4009080' /&gt;&lt;slave name='curr_gear_out.s1' start='0x4009080' end='0x4009090' /&gt;&lt;slave name='buttons.s1' start='0x4009090' end='0x40090A0' /&gt;&lt;slave name='switch.s1' start='0x40090A0' end='0x40090B0' /&gt;&lt;slave name='green_leds.s1' start='0x40090B0' end='0x40090C0' /&gt;&lt;slave name='altpll_0.pll_slave' start='0x40090C0' end='0x40090D0' /&gt;&lt;slave name='rs232_0.avalon_rs232_slave' start='0x40090D0' end='0x40090D8' /&gt;&lt;slave name='jtag_uart_0.avalon_jtag_slave' start='0x40090D8' end='0x40090E0' /&gt;&lt;slave name='sysid_qsys_0.control_slave' start='0x40090E0' end='0x40090E8' /&gt;&lt;slave name='wheel_speed_right_in.avalon_slave_0' start='0x40090E8' end='0x40090EC' /&gt;&lt;slave name='wheel_speed_left_in.avalon_slave_0' start='0x40090EC' end='0x40090F0' /&gt;&lt;slave name='rpm_pulse_in.avalon_slave_0' start='0x40090F0' end='0x40090F4' /&gt;&lt;slave name='pwm_generator_test.avalon_slave_duty' start='0x40090F4' end='0x40090F8' /&gt;&lt;slave name='pwm_generator_test.avalon_slave_period' start='0x40090F8' end='0x40090FC' /&gt;&lt;slave name='pwm_generator_throttle_close.avalon_slave_duty' start='0x40090FC' end='0x4009100' /&gt;&lt;slave name='pwm_generator_throttle_close.avalon_slave_period' start='0x4009100' end='0x4009104' /&gt;&lt;slave name='pwm_generator_tps_out.avalon_slave_duty' start='0x4009104' end='0x4009108' /&gt;&lt;slave name='pwm_generator_tps_out.avalon_slave_period' start='0x4009108' end='0x400910C' /&gt;&lt;slave name='pwm_generator_throttle_open.avalon_slave_duty' start='0x400910C' end='0x4009110' /&gt;&lt;slave name='pwm_generator_throttle_open.avalon_slave_period' start='0x4009110' end='0x4009114' /&gt;&lt;slave name='pwm_generator_test.avalon_slave_control' start='0x4009114' end='0x4009115' /&gt;&lt;slave name='pwm_generator_throttle_close.avalon_slave_control' start='0x4009115' end='0x4009116' /&gt;&lt;slave name='pwm_generator_tps_out.avalon_slave_control' start='0x4009116' end='0x4009117' /&gt;&lt;slave name='pwm_generator_throttle_open.avalon_slave_control' start='0x4009117' end='0x4009118' /&gt;&lt;/address-map&gt;</td>
+        <td class="parametervalue">&lt;address-map&gt;&lt;slave name='sdram_0.s1' start='0x2000000' end='0x4000000' /&gt;&lt;slave name='onchip_memory2_0.s1' start='0x4004000' end='0x4008000' /&gt;&lt;slave name='nios2_0.jtag_debug_module' start='0x4008800' end='0x4009000' /&gt;&lt;slave name='solenoid_out.s1' start='0x4009000' end='0x4009020' /&gt;&lt;slave name='timestamp_timer.s1' start='0x4009020' end='0x4009040' /&gt;&lt;slave name='de0_nano_adc_0.adc_slave' start='0x4009040' end='0x4009060' /&gt;&lt;slave name='sys_clk_timer.s1' start='0x4009060' end='0x4009080' /&gt;&lt;slave name='curr_gear_out.s1' start='0x4009080' end='0x4009090' /&gt;&lt;slave name='buttons.s1' start='0x4009090' end='0x40090A0' /&gt;&lt;slave name='switch.s1' start='0x40090A0' end='0x40090B0' /&gt;&lt;slave name='green_leds.s1' start='0x40090B0' end='0x40090C0' /&gt;&lt;slave name='altpll_0.pll_slave' start='0x40090C0' end='0x40090D0' /&gt;&lt;slave name='rs232_0.avalon_rs232_slave' start='0x40090D0' end='0x40090D8' /&gt;&lt;slave name='jtag_uart_0.avalon_jtag_slave' start='0x40090D8' end='0x40090E0' /&gt;&lt;slave name='sysid_qsys_0.control_slave' start='0x40090E0' end='0x40090E8' /&gt;&lt;slave name='pwm_generator_engine_sound_out.avalon_slave_duty' start='0x40090E8' end='0x40090EC' /&gt;&lt;slave name='pwm_generator_engine_sound_out.avalon_slave_period' start='0x40090EC' end='0x40090F0' /&gt;&lt;slave name='wheel_speed_right_in.avalon_slave_0' start='0x40090F0' end='0x40090F4' /&gt;&lt;slave name='wheel_speed_left_in.avalon_slave_0' start='0x40090F4' end='0x40090F8' /&gt;&lt;slave name='rpm_pulse_in.avalon_slave_0' start='0x40090F8' end='0x40090FC' /&gt;&lt;slave name='pwm_generator_test.avalon_slave_duty' start='0x40090FC' end='0x4009100' /&gt;&lt;slave name='pwm_generator_test.avalon_slave_period' start='0x4009100' end='0x4009104' /&gt;&lt;slave name='pwm_generator_throttle_close.avalon_slave_duty' start='0x4009104' end='0x4009108' /&gt;&lt;slave name='pwm_generator_throttle_close.avalon_slave_period' start='0x4009108' end='0x400910C' /&gt;&lt;slave name='pwm_generator_tps_out.avalon_slave_duty' start='0x400910C' end='0x4009110' /&gt;&lt;slave name='pwm_generator_tps_out.avalon_slave_period' start='0x4009110' end='0x4009114' /&gt;&lt;slave name='pwm_generator_throttle_open.avalon_slave_duty' start='0x4009114' end='0x4009118' /&gt;&lt;slave name='pwm_generator_throttle_open.avalon_slave_period' start='0x4009118' end='0x400911C' /&gt;&lt;slave name='pwm_generator_engine_sound_out.avalon_slave_control' start='0x400911C' end='0x400911D' /&gt;&lt;slave name='pwm_generator_test.avalon_slave_control' start='0x400911D' end='0x400911E' /&gt;&lt;slave name='pwm_generator_throttle_close.avalon_slave_control' start='0x400911E' end='0x400911F' /&gt;&lt;slave name='pwm_generator_tps_out.avalon_slave_control' start='0x400911F' end='0x4009120' /&gt;&lt;slave name='pwm_generator_throttle_open.avalon_slave_control' start='0x4009120' end='0x4009121' /&gt;&lt;/address-map&gt;</td>
        </tr>
        <tr>
         <td class="parametername">clockFrequency</td>
@@ -2169,7 +2241,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
        </tr>
        <tr>
         <td class="parametername">timestamp</td>
-        <td class="parametervalue">1490653420</td>
+        <td class="parametervalue">1490753526</td>
        </tr>
        <tr>
         <td class="parametername">AUTO_CLK_CLOCK_RATE</td>
@@ -2202,7 +2274,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
        </tr>
        <tr>
         <td class="parametername">TIMESTAMP</td>
-        <td class="parametervalue">1490653420</td>
+        <td class="parametervalue">1490753526</td>
        </tr>
       </table>
      </td>
@@ -2907,7 +2979,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
        <a href="#module_clk_0">clk_0</a>
       </td>
       <td class="from">clk_reset&#160;&#160;</td>
-      <td class="main" rowspan="71">altpll_0</td>
+      <td class="main" rowspan="74">altpll_0</td>
      </tr>
      <tr>
       <td class="to">&#160;&#160;inclk_interface_reset</td>
@@ -3262,6 +3334,22 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
       <td class="from">c1&#160;&#160;</td>
       <td class="neighbor" rowspan="2">
        <a href="#module_wheel_speed_right_in">wheel_speed_right_in</a>
+      </td>
+     </tr>
+     <tr>
+      <td></td>
+      <td></td>
+      <td class="to">&#160;&#160;clock_sink</td>
+     </tr>
+     <tr style="height:6px">
+      <td></td>
+     </tr>
+     <tr>
+      <td></td>
+      <td></td>
+      <td class="from">c1&#160;&#160;</td>
+      <td class="neighbor" rowspan="2">
+       <a href="#module_pwm_generator_engine_sound_out">pwm_generator_engine_sound_out</a>
       </td>
      </tr>
      <tr>
@@ -5610,10 +5698,89 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
     </tr>
    </table>
   </div>
+  <a name="module_pwm_generator_engine_sound_out"> </a>
+  <div>
+   <hr/>
+   <h2>pwm_generator_engine_sound_out</h2>pwm_generator v1.0
+   <br/>
+   <div class="greydiv">
+    <table class="connectionboxes">
+     <tr>
+      <td class="neighbor" rowspan="8">
+       <a href="#module_nios2_0">nios2_0</a>
+      </td>
+      <td class="from">jtag_debug_module_reset&#160;&#160;</td>
+      <td class="main" rowspan="11">pwm_generator_engine_sound_out</td>
+     </tr>
+     <tr>
+      <td class="to">&#160;&#160;reset</td>
+     </tr>
+     <tr>
+      <td class="from">data_master&#160;&#160;</td>
+     </tr>
+     <tr>
+      <td class="to">&#160;&#160;avalon_slave_period</td>
+     </tr>
+     <tr>
+      <td class="from">data_master&#160;&#160;</td>
+     </tr>
+     <tr>
+      <td class="to">&#160;&#160;avalon_slave_duty</td>
+     </tr>
+     <tr>
+      <td class="from">data_master&#160;&#160;</td>
+     </tr>
+     <tr>
+      <td class="to">&#160;&#160;avalon_slave_control</td>
+     </tr>
+     <tr style="height:6px">
+      <td></td>
+     </tr>
+     <tr>
+      <td class="neighbor" rowspan="2">
+       <a href="#module_altpll_0">altpll_0</a>
+      </td>
+      <td class="from">c1&#160;&#160;</td>
+     </tr>
+     <tr>
+      <td class="to">&#160;&#160;clock_sink</td>
+     </tr>
+    </table>
+   </div>
+   <br/>
+   <br/>
+   <table class="flowbox">
+    <tr>
+     <td class="parametersbox">
+      <h2>Parameters</h2>
+      <table>
+       <tr>
+        <td class="parametername">AUTO_CLOCK_SINK_CLOCK_RATE</td>
+        <td class="parametervalue">50000000</td>
+       </tr>
+       <tr>
+        <td class="parametername">deviceFamily</td>
+        <td class="parametervalue">UNKNOWN</td>
+       </tr>
+       <tr>
+        <td class="parametername">generateLegacySim</td>
+        <td class="parametervalue">false</td>
+       </tr>
+      </table>
+     </td>
+    </tr>
+   </table>&#160;&#160;
+   <table class="flowbox">
+    <tr>
+     <td class="parametersbox">
+      <h2>Software Assignments</h2>(none)</td>
+    </tr>
+   </table>
+  </div>
   <table class="blueBar">
    <tr>
-    <td class="l">generation took 0.00 seconds</td>
-    <td class="r">rendering took 0.08 seconds</td>
+    <td class="l">generation took 0.01 seconds</td>
+    <td class="r">rendering took 0.15 seconds</td>
    </tr>
   </table>
  </body>

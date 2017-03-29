@@ -176,6 +176,11 @@ void throttle_control_task(void* pdata) {
 		printf("failed to init q\n");
 		return;
 	}
+	pwm_gen_module* pwm_engine_sound = get_new_pwm_module(PWM_GENERATOR_ENGINE_SOUND_OUT_AVALON_SLAVE_PERIOD_BASE,
+		PWM_GENERATOR_ENGINE_SOUND_OUT_AVALON_SLAVE_DUTY_BASE,
+		PWM_GENERATOR_ENGINE_SOUND_OUT_AVALON_SLAVE_CONTROL_BASE,
+		ENGINE_SOUND_PERIOD_TICKS,
+		PWM_DUTY_CYCLE_HALF);
 	pwm_gen_module* pwm_throttle_open = get_new_pwm_module(PWM_GENERATOR_THROTTLE_OPEN_AVALON_SLAVE_PERIOD_BASE,
 		PWM_GENERATOR_THROTTLE_OPEN_AVALON_SLAVE_DUTY_BASE,
 		PWM_GENERATOR_THROTTLE_OPEN_AVALON_SLAVE_CONTROL_BASE,
@@ -229,13 +234,15 @@ void throttle_control_task(void* pdata) {
 		INT16U tps_1_reading = alt_up_de0_nano_adc_read(adc, TPS_1_ADC_CHANNEL);
 		INT16U tps_2_reading = alt_up_de0_nano_adc_read(adc, TPS_2_ADC_CHANNEL);
 		check_tps_values(tps_1_reading, tps_2_reading);
+		INT16U curr_tps_reading = tps_1_reading;
+		generate_engine_sound(pwm_engine_sound, get_throttle_open_deg_from_tps(curr_tps_reading));
 		if(WSS_VALUE_MISMATCH(WSS_1_ADC_CHANNEL, WSS_2_ADC_CHANNEL)){
 			printf("wss active\n");
 			if(slip_control_mode == TRUE) continue;
 			*(INT8U*)GREEN_LEDS_BASE = WSS_ACTIVE_LED;
 			slip_control_mode = TRUE;
 			set_new_throttle_position_by_tps(pwm_throttle_open, pwm_throttle_close,
-					&curr_duty_cycle, SLIP_CONTROL_THROTTLE_POS, tps_1_reading);
+					&curr_duty_cycle, SLIP_CONTROL_THROTTLE_POS, curr_tps_reading);
 			continue;
 		}else{
 			slip_control_mode = FALSE;
@@ -280,7 +287,6 @@ void throttle_control_task(void* pdata) {
 		if (APPS_VALUE_CHANGED(apps_1_reading, last_apps_1_reading)) {
 			last_apps_1_reading = apps_1_reading;
 			clean_alarm(&watchdog_throttle_position);
-			generate_engine_sound(get_throttle_open_deg_from_apps(apps_1_reading));
 			check_apps_values(apps_1_reading, apps_2_reading);
 			expected_tps_reading = get_tps_from_apps(apps_1_reading);
 			watchdog_throttle_position = (alt_alarm*) malloc(sizeof(alt_alarm));
@@ -291,7 +297,6 @@ void throttle_control_task(void* pdata) {
 		tps_1_reading = alt_up_de0_nano_adc_read(adc, TPS_1_ADC_CHANNEL);
 		tps_2_reading = alt_up_de0_nano_adc_read(adc, TPS_2_ADC_CHANNEL);
 		check_tps_values(tps_1_reading, tps_2_reading);
-		INT16U curr_tps_reading = tps_1_reading;
 		if(TRUE == set_new_throttle_position_by_tps(pwm_throttle_open, pwm_throttle_close, &curr_duty_cycle,
 				expected_tps_reading, curr_tps_reading)){
 			clean_alarm(&watchdog_throttle_position);

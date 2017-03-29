@@ -91,7 +91,8 @@ architecture structure of electronic_engine_control is
 			curr_gear_out_external_connection_export    : out   std_logic_vector(1 downto 0);                     -- export current gear info
             rpm_pulse_in_conduit_end_export             : in    std_logic                     := '0';             -- export rpm input
             wheel_speed_left_in_conduit_end_export      : in    std_logic                     := '0';             -- export left wheel speed input
-            wheel_speed_right_in_conduit_end_export     : in    std_logic                     := '0'              -- export right wheel speed input
+            wheel_speed_right_in_conduit_end_export     : in    std_logic                     := '0';             -- export right wheel speed input
+            pwm_generator_engine_sound_out_pwm_out_export : out   std_logic                   := '0'              -- export pwm engine sound
         );
     end component niosII_system;
 
@@ -145,7 +146,8 @@ begin
 			rs232_0_external_interface_RXD					=> GPIO_2(4),
 			rpm_pulse_in_conduit_end_export       			=> GPIO_2(5),	-- RPM pulse input
 			wheel_speed_left_in_conduit_end_export       	=> GPIO_2(6),	-- Wheel speed left pulse input
-			wheel_speed_right_in_conduit_end_export       	=> GPIO_2(7)	-- Wheel speed right pulse input
+			wheel_speed_right_in_conduit_end_export       	=> GPIO_2(7),	-- Wheel speed right pulse input
+			pwm_generator_engine_sound_out_pwm_out_export  	=> GPIO_0(12)
         );
 
 end structure;

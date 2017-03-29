@@ -45,11 +45,7 @@ void output_curr_gear(INT8U gear){
 	}
 }
 
-void generate_engine_sound(INT16U deg){
-	pwm_gen_module* ptr = get_new_pwm_module(PWM_GENERATOR_TEST_AVALON_SLAVE_PERIOD_BASE,
-			PWM_GENERATOR_TEST_AVALON_SLAVE_DUTY_BASE,
-			PWM_GENERATOR_TEST_AVALON_SLAVE_CONTROL_BASE,
-			ENGINE_SOUND_PERIOD_TICKS,
-			deg + PWM_DUTY_CYCLE_HALF > PWM_DUTY_CYCLE_HIGH ? PWM_DUTY_CYCLE_HIGH : deg + PWM_DUTY_CYCLE_HALF);
-	free(ptr);
+void generate_engine_sound(pwm_gen_module* module, INT16U deg){
+	deg *= 10;
+	set_duty_cycle(module, deg + PWM_DUTY_CYCLE_HALF > PWM_DUTY_CYCLE_HIGH ? PWM_DUTY_CYCLE_HIGH : deg + PWM_DUTY_CYCLE_HALF);
 }
