@@ -147,12 +147,3 @@ unsigned int calculate_RPM(unsigned int currentRPM, float throttlePosition, unsi
   return currentRPM + delta;
 }
 
-
-
-
-
-
-
-
-
-
