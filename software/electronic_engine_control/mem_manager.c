@@ -134,13 +134,13 @@ void print_malloc_status(){
 	printf("%lu bytes memory allocated using mem_manager\n", total_size);
 	printf("\n");
 	for(i = MAX_ALLOCATION_COUNT; i > end; i--){
-		if(allocation_addr[i] == NULL){
+		if(allocation_addr[i-1] == NULL){
 			continue;
 		}
 		printf("allocator id: %d\n", i);
-		printf("address: %p\n", allocation_addr[i]);
-		printf("tag: %s\n", allocation_tag[i]);
-		printf("bytes allocated: %lu\n", allocation_size[i]);
+		printf("address: %p\n", allocation_addr[i-1]);
+		printf("tag: %s\n", allocation_tag[i-1]);
+		printf("bytes allocated: %lu\n", allocation_size[i-1]);
 		printf("\n");
 	}
 }
