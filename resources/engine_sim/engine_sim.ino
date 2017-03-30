@@ -1,3 +1,4 @@
+
 #include "settings.h"
 #include "idle.h"
 
@@ -7,6 +8,8 @@
 #define SPEAKER           3
 const int throttlePositionPin = A0; //Read PWM from this pin
 const int engineSpeedPin = 9; //Output RPM to this pin
+int engineSpeedval = 0;
+float engineSpeedvolt = 0;
 #ifdef WHEELSPEED_ENABLE
   const int wheelSpeedLeftPin = 10; 
   const int wheelSpeedRightPin = 11; 
@@ -60,31 +63,34 @@ void setup() {
   pinMode(throttlePositionPin, INPUT);
   
   pinMode(engineSpeedPin, OUTPUT);
-  analogWrite(engineSpeedPin, 0);
+  //analogWrite(engineSpeedPin, 0);
 
   #ifdef WHEELSPEED_ENABLE
     pinMode(currGearBit0, INPUT);
     pinMode(currGearBit1, INPUT);
     pinMode(wheelSpeedLeftPin, OUTPUT);
     pinMode(wheelSpeedRightPin, OUTPUT);
-    analogWrite(wheelSpeedLeftPin, 0);
-    analogWrite(wheelSpeedRightPin, 0);
+    //analogWrite(wheelSpeedLeftPin, 0);
+    //analogWrite(wheelSpeedRightPin, 0);
   #endif
   // engine sound pwm in setup, for a standard servo pulse
-  pinMode(2, INPUT); // We don't want INPUT_PULLUP as the 5v may damage some receivers!
+  /*pinMode(2, INPUT); // We don't want INPUT_PULLUP as the 5v may damage some receivers!
   attachInterrupt(0, getPulsewidth, CHANGE);
   // setup complete, so start making sounds
-  startPlayback();
+  startPlayback();*/
 }
 
 void loop() {
+  engineSpeedval = analogRead(throttlePositionPin); // read the input pin
+  engineSpeedvolt =(5.0 * engineSpeedval) / 1023;
+  engineSpeedval = 255 * (engineSpeedvolt / 5);
+  analogWrite(engineSpeedPin, engineSpeedval);
+  
   //Engine Speed Calculations
   unsigned long delta = micros() - lastUpdate;
   lastUpdate = micros();
   engineSpeed = calculate_RPM(engineSpeed, get_throttle_position(), delta);
   
-  //float engineOutputValue = (float)engineSpeed * 255.0 / 11000.0; //Scaled between 0 and 11000 RPM
-  //analogWrite(engineSpeedPin, engineOutputValue);
   Serial.print("Engine Speed: ");
   Serial.println(engineSpeed);
 
@@ -99,27 +105,33 @@ void loop() {
       wheelSpeed = 0;
     }
   
-    float wheelOutputValue = (float)wheelSpeed * 255.0 / 140.0; //Scaled between 0 and 140 km/h
+    float wheelOutputValue = (float)wheelSpeed * 255.0 / 50000.0; //Scaled between 0 and 140 km/h
     analogWrite(wheelSpeedLeftPin, wheelOutputValue);
     analogWrite(wheelSpeedRightPin, wheelOutputValue);
   #endif
-  doPwmThrottle();
+  //doPwmThrottle();
   delayMicroseconds(500);
 }
 
 void set_curr_gear(){
   unsigned int gear = 1;
-  if(currGearBit0 == HIGH){
+  if(digitalRead(currGearBit0) == HIGH){
     gear+=1;
   }
-  if(currGearBit1 == HIGH){
+  if(digitalRead(currGearBit1) == HIGH){
     gear+=2;
   }
-  currentGear = gear;   
+  currentGear = gear;
+  Serial.print("current gear:");
+  Serial.print(currentGear);
+  Serial.print("    ");   
 }
 
 float get_throttle_position() {
   int analogReading = analogRead(throttlePositionPin); //Pin reads up to 5V, but max we supply is 3.3V
+  Serial.print("throttle position:");
+  Serial.print(analogReading);
+  Serial.print("    ");
   return (float)analogReading * 100.0 / 675.0; //675/1024 is approximately 3.3/5.0
 }
 
@@ -315,4 +327,3 @@ void writePot(uint8_t data){
   digitalWrite(POT_CS, HIGH);
 
 }
-
