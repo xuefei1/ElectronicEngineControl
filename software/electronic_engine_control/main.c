@@ -84,7 +84,7 @@ int main(void) {
 	OSTaskCreateExt(solenoid_task, NULL, (void *) &solenoid_task_stk[TASK_STACKSIZE - 1],
 			SOLENOID_TASK_PRIORITY, SOLENOID_TASK_PRIORITY, solenoid_task_stk, TASK_STACKSIZE,
 			NULL, 0);
-//
+
 	OSStart();
 
 	return 0;

@@ -1,9 +1,9 @@
 <sld_project_info>
   <project>
-    <hash md5_digest_80b="61b5c8f7e25b95a1e6d4"/>
+    <hash md5_digest_80b="3d53d69a7864351b810b"/>
   </project>
   <file_info>
-    <file checksum="0x0045A210" device="EP4CE22F17C7" path="electronic_engine_control.sof" usercode="0xFFFFFFFF"/>
+    <file checksum="0x0045D50D" device="EP4CE22F17C7" path="electronic_engine_control.sof" usercode="0xFFFFFFFF"/>
   </file_info>
   <hub_info ir_width="2" node_count="2"/>
   <node_info>

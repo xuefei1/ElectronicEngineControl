@@ -41,6 +41,8 @@
 #define OS_SEM_RPM_NOT_REACHED							0
 
 #define SHIFT_MATCHING_IN_PROGRESS						0
+#define SHIFT_MATCHING_RESULT_OK						1
+#define SHIFT_MATCHING_RESULT_FAIL						2
 
 /* detect if there is a new APPS value*/
 #define APPS_VALUE_CHANGED(input, last_value)	int32U_changed_by_threshold(input, last_value, APPS_VALUE_CHANGE_THRESHOLD)

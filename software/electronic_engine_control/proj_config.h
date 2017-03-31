@@ -33,8 +33,8 @@
 /* 20kHz under a 50Mhz clock, yields 3125 clk ticks per period */
 #define MOTOR_PWM_PERIOD_TICKS				2500
 #define MOTOR_PWM_DUTY_CYCLE_FULLY_OPEN		340
-#define MOTOR_PWM_DUTY_CYCLE_FULLY_CLOSE	570
-#define MOTOR_PWM_DUTY_CYCLE_RESOLUTION		7
+#define MOTOR_PWM_DUTY_CYCLE_FULLY_CLOSE	580
+#define MOTOR_PWM_DUTY_CYCLE_RESOLUTION		5
 
 /* 16kHz under a 50Mhz clock, yields 3125 clk ticks per period */
 #define TPS_OUT_PWM_PERIOD_TICKS			3125
@@ -44,11 +44,11 @@
 #define APPS_VALID_VALUE_FULLY_PRESSED		3200
 
 /* TPS valid value range based on throttle plate travel, note this is the average of two sensors */
-#define TPS_VALID_VALUE_FULLY_OPENED		3600
-#define TPS_VALID_VALUE_FULLY_CLOSED		810
+#define TPS_VALID_VALUE_FULLY_OPENED		3500
+#define TPS_VALID_VALUE_FULLY_CLOSED		820
 
 /* When APPS reading differ from last value by at least this much, we consider it as a new value */
-#define APPS_VALUE_CHANGE_THRESHOLD			20
+#define APPS_VALUE_CHANGE_THRESHOLD			100
 
 /* When two APPS reading differ by this much percent, we have a failure */
 #define APPS_VALUE_DIFFERENCE_PERCENT		200
@@ -57,10 +57,10 @@
 #define TPS_VALUE_DIFFERENCE_PERCENT		10
 
 /* Actual TPS reading can be different from expected by at most this much */
-#define TPS_VALUE_TOLERANCE					50
+#define TPS_VALUE_TOLERANCE					200
 
 /* Two TPS readings can be different by at most this much */
-#define TPS_VALUE_DIFFERENCE				3000
+#define TPS_VALUE_DIFFERENCE				3500
 
 /* Actual RPM reading can be different from expected by at most this much */
 #define RPM_VALUE_TOLERANCE					150
@@ -125,6 +125,16 @@
 #define SWITCH_ON							1
 
 #define SWITCH_OFF							0
+
+#define SWITCH_CLEAR_FAILURE_MASK			1 << 0
+
+#define SWITCH_ENABLE_SHIFT_MATCHING_MASK	1 << 1
+
+#define SWITCH_ENABLE_SLIP_CONTROL_MASK		1 << 2
+
+#define SWITCH_ENABLE_SHIFT_MATCHING		1 << 1
+
+#define SWITCH_ENABLE_SLIP_CONTROL			1 << 2
 
 #define LED_FLASH_PERIOD_MS					500
 

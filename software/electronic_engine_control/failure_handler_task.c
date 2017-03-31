@@ -63,14 +63,14 @@ void failure_handler_task(void* pdata) {
 			break;
 		}
 		//wait for outside command
-		while(*(INT8U*)SWITCH_BASE != next_clear_switch_val){
+		while( (*(INT8U*)SWITCH_BASE) & SWITCH_CLEAR_FAILURE_MASK != next_clear_switch_val){
 			*(INT8U*)GREEN_LEDS_BASE = *(INT8U*)GREEN_LEDS_BASE == NO_ERROR_INDICATION_LED ? error_led : NO_ERROR_INDICATION_LED;
 			OSTimeDlyHMSM(FAILURE_HANDLER_TASK_DELAY_HOURS,
 					FAILURE_HANDLER_TASK_DELAY_MINUTES,
 					FAILURE_HANDLER_TASK_DELAY_SECONDS,
 					LED_FLASH_PERIOD_MS);
 		}
-		next_clear_switch_val = *(INT8U*)SWITCH_BASE == SWITCH_OFF ? SWITCH_ON : SWITCH_OFF;
+		next_clear_switch_val = (*(INT8U*)SWITCH_BASE) & SWITCH_CLEAR_FAILURE_MASK == SWITCH_OFF ? SWITCH_ON : SWITCH_OFF;
 		*(INT8U*)GREEN_LEDS_BASE = NO_ERROR_INDICATION_LED;
 		if(OSSemAccept(get_throttle_control_task_failure_resolved_flag()) == SEM_FLAG_ERROR_UNRESOLVED)
 			OSSemPost(get_throttle_control_task_failure_resolved_flag());

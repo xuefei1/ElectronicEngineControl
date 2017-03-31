@@ -54,9 +54,9 @@ applicable agreement for further details.
 	(port
 		(pt 0 360)
 		(input)
-		(text "in_port_to_the_switch" (rect 0 0 87 12)(font "Arial" (font_size 8)))
-		(text "in_port_to_the_switch" (rect 4 349 130 360)(font "Arial" (font_size 8)))
-		(line (pt 0 360)(pt 288 360)(line_width 1))
+		(text "in_port_to_the_switch[3..0]" (rect 0 0 107 12)(font "Arial" (font_size 8)))
+		(text "in_port_to_the_switch[3..0]" (rect 4 349 166 360)(font "Arial" (font_size 8)))
+		(line (pt 0 360)(pt 288 360)(line_width 3))
 	)
 	(port
 		(pt 0 608)

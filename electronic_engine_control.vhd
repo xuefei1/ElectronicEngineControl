@@ -75,7 +75,7 @@ architecture structure of electronic_engine_control is
             sdram_0_wire_we_n                     		: out   std_logic;                                        -- we_n
             altpll_0_c0_out                       		: out   std_logic;                                        -- clk
             out_port_from_the_green_leds          		: out   DE0_LED_GREEN;                                    -- led out 
-            in_port_to_the_switch                 		: in    std_logic                     := 'X';             -- switch in 
+            in_port_to_the_switch                       : in    std_logic_vector(3 downto 0)  := (others => 'X'); -- export switch
 			adc_sclk_from_the_de0_nano_adc_0      		: out   std_logic;                                        -- adc_sclk
             adc_cs_n_from_the_de0_nano_adc_0      		: out   std_logic;                                        -- adc_cs_n
             adc_dout_to_the_de0_nano_adc_0        		: in    std_logic                     := 'X';             -- adc_dout
@@ -127,7 +127,7 @@ begin
             sdram_0_wire_we_n                    			=> DRAM_WE_N,                       
             altpll_0_c0_out                      			=> DRAM_CLK,                        
             out_port_from_the_green_leds         			=> LED,  
-            in_port_to_the_switch                			=> SW(0),                  
+            in_port_to_the_switch                			=> SW,                  
 			adc_sclk_from_the_de0_nano_adc_0     			=> ADC_SCLK,
 			adc_cs_n_from_the_de0_nano_adc_0     			=> ADC_CS_N,
 			adc_dout_to_the_de0_nano_adc_0       			=> ADC_SDAT,

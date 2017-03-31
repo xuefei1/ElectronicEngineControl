@@ -37,7 +37,7 @@
 
 void solenoid_task(void* pdata);
 
-void signal_shift_start();
+OS_EVENT* get_rpm_matching_result_q();
 
 typedef struct{
 	INT8U curr_gear;

@@ -10,7 +10,7 @@
 			adc_din_from_the_de0_nano_adc_0               : out   std_logic;                                        -- din
 			phasedone_from_the_altpll_0                   : out   std_logic;                                        -- export
 			reset_n                                       : in    std_logic                     := 'X';             -- reset_n
-			in_port_to_the_switch                         : in    std_logic                     := 'X';             -- export
+			in_port_to_the_switch                         : in    std_logic_vector(3 downto 0)  := (others => 'X'); -- export
 			out_port_from_the_green_leds                  : out   std_logic_vector(7 downto 0);                     -- export
 			sdram_0_wire_addr                             : out   std_logic_vector(12 downto 0);                    -- addr
 			sdram_0_wire_ba                               : out   std_logic_vector(1 downto 0);                     -- ba
