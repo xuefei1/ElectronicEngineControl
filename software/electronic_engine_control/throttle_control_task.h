@@ -27,14 +27,14 @@
 #define APPS_2_ADC_CHANNEL			  					1
 #define TPS_1_ADC_CHANNEL			  					2
 #define TPS_2_ADC_CHANNEL			  					3
-#define WSS_1_ADC_CHANNEL			  					4
-#define WSS_2_ADC_CHANNEL			  					5
+#define WS_1_ADC_CHANNEL			  					4
+#define WS_2_ADC_CHANNEL			  					5
 
 /* Task Delays*/
 #define THROTTLE_CONTROL_TASK_DELAY_HOURS	  			0
 #define THROTTLE_CONTROL_TASK_DELAY_MINUTES	  			0
 #define THROTTLE_CONTROL_TASK_DELAY_SECONDS	  			0
-#define THROTTLE_CONTROL_TASK_DELAY_MILLISEC	  		0
+#define THROTTLE_CONTROL_TASK_DELAY_MILLISEC	  		5
 
 #define MOTOR_CMD_Q_SIZE_ELEMENTS						64
 
@@ -50,7 +50,7 @@
 /* detect if APPS reading differs by a percentage */
 #define APPS_VALUE_MISMATCH(input1, input2)		int32U_differ_by_percent(input1, input2, APPS_VALUE_DIFFERENCE_PERCENT, PERCENT_DIFF_ACCURACY)
 
-#define WSS_VALUE_MISMATCH(input1, input2)		int32U_differ_by_percent(input1, input2, WSS_VALUE_DIFFERENCE_PERCENT, PERCENT_DIFF_ACCURACY)
+#define WS_VALUE_MISMATCH(input1, input2)		int32U_differ_by_percent(input1, input2, WSS_VALUE_DIFFERENCE_PERCENT, PERCENT_DIFF_ACCURACY)
 
 /* detect if TPS expected and actual value differ */
 #define TPS_VALUE_DIFFER_FROM_EXPECTED(input, exp)	int32U_changed_by_threshold(input, exp, TPS_VALUE_TOLERANCE)

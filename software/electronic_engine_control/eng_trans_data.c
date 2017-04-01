@@ -47,5 +47,6 @@ void output_curr_gear(INT8U gear){
 
 void generate_engine_sound(pwm_gen_module* module, INT16U deg){
 	deg *= 10;
-	set_duty_cycle(module, deg + PWM_DUTY_CYCLE_HALF > PWM_DUTY_CYCLE_HIGH ? PWM_DUTY_CYCLE_HIGH : deg + PWM_DUTY_CYCLE_HALF);
+	set_duty_cycle(module, deg + PWM_DUTY_CYCLE_HALF > PWM_DUTY_CYCLE_HIGH ?
+			PWM_DUTY_CYCLE_HIGH : deg + PWM_DUTY_CYCLE_HALF);
 }

@@ -66,10 +66,10 @@ static void X_CompareAsserts(CuTest* tc, const char *file, int line, const char*
 
 void Test_pwm_gen_sweep();
 
-void Test_pwm_gen(INT32U period, INT8U duty);
+void Test_pwm_gen(INT32U period, INT16U duty);
 
-void Test_throttle_open(INT8U percent);
+void Test_throttle_open(INT16U percent);
 
-void Test_throttle_close(INT8U percent);
+void Test_throttle_close(INT16U percent);
 
 #endif /* TEST_CONFIG_H_ */

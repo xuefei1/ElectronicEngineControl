@@ -34,20 +34,20 @@ INT8U failure_code_buf[FAILURE_HANDLER_Q_SIZE_ELEMENTS];
 void test_task(void* pdata) {
 	while(1){
 //		printf("throttle open 34\n");
-//		TEST_THROTTLE_OPEN(34);
+//		TEST_THROTTLE_OPEN(340);
 //		OSTimeDlyHMSM(0,0,5,0);
 //		printf("throttle close\n");
-//		TEST_THROTTLE_CLOSE(100);
+//		TEST_THROTTLE_CLOSE(1000);
 //		OSTimeDlyHMSM(0,0,5,0);
 //		printf("throttle open 50\n");
-//		TEST_THROTTLE_OPEN(45);
+//		TEST_THROTTLE_OPEN(450);
 //		OSTimeDlyHMSM(0,0,5,0);
 
-		Test_pwm_gen(150000, 75);
+		Test_pwm_gen(150000, 750);
 		OSTimeDlyHMSM(0,0,5,0);
-		Test_pwm_gen(150000, 50);
+		Test_pwm_gen(150000, 500);
 		OSTimeDlyHMSM(0,0,5,0);
-		Test_pwm_gen(150000, 25);
+		Test_pwm_gen(150000, 250);
 		OSTimeDlyHMSM(0,0,5,0);
 	}
 }
@@ -65,6 +65,7 @@ int main(void) {
 	printf("%d tests failed\n", run_all_unit_tests());
 #endif
 
+	//Test_pwm_gen(2500, 340);
 	throttle_data_init();
 	mem_manager_init();
 

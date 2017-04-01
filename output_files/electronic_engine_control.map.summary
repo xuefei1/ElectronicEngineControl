@@ -1,10 +1,10 @@
-Analysis & Synthesis Status : Successful - Thu Mar 30 14:39:25 2017
+Analysis & Synthesis Status : Successful - Sat Apr  1 09:29:49 2017
 Quartus II 32-bit Version : 12.1 Build 243 01/31/2013 SP 1 SJ Full Version
 Revision Name : electronic_engine_control
 Top-level Entity Name : electronic_engine_control
 Family : Cyclone IV E
-Total logic elements : 5,525
-    Total combinational functions : 4,703
+Total logic elements : 5,526
+    Total combinational functions : 4,704
     Dedicated logic registers : 2,952
 Total registers : 2952
 Total pins : 100

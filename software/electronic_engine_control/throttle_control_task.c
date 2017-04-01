@@ -67,8 +67,6 @@ alt_u32 watchdog_rpm_matching_callback(void* context){
 	alt_alarm* alarm  = (alt_alarm*)context;
 	clean_alarm(&alarm);
 	signal_shift_failure(matching_result_q);
-//	if(OSSemAccept(motor_failure_flag) == SEM_FLAG_NO_ERROR) OSSemPost(motor_failure_flag);
-//	OSQPost(failure_msg_q, (void*) ERR_EXPECTED_THROTTLE_POS_MISMATCH);
 	printf("watchdog rpm matching timeout\n");
 	return 0;
 }
@@ -163,7 +161,14 @@ void reset_failure_flags(){
 }
 
 BOOL is_slip_control_enabled(){
-	if (((*(INT8U*) BUTTONS_BASE) & SWITCH_ENABLE_SLIP_CONTROL_MASK) == SWITCH_ENABLE_SLIP_CONTROL)
+	if (((*(INT8U*) SWITCH_BASE) & SWITCH_ENABLE_SLIP_CONTROL_MASK) == SWITCH_ENABLE_SLIP_CONTROL)
+		return TRUE;
+	else
+		return FALSE;
+}
+
+BOOL is_demo_slip_control_enabled(){
+	if (((*(INT8U*) SWITCH_BASE) & SWITCH_ENABLE_SLIP_CONTROL_DEMO_MASK) == SWITCH_ENABLE_SLIP_CONTROL_DEMO)
 		return TRUE;
 	else
 		return FALSE;
@@ -187,7 +192,6 @@ void throttle_control_task(void* pdata) {
 	INT32U expected_rpm = 0;
 	INT16U expected_tps_reading = 0;
 	BOOL slip_control_mode = FALSE;
-	BOOL shift_matching_mode = FALSE;
 	INT16U last_apps_1_reading = 0;
 	shift_matching_q = OSQCreate((void*) shift_cmd_q_buf, MOTOR_CMD_Q_SIZE_ELEMENTS);
 	if (shift_matching_q == NULL) {
@@ -210,7 +214,7 @@ void throttle_control_task(void* pdata) {
 		MOTOR_PWM_PERIOD_TICKS,
 		PWM_DUTY_CYCLE_HIGH);
 	INT16U curr_duty_cycle = MOTOR_PWM_DUTY_CYCLE_FULLY_CLOSE;
-
+	//while(1);
 #if defined(RUN_AVG_TASK_TIME_TEST)
 	if(alt_timestamp_start()<0)
 	{
@@ -256,7 +260,7 @@ void throttle_control_task(void* pdata) {
 
 		//Shift matching active
 		alt_up_de0_nano_adc_update(adc);
-		if(shift_matching_mode == TRUE){
+		if(watchdog_rpm_matching != NULL){
 			printf("shift matching mode active\n");
 			if(FALSE == set_new_throttle_position_by_rpm(pwm_throttle_open, pwm_throttle_close,
 					&curr_duty_cycle, expected_rpm, get_RPM())){
@@ -265,14 +269,20 @@ void throttle_control_task(void* pdata) {
 				clean_alarm(&watchdog_rpm_matching);
 				signal_shift_start(matching_result_q);
 				OSSemPend(exit_shift_matching_flag, Q_TIMEOUT_WAIT_FOREVER, &err);
-				shift_matching_mode = FALSE;
 			}
 		}
 		//printf("%d\n",get_RPM());
 		//WSS checking
-		if(WSS_VALUE_MISMATCH(WSS_1_ADC_CHANNEL, WSS_2_ADC_CHANNEL) && is_slip_control_enabled() == TRUE){
-			printf("wss active\n");
+		alt_up_de0_nano_adc_update(adc);
+		INT16U wheel_speed_left = alt_up_de0_nano_adc_read(adc, WS_1_ADC_CHANNEL);
+		INT16U wheel_speed_right = alt_up_de0_nano_adc_read(adc, WS_2_ADC_CHANNEL);
+		if(is_demo_slip_control_enabled() == TRUE){
+			wheel_speed_right ++;
+			wheel_speed_right *= 2;
+		}
+		if(WS_VALUE_MISMATCH(wheel_speed_left, wheel_speed_right) && is_slip_control_enabled() == TRUE){
 			if(slip_control_mode == TRUE) continue;
+			clean_alarm(&watchdog_throttle_position);
 			*(INT8U*)GREEN_LEDS_BASE = WSS_ACTIVE_LED;
 			slip_control_mode = TRUE;
 			set_new_throttle_position_by_tps(pwm_throttle_open, pwm_throttle_close,
@@ -285,11 +295,10 @@ void throttle_control_task(void* pdata) {
 
 		//Shift matching checking
 		shift_req* ptr = NULL;
-		if(shift_matching_mode == FALSE){
+		if(watchdog_rpm_matching == NULL){
 			ptr = (shift_req*) OSQAccept(shift_matching_q, &err);
 			if(ptr != NULL){
 				printf("start shift matching\n");
-				shift_matching_mode = TRUE;
 				expected_rpm = get_new_rpm_needed(alt_up_de0_nano_adc_read(adc, RPM_ADC_CHANNEL), ptr->curr_gear, ptr->new_gear);
 				clean_alarm(&watchdog_rpm_matching);
 				watchdog_rpm_matching = (alt_alarm*) malloc(sizeof(alt_alarm));
@@ -316,8 +325,9 @@ void throttle_control_task(void* pdata) {
 		}
 		tps_1_reading = alt_up_de0_nano_adc_read(adc, TPS_1_ADC_CHANNEL);
 		tps_2_reading = alt_up_de0_nano_adc_read(adc, TPS_2_ADC_CHANNEL);
-		printf("tps1 read value:%d\n", tps_1_reading);
-		printf("tps2 read value:%d\n", tps_2_reading);
+//		printf("tps1 read value:%d\n", tps_1_reading);
+//		printf("tps2 read value:%d\n", tps_2_reading);
+//		printf("curr duty:%d\n",curr_duty_cycle);
 		check_tps_values(tps_1_reading, tps_2_reading);
 		if(TRUE == set_new_throttle_position_by_tps(pwm_throttle_open, pwm_throttle_close, &curr_duty_cycle,
 				expected_tps_reading, curr_tps_reading)){

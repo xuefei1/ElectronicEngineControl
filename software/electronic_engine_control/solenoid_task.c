@@ -29,7 +29,6 @@ OS_EVENT 	*rpm_matching_result_q;
 static void isr_btn (void* context, alt_u32 id)
 {
 	static INT32U data = 0;
-	IOWR_ALTERA_AVALON_PIO_IRQ_MASK(BUTTONS_BASE, 0);
 	data = IORD_ALTERA_AVALON_PIO_EDGE_CAP(BUTTONS_BASE);
 	INT32U *ptr = &data;
 	if(data == BUTTON_INPUT_SHIFT_UP){
@@ -59,7 +58,7 @@ alt_u32 solenoid_callback(void* context){
 }
 
 BOOL is_clutchless_shifting_enabled(){
-	if (((*(INT8U*) BUTTONS_BASE) & SWITCH_ENABLE_SHIFT_MATCHING_MASK) == SWITCH_ENABLE_SHIFT_MATCHING)
+	if (((*(INT8U*) SWITCH_BASE) & SWITCH_ENABLE_SHIFT_MATCHING_MASK) == SWITCH_ENABLE_SHIFT_MATCHING)
 		return TRUE;
 	else
 		return FALSE;
@@ -95,8 +94,11 @@ void solenoid_task(void* pdata) {
 #if defined(RUN_AVG_TASK_TIME_TEST)
 		INT8U shift_command = BUTTON_INPUT_SHIFT_UP;
 #else
+		OSQFlush(btn_input_q);
+		IOWR_ALTERA_AVALON_PIO_EDGE_CAP(BUTTONS_BASE, CLEAR_BUTTON_EDGE_REG);
 		IOWR_ALTERA_AVALON_PIO_IRQ_MASK(BUTTONS_BASE, BUTTON_INPUT_SHIFT_UP | BUTTON_INPUT_SHIFT_DOWN);
 		INT32U shift_command = *(INT32U *) OSQPend(btn_input_q, Q_TIMEOUT_WAIT_FOREVER, &err);
+		IOWR_ALTERA_AVALON_PIO_IRQ_MASK(BUTTONS_BASE, 0);
 		if(shift_matching_q == NULL)
 			shift_matching_q = get_shift_matching_q();
 		if(OSSemAccept(solenoid_external_failure_flag) != SEM_FLAG_NO_ERROR){
@@ -130,7 +132,7 @@ void solenoid_task(void* pdata) {
 		req->curr_gear = curr_gear;
 		req->new_gear = new_gear;
 		printf("putting new gear %d into matching q\n", new_gear);
-		//OSQPost(shift_matching_q, (void*)req);
+//		OSQPost(shift_matching_q, (void*)req);
 //		INT8U result = (INT8U) OSQPend(rpm_matching_result_q, Q_TIMEOUT_WAIT_FOREVER, &err);
 //		if(result == SHIFT_MATCHING_RESULT_FAIL){
 //			printf("failure encountered when shift matching\n");
