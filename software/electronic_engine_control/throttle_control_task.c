@@ -39,8 +39,8 @@ void set_throttle_by_duty_cycle(pwm_gen_module* pwm_throttle_open, pwm_gen_modul
 	set_duty_cycle(pwm_throttle_close, PWM_DUTY_CYCLE_HIGH);
 }
 
-void increase_throttle_by_feedback(pwm_gen_module* pwm_throttle_open, pwm_gen_module* pwm_throttle_close, INT16U* curr_duty_cycle){
-	INT16U new_duty_cycle = *curr_duty_cycle - MOTOR_PWM_DUTY_CYCLE_RESOLUTION;
+void increase_throttle_by_feedback(pwm_gen_module* pwm_throttle_open, pwm_gen_module* pwm_throttle_close, INT16U* curr_duty_cycle, INT16U resolution){
+	INT16U new_duty_cycle = *curr_duty_cycle - resolution;
 	if(new_duty_cycle > MOTOR_PWM_DUTY_CYCLE_FULLY_CLOSE)
 		new_duty_cycle = MOTOR_PWM_DUTY_CYCLE_FULLY_CLOSE;
 	if(new_duty_cycle < MOTOR_PWM_DUTY_CYCLE_FULLY_OPEN)
@@ -134,21 +134,31 @@ BOOL set_new_throttle_position_by_tps(pwm_gen_module* pwm_throttle_open, pwm_gen
 	}else if(curr_tps > expected_tps){
 		decrease_throttle(pwm_throttle_open, pwm_throttle_close);
 	}else{
-		increase_throttle_by_feedback(pwm_throttle_open, pwm_throttle_close, curr_duty_cycle);
+		increase_throttle_by_feedback(pwm_throttle_open, pwm_throttle_close, curr_duty_cycle, MOTOR_PWM_DUTY_CYCLE_RESOLUTION);
 	}
 	return FALSE;
 }
 
 BOOL set_new_throttle_position_by_rpm(pwm_gen_module* pwm_throttle_open, pwm_gen_module* pwm_throttle_close,
-		INT16U* curr_duty_cycle, INT16U expected_rpm, INT16U curr_rpm) {
+		INT16U* curr_duty_cycle, INT16U expected_rpm, INT16U curr_rpm, INT32U* delay_counter) {
 	if(FALSE == RPM_VALUE_DIFFER_FROM_EXPECTED(curr_rpm, expected_rpm)){
 		set_throttle_by_duty_cycle(pwm_throttle_open, pwm_throttle_close, MOTOR_PWM_DUTY_CYCLE_FULLY_CLOSE);
 		*curr_duty_cycle = MOTOR_PWM_DUTY_CYCLE_FULLY_CLOSE;
 		return TRUE;
 	}else if(curr_rpm > expected_rpm){
-		decrease_throttle(pwm_throttle_open, pwm_throttle_close);
+		if(RPM_MATCHING_DELAY_COUNT == *delay_counter){
+			decrease_throttle(pwm_throttle_open, pwm_throttle_close);
+			*delay_counter = 0;
+		}else{
+			(*delay_counter)++;
+		}
 	}else{
-		increase_throttle_by_feedback(pwm_throttle_open, pwm_throttle_close, curr_duty_cycle);
+		if(RPM_MATCHING_DELAY_COUNT == *delay_counter){
+			increase_throttle_by_feedback(pwm_throttle_open, pwm_throttle_close, curr_duty_cycle, MOTOR_PWM_DUTY_CYCLE_RESOLUTION_HIGH);
+			*delay_counter = 0;
+		}else{
+			(*delay_counter)++;
+		}
 	}
 	return FALSE;
 }
@@ -193,6 +203,7 @@ void throttle_control_task(void* pdata) {
 	INT16U expected_tps_reading = 0;
 	BOOL slip_control_mode = FALSE;
 	INT16U last_apps_1_reading = 0;
+	INT32U rpm_matching_delay_counter = 0;
 	shift_matching_q = OSQCreate((void*) shift_cmd_q_buf, MOTOR_CMD_Q_SIZE_ELEMENTS);
 	if (shift_matching_q == NULL) {
 		printf("failed to init q\n");
@@ -254,6 +265,7 @@ void throttle_control_task(void* pdata) {
 		alt_up_de0_nano_adc_update(adc);
 		INT16U tps_1_reading = alt_up_de0_nano_adc_read(adc, TPS_1_ADC_CHANNEL);
 		INT16U tps_2_reading = alt_up_de0_nano_adc_read(adc, TPS_2_ADC_CHANNEL);
+		//printf("rpm raw: %d\n", get_RPM());
 		check_tps_values(tps_1_reading, tps_2_reading);
 		INT16U curr_tps_reading = tps_1_reading;
 		generate_engine_sound(pwm_engine_sound, get_throttle_open_deg_from_tps(curr_tps_reading));
@@ -261,17 +273,17 @@ void throttle_control_task(void* pdata) {
 		//Shift matching active
 		alt_up_de0_nano_adc_update(adc);
 		if(watchdog_rpm_matching != NULL){
-			printf("shift matching mode active\n");
 			if(FALSE == set_new_throttle_position_by_rpm(pwm_throttle_open, pwm_throttle_close,
-					&curr_duty_cycle, expected_rpm, get_RPM())){
+					&curr_duty_cycle, expected_rpm, get_RPM(), &rpm_matching_delay_counter)){
 				continue;
 			}else{
+				printf("target rpm reached\n");
+				rpm_matching_delay_counter = 0;
 				clean_alarm(&watchdog_rpm_matching);
 				signal_shift_start(matching_result_q);
 				OSSemPend(exit_shift_matching_flag, Q_TIMEOUT_WAIT_FOREVER, &err);
 			}
 		}
-		//printf("%d\n",get_RPM());
 		//WSS checking
 		alt_up_de0_nano_adc_update(adc);
 		INT16U wheel_speed_left = alt_up_de0_nano_adc_read(adc, WS_1_ADC_CHANNEL);
@@ -299,7 +311,7 @@ void throttle_control_task(void* pdata) {
 			ptr = (shift_req*) OSQAccept(shift_matching_q, &err);
 			if(ptr != NULL){
 				printf("start shift matching\n");
-				expected_rpm = get_new_rpm_needed(alt_up_de0_nano_adc_read(adc, RPM_ADC_CHANNEL), ptr->curr_gear, ptr->new_gear);
+				expected_rpm = get_new_rpm_needed(get_RPM(), ptr->curr_gear, ptr->new_gear);
 				clean_alarm(&watchdog_rpm_matching);
 				watchdog_rpm_matching = (alt_alarm*) malloc(sizeof(alt_alarm));
 				alt_alarm_start(watchdog_rpm_matching, MOTOR_RPM_DRIVE_DELAY_TICKS, &watchdog_rpm_matching_callback, (void*) watchdog_rpm_matching);
@@ -362,5 +374,6 @@ OS_EVENT* get_throttle_control_task_failure_resolved_flag(){
 }
 
 void signal_exit_shift_matching(){
-	OSSemPost(exit_shift_matching_flag);
+	if(OSSemAccept(exit_shift_matching_flag) == SHIFT_MATCHING_IN_PROGRESS)
+		OSSemPost(exit_shift_matching_flag);
 }

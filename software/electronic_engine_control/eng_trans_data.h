@@ -12,6 +12,7 @@
 
 #include "proj_config.h"
 #include "pwm_gen.h"
+#include "util.h"
 
 #define ENGINE_SOUND_PERIOD_TICKS			150000
 
@@ -19,13 +20,17 @@
 
 #define MIN_RPM								3500
 
+#define MAX_RPM_DUTY_COUNT					56000
+
+#define MIN_RPM_DUTY_COUNT					8800
+
+#define DUTY_COUNT_TO_RPM_FACTOR			((MAX_RPM_DUTY_COUNT - MIN_RPM_DUTY_COUNT) / (MAX_RPM - MIN_RPM))
+
 #define SHIFT_UP_LOWER_BOUND_RPM			4500
 
-#define SHIFT_DOWN_UPPER_BOUND_RPM			7000
+#define SHIFT_DOWN_UPPER_BOUND_RPM			9000
 
 #define OS_SEM_RPM_NOT_REACHED				0
-
-#define RPM_SCALE_FACTOR					3
 
 #define RPM_ADC_CHANNEL			  			6
 
@@ -46,5 +51,7 @@ void output_curr_gear(INT8U gear);
 INT16U get_RPM();
 
 void generate_engine_sound(pwm_gen_module* module, INT16U deg);
+
+INT16U get_new_rpm_needed(INT16U curr_rpm, INT8U curr_gear, INT8U new_gear);
 
 #endif /* ENG_TRANS_DATA_H_ */

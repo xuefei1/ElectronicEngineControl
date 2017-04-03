@@ -65,7 +65,7 @@ int main(void) {
 	printf("%d tests failed\n", run_all_unit_tests());
 #endif
 
-	//Test_pwm_gen(2500, 340);
+	Test_pwm_gen(2500, 340);
 	throttle_data_init();
 	mem_manager_init();
 

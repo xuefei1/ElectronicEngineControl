@@ -16,8 +16,7 @@
    <frequency preferredWidth="365" />
   </columns>
  </clocktable>
- <library
-   expandedCategories="Library/Memories and Memory Controllers/On-Chip,Library/Memories and Memory Controllers,Library,Project" />
- <window width="1460" height="856" x="-36" y="20" />
+ <library expandedCategories="Project,Library" />
+ <window width="1460" height="856" x="-10" y="20" />
  <hdlexample language="VHDL" />
 </preferences>

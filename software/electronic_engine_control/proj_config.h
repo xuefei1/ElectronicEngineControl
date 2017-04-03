@@ -35,17 +35,20 @@
 #define MOTOR_PWM_DUTY_CYCLE_FULLY_OPEN			300
 #define MOTOR_PWM_DUTY_CYCLE_FULLY_CLOSE		580
 #define MOTOR_PWM_DUTY_CYCLE_RESOLUTION			10
+#define MOTOR_PWM_DUTY_CYCLE_RESOLUTION_HIGH	2
+
+#define RPM_MATCHING_DELAY_COUNT				15
 
 /* 16kHz under a 50Mhz clock, yields 3125 clk ticks per period */
 #define TPS_OUT_PWM_PERIOD_TICKS				3125
 
-/* APPS valid value range based on pedal travel, note this is the average of two sensors */
+/* APPS valid value range based on pedal travel */
 #define APPS_VALID_VALUE_FULLY_RELEASED			660
 #define APPS_VALID_VALUE_FULLY_PRESSED			3100
 
-/* TPS valid value range based on throttle plate travel, note this is the average of two sensors */
+/* TPS valid value range based on throttle plate travel */
 #define TPS_VALID_VALUE_FULLY_OPENED			3600
-#define TPS_VALID_VALUE_FULLY_CLOSED			810
+#define TPS_VALID_VALUE_FULLY_CLOSED			850
 
 /* When APPS reading differ from last value by at least this much, we consider it as a new value */
 #define APPS_VALUE_CHANGE_THRESHOLD				50
@@ -57,13 +60,13 @@
 #define TPS_VALUE_DIFFERENCE_PERCENT			50
 
 /* Actual TPS reading can be different from expected by at most this much */
-#define TPS_VALUE_TOLERANCE						50
+#define TPS_VALUE_TOLERANCE						100
 
 /* Two TPS readings can be different by at most this much */
 #define TPS_VALUE_DIFFERENCE					5500
 
 /* Actual RPM reading can be different from expected by at most this much */
-#define RPM_VALUE_TOLERANCE						150
+#define RPM_VALUE_TOLERANCE						200
 
 /* Detects slip if difference is beyond this percent */
 #define WSS_VALUE_DIFFERENCE_PERCENT			50
@@ -81,7 +84,7 @@
 #define SOLENOID_OPEN_DURATION_TICKS			200
 
 /* Time constraint for throttle plate to reach desired position */
-#define MOTOR_DRIVE_DELAY_TICKS					1000
+#define MOTOR_DRIVE_DELAY_TICKS					2000
 
 /* Time constraint for throttle plate to desired RPM */
 #define MOTOR_RPM_DRIVE_DELAY_TICKS				5000
@@ -122,6 +125,8 @@
 
 #define FLOAT_SCALE_FACTOR_100					100
 
+#define FLOAT_SCALE_FACTOR_1000					1000
+
 #define SWITCH_ON								1
 
 #define SWITCH_OFF								0
@@ -141,6 +146,8 @@
 #define SWITCH_ENABLE_SLIP_CONTROL_DEMO			8
 
 #define LED_FLASH_PERIOD_MS						500
+
+#define PWM_490HZ_PERIOD_IN_20_NS_TICKS			102040
 
 alt_up_de0_nano_adc_dev* get_adc();
 

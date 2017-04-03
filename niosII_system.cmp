@@ -33,7 +33,8 @@
 			rpm_pulse_in_conduit_end_export               : in    std_logic                     := 'X';             -- export
 			wheel_speed_left_in_conduit_end_export        : in    std_logic                     := 'X';             -- export
 			wheel_speed_right_in_conduit_end_export       : in    std_logic                     := 'X';             -- export
-			pwm_generator_engine_sound_out_pwm_out_export : out   std_logic                                         -- export
+			pwm_generator_engine_sound_out_pwm_out_export : out   std_logic;                                        -- export
+			rpm_pwm_decoder_conduit_end_export            : in    std_logic                     := 'X'              -- export
 		);
 	end component niosII_system;
 

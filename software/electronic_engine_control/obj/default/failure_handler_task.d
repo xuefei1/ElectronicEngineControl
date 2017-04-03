@@ -36,7 +36,7 @@ obj/default/failure_handler_task.o: failure_handler_task.c \
   ../electronic_engine_control_bsp//HAL/inc/alt_types.h test_config.h \
   tests/CuTest.h mem_manager.h solenoid_task.h \
   ../electronic_engine_control_bsp//drivers/inc/altera_avalon_pio_regs.h \
-  eng_trans_data.h pwm_gen.h throttle_control_task.h util.h \
+  eng_trans_data.h pwm_gen.h util.h throttle_control_task.h \
   throttle_data.h \
   ../electronic_engine_control_bsp//drivers/inc/altera_avalon_timer.h
 
@@ -128,9 +128,9 @@ eng_trans_data.h:
 
 pwm_gen.h:
 
-throttle_control_task.h:
-
 util.h:
+
+throttle_control_task.h:
 
 throttle_data.h:
 

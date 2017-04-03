@@ -92,11 +92,7 @@ INT16U get_throttle_open_deg_from_tps(INT16U tps_reading){
 	return MAX_THROTTLE_DEG;
 }
 
-INT16U get_new_rpm_needed(INT16U curr_rpm, INT8U curr_gear, INT8U new_gear){
-	INT8U curr_gear_ratio = get_gear_ratio(curr_gear);
-	INT8U new_gear_ratio = get_gear_ratio(new_gear);
-	return ((INT16U)curr_rpm * new_gear_ratio / curr_gear_ratio)/FLOAT_SCALE_FACTOR_10;
-}
+
 
 //input param: the degree you want the throttle to OPEN by
 INT16U get_duty_cycle_from_throttle_open_deg(INT16U deg){

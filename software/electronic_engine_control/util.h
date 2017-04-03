@@ -33,4 +33,6 @@ void set_tps_sensor_output(pwm_gen_module* pwm, INT32U tps_val);
 
 void clean_alarm(alt_alarm** alarm);
 
+INT32U calc_percent(INT32U dividend, INT32U divisor, INT32U scale_factor);
+
 #endif /* UTIL_H_ */

@@ -34,7 +34,7 @@ obj/default/eng_trans_data.o: eng_trans_data.c eng_trans_data.h \
   ../electronic_engine_control_bsp//HAL/inc/sys/alt_timestamp.h \
   ../electronic_engine_control_bsp//drivers/inc/altera_avalon_timer.h \
   ../electronic_engine_control_bsp//HAL/inc/alt_types.h test_config.h \
-  tests/CuTest.h mem_manager.h pwm_gen.h
+  tests/CuTest.h mem_manager.h pwm_gen.h util.h
 
 eng_trans_data.h:
 
@@ -117,3 +117,5 @@ tests/CuTest.h:
 mem_manager.h:
 
 pwm_gen.h:
+
+util.h:

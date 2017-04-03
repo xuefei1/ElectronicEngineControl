@@ -68,3 +68,7 @@ void clean_alarm(alt_alarm** alarm_ref){
 	free(alarm);
 	*alarm_ref = NULL;
 }
+
+INT32U calc_percent(INT32U dividend, INT32U divisor, INT32U scale_factor){
+	return divisor * scale_factor / dividend;
+}

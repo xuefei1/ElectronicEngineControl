@@ -45,5 +45,6 @@ pwm_gen_module* get_new_pwm_module(INT32U p_base, INT32U d_base, INT32U c_base, 
 	disable_pwm_output(ptr);
 	set_period(ptr, p);
 	set_duty_cycle(ptr, d_cycle);
+	enable_pwm_output(ptr);
 	return ptr;
 }

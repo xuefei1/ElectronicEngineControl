@@ -53,7 +53,7 @@ void shift_down(){
 alt_u32 solenoid_callback(void* context){
 	printf("cancel 200ms shift alarm\n");
 	IOWR_ALTERA_AVALON_PIO_DATA(SOLENOID_OUT_BASE, CLEAR_BUTTON_DATA);
-	//signal_exit_shift_matching();
+	signal_exit_shift_matching();
 	return 0;
 }
 
@@ -106,38 +106,38 @@ void solenoid_task(void* pdata) {
 			OSSemPend(solenoid_failure_resolved_flag, Q_TIMEOUT_WAIT_FOREVER, &err);
 		}
 		printf("cmd:%lu\n", shift_command);
-//		if(is_clutchless_shifting_enabled() == FALSE)
-//			continue;
+		if(is_clutchless_shifting_enabled() == FALSE)
+			continue;
 		INT16U new_gear = curr_gear;
 		if(shift_command == BUTTON_INPUT_SHIFT_UP){
 			if(curr_gear == NUM_GEARS){
 				continue;
 			}
-//			if(get_RPM() < SHIFT_UP_LOWER_BOUND_RPM){
-//				printf("Cannot up-shift because RPM is too low\n");
-//				continue;
-//			}
+			if(get_RPM() < SHIFT_UP_LOWER_BOUND_RPM){
+				printf("Cannot up-shift because RPM is too low\n");
+				continue;
+			}
 			new_gear++;
 		}else if (shift_command == BUTTON_INPUT_SHIFT_DOWN){
 			if(curr_gear == 1){
 				continue;
 			}
-//			if(get_RPM() > SHIFT_DOWN_UPPER_BOUND_RPM){
-//				printf("Cannot down-shift because RPM is too high\n");
-//				continue;
-//			}
+			if(get_RPM() > SHIFT_DOWN_UPPER_BOUND_RPM){
+				printf("Cannot down-shift because RPM is too high\n");
+				continue;
+			}
 			new_gear--;
 		}
 		shift_req* req = (shift_req*) malloc(sizeof(shift_req));
 		req->curr_gear = curr_gear;
 		req->new_gear = new_gear;
 		printf("putting new gear %d into matching q\n", new_gear);
-//		OSQPost(shift_matching_q, (void*)req);
-//		INT8U result = (INT8U) OSQPend(rpm_matching_result_q, Q_TIMEOUT_WAIT_FOREVER, &err);
-//		if(result == SHIFT_MATCHING_RESULT_FAIL){
-//			printf("failure encountered when shift matching\n");
-//			continue;
-//		}
+		OSQPost(shift_matching_q, (void*)req);
+		INT8U result = (INT8U) OSQPend(rpm_matching_result_q, Q_TIMEOUT_WAIT_FOREVER, &err);
+		if(result == SHIFT_MATCHING_RESULT_FAIL){
+			printf("failure encountered when shift matching\n");
+			continue;
+		}
 		curr_gear = new_gear;
 		output_curr_gear(curr_gear);
 		free(req);
