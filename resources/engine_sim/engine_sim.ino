@@ -90,24 +90,28 @@ void loop() {
   unsigned long delta = micros() - lastUpdate;
   lastUpdate = micros();
   engineSpeed = calculate_RPM(engineSpeed, get_throttle_position(), delta);
-  
+//  Serial.print("R"); Serial.println(engineSpeed);
   Serial.print("Engine Speed: ");
-  Serial.println(engineSpeed);
+  Serial.print(engineSpeed);
+  Serial.print("      ");
 
   #ifdef WHEELSPEED_ENABLE
     //Wheel Speed Calculations
     float wheelSpeed;
     //Assume the Rekluse clutch works properly
     set_curr_gear();
+    float ws = 0;
     if(engineSpeed >= 4000) {
       wheelSpeed = engineSpeed * GEAR_RATIOS[currentGear - 1] * FINAL_DRIVE * WHEEL_CIRCUMFERENCE * 3.6; //Km/h
+      ws =  (engineSpeed * 0.00595 * WHEEL_CIRCUMFERENCE) / GEAR_RATIOS[currentGear - 1]; //Km/h
     } else {
       wheelSpeed = 0;
     }
-  
     float wheelOutputValue = (float)wheelSpeed * 255.0 / 50000.0; //Scaled between 0 and 140 km/h
+//    Serial.print("S"); Serial.println(ws);
     analogWrite(wheelSpeedLeftPin, wheelOutputValue);
     analogWrite(wheelSpeedRightPin, wheelOutputValue);
+  Serial.println();
   #endif
   //doPwmThrottle();
   delayMicroseconds(500);
@@ -124,14 +128,16 @@ void set_curr_gear(){
   currentGear = gear;
   Serial.print("current gear:");
   Serial.print(currentGear);
-  Serial.print("    ");   
+  Serial.print("    "); 
+//  Serial.print("G");
+//  Serial.println(currentGear);  
 }
 
 float get_throttle_position() {
   int analogReading = analogRead(throttlePositionPin); //Pin reads up to 5V, but max we supply is 3.3V
-  Serial.print("throttle position:");
-  Serial.print(analogReading);
-  Serial.print("    ");
+//  Serial.print("throttle position:");
+//  Serial.print(analogReading);
+//  Serial.print("    ");
   return (float)analogReading * 100.0 / 675.0; //675/1024 is approximately 3.3/5.0
 }
 
@@ -156,7 +162,7 @@ unsigned int calculate_RPM(unsigned int currentRPM, float throttlePosition, unsi
       targetRPM = REDLINE_RPM;
     }
 
-    Serial.print("Target: "); Serial.print(targetRPM); Serial.print("    ");
+//    Serial.print("Target: "); Serial.print(targetRPM); Serial.print("    ");
 
     if(currentRPM < targetRPM) {
       //Accelerate at scaled amount of WOT torque
@@ -186,7 +192,7 @@ unsigned int calculate_RPM(unsigned int currentRPM, float throttlePosition, unsi
     }
   }
 
-    Serial.print("Delta: "); Serial.print(delta); Serial.print("    ");
+//    Serial.print("Delta: "); Serial.print(delta); Serial.print("    ");
 
   return currentRPM + delta;
 }
