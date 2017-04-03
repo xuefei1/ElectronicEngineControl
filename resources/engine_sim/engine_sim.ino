@@ -31,7 +31,7 @@ const float PEAK_TORQUE = 25.0;
 #define MAX_SS_RPM        9500 //Highest steady-state RPM
 #define REDLINE_RPM      10500 //Highest RPM we should hit
 #define POWER_CONSTANT   33333 //Time to gain 500 RPM with 11.6lb-ft in microseconds (10^-6)
-#define DECEL_BASE_RATE    800 //Base engine deceleration rate in RPM/s
+#define DECEL_BASE_RATE    5000 //Base engine deceleration rate in RPM/s
 #define ACCEL_BASE_RATE    500 //Base engine acceleration rate in RPM/s
 
 #ifdef WHEELSPEED_ENABLE
